@@ -37,21 +37,92 @@
 </head>
 <body id="top" class="min-h-screen bg-alabaster font-body text-obsidian antialiased selection:bg-obsidian/10">
 
+  <!-- ==========================================
+       CUSHION-CUT DIAMOND DRAWN & UNDRAWN LOADER
+       ========================================== -->
+  <div id="diamond-preloader" class="fixed inset-0 z-[100] bg-alabaster flex flex-col items-center justify-center p-6 select-none">
+    
+    <div class="diamond-glow-wrap flex flex-col items-center max-w-xs text-center">
+      
+      <!-- Animated Cushion-Cut Diamond SVG -->
+      <div class="relative w-28 h-28 sm:w-32 sm:h-32 mb-6">
+        <svg viewBox="0 0 100 100" class="w-full h-full diamond-loader-svg" xmlns="http://www.w3.org/2000/svg">
+          <!-- 1. Outer Cushion Contour -->
+          <path 
+            class="diamond-facet-stroke facet-outer" 
+            pathLength="100" 
+            d="M 22 2 L 78 2 L 98 22 L 98 78 L 78 98 L 22 98 L 2 78 L 2 22 Z" 
+          />
+
+          <!-- 2. Girdle Grid Boundaries -->
+          <line class="diamond-facet-stroke facet-grid" pathLength="100" x1="22" y1="2" x2="22" y2="98" />
+          <line class="diamond-facet-stroke facet-grid" pathLength="100" x1="78" y1="2" x2="78" y2="98" />
+          <line class="diamond-facet-stroke facet-grid" pathLength="100" x1="2" y1="22" x2="98" y2="22" />
+          <line class="diamond-facet-stroke facet-grid" pathLength="100" x1="2" y1="78" x2="98" y2="78" />
+
+          <!-- 3. Inner Table Rotated Diamond -->
+          <path 
+            class="diamond-facet-stroke facet-table" 
+            pathLength="100" 
+            d="M 50 22 L 78 50 L 50 78 L 22 50 Z" 
+          />
+
+          <!-- 4. Corner Triangles & Diagonals -->
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="2" y1="22" x2="22" y2="2" />
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="78" y1="2" x2="98" y2="22" />
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="98" y1="78" x2="78" y2="98" />
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="22" y1="98" x2="2" y2="78" />
+
+          <!-- 5. Cross Rays from Table to Perimeter -->
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="50" y1="2" x2="50" y2="22" />
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="50" y1="78" x2="50" y2="98" />
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="2" y1="50" x2="22" y2="50" />
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="78" y1="50" x2="98" y2="50" />
+
+          <!-- 6. Star Kite Facets -->
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="22" y1="22" x2="50" y2="22" />
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="22" y1="22" x2="22" y2="50" />
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="78" y1="22" x2="50" y2="22" />
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="78" y1="22" x2="78" y2="50" />
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="22" y1="78" x2="50" y2="78" />
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="22" y1="78" x2="22" y2="50" />
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="78" y1="78" x2="50" y2="78" />
+          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="78" y1="78" x2="78" y2="50" />
+        </svg>
+      </div>
+
+      <!-- Wordmark -->
+      <h2 class="font-heading text-2xl tracking-[0.25em] text-obsidian uppercase font-light">
+        ALMAAZI
+      </h2>
+      <p class="text-[10px] uppercase tracking-[0.3em] text-obsidian/40 mt-1 font-mono">
+        Haute Joaillerie
+      </p>
+
+      <!-- Dismiss / Enter button -->
+      <button 
+        onclick="dismissPreloader()" 
+        class="mt-8 text-[11px] uppercase tracking-[0.2em] text-obsidian/60 hover:text-obsidian px-5 py-2 rounded-full border border-obsidian/10 hover:border-obsidian/30 transition-all"
+      >
+        Enter Maison &rarr;
+      </button>
+
+    </div>
+  </div>
+
   <!-- FLOATING MATTE GLASS TRANSLUCENT NAVBAR -->
   <div class="fixed top-0 inset-x-0 z-50 px-4 sm:px-6 lg:px-10 pt-4 pointer-events-none">
     <nav class="pointer-events-auto glass squircle flex items-center justify-between pl-5 pr-3 sm:pr-4 py-3 transition-all duration-300">
       
-      <!-- Brand Logo -->
-      <a href="#top" class="flex items-center shrink-0 group py-0.5">
-        <div class="px-3.5 py-1.5 rounded-2xl bg-white/70 border border-obsidian/10 shadow-[0_2px_10px_rgba(0,0,0,0.04)] group-hover:bg-white group-hover:border-obsidian/20 transition-all duration-300">
-          <img 
-            src="assets/images/logo.png" 
-            alt="ALMAAZI" 
-            class="h-9 sm:h-10 w-auto transition-transform duration-300 group-hover:scale-105" 
-            style="filter: invert(1) contrast(400%) drop-shadow(0 0 0.5px #141414); mix-blend-mode: multiply;" 
-            draggable="false"
-          />
-        </div>
+      <!-- Brand Logo (Reverted to clean unbordered look) -->
+      <a href="javascript:void(0)" onclick="replayPreloader()" class="flex items-center shrink-0 cursor-pointer" title="Replay Cushion Cut Loading Animation">
+        <img 
+          src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" 
+          alt="ALMAAZI" 
+          class="h-8 sm:h-9 w-auto hover:opacity-80 transition-opacity" 
+          style="filter: invert(1); mix-blend-mode: multiply;" 
+          draggable="false"
+        />
       </a>
 
       <!-- Category Nav Links -->

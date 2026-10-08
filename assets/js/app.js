@@ -403,9 +403,27 @@ function toggleMobileMenu(open) {
   }
 }
 
+// Preloader Control
+function dismissPreloader() {
+  const preloader = document.getElementById("diamond-preloader");
+  if (!preloader) return;
+  preloader.classList.add("fade-out");
+}
+
+function replayPreloader() {
+  const preloader = document.getElementById("diamond-preloader");
+  if (!preloader) return;
+  preloader.classList.remove("fade-out");
+  // Automatically dismiss after 4 seconds
+  setTimeout(dismissPreloader, 4000);
+}
+
 // Initial Run
 document.addEventListener("DOMContentLoaded", () => {
   renderCollections();
   updateCartBadge();
   renderCartDrawer();
+
+  // Auto-dismiss preloader after initial drawn/undrawn cycle (3.2 seconds)
+  setTimeout(dismissPreloader, 3200);
 });
