@@ -1,239 +1,133 @@
 /* ==========================================================================
-   ALMAAZI HAUTE JOAILLERIE - LUXURY STYLESHEET
+   ALMAAZI - MODERN MINIMALIST LUXURY DESIGN SYSTEM
+   Matte Glass • Squircles • Quiet Luxury
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+
 :root {
-  --color-noir-deep: #07080a;
-  --color-noir-card: #0f1016;
-  --color-noir-elevated: #161822;
-  --color-gold-primary: #d4af37;
-  --color-gold-light: #f5e4b7;
-  --color-gold-dark: #aa8624;
-  --color-platinum: #e2e8f0;
-  --color-text-muted: #949aa8;
-  --font-serif: 'Cinzel', 'Cormorant Garamond', serif;
-  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg-main: #09090b;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-glass-hover: rgba(255, 255, 255, 0.18);
+  --glass-blur: blur(24px);
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Playfair Display', serif;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-noir-deep);
-}
-::-webkit-scrollbar-thumb {
-  background: #2a2c38;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gold-primary);
-}
-
-/* Base resets & typography */
-html {
-  scroll-behavior: smooth;
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background-color: var(--color-noir-deep);
-  color: #f1f3f9;
+  background-color: var(--bg-main);
+  color: #ededed;
   font-family: var(--font-sans);
   overflow-x: hidden;
-  selection-background-color: var(--color-gold-primary);
-  selection-color: #000;
+  -webkit-font-smoothing: antialiased;
 }
 
-::selection {
-  background: rgba(212, 175, 55, 0.35);
-  color: #fff;
+/* Custom Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
-.font-serif {
-  font-family: var(--font-serif);
-}
-
-.font-editorial {
-  font-family: 'Cormorant Garamond', serif;
-}
-
-/* Shimmer & Gold Gradients */
-.gold-gradient-text {
-  background: linear-gradient(135deg, #f5e4b7 0%, #d4af37 50%, #aa8624 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.platinum-gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gold-border {
-  border-color: rgba(212, 175, 55, 0.25);
-  transition: border-color 0.4s ease;
-}
-
-.gold-border:hover {
-  border-color: rgba(212, 175, 55, 0.7);
-}
-
-.gold-glow {
-  box-shadow: 0 0 35px -5px rgba(212, 175, 55, 0.15);
-}
-
-.gold-glow-hover:hover {
-  box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.3);
-}
-
-/* Luxury Card Glassmorphism */
-.luxury-card {
-  background: rgba(15, 16, 22, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.luxury-card:hover {
-  border-color: rgba(212, 175, 55, 0.4);
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 30px -10px rgba(212, 175, 55, 0.15);
-}
-
-/* Custom Diamond Sparkle Animation */
-@keyframes sparklePulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(0.8) rotate(0deg);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2) rotate(45deg);
-  }
-}
-
-.sparkle-icon {
-  animation: sparklePulse 3s infinite ease-in-out;
-}
-
-/* Gold Button Glow */
-.btn-gold {
-  background: linear-gradient(135deg, #d4af37, #b89329);
-  color: #0b0c10;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+/* Floating Matte Glass Container (Squircles) */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
+}
+
+.glass-nav {
+  background: rgba(18, 18, 22, 0.72);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+/* Squircle Shapes */
+.squircle {
+  border-radius: 28px;
+}
+
+.squircle-sm {
+  border-radius: 18px;
+}
+
+.squircle-lg {
+  border-radius: 36px;
+}
+
+/* Minimal Matte Buttons */
+.btn-matte-white {
+  background: #f4f4f5;
+  color: #09090b;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-matte-white:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px -4px rgba(255, 255, 255, 0.2);
+}
+
+.btn-matte-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  color: #ededed;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-matte-ghost:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Subtle Interactive Card Hover */
+.squircle-card {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.45s ease;
+}
+
+.squircle-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* Clean Image Reveal */
+.img-zoom-container {
   overflow: hidden;
 }
 
-.btn-gold::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  transition: left 0.7s ease;
-}
-
-.btn-gold:hover::before {
-  left: 100%;
-}
-
-.btn-gold:hover {
-  background: linear-gradient(135deg, #f5e4b7, #d4af37);
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
-  transform: translateY(-2px);
-}
-
-.btn-outline-gold {
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  color: #f5e4b7;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  background: transparent;
-  transition: all 0.3s ease;
-}
-
-.btn-outline-gold:hover {
-  background: rgba(212, 175, 55, 0.1);
-  border-color: #d4af37;
-  color: #ffffff;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-}
-
-/* Canvas Background */
-#sparkle-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Customizer interactive stage */
-.gem-stage {
-  perspective: 1000px;
-}
-
-.gem-rotating-container {
-  transition: transform 0.2s cubic-bezier(0.1, 0.2, 0.3, 1);
-  transform-style: preserve-3d;
-}
-
-/* Shimmer Light Flare */
-.light-flare {
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(212, 175, 55, 0.4) 30%, transparent 70%);
-  pointer-events: none;
-  mix-blend-mode: screen;
-  filter: blur(4px);
-  animation: flareFloat 6s ease-in-out infinite alternate;
-}
-
-@keyframes flareFloat {
-  0% { transform: translate(-20px, -20px) scale(0.9); opacity: 0.6; }
-  100% { transform: translate(30px, 20px) scale(1.2); opacity: 0.9; }
-}
-
-/* Modal and Drawer transitions */
-.drawer-backdrop {
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-}
-
-.drawer-panel {
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Subtle image zoom container */
-.product-image-container {
-  overflow: hidden;
-  position: relative;
-}
-
-.product-image-container img {
+.img-zoom-container img {
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.luxury-card:hover .product-image-container img {
-  transform: scale(1.08);
+.squircle-card:hover .img-zoom-container img {
+  transform: scale(1.04);
 }
 
-/* Badge styling */
-.badge-luxury {
-  background: rgba(212, 175, 55, 0.12);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  color: #f5e4b7;
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+/* Drawer Transitions */
+.drawer-backdrop {
+  transition: opacity 0.3s ease;
+}
+
+.drawer-panel {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }

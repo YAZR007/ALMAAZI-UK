@@ -1,816 +1,360 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth bg-[#09090b]">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ALMAAZI | Haute Joaillerie & Rare Diamonds</title>
-  <meta name="description" content="Almaazi Haute Joaillerie - Handcrafted High Jewellery, GIA Flawless Diamonds, Rare Colombian Emeralds & Royal Ceylon Sapphires." />
-  
-  <!-- Google Fonts: Cinzel, Cormorant Garamond, Montserrat -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>ALMAAZI — Fine Jewellery</title>
+  <meta name="description" content="Almaazi. Fine jewellery and rare gemstones crafted with quiet precision." />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            noir: {
-              950: '#07080a',
-              900: '#0e0f14',
-              800: '#14161f',
-              700: '#1e202c'
-            },
-            gold: {
-              300: '#f7e7be',
-              400: '#e5c07b',
-              500: '#d4af37',
-              600: '#aa8624',
-              700: '#846618'
-            }
-          },
-          fontFamily: {
-            serif: ['Cinzel', 'serif'],
-            editorial: ['"Cormorant Garamond"', 'serif'],
-            sans: ['Montserrat', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Custom Stylesheet -->
+  <!-- Custom Minimalist Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body class="bg-noir-950 text-slate-100 antialiased selection:bg-amber-500/30">
+<body class="bg-[#09090b] text-[#ededed] min-h-screen selection:bg-white/20 selection:text-white">
 
-  <!-- TOP VIP ANNOUNCEMENT TICKER -->
-  <div class="bg-gradient-to-r from-noir-950 via-[#18150f] to-noir-950 border-b border-gold-500/20 py-2 px-4 text-center text-[11px] tracking-[0.25em] uppercase text-amber-200/80 font-serif flex items-center justify-center gap-3">
-    <span class="inline-block w-1.5 h-1.5 rounded-full bg-gold-400 animate-ping"></span>
-    <span>Complimentary Armoured Courier Delivery Worldwide &bull; Private Salons in Dubai, Paris & London</span>
-    <span class="inline-block w-1.5 h-1.5 rounded-full bg-gold-400"></span>
-  </div>
-
-  <!-- LUXURY NAVIGATION BAR -->
-  <header class="sticky top-0 z-40 bg-noir-950/85 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+  <!-- FLOATING MATTE GLASS TRANSLUCENT NAVBAR -->
+  <div class="fixed top-5 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
+    <nav class="pointer-events-auto w-full max-w-4xl glass-nav rounded-full px-5 py-3 flex items-center justify-between transition-all duration-300">
       
-      <!-- Left: Navigation Links -->
-      <nav class="hidden lg:flex items-center gap-8 text-xs uppercase tracking-[0.18em] text-slate-300 font-medium">
-        <a href="#creations" class="hover:text-gold-400 transition-colors duration-200">High Jewellery</a>
-        <a href="#customizer" class="hover:text-gold-400 transition-colors duration-200 flex items-center gap-1.5">
-          <span>The Atelier</span>
-          <span class="bg-gold-500/20 text-amber-300 text-[9px] px-1.5 py-0.5 rounded border border-gold-500/30">3D Studio</span>
-        </a>
-        <a href="#guide" class="hover:text-gold-400 transition-colors duration-200">Carat & Sizing</a>
-        <a href="#heritage" class="hover:text-gold-400 transition-colors duration-200">Savoir-Faire</a>
-      </nav>
-
-      <!-- Center: Brand Emblem & Wordmark -->
-      <a href="#" class="flex flex-col items-center group">
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-gold-400 group-hover:rotate-45 transition-transform duration-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <polygon points="12 2 22 8.5 12 22 2 8.5 12 2" />
-            <line x1="2" y1="8.5" x2="22" y2="8.5" />
-            <line x1="12" y1="2" x2="7" y2="8.5" />
-            <line x1="12" y1="2" x2="17" y2="8.5" />
-            <line x1="7" y1="8.5" x2="12" y2="22" />
-            <line x1="17" y1="8.5" x2="12" y2="22" />
-          </svg>
-          <span class="font-serif text-2xl md:text-3xl font-semibold tracking-[0.3em] gold-gradient-text uppercase">
-            ALMAAZI
-          </span>
-        </div>
-        <span class="text-[9px] tracking-[0.45em] text-slate-400 uppercase -mt-1 font-serif">
-          HAUTE JOAILLERIE
+      <!-- Brand Logo / Wordmark -->
+      <a href="#" class="flex items-center gap-2 group">
+        <span class="w-2 h-2 rounded-full bg-white/80 group-hover:scale-125 transition-transform"></span>
+        <span class="text-sm font-semibold tracking-[0.22em] uppercase text-white">
+          ALMAAZI
         </span>
       </a>
 
-      <!-- Right: Utility Controls & Bag -->
-      <div class="flex items-center gap-4">
-        <!-- Currency Selector -->
-        <div class="relative hidden sm:block">
-          <select id="currency-select" class="bg-noir-900 border border-white/10 text-xs text-amber-200 rounded-lg px-2.5 py-1.5 tracking-wider focus:outline-none focus:border-gold-500 font-mono">
-            <option value="USD">USD ($)</option>
-            <option value="AED">AED (د.إ)</option>
-            <option value="EUR">EUR (€)</option>
-            <option value="GBP">GBP (£)</option>
-          </select>
-        </div>
+      <!-- Center Links -->
+      <div class="hidden md:flex items-center gap-7 text-xs font-medium text-white/60 tracking-wider">
+        <a href="#creations" class="hover:text-white transition-colors">Creations</a>
+        <a href="#atelier" class="hover:text-white transition-colors">Atelier</a>
+        <a href="#scale" class="hover:text-white transition-colors">Carat Guide</a>
+      </div>
 
-        <!-- Audio Ambiance Toggle -->
-        <button id="audio-toggle" class="p-2 text-slate-400 hover:text-gold-400 transition-colors" title="Toggle Sound Ambiance">
-          <i data-lucide="volume-2" class="w-4 h-4"></i>
-        </button>
+      <!-- Right Controls -->
+      <div class="flex items-center gap-3">
+        <!-- Currency -->
+        <select id="currency-select" class="bg-white/[0.04] border border-white/10 text-[11px] text-white/80 rounded-full px-2.5 py-1 focus:outline-none font-mono cursor-pointer hover:border-white/20">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="AED">AED</option>
+        </select>
 
         <!-- Wishlist -->
-        <button onclick="document.getElementById('creations').scrollIntoView()" class="relative p-2 text-slate-400 hover:text-gold-400 transition-colors" title="View Wishlist">
+        <button onclick="document.getElementById('creations').scrollIntoView()" class="relative p-2 text-white/60 hover:text-white transition-colors" title="Wishlist">
           <i data-lucide="heart" class="w-4 h-4"></i>
-          <span class="wishlist-counter absolute top-0 right-0 w-4 h-4 bg-amber-500 text-black text-[10px] font-bold rounded-full hidden items-center justify-center">0</span>
+          <span id="wishlist-count" class="absolute top-1 right-1 w-3.5 h-3.5 bg-white text-black text-[9px] font-bold rounded-full hidden items-center justify-center">0</span>
         </button>
 
-        <!-- Shopping Bag -->
-        <button onclick="openBagDrawer()" class="relative p-2 text-slate-400 hover:text-gold-400 transition-colors" title="Private Bag">
+        <!-- Bag Drawer Trigger -->
+        <button onclick="openBagDrawer()" class="relative p-2 text-white/60 hover:text-white transition-colors" title="Bag">
           <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-          <span class="bag-counter absolute top-0 right-0 w-4 h-4 bg-amber-400 text-black text-[10px] font-bold rounded-full hidden items-center justify-center">0</span>
+          <span id="bag-count" class="absolute top-1 right-1 w-3.5 h-3.5 bg-white text-black text-[9px] font-bold rounded-full hidden items-center justify-center">0</span>
         </button>
 
-        <!-- Salon Booking CTA -->
-        <button onclick="openConsultation()" class="hidden md:flex btn-gold text-[11px] px-4 py-2 rounded-lg font-serif">
-          Book Salon
-        </button>
-
-        <!-- Mobile Menu Hamburger -->
-        <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-400 hover:text-white">
-          <i data-lucide="menu" class="w-6 h-6"></i>
+        <!-- Inquire CTA -->
+        <button onclick="openConsultation()" class="btn-matte-white px-3.5 py-1.5 rounded-full text-xs hidden sm:block">
+          Inquire
         </button>
       </div>
 
-    </div>
+    </nav>
+  </div>
 
-    <!-- Mobile Drawer Navigation -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-noir-900 border-b border-white/10 px-6 py-4 space-y-3">
-      <a href="#creations" class="block text-xs uppercase tracking-widest text-slate-300 py-2">High Jewellery</a>
-      <a href="#customizer" class="block text-xs uppercase tracking-widest text-slate-300 py-2">The Atelier & Customizer</a>
-      <a href="#guide" class="block text-xs uppercase tracking-widest text-slate-300 py-2">Carat & Size Guide</a>
-      <a href="#heritage" class="block text-xs uppercase tracking-widest text-slate-300 py-2">Savoir-Faire</a>
-      <div class="pt-3 border-t border-white/10 flex justify-between items-center">
-        <button onclick="openConsultation()" class="btn-gold text-xs px-4 py-2 rounded-lg w-full text-center">
-          Private Salon Appointment
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- HERO SECTION WITH INTERACTIVE SPARKLE CANVAS -->
-  <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden px-6 py-20 bg-radial-gradient">
-    <!-- Interactive Background Particle Canvas -->
-    <canvas id="sparkle-canvas"></canvas>
-
-    <!-- Radial atmospheric glow -->
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-500/10 via-noir-950/70 to-noir-950 pointer-events-none"></div>
-
-    <div class="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  <!-- HERO SECTION: EDITORIAL MINIMALIST SHOWCASE -->
+  <section class="pt-32 pb-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="glass-panel squircle-lg p-6 sm:p-12 md:p-16 relative overflow-hidden flex flex-col justify-between min-h-[70vh]">
       
-      <!-- Left Column: Typography & CTAs -->
-      <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
-        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/5 text-amber-200/90 text-xs tracking-[0.2em] font-serif uppercase backdrop-blur-md">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400 sparkle-icon"></i>
-          <span>The New 2026 High Jewellery Collection</span>
-        </div>
-
-        <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-normal leading-[1.1] text-white tracking-tight">
-          Timeless Brilliance, <br />
-          <span class="gold-gradient-text italic font-editorial font-light">Handcrafted</span> for Eternity.
-        </h1>
-
-        <p class="text-sm md:text-base text-slate-300/80 font-light max-w-xl mx-auto lg:mx-0 leading-relaxed tracking-wide">
-          Named after the Arabic <span class="text-amber-200 font-serif">ألماسي</span> (Diamond), Almaazi curates the world’s rarest D-Flawless diamonds and vivid gemstones into sculptural haute joaillerie masterpieces.
-        </p>
-
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-          <a href="#creations" class="btn-gold px-8 py-4 rounded-xl text-xs flex items-center gap-2 w-full sm:w-auto justify-center shadow-xl">
-            <span>Explore High Jewellery</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </a>
-          <a href="#customizer" class="btn-outline-gold px-8 py-4 rounded-xl text-xs flex items-center gap-2 w-full sm:w-auto justify-center backdrop-blur-sm">
-            <i data-lucide="sliders" class="w-4 h-4 text-gold-400"></i>
-            <span>Bespoke 3D Studio</span>
-          </a>
-        </div>
-
-        <!-- Metric Badges -->
-        <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-6 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
-          <div>
-            <span class="font-serif text-xl md:text-2xl font-bold text-white block">100%</span>
-            <span class="text-[11px] text-slate-400 tracking-wider uppercase">Ethically Sourced</span>
-          </div>
-          <div>
-            <span class="font-serif text-xl md:text-2xl font-bold text-amber-300 block">D - FL</span>
-            <span class="text-[11px] text-slate-400 tracking-wider uppercase">Top Diamond Tier</span>
-          </div>
-          <div>
-            <span class="font-serif text-xl md:text-2xl font-bold text-white block">GIA</span>
-            <span class="text-[11px] text-slate-400 tracking-wider uppercase">Triple-Ex Certified</span>
-          </div>
-        </div>
+      <!-- Top Subtle Tag -->
+      <div class="flex items-center justify-between mb-8">
+        <span class="text-[11px] uppercase tracking-[0.25em] text-white/40 font-mono">
+          Haute Joaillerie &bull; Series 01
+        </span>
+        <span class="text-[11px] tracking-wider text-white/30 hidden sm:block">
+          Geneva &bull; Dubai
+        </span>
       </div>
 
-      <!-- Right Column: Hero Visual Masterpiece Card -->
-      <div class="lg:col-span-5 relative">
-        <div class="relative mx-auto max-w-md lg:max-w-none">
-          
-          <!-- Outer Gold Halo Flare -->
-          <div class="absolute -inset-1.5 bg-gradient-to-r from-amber-500/30 via-gold-400/10 to-amber-600/30 rounded-3xl blur-2xl opacity-75"></div>
-          
-          <!-- Main Showcase Glass Frame -->
-          <div class="relative rounded-3xl overflow-hidden border border-gold-500/40 bg-noir-900/90 shadow-2xl p-3 backdrop-blur-xl group">
-            <div class="relative rounded-2xl overflow-hidden aspect-square bg-noir-950">
+      <!-- Hero Headline & Visual Balance -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
+        <div class="lg:col-span-7 space-y-6">
+          <h1 class="text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-white leading-[1.05]">
+            Quiet elegance. <br />
+            <span class="text-white/40 font-light">Pure brilliance.</span>
+          </h1>
+          <p class="text-sm text-white/60 max-w-md font-light leading-relaxed">
+            Sculptural fine jewellery and rare certified gemstones crafted with understated discipline.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="#creations" class="btn-matte-white px-6 py-3 rounded-full text-xs font-medium inline-flex items-center gap-2">
+              Explore Pieces <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <a href="#atelier" class="btn-matte-ghost px-5 py-3 rounded-full text-xs font-medium">
+              Custom Atelier
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Squircle Image Feature -->
+        <div class="lg:col-span-5 relative">
+          <div class="glass-panel squircle p-2 border border-white/10 group cursor-pointer" onclick="openQuickView('alm-01')">
+            <div class="rounded-[22px] overflow-hidden aspect-square bg-[#0f0f13] relative">
               <img 
                 src="assets/images/ring-solitaire.jpg" 
-                alt="Almaazi Oval Solitaire Diamond Ring" 
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                alt="Almaazi Oval Solitaire" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-
-              <!-- Top floating label -->
-              <div class="absolute top-4 left-4">
-                <span class="badge-luxury px-3.5 py-1.5 rounded-full font-serif flex items-center gap-1.5">
-                  <i data-lucide="award" class="w-3.5 h-3.5 text-gold-400"></i>
-                  The Solitaire Imperial
-                </span>
-              </div>
-
-              <!-- Bottom Floating Spec Card -->
-              <div class="absolute bottom-4 inset-x-4 p-4 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 flex items-center justify-between">
+              <div class="absolute bottom-3 inset-x-3 p-3 rounded-xl bg-black/50 backdrop-blur-md border border-white/5 flex justify-between items-center text-xs">
                 <div>
-                  <span class="text-[10px] uppercase font-mono tracking-widest text-amber-300 block">3.02 Carat Oval • Platinum 950</span>
-                  <h4 class="font-serif text-sm font-medium text-white">D-Flawless Rare Solitaire</h4>
+                  <span class="font-medium text-white block">Oval Solitaire</span>
+                  <span class="text-[10px] text-white/50 font-mono">3.02 ct • D-Flawless</span>
                 </div>
-                <button onclick="openQuickView('alm-01')" class="btn-gold px-3.5 py-2 rounded-lg text-[11px] font-serif">
-                  View Piece
-                </button>
+                <span class="text-white/80 font-mono" data-usd-price="48500">$48,500</span>
               </div>
             </div>
           </div>
-
-          <!-- Decorative Floating Jewel Pill -->
-          <div class="absolute -bottom-6 -left-6 bg-noir-900/90 border border-gold-500/30 p-4 rounded-2xl backdrop-blur-xl shadow-2xl hidden sm:flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
-              <i data-lucide="gem" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <span class="text-[10px] tracking-wider uppercase text-slate-400 block font-mono">Lapidary Origin</span>
-              <span class="text-xs font-serif font-medium text-white">Handcrafted in Geneva</span>
-            </div>
-          </div>
-
         </div>
+      </div>
+
+      <!-- Subtle Minimal Footer Bar in Hero -->
+      <div class="pt-8 mt-8 border-t border-white/5 flex flex-wrap justify-between items-center text-xs text-white/40 gap-4">
+        <span>GIA Certified Gemstones</span>
+        <span>Ethical Conflict-Free Provenance</span>
+        <span>Private Viewings by Appointment</span>
       </div>
 
     </div>
   </section>
 
-  <!-- SECTION 2: INTERACTIVE BESPOKE ATELIER 3D STUDIO -->
-  <section id="customizer" class="py-28 px-6 bg-gradient-to-b from-noir-950 via-noir-900 to-noir-950 border-t border-b border-white/5 relative">
-    <div class="max-w-7xl mx-auto">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-        <span class="badge-luxury px-4 py-1.5 rounded-full font-serif">Singular Commissions</span>
-        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-normal">
-          The Bespoke Atelier
-        </h2>
-        <p class="text-sm text-slate-400 font-light leading-relaxed">
-          Interact with our signature ring in 3D. Select rare natural gemstones, noble metals, and diamond carats to preview your bespoke masterpiece.
-        </p>
+  <!-- CREATIONS GRID -->
+  <section id="creations" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+      <div>
+        <span class="text-[11px] uppercase tracking-widest text-white/40 font-mono block mb-1">Catalogue</span>
+        <h2 class="text-2xl sm:text-3xl font-normal tracking-tight text-white">Selected Works</h2>
       </div>
 
-      <!-- Customizer Interactive Canvas Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-noir-950/70 border border-gold-500/20 rounded-3xl p-6 sm:p-10 backdrop-blur-2xl shadow-2xl">
-        
-        <!-- 3D Interactive Stage -->
-        <div class="lg:col-span-7 flex flex-col items-center justify-center relative min-h-[420px] select-none" id="customizer-stage">
-          
-          <div class="absolute top-0 left-0 text-xs text-slate-500 flex items-center gap-2">
-            <i data-lucide="move" class="w-4 h-4 text-amber-400 animate-pulse"></i>
-            <span>Drag or move cursor to rotate & inspect facets</span>
-          </div>
-
-          <!-- Dynamic Glow Aura behind ring -->
-          <div id="customizer-gem-glow" class="absolute w-44 h-44 rounded-full pointer-events-none transition-all duration-700 opacity-60"></div>
-
-          <!-- Interactive Ring View with 3D transform -->
-          <div id="customizer-ring-view" class="relative z-10 w-72 sm:w-80 md:w-96 aspect-square gem-rotating-container cursor-grab active:cursor-grabbing">
-            <img 
-              id="customizer-ring-img" 
-              src="assets/images/ring-solitaire.jpg" 
-              alt="Bespoke Almaazi Ring" 
-              class="w-full h-full object-cover rounded-2xl shadow-2xl border border-white/10 pointer-events-none"
-            />
-            
-            <!-- Dynamic light glint overlay -->
-            <div class="light-flare top-4 right-10"></div>
-          </div>
-
-          <!-- Certificate & Reference pill below -->
-          <div class="mt-6 flex items-center gap-3 bg-black/60 border border-white/10 px-4 py-2 rounded-full text-xs text-slate-300 font-mono">
-            <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i>
-            <span>Certified by: <strong id="customizer-spec-cert" class="text-white">GIA #ALM-99401</strong></span>
-          </div>
-        </div>
-
-        <!-- Customizer Configuration Panel -->
-        <div class="lg:col-span-5 space-y-6 bg-noir-900/80 p-6 sm:p-8 rounded-2xl border border-white/5">
-          <div>
-            <span class="text-xs uppercase tracking-widest text-slate-400 font-mono block mb-1">Configuration Stage</span>
-            <h3 class="font-serif text-2xl text-white font-medium">Bespoke Ring Architecture</h3>
-          </div>
-
-          <!-- 1. Center Gemstone Choice -->
-          <div>
-            <label class="text-xs uppercase tracking-wider text-slate-400 font-mono block mb-3">1. Select Rare Center Gemstone</label>
-            <div class="grid grid-cols-2 gap-2.5">
-              <button 
-                onclick="setCustomizerGem('diamond')" 
-                data-gem-choice="diamond"
-                class="p-3 rounded-xl bg-noir-950 border border-white/10 text-left hover:border-gold-400/50 transition-all flex items-center gap-3 text-xs"
-              >
-                <span class="w-3.5 h-3.5 rounded-full bg-white shadow-[0_0_8px_white]"></span>
-                <div>
-                  <strong class="text-white block font-serif">D-Flawless</strong>
-                  <span class="text-[10px] text-slate-400">Pure Diamond</span>
-                </div>
-              </button>
-
-              <button 
-                onclick="setCustomizerGem('sapphire')" 
-                data-gem-choice="sapphire"
-                class="p-3 rounded-xl bg-noir-950 border border-white/10 text-left hover:border-blue-400/50 transition-all flex items-center gap-3 text-xs"
-              >
-                <span class="w-3.5 h-3.5 rounded-full bg-blue-500 shadow-[0_0_8px_#3b82f6]"></span>
-                <div>
-                  <strong class="text-white block font-serif">Royal Sapphire</strong>
-                  <span class="text-[10px] text-slate-400">Ceylon Velvet</span>
-                </div>
-              </button>
-
-              <button 
-                onclick="setCustomizerGem('emerald')" 
-                data-gem-choice="emerald"
-                class="p-3 rounded-xl bg-noir-950 border border-white/10 text-left hover:border-emerald-400/50 transition-all flex items-center gap-3 text-xs"
-              >
-                <span class="w-3.5 h-3.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]"></span>
-                <div>
-                  <strong class="text-white block font-serif">Muzo Emerald</strong>
-                  <span class="text-[10px] text-slate-400">Colombian Deep</span>
-                </div>
-              </button>
-
-              <button 
-                onclick="setCustomizerGem('pink')" 
-                data-gem-choice="pink"
-                class="p-3 rounded-xl bg-noir-950 border border-white/10 text-left hover:border-pink-400/50 transition-all flex items-center gap-3 text-xs"
-              >
-                <span class="w-3.5 h-3.5 rounded-full bg-pink-400 shadow-[0_0_8px_#ec4899]"></span>
-                <div>
-                  <strong class="text-white block font-serif">Argyle Pink</strong>
-                  <span class="text-[10px] text-slate-400">Fancy Vivid</span>
-                </div>
-              </button>
-            </div>
-          </div>
-
-          <!-- 2. Precious Metal Band -->
-          <div>
-            <label class="text-xs uppercase tracking-wider text-slate-400 font-mono block mb-3">2. Precious Metal Alloy</label>
-            <div class="grid grid-cols-3 gap-2">
-              <button 
-                onclick="setCustomizerMetal('platinum')" 
-                data-metal-choice="platinum"
-                class="p-2.5 rounded-xl bg-noir-950 border border-white/10 text-center text-xs hover:border-slate-300 transition-all"
-              >
-                <span class="w-4 h-4 rounded-full bg-slate-200 mx-auto block mb-1"></span>
-                <span class="text-[11px] text-white font-medium block">Platinum 950</span>
-              </button>
-
-              <button 
-                onclick="setCustomizerMetal('yellow')" 
-                data-metal-choice="yellow"
-                class="p-2.5 rounded-xl bg-noir-950 border border-white/10 text-center text-xs hover:border-gold-400 transition-all"
-              >
-                <span class="w-4 h-4 rounded-full bg-amber-400 mx-auto block mb-1"></span>
-                <span class="text-[11px] text-white font-medium block">18K Yellow Gold</span>
-              </button>
-
-              <button 
-                onclick="setCustomizerMetal('rose')" 
-                data-metal-choice="rose"
-                class="p-2.5 rounded-xl bg-noir-950 border border-white/10 text-center text-xs hover:border-rose-300 transition-all"
-              >
-                <span class="w-4 h-4 rounded-full bg-rose-400 mx-auto block mb-1"></span>
-                <span class="text-[11px] text-white font-medium block">18K Rose Gold</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- 3. Carat Weight Slider -->
-          <div>
-            <div class="flex justify-between items-center mb-2">
-              <label class="text-xs uppercase tracking-wider text-slate-400 font-mono">3. Gemstone Carat Weight</label>
-              <span id="carat-display-val" class="font-serif text-sm font-semibold text-amber-300 font-mono">2.50 ct</span>
-            </div>
-            <input 
-              type="range" 
-              min="1.00" 
-              max="5.00" 
-              step="0.25" 
-              value="2.50" 
-              class="w-full accent-amber-400 bg-noir-950 h-2 rounded-lg cursor-pointer"
-              oninput="setCustomizerCarat(this.value)"
-            />
-            <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
-              <span>1.00 ct</span>
-              <span>2.50 ct</span>
-              <span>5.00 ct</span>
-            </div>
-          </div>
-
-          <!-- Live Price and Specification Box -->
-          <div class="pt-4 border-t border-white/10 flex items-center justify-between">
-            <div>
-              <span class="text-[10px] uppercase tracking-wider text-slate-400 block font-mono">Bespoke Estimate</span>
-              <span id="customizer-price" class="font-serif text-2xl font-bold text-amber-300" data-usd-price="64500">
-                $64,500
-              </span>
-            </div>
-
-            <div class="flex gap-2">
-              <button onclick="orderCustomPiece()" class="btn-gold px-5 py-3 rounded-xl text-xs font-serif flex items-center gap-2">
-                <i data-lucide="check" class="w-4 h-4"></i>
-                <span>Acquire Creation</span>
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SECTION 3: THE HIGH JEWELLERY COLLECTION CATALOGUE -->
-  <section id="creations" class="py-28 px-6 max-w-7xl mx-auto">
-    
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-      <div class="space-y-3">
-        <span class="badge-luxury px-3.5 py-1.5 rounded-full font-serif">Curated Creations</span>
-        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-normal">
-          The High Jewellery Showcase
-        </h2>
-        <p class="text-sm text-slate-400 font-light max-w-xl">
-          Each Almaazi creation is entirely singular. Meticulously cut, hand-set in precious platinum and gold, and registered with independent gemological certificates.
-        </p>
-      </div>
-
-      <!-- Category Filter Pills -->
-      <div class="flex flex-wrap gap-2">
-        <button onclick="filterProducts('all', this)" class="filter-btn px-4 py-2 rounded-full border border-amber-400/50 bg-amber-400/20 text-amber-300 text-xs font-serif tracking-wider transition-all">
-          All Creations
+      <!-- Filter Pills -->
+      <div class="flex flex-wrap gap-1.5 p-1 glass-panel rounded-full w-fit">
+        <button onclick="filterProducts('all', this)" class="filter-pill px-4 py-1.5 rounded-full text-xs font-medium bg-white text-black transition-all">
+          All
         </button>
-        <button onclick="filterProducts('rings', this)" class="filter-btn px-4 py-2 rounded-full border border-white/10 text-slate-400 text-xs font-serif tracking-wider hover:text-white transition-all">
+        <button onclick="filterProducts('rings', this)" class="filter-pill px-4 py-1.5 rounded-full text-xs font-medium text-white/60 hover:text-white transition-all">
           Rings
         </button>
-        <button onclick="filterProducts('necklaces', this)" class="filter-btn px-4 py-2 rounded-full border border-white/10 text-slate-400 text-xs font-serif tracking-wider hover:text-white transition-all">
+        <button onclick="filterProducts('necklaces', this)" class="filter-pill px-4 py-1.5 rounded-full text-xs font-medium text-white/60 hover:text-white transition-all">
           Colliers
         </button>
-        <button onclick="filterProducts('earrings', this)" class="filter-btn px-4 py-2 rounded-full border border-white/10 text-slate-400 text-xs font-serif tracking-wider hover:text-white transition-all">
+        <button onclick="filterProducts('earrings', this)" class="filter-pill px-4 py-1.5 rounded-full text-xs font-medium text-white/60 hover:text-white transition-all">
           Earrings
         </button>
-        <button onclick="filterProducts('bracelets', this)" class="filter-btn px-4 py-2 rounded-full border border-white/10 text-slate-400 text-xs font-serif tracking-wider hover:text-white transition-all">
+        <button onclick="filterProducts('bracelets', this)" class="filter-pill px-4 py-1.5 rounded-full text-xs font-medium text-white/60 hover:text-white transition-all">
           Bracelets
         </button>
       </div>
     </div>
 
-    <!-- Products Grid (Rendered dynamically by app.js) -->
-    <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Injected via JavaScript -->
+    <!-- Product Grid -->
+    <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Dynamic cards rendered by app.js -->
     </div>
-
   </section>
 
-  <!-- SECTION 4: INTERACTIVE CARAT & RING SIZER SUITE -->
-  <section id="guide" class="py-24 px-6 bg-noir-900 border-t border-b border-white/5">
-    <div class="max-w-7xl mx-auto">
+  <!-- ATELIER: MINIMALIST INTERACTIVE CUSTOMIZER -->
+  <section id="atelier" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="glass-panel squircle-lg p-6 sm:p-10 border border-white/10">
       
-      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-        <span class="badge-luxury px-3.5 py-1.5 rounded-full font-serif">Client Advisory</span>
-        <h2 class="font-serif text-3xl sm:text-4xl text-white">
-          Interactive Carat & Sizing Guide
-        </h2>
-        <p class="text-xs sm:text-sm text-slate-400 font-light">
-          Compare diamond carat scale proportions or calibrate your ring size with millimeter accuracy directly on your screen.
+      <div class="max-w-md mb-8">
+        <span class="text-[11px] uppercase tracking-widest text-white/40 font-mono block mb-1">Custom Commissions</span>
+        <h2 class="text-2xl sm:text-3xl font-normal text-white tracking-tight mb-2">The Atelier</h2>
+        <p class="text-xs text-white/60 font-light leading-relaxed">
+          Configure precious metals, natural stones, and carat weights with instant estimation.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
-        <!-- Module A: Interactive Carat Visualizer -->
-        <div class="luxury-card p-8 rounded-3xl border border-white/10">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
-              <i data-lucide="scale" class="w-5 h-5"></i>
+        <!-- Live Image Preview Card -->
+        <div class="lg:col-span-6">
+          <div class="rounded-2xl overflow-hidden aspect-square bg-[#0f0f13] border border-white/5 relative">
+            <img 
+              id="custom-img-display" 
+              src="assets/images/ring-solitaire.jpg" 
+              alt="Custom Ring" 
+              class="w-full h-full object-cover transition-opacity duration-300"
+            />
+            <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/5 flex items-center justify-between">
+              <div>
+                <span class="text-xs font-medium text-white block" id="custom-title-display">D-Flawless in Platinum 950</span>
+                <span class="text-[10px] text-white/50 font-mono">Bespoke Workshop Handcraft</span>
+              </div>
+              <span id="custom-price-display" class="font-mono text-sm font-semibold text-white" data-usd-price="54000">$54,000</span>
             </div>
-            <div>
-              <h3 class="font-serif text-lg text-white font-medium">Diamond Scale Visualizer</h3>
-              <p class="text-xs text-slate-400">Real-scale round brilliant diamond proportion</p>
+          </div>
+        </div>
+
+        <!-- Controls Column -->
+        <div class="lg:col-span-6 space-y-6">
+          
+          <!-- Gemstone Pill Selector -->
+          <div>
+            <label class="text-[11px] uppercase tracking-wider text-white/40 font-mono block mb-2.5">Center Gemstone</label>
+            <div class="grid grid-cols-3 gap-2">
+              <button 
+                onclick="setCustomGem('diamond')" 
+                data-gem="diamond"
+                class="glass-panel squircle-sm p-3 text-left border border-white/40 bg-white/10 hover:border-white transition-all text-xs"
+              >
+                <span class="w-2.5 h-2.5 rounded-full bg-white block mb-2"></span>
+                <span class="font-medium text-white block">Diamond</span>
+                <span class="text-[10px] text-white/50">D-Flawless</span>
+              </button>
+
+              <button 
+                onclick="setCustomGem('sapphire')" 
+                data-gem="sapphire"
+                class="glass-panel squircle-sm p-3 text-left border border-white/10 hover:border-white transition-all text-xs"
+              >
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-500 block mb-2"></span>
+                <span class="font-medium text-white block">Sapphire</span>
+                <span class="text-[10px] text-white/50">Ceylon</span>
+              </button>
+
+              <button 
+                onclick="setCustomGem('emerald')" 
+                data-gem="emerald"
+                class="glass-panel squircle-sm p-3 text-left border border-white/10 hover:border-white transition-all text-xs"
+              >
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 block mb-2"></span>
+                <span class="font-medium text-white block">Emerald</span>
+                <span class="text-[10px] text-white/50">Muzo</span>
+              </button>
             </div>
           </div>
 
-          <!-- Visual Scale Display Stage -->
-          <div class="h-48 rounded-2xl bg-noir-950/80 border border-white/5 flex flex-col items-center justify-center relative overflow-hidden mb-6">
-            <!-- Simulated Finger Reference Guide -->
-            <div class="w-32 h-1 bg-white/10 absolute rounded-full"></div>
-            
-            <!-- Animated Diamond Circle -->
-            <div 
-              id="carat-circle-visual" 
-              class="rounded-full bg-gradient-to-tr from-white via-cyan-100 to-amber-100 shadow-[0_0_25px_rgba(255,255,255,0.7)] border-2 border-white/80 transition-all duration-300 flex items-center justify-center relative"
-              style="width: 76px; height: 76px;"
-            >
-              <div class="w-2 h-2 rounded-full bg-amber-400/40"></div>
-            </div>
-
-            <!-- Measurements -->
-            <div class="absolute bottom-3 inset-x-0 flex justify-between px-6 text-[11px] font-mono text-slate-400">
-              <span id="carat-slider-num" class="text-amber-300 font-semibold">2.00 Carats</span>
-              <span id="carat-mm-display">~ 8.2 mm diameter</span>
+          <!-- Metal Alloy Pill Selector -->
+          <div>
+            <label class="text-[11px] uppercase tracking-wider text-white/40 font-mono block mb-2.5">Setting Metal</label>
+            <div class="grid grid-cols-3 gap-2">
+              <button 
+                onclick="setCustomMetal('platinum')" 
+                data-metal="platinum"
+                class="glass-panel squircle-sm p-2.5 text-center border border-white/40 bg-white/10 text-xs text-white"
+              >
+                Platinum 950
+              </button>
+              <button 
+                onclick="setCustomMetal('yellow')" 
+                data-metal="yellow"
+                class="glass-panel squircle-sm p-2.5 text-center border border-white/10 text-xs text-white/80"
+              >
+                18K Yellow Gold
+              </button>
+              <button 
+                onclick="setCustomMetal('rose')" 
+                data-metal="rose"
+                class="glass-panel squircle-sm p-2.5 text-center border border-white/10 text-xs text-white/80"
+              >
+                18K Rose Gold
+              </button>
             </div>
           </div>
 
-          <!-- Interactive Slider -->
-          <div class="space-y-2">
-            <div class="flex justify-between text-xs text-slate-400 font-mono">
-              <span>0.50 ct (5.2mm)</span>
-              <span>2.00 ct</span>
-              <span>5.00 ct (11.1mm)</span>
+          <!-- Carat Slider -->
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-[11px] uppercase tracking-wider text-white/40 font-mono">Weight Scale</label>
+              <span id="carat-val-label" class="text-xs font-mono font-medium text-white">2.00 ct</span>
             </div>
             <input 
               type="range" 
-              min="0.50" 
-              max="5.00" 
+              min="1.00" 
+              max="4.00" 
               step="0.25" 
               value="2.00" 
-              class="w-full accent-amber-400 bg-noir-950 h-2 rounded-lg cursor-pointer"
-              oninput="updateInteractiveCaratVisualizer(this.value)"
+              class="w-full accent-white bg-white/10 h-1.5 rounded-full cursor-pointer"
+              oninput="setCustomCarat(this.value)"
             />
           </div>
-        </div>
 
-        <!-- Module B: Interactive Ring Sizer Calibration -->
-        <div class="luxury-card p-8 rounded-3xl border border-white/10">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
-              <i data-lucide="circle-dot" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h3 class="font-serif text-lg text-white font-medium">Virtual Ring Sizer</h3>
-              <p class="text-xs text-slate-400">Place an existing ring over the circle to match inner diameter</p>
-            </div>
-          </div>
-
-          <!-- Ring Sizer Circle Stage -->
-          <div class="h-48 rounded-2xl bg-noir-950/80 border border-white/5 flex items-center justify-center relative mb-6">
-            <div 
-              id="ring-sizer-circle" 
-              class="rounded-full border-2 border-dashed border-amber-400 transition-all duration-200 flex items-center justify-center"
-              style="width: 100px; height: 100px;"
-            >
-              <span id="ring-size-label" class="text-xs font-mono text-amber-200">US Size 6 (16.5 mm)</span>
-            </div>
-          </div>
-
-          <!-- Slider Control -->
-          <div class="space-y-2">
-            <div class="flex justify-between text-xs text-slate-400 font-mono">
-              <span>Size 4 (14.9 mm)</span>
-              <span>Size 6</span>
-              <span>Size 9 (19.0 mm)</span>
-            </div>
-            <input 
-              type="range" 
-              min="4" 
-              max="9" 
-              step="0.5" 
-              value="6" 
-              class="w-full accent-amber-400 bg-noir-950 h-2 rounded-lg cursor-pointer"
-              oninput="updateRingSizeGuide(this.value)"
-            />
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SECTION 5: SAVOIR-FAIRE & HERITAGE -->
-  <section id="heritage" class="py-28 px-6 max-w-7xl mx-auto">
-    
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      
-      <!-- Text & Pillars -->
-      <div class="lg:col-span-6 space-y-6">
-        <span class="badge-luxury px-3.5 py-1.5 rounded-full font-serif">Haute Horlogerie & Joaillerie Standards</span>
-        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-normal leading-tight">
-          The Almaazi Standard of Savoir-Faire
-        </h2>
-        <p class="text-sm text-slate-300 font-light leading-relaxed">
-          Behind every Almaazi creation lies over 180 hours of meticulous hand-faceting, invisible micro-pavé setting under high-magnification optics, and unwavering dedication to perfection.
-        </p>
-
-        <!-- 4 Pillars List -->
-        <div class="space-y-4 pt-4">
-          
-          <div class="p-4 rounded-2xl bg-noir-900 border border-white/5 flex items-start gap-4">
-            <div class="w-9 h-9 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0 font-serif font-bold text-sm">
-              I
-            </div>
-            <div>
-              <h4 class="font-serif text-sm text-white font-medium mb-1">Ethical Provenance & Kimberley Process</h4>
-              <p class="text-xs text-slate-400 leading-relaxed font-light">
-                100% of our rough diamonds and gemstones are traced to conflict-free, responsible mines in Botswana, Canada, and Colombia.
-              </p>
-            </div>
-          </div>
-
-          <div class="p-4 rounded-2xl bg-noir-900 border border-white/5 flex items-start gap-4">
-            <div class="w-9 h-9 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0 font-serif font-bold text-sm">
-              II
-            </div>
-            <div>
-              <h4 class="font-serif text-sm text-white font-medium mb-1">Hearts & Arrows Ideal Optical Symmetry</h4>
-              <p class="text-xs text-slate-400 leading-relaxed font-light">
-                Cut to mathematically exact proportions to unleash maximum internal light dispersion, fire, and scintillating scintillation.
-              </p>
-            </div>
-          </div>
-
-          <div class="p-4 rounded-2xl bg-noir-900 border border-white/5 flex items-start gap-4">
-            <div class="w-9 h-9 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0 font-serif font-bold text-sm">
-              III
-            </div>
-            <div>
-              <h4 class="font-serif text-sm text-white font-medium mb-1">Invisible French Micro-Pavé Setting</h4>
-              <p class="text-xs text-slate-400 leading-relaxed font-light">
-                Metals are hollowed to microscopic tolerances, ensuring stones are held by delicate beads allowing light to enter from 360 degrees.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Right: Royal Necklace Showcase -->
-      <div class="lg:col-span-6 relative">
-        <div class="relative rounded-3xl overflow-hidden border border-gold-500/30 shadow-2xl bg-noir-900 group">
-          <img 
-            src="assets/images/necklace-royal.jpg" 
-            alt="The Constellation Cascade Collier" 
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-          
-          <div class="absolute bottom-8 inset-x-8 text-center sm:text-left sm:flex items-end justify-between">
-            <div>
-              <span class="text-xs uppercase font-mono tracking-widest text-amber-300 block mb-1">Haute Joaillerie Collier</span>
-              <h3 class="font-serif text-2xl text-white font-medium">The Constellation Cascade</h3>
-              <p class="text-xs text-slate-300 font-light mt-1">18.50 Carats • Marquise & Pear-Cut Diamonds</p>
-            </div>
-            <button onclick="openQuickView('alm-02')" class="mt-4 sm:mt-0 btn-gold px-4 py-2.5 rounded-xl text-xs font-serif">
-              Inspect Creation
+          <!-- Action Button -->
+          <div class="pt-2">
+            <button onclick="addCustomToBag()" class="btn-matte-white w-full py-3.5 rounded-full text-xs font-medium">
+              Acquire Bespoke Creation
             </button>
           </div>
-        </div>
-      </div>
 
-    </div>
-
-  </section>
-
-  <!-- SECTION 6: VIP PRIVATE SALONS & CONCIERGE -->
-  <section class="py-24 px-6 bg-gradient-to-t from-noir-950 via-[#10121a] to-noir-950 border-t border-white/5">
-    <div class="max-w-5xl mx-auto text-center space-y-6">
-      
-      <span class="badge-luxury px-4 py-1.5 rounded-full font-serif">Private Salons</span>
-      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-normal">
-        Experience Almaazi in Person
-      </h2>
-      <p class="text-sm text-slate-300 font-light max-w-xl mx-auto leading-relaxed">
-        We welcome discerning patrons by private appointment only at our flagship salons in Dubai, Paris, London, and New York.
-      </p>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 text-left">
-        <div class="p-5 rounded-2xl bg-noir-950/80 border border-white/10 hover:border-gold-500/40 transition-all">
-          <span class="text-xs text-amber-400 font-mono uppercase block mb-1">Flagship Salon</span>
-          <h4 class="font-serif text-base text-white font-medium">Dubai</h4>
-          <p class="text-[11px] text-slate-400 font-light mt-1">Downtown Opera District</p>
         </div>
-        <div class="p-5 rounded-2xl bg-noir-950/80 border border-white/10 hover:border-gold-500/40 transition-all">
-          <span class="text-xs text-amber-400 font-mono uppercase block mb-1">Haute Salon</span>
-          <h4 class="font-serif text-base text-white font-medium">Paris</h4>
-          <p class="text-[11px] text-slate-400 font-light mt-1">Place Vendôme</p>
-        </div>
-        <div class="p-5 rounded-2xl bg-noir-950/80 border border-white/10 hover:border-gold-500/40 transition-all">
-          <span class="text-xs text-amber-400 font-mono uppercase block mb-1">Heritage Salon</span>
-          <h4 class="font-serif text-base text-white font-medium">London</h4>
-          <p class="text-[11px] text-slate-400 font-light mt-1">New Bond Street</p>
-        </div>
-        <div class="p-5 rounded-2xl bg-noir-950/80 border border-white/10 hover:border-gold-500/40 transition-all">
-          <span class="text-xs text-amber-400 font-mono uppercase block mb-1">Private Suite</span>
-          <h4 class="font-serif text-base text-white font-medium">New York</h4>
-          <p class="text-[11px] text-slate-400 font-light mt-1">Madison Avenue</p>
-        </div>
-      </div>
 
-      <div class="pt-6">
-        <button onclick="openConsultation()" class="btn-gold px-8 py-4 rounded-xl text-xs font-serif tracking-widest uppercase">
-          Request Private Viewing Appointment
-        </button>
       </div>
 
     </div>
   </section>
 
-  <!-- LUXURY FOOTER -->
-  <footer class="bg-noir-950 border-t border-white/10 pt-16 pb-12 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10">
+  <!-- CARAT & PROPORTION GUIDE (MINIMALIST) -->
+  <section id="scale" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="glass-panel squircle-lg p-6 sm:p-10 border border-white/10">
       
-      <!-- Col 1: Brand Info -->
-      <div class="lg:col-span-2 space-y-4">
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <polygon points="12 2 22 8.5 12 22 2 8.5 12 2" />
-            <line x1="2" y1="8.5" x2="22" y2="8.5" />
-          </svg>
-          <span class="font-serif text-2xl font-bold tracking-[0.25em] gold-gradient-text uppercase">
-            ALMAAZI
-          </span>
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-[11px] uppercase tracking-widest text-white/40 font-mono block mb-1">Proportions</span>
+          <h2 class="text-2xl font-normal text-white tracking-tight">Carat Scale Visualizer</h2>
         </div>
-        <p class="text-xs text-slate-400 font-light max-w-sm leading-relaxed">
-          Almaazi Haute Joaillerie stands at the pinnacle of high jewelry design, blending Swiss precision gem setting with the timeless allure of rare diamonds.
-        </p>
-        <div class="flex gap-4 text-slate-400 pt-2">
-          <a href="#" class="hover:text-gold-400 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
-          <a href="#" class="hover:text-gold-400 transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
-          <a href="#" class="hover:text-gold-400 transition-colors"><i data-lucide="twitter" class="w-4 h-4"></i></a>
-          <a href="#" class="hover:text-gold-400 transition-colors"><i data-lucide="mail" class="w-4 h-4"></i></a>
+        <span id="carat-scale-label" class="text-xs font-mono text-white/60">2.00 ct • ~8.8mm diameter</span>
+      </div>
+
+      <!-- Geometry Viewport -->
+      <div class="h-44 rounded-2xl bg-[#0c0c0f] border border-white/5 flex items-center justify-center relative overflow-hidden mb-6">
+        <div class="w-48 h-px bg-white/10 absolute"></div>
+        <div 
+          id="carat-visual-dot" 
+          class="rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.4)] border border-white/80 transition-all duration-200"
+          style="width: 72px; height: 72px;"
+        ></div>
+      </div>
+
+      <!-- Scrub slider -->
+      <div class="space-y-1">
+        <input 
+          type="range" 
+          min="0.5" 
+          max="4.0" 
+          step="0.25" 
+          value="2.0" 
+          class="w-full accent-white bg-white/10 h-1.5 rounded-full cursor-pointer"
+          oninput="updateCaratVisualizer(this.value)"
+        />
+        <div class="flex justify-between text-[10px] font-mono text-white/30 pt-1">
+          <span>0.50 ct</span>
+          <span>2.00 ct</span>
+          <span>4.00 ct</span>
         </div>
-      </div>
-
-      <!-- Col 2: The Collections -->
-      <div>
-        <h4 class="font-serif text-xs uppercase tracking-widest text-white mb-4">Collections</h4>
-        <ul class="space-y-2 text-xs text-slate-400 font-light">
-          <li><a href="#creations" class="hover:text-amber-300">Solitaire Rings</a></li>
-          <li><a href="#creations" class="hover:text-amber-300">Haute Colliers</a></li>
-          <li><a href="#creations" class="hover:text-amber-300">Chandelier Earrings</a></li>
-          <li><a href="#creations" class="hover:text-amber-300">Rivière Bracelets</a></li>
-          <li><a href="#customizer" class="hover:text-amber-300">Bespoke Bridal</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 3: Maison & Heritage -->
-      <div>
-        <h4 class="font-serif text-xs uppercase tracking-widest text-white mb-4">The Maison</h4>
-        <ul class="space-y-2 text-xs text-slate-400 font-light">
-          <li><a href="#heritage" class="hover:text-amber-300">Artisan Savoir-Faire</a></li>
-          <li><a href="#guide" class="hover:text-amber-300">GIA Diamond Guide</a></li>
-          <li><a href="#guide" class="hover:text-amber-300">Ring Size Calibration</a></li>
-          <li><a href="#" class="hover:text-amber-300">Kimberley Process Ethics</a></li>
-          <li><a href="#" class="hover:text-amber-300">Private Salons</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 4: Newsletter -->
-      <div>
-        <h4 class="font-serif text-xs uppercase tracking-widest text-white mb-4">The Gazette</h4>
-        <p class="text-xs text-slate-400 font-light mb-3">
-          Receive confidential previews of rare gemstone acquisitions and private salon invitations.
-        </p>
-        <form onsubmit="event.preventDefault(); showToast('Subscribed to Almaazi Gazette');" class="space-y-2">
-          <input 
-            type="email" 
-            placeholder="Enter your email" 
-            required 
-            class="w-full bg-noir-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-500 font-light"
-          />
-          <button type="submit" class="btn-gold w-full py-2.5 rounded-xl text-xs font-serif uppercase">
-            Subscribe
-          </button>
-        </form>
       </div>
 
     </div>
+  </section>
 
-    <!-- Copyright -->
-    <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-slate-500 text-[11px] gap-4">
-      <div>
-        &copy; 2026 Almaazi Haute Joaillerie. All rights reserved.
+  <!-- MINIMALIST FOOTER -->
+  <footer class="py-16 px-4 sm:px-6 max-w-6xl mx-auto border-t border-white/5 text-xs text-white/40">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <span class="w-2 h-2 rounded-full bg-white/60"></span>
+        <span class="text-white font-medium tracking-widest uppercase">ALMAAZI</span>
+        <span class="text-white/30">&bull; Fine Jewellery</span>
       </div>
       <div class="flex gap-6">
-        <a href="#" class="hover:text-slate-300">Privacy Policy</a>
-        <a href="#" class="hover:text-slate-300">Terms of Service</a>
-        <a href="#" class="hover:text-slate-300">Certificate Verification</a>
+        <a href="#creations" class="hover:text-white transition-colors">Creations</a>
+        <a href="#atelier" class="hover:text-white transition-colors">Atelier</a>
+        <button onclick="openConsultation()" class="hover:text-white transition-colors">Contact</button>
+      </div>
+      <div class="text-[11px] text-white/30">
+        &copy; 2026 Almaazi. Quiet Luxury.
       </div>
     </div>
   </footer>
@@ -819,131 +363,71 @@
        MODALS & DRAWERS
        ========================================== -->
 
-  <!-- 1. SLIDE-OVER PRIVATE SHOPPING BAG DRAWER -->
+  <!-- BAG DRAWER (SLIDE-OVER) -->
   <div id="bag-drawer" class="fixed inset-0 z-50 pointer-events-none">
-    <!-- Backdrop -->
-    <div onclick="closeBagDrawer()" class="drawer-backdrop absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-300 cursor-pointer"></div>
-
-    <!-- Slide Panel -->
-    <div class="drawer-panel absolute top-0 right-0 w-full max-w-md h-full bg-noir-900 border-l border-white/10 shadow-2xl flex flex-col justify-between translate-x-full transition-transform duration-400">
+    <div onclick="closeBagDrawer()" class="drawer-backdrop absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 cursor-pointer"></div>
+    <div class="drawer-panel absolute top-0 right-0 w-full max-w-sm h-full bg-[#111115] border-l border-white/10 p-6 flex flex-col justify-between translate-x-full">
       
-      <!-- Drawer Header -->
-      <div class="p-6 border-b border-white/10 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <i data-lucide="shopping-bag" class="w-4 h-4 text-amber-400"></i>
-          <h3 class="font-serif text-lg text-white font-medium">Private Acquisition Bag</h3>
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-white/5">
+          <h3 class="text-sm font-medium text-white uppercase tracking-wider">Acquisition Bag</h3>
+          <button onclick="closeBagDrawer()" class="p-1 text-white/50 hover:text-white">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
         </div>
-        <button onclick="closeBagDrawer()" class="p-2 text-slate-400 hover:text-white">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
+        <div id="bag-items-list" class="divide-y divide-white/5 overflow-y-auto max-h-[60vh] mt-2">
+          <!-- Rendered by app.js -->
+        </div>
       </div>
 
-      <!-- Drawer Content: List of Items -->
-      <div id="bag-items-list" class="flex-1 overflow-y-auto p-6 space-y-4">
-        <!-- Rendered by app.js -->
-      </div>
-
-      <!-- Drawer Footer: Subtotal & Checkout -->
-      <div class="p-6 border-t border-white/10 bg-noir-950/80 space-y-4">
-        <div class="flex items-center justify-between">
-          <span class="text-xs uppercase tracking-wider text-slate-400 font-mono">Estimated Subtotal</span>
-          <span id="bag-subtotal-price" class="font-serif text-xl font-bold text-amber-300" data-usd-price="0">
-            $0
-          </span>
+      <div class="pt-4 border-t border-white/5 space-y-4">
+        <div class="flex justify-between items-center text-xs">
+          <span class="text-white/50">Total</span>
+          <span id="bag-subtotal" class="font-mono text-base font-semibold text-white" data-usd-price="0">$0</span>
         </div>
-        <p class="text-[11px] text-slate-400 font-light">
-          Includes complimentary armoured courier delivery, insurance, and bespoke GIA certifications.
-        </p>
-        <button onclick="openConsultation('Acquisition of Bag Items'); closeBagDrawer();" class="btn-gold w-full py-3.5 rounded-xl text-xs font-serif tracking-widest uppercase flex items-center justify-center gap-2">
-          <span>Complete Private Acquisition</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        <button onclick="openConsultation('Acquisition Request'); closeBagDrawer();" class="btn-matte-white w-full py-3 rounded-full text-xs font-medium">
+          Proceed to Inquire
         </button>
       </div>
 
     </div>
   </div>
 
-  <!-- 2. QUICK VIEW MODAL -->
-  <div id="quick-view-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-    <div class="relative w-full max-w-4xl bg-noir-900 border border-gold-500/30 rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
-      <button onclick="closeQuickView()" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/70 border border-white/10 text-white flex items-center justify-center hover:text-amber-400 transition-colors">
-        <i data-lucide="x" class="w-5 h-5"></i>
+  <!-- QUICK VIEW MODAL -->
+  <div id="quick-view-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/75 backdrop-blur-md">
+    <div class="relative w-full max-w-2xl glass-panel squircle-lg border border-white/10 overflow-hidden">
+      <button onclick="closeQuickView()" class="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/40 text-white/60 hover:text-white">
+        <i data-lucide="x" class="w-4 h-4"></i>
       </button>
       <div id="quick-view-content">
-        <!-- Injected via JavaScript -->
+        <!-- Rendered by app.js -->
       </div>
     </div>
   </div>
 
-  <!-- 3. PRIVATE SALON VIEWING CONSULTATION MODAL -->
-  <div id="consultation-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-    <div class="relative w-full max-w-xl bg-noir-900 border border-gold-500/30 rounded-3xl p-8 shadow-2xl">
-      <button onclick="closeConsultation()" class="absolute top-6 right-6 text-slate-400 hover:text-white">
-        <i data-lucide="x" class="w-5 h-5"></i>
+  <!-- VIP INQUIRY / CONSULTATION MODAL -->
+  <div id="consultation-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/75 backdrop-blur-md">
+    <div class="relative w-full max-w-md glass-panel squircle-lg p-6 sm:p-8 border border-white/10">
+      <button onclick="closeConsultation()" class="absolute top-5 right-5 text-white/40 hover:text-white">
+        <i data-lucide="x" class="w-4 h-4"></i>
       </button>
 
-      <div class="mb-6 space-y-2">
-        <span class="badge-luxury px-3.5 py-1 rounded-full font-serif">VIP Concierge</span>
-        <h3 class="font-serif text-2xl text-white font-medium">Schedule a Private Viewing</h3>
-        <p class="text-xs text-slate-400 font-light">
-          Our Senior Gemologists will curate an intimate salon viewing tailored to your preference.
-        </p>
-      </div>
+      <h3 class="text-xl font-normal text-white mb-1">Private Inquiry</h3>
+      <p class="text-xs text-white/50 font-light mb-6">
+        Our concierge will connect with you directly.
+      </p>
 
-      <form onsubmit="submitConsultation(event)" class="space-y-4">
-        <div>
-          <label class="text-[11px] uppercase tracking-wider text-slate-400 font-mono block mb-1">Select Flagship Salon</label>
-          <select class="w-full bg-noir-950 border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-gold-500">
-            <option>Dubai &bull; Downtown Opera District Flagship</option>
-            <option>Paris &bull; Place Vendôme Haute Salon</option>
-            <option>London &bull; New Bond Street Suite</option>
-            <option>New York &bull; Madison Avenue Gallery</option>
-            <option>Virtual &bull; High-Definition Private Video Salon</option>
-          </select>
-        </div>
-
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="text-[11px] uppercase tracking-wider text-slate-400 font-mono block mb-1">Full Name</label>
-            <input type="text" required placeholder="e.g. Eleanor Vance" class="w-full bg-noir-950 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-gold-500" />
-          </div>
-          <div>
-            <label class="text-[11px] uppercase tracking-wider text-slate-400 font-mono block mb-1">Telephone / WhatsApp</label>
-            <input type="tel" required placeholder="+971 50 123 4567" class="w-full bg-noir-950 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-gold-500" />
-          </div>
-        </div>
-
-        <div>
-          <label class="text-[11px] uppercase tracking-wider text-slate-400 font-mono block mb-1">Email Address</label>
-          <input type="email" required placeholder="client@example.com" class="w-full bg-noir-950 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-gold-500" />
-        </div>
-
-        <div>
-          <label class="text-[11px] uppercase tracking-wider text-slate-400 font-mono block mb-1">Piece or Interest of Viewing</label>
-          <input id="consultation-interest" type="text" placeholder="e.g. 3ct Oval Solitaire or Bespoke Commission" class="w-full bg-noir-950 border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-gold-500" />
-        </div>
-
-        <button type="submit" class="btn-gold w-full py-3.5 rounded-xl text-xs font-serif tracking-widest uppercase mt-4">
-          Confirm Appointment Request
+      <form onsubmit="submitConsultation(event)" class="space-y-3.5">
+        <input type="text" required placeholder="Your Name" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/30" />
+        <input type="email" required placeholder="Email Address" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/30" />
+        <input id="consultation-interest" type="text" placeholder="Piece of Interest" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/30" />
+        <button type="submit" class="btn-matte-white w-full py-3 rounded-full text-xs font-medium mt-2">
+          Send Request
         </button>
       </form>
     </div>
   </div>
 
-  <!-- 4. LUXURY TOAST NOTIFICATION -->
-  <div id="luxury-toast" class="fixed bottom-6 right-6 z-50 opacity-0 translate-y-10 transition-all duration-300 pointer-events-none">
-    <div class="bg-noir-900 border border-gold-500/50 rounded-2xl p-4 shadow-2xl flex items-center gap-3 backdrop-blur-xl">
-      <div class="w-8 h-8 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center">
-        <i data-lucide="sparkles" class="w-4 h-4"></i>
-      </div>
-      <div>
-        <span class="text-[10px] uppercase font-mono tracking-wider text-amber-400 block font-serif">Maison Almaazi</span>
-        <span class="toast-message text-xs text-white font-medium">Notification message</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- APPLICATION ENGINE SCRIPT -->
   <script src="assets/js/app.js"></script>
 </body>
 </html>
