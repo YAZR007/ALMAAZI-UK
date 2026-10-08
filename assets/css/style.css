@@ -115,13 +115,13 @@ body {
    CUSHION-CUT DIAMOND DRAWN & UNDRAWN LOADING ANIMATION
    ========================================================================== */
 .diamond-loader-svg {
-  filter: drop-shadow(0 4px 12px rgba(20, 20, 20, 0.08));
+  filter: drop-shadow(0 2px 8px rgba(20, 20, 20, 0.06));
 }
 
 .diamond-facet-stroke {
   fill: none;
   stroke: #141414;
-  stroke-width: 1.35;
+  stroke-width: 1.25;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 100;
@@ -129,23 +129,25 @@ body {
   animation: diamondDrawCycle 3.4s cubic-bezier(0.42, 0, 0.28, 1) infinite;
 }
 
-/* Stagger facet line drawing for realistic master-lapidary drafting */
+/* Stagger facet line drawing for authentic master-lapidary drafting */
 .facet-outer {
   animation-delay: 0s;
-  stroke-width: 1.6;
+  stroke-width: 1.5;
 }
 
 .facet-grid {
-  animation-delay: 0.15s;
+  animation-delay: 0.12s;
+  stroke-width: 1.3;
 }
 
 .facet-table {
-  animation-delay: 0.3s;
-  stroke-width: 1.45;
+  animation-delay: 0.25s;
+  stroke-width: 1.4;
 }
 
 .facet-stars {
-  animation-delay: 0.45s;
+  animation-delay: 0.38s;
+  stroke-width: 1.15;
 }
 
 @keyframes diamondDrawCycle {
@@ -153,7 +155,7 @@ body {
     stroke-dashoffset: 100;
     opacity: 0.1;
   }
-  8% {
+  10% {
     opacity: 1;
   }
   42% {
@@ -164,7 +166,7 @@ body {
     stroke-dashoffset: 0;
     opacity: 1;
   }
-  92% {
+  90% {
     stroke-dashoffset: -100;
     opacity: 1;
   }
@@ -174,20 +176,25 @@ body {
   }
 }
 
-/* Subtle breathing glow during fully-drawn state */
-@keyframes diamondGlowPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.95;
+@keyframes textGlowBreathe {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.99);
   }
-  50% {
-    transform: scale(1.02);
+  42%, 58% {
     opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.35;
+    transform: scale(0.99);
   }
 }
 
-.diamond-glow-wrap {
-  animation: diamondGlowPulse 3.4s ease-in-out infinite;
+.logo-text-exact {
+  animation: textGlowBreathe 3.4s ease-in-out infinite;
+  filter: invert(1) contrast(500%);
+  mix-blend-mode: multiply;
 }
 
 /* Preloader Screen */
