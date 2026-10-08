@@ -1,430 +1,291 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth bg-[#09090b]">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ALMAAZI — Fine Jewellery</title>
-  <meta name="description" content="Almaazi. Fine jewellery and rare gemstones crafted with quiet precision." />
+  <title>ALMAAZI — Handcrafted Luxury Jewellery</title>
+  <meta name="description" content="ALMAAZI — Handcrafted luxury jewellery. Rings, bracelets, earrings and necklaces in gold and diamond." />
+  
+  <link rel="icon" type="image/png" href="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" />
+  
+  <!-- Google Fonts: Cormorant Garamond & Inter Tight -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            alabaster: '#fafaf7',
+            obsidian: '#141414'
+          },
+          fontFamily: {
+            heading: ['"Cormorant Garamond"', 'ui-serif', 'Georgia', 'serif'],
+            body: ['"Inter Tight"', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- Custom Minimalist Stylesheet -->
+  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body class="bg-[#09090b] text-[#ededed] min-h-screen selection:bg-white/20 selection:text-white">
+<body id="top" class="min-h-screen bg-alabaster font-body text-obsidian antialiased selection:bg-obsidian/10">
 
   <!-- FLOATING MATTE GLASS TRANSLUCENT NAVBAR -->
-  <div class="fixed top-5 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
-    <nav class="pointer-events-auto w-full max-w-4xl glass-nav rounded-full px-5 py-3 flex items-center justify-between transition-all duration-300">
+  <div class="fixed top-0 inset-x-0 z-50 px-4 sm:px-6 lg:px-10 pt-4 pointer-events-none">
+    <nav class="pointer-events-auto glass squircle flex items-center justify-between pl-5 pr-3 sm:pr-4 py-3 transition-all duration-300">
       
-      <!-- Brand Logo / Wordmark -->
-      <a href="#" class="flex items-center gap-2 group">
-        <span class="w-2 h-2 rounded-full bg-white/80 group-hover:scale-125 transition-transform"></span>
-        <span class="text-sm font-semibold tracking-[0.22em] uppercase text-white">
-          ALMAAZI
-        </span>
+      <!-- Brand Logo -->
+      <a href="#top" class="flex items-center shrink-0">
+        <img 
+          src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" 
+          alt="ALMAAZI" 
+          class="h-8 sm:h-9 w-auto" 
+          style="filter: invert(1); mix-blend-mode: multiply;" 
+          draggable="false"
+        />
       </a>
 
-      <!-- Center Links -->
-      <div class="hidden md:flex items-center gap-7 text-xs font-medium text-white/60 tracking-wider">
-        <a href="#creations" class="hover:text-white transition-colors">Creations</a>
-        <a href="#atelier" class="hover:text-white transition-colors">Atelier</a>
-        <a href="#scale" class="hover:text-white transition-colors">Carat Guide</a>
+      <!-- Category Nav Links -->
+      <div class="hidden md:flex items-center gap-1">
+        <a href="#rings" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+          Rings
+          <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
+        </a>
+        <a href="#bracelets" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+          Bracelets
+          <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
+        </a>
+        <a href="#earrings" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+          Earrings
+          <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
+        </a>
+        <a href="#necklaces" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+          Necklaces
+          <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
+        </a>
       </div>
 
-      <!-- Right Controls -->
-      <div class="flex items-center gap-3">
-        <!-- Currency -->
-        <select id="currency-select" class="bg-white/[0.04] border border-white/10 text-[11px] text-white/80 rounded-full px-2.5 py-1 focus:outline-none font-mono cursor-pointer hover:border-white/20">
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="GBP">GBP</option>
-          <option value="AED">AED</option>
-        </select>
-
-        <!-- Wishlist -->
-        <button onclick="document.getElementById('creations').scrollIntoView()" class="relative p-2 text-white/60 hover:text-white transition-colors" title="Wishlist">
-          <i data-lucide="heart" class="w-4 h-4"></i>
-          <span id="wishlist-count" class="absolute top-1 right-1 w-3.5 h-3.5 bg-white text-black text-[9px] font-bold rounded-full hidden items-center justify-center">0</span>
+      <!-- Right Utility Actions -->
+      <div class="flex items-center gap-1">
+        <!-- Shopping Bag Trigger -->
+        <button onclick="openCartDrawer()" aria-label="Shopping bag" class="relative grid place-items-center h-11 w-11 rounded-full hover:bg-obsidian/10 transition-colors">
+          <svg class="h-[18px] w-[18px] text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+            <path d="M3 6h18" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span id="cart-count-badge" class="absolute top-0.5 right-0.5 grid place-items-center min-w-[18px] h-[18px] px-1 rounded-full bg-obsidian text-alabaster text-[10px] font-medium leading-none hidden">0</span>
         </button>
 
-        <!-- Bag Drawer Trigger -->
-        <button onclick="openBagDrawer()" class="relative p-2 text-white/60 hover:text-white transition-colors" title="Bag">
-          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-          <span id="bag-count" class="absolute top-1 right-1 w-3.5 h-3.5 bg-white text-black text-[9px] font-bold rounded-full hidden items-center justify-center">0</span>
-        </button>
-
-        <!-- Inquire CTA -->
-        <button onclick="openConsultation()" class="btn-matte-white px-3.5 py-1.5 rounded-full text-xs hidden sm:block">
-          Inquire
+        <!-- Mobile Menu Trigger -->
+        <button onclick="toggleMobileMenu(true)" aria-label="Open menu" class="md:hidden grid place-items-center h-11 w-11 rounded-full hover:bg-obsidian/10 transition-colors">
+          <svg class="h-5 w-5 text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
         </button>
       </div>
 
     </nav>
   </div>
 
-  <!-- HERO SECTION: EDITORIAL MINIMALIST SHOWCASE -->
-  <section class="pt-32 pb-16 px-4 sm:px-6 max-w-6xl mx-auto">
-    <div class="glass-panel squircle-lg p-6 sm:p-12 md:p-16 relative overflow-hidden flex flex-col justify-between min-h-[70vh]">
+  <!-- HERO SECTION -->
+  <header class="relative px-4 sm:px-6 lg:px-10 pt-28 sm:pt-32">
+    <div class="relative squircle overflow-hidden">
       
-      <!-- Top Subtle Tag -->
-      <div class="flex items-center justify-between mb-8">
-        <span class="text-[11px] uppercase tracking-[0.25em] text-white/40 font-mono">
-          Haute Joaillerie &bull; Series 01
-        </span>
-        <span class="text-[11px] tracking-wider text-white/30 hidden sm:block">
-          Geneva &bull; Dubai
-        </span>
-      </div>
-
-      <!-- Hero Headline & Visual Balance -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
-        <div class="lg:col-span-7 space-y-6">
-          <h1 class="text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-white leading-[1.05]">
-            Quiet elegance. <br />
-            <span class="text-white/40 font-light">Pure brilliance.</span>
-          </h1>
-          <p class="text-sm text-white/60 max-w-md font-light leading-relaxed">
-            Sculptural fine jewellery and rare certified gemstones crafted with understated discipline.
-          </p>
-          <div class="flex items-center gap-3 pt-2">
-            <a href="#creations" class="btn-matte-white px-6 py-3 rounded-full text-xs font-medium inline-flex items-center gap-2">
-              Explore Pieces <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-            </a>
-            <a href="#atelier" class="btn-matte-ghost px-5 py-3 rounded-full text-xs font-medium">
-              Custom Atelier
-            </a>
-          </div>
-        </div>
-
-        <!-- Hero Squircle Image Feature -->
-        <div class="lg:col-span-5 relative">
-          <div class="glass-panel squircle p-2 border border-white/10 group cursor-pointer" onclick="openQuickView('alm-01')">
-            <div class="rounded-[22px] overflow-hidden aspect-square bg-[#0f0f13] relative">
-              <img 
-                src="assets/images/ring-solitaire.jpg" 
-                alt="Almaazi Oval Solitaire" 
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div class="absolute bottom-3 inset-x-3 p-3 rounded-xl bg-black/50 backdrop-blur-md border border-white/5 flex justify-between items-center text-xs">
-                <div>
-                  <span class="font-medium text-white block">Oval Solitaire</span>
-                  <span class="text-[10px] text-white/50 font-mono">3.02 ct • D-Flawless</span>
-                </div>
-                <span class="text-white/80 font-mono" data-usd-price="48500">$48,500</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Subtle Minimal Footer Bar in Hero -->
-      <div class="pt-8 mt-8 border-t border-white/5 flex flex-wrap justify-between items-center text-xs text-white/40 gap-4">
-        <span>GIA Certified Gemstones</span>
-        <span>Ethical Conflict-Free Provenance</span>
-        <span>Private Viewings by Appointment</span>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CREATIONS GRID -->
-  <section id="creations" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-      <div>
-        <span class="text-[11px] uppercase tracking-widest text-white/40 font-mono block mb-1">Catalogue</span>
-        <h2 class="text-2xl sm:text-3xl font-normal tracking-tight text-white">Selected Works</h2>
-      </div>
-
-      <!-- Filter Pills -->
-      <div class="flex flex-wrap gap-1.5 p-1 glass-panel rounded-full w-fit">
-        <button onclick="filterProducts('all', this)" class="filter-pill px-4 py-1.5 rounded-full text-xs font-medium bg-white text-black transition-all">
-          All
-        </button>
-        <button onclick="filterProducts('rings', this)" class="filter-pill px-4 py-1.5 rounded-full text-xs font-medium text-white/60 hover:text-white transition-all">
-          Rings
-        </button>
-        <button onclick="filterProducts('necklaces', this)" class="filter-pill px-4 py-1.5 rounded-full text-xs font-medium text-white/60 hover:text-white transition-all">
-          Colliers
-        </button>
-        <button onclick="filterProducts('earrings', this)" class="filter-pill px-4 py-1.5 rounded-full text-xs font-medium text-white/60 hover:text-white transition-all">
-          Earrings
-        </button>
-        <button onclick="filterProducts('bracelets', this)" class="filter-pill px-4 py-1.5 rounded-full text-xs font-medium text-white/60 hover:text-white transition-all">
-          Bracelets
-        </button>
-      </div>
-    </div>
-
-    <!-- Product Grid -->
-    <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Dynamic cards rendered by app.js -->
-    </div>
-  </section>
-
-  <!-- ATELIER: MINIMALIST INTERACTIVE CUSTOMIZER -->
-  <section id="atelier" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
-    <div class="glass-panel squircle-lg p-6 sm:p-10 border border-white/10">
-      
-      <div class="max-w-md mb-8">
-        <span class="text-[11px] uppercase tracking-widest text-white/40 font-mono block mb-1">Custom Commissions</span>
-        <h2 class="text-2xl sm:text-3xl font-normal text-white tracking-tight mb-2">The Atelier</h2>
-        <p class="text-xs text-white/60 font-light leading-relaxed">
-          Configure precious metals, natural stones, and carat weights with instant estimation.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        
-        <!-- Live Image Preview Card -->
-        <div class="lg:col-span-6">
-          <div class="rounded-2xl overflow-hidden aspect-square bg-[#0f0f13] border border-white/5 relative">
-            <img 
-              id="custom-img-display" 
-              src="assets/images/ring-solitaire.jpg" 
-              alt="Custom Ring" 
-              class="w-full h-full object-cover transition-opacity duration-300"
-            />
-            <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/5 flex items-center justify-between">
-              <div>
-                <span class="text-xs font-medium text-white block" id="custom-title-display">D-Flawless in Platinum 950</span>
-                <span class="text-[10px] text-white/50 font-mono">Bespoke Workshop Handcraft</span>
-              </div>
-              <span id="custom-price-display" class="font-mono text-sm font-semibold text-white" data-usd-price="54000">$54,000</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Controls Column -->
-        <div class="lg:col-span-6 space-y-6">
-          
-          <!-- Gemstone Pill Selector -->
-          <div>
-            <label class="text-[11px] uppercase tracking-wider text-white/40 font-mono block mb-2.5">Center Gemstone</label>
-            <div class="grid grid-cols-3 gap-2">
-              <button 
-                onclick="setCustomGem('diamond')" 
-                data-gem="diamond"
-                class="glass-panel squircle-sm p-3 text-left border border-white/40 bg-white/10 hover:border-white transition-all text-xs"
-              >
-                <span class="w-2.5 h-2.5 rounded-full bg-white block mb-2"></span>
-                <span class="font-medium text-white block">Diamond</span>
-                <span class="text-[10px] text-white/50">D-Flawless</span>
-              </button>
-
-              <button 
-                onclick="setCustomGem('sapphire')" 
-                data-gem="sapphire"
-                class="glass-panel squircle-sm p-3 text-left border border-white/10 hover:border-white transition-all text-xs"
-              >
-                <span class="w-2.5 h-2.5 rounded-full bg-blue-500 block mb-2"></span>
-                <span class="font-medium text-white block">Sapphire</span>
-                <span class="text-[10px] text-white/50">Ceylon</span>
-              </button>
-
-              <button 
-                onclick="setCustomGem('emerald')" 
-                data-gem="emerald"
-                class="glass-panel squircle-sm p-3 text-left border border-white/10 hover:border-white transition-all text-xs"
-              >
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 block mb-2"></span>
-                <span class="font-medium text-white block">Emerald</span>
-                <span class="text-[10px] text-white/50">Muzo</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Metal Alloy Pill Selector -->
-          <div>
-            <label class="text-[11px] uppercase tracking-wider text-white/40 font-mono block mb-2.5">Setting Metal</label>
-            <div class="grid grid-cols-3 gap-2">
-              <button 
-                onclick="setCustomMetal('platinum')" 
-                data-metal="platinum"
-                class="glass-panel squircle-sm p-2.5 text-center border border-white/40 bg-white/10 text-xs text-white"
-              >
-                Platinum 950
-              </button>
-              <button 
-                onclick="setCustomMetal('yellow')" 
-                data-metal="yellow"
-                class="glass-panel squircle-sm p-2.5 text-center border border-white/10 text-xs text-white/80"
-              >
-                18K Yellow Gold
-              </button>
-              <button 
-                onclick="setCustomMetal('rose')" 
-                data-metal="rose"
-                class="glass-panel squircle-sm p-2.5 text-center border border-white/10 text-xs text-white/80"
-              >
-                18K Rose Gold
-              </button>
-            </div>
-          </div>
-
-          <!-- Carat Slider -->
-          <div>
-            <div class="flex justify-between items-center mb-2">
-              <label class="text-[11px] uppercase tracking-wider text-white/40 font-mono">Weight Scale</label>
-              <span id="carat-val-label" class="text-xs font-mono font-medium text-white">2.00 ct</span>
-            </div>
-            <input 
-              type="range" 
-              min="1.00" 
-              max="4.00" 
-              step="0.25" 
-              value="2.00" 
-              class="w-full accent-white bg-white/10 h-1.5 rounded-full cursor-pointer"
-              oninput="setCustomCarat(this.value)"
-            />
-          </div>
-
-          <!-- Action Button -->
-          <div class="pt-2">
-            <button onclick="addCustomToBag()" class="btn-matte-white w-full py-3.5 rounded-full text-xs font-medium">
-              Acquire Bespoke Creation
-            </button>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CARAT & PROPORTION GUIDE (MINIMALIST) -->
-  <section id="scale" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
-    <div class="glass-panel squircle-lg p-6 sm:p-10 border border-white/10">
-      
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
-        <div>
-          <span class="text-[11px] uppercase tracking-widest text-white/40 font-mono block mb-1">Proportions</span>
-          <h2 class="text-2xl font-normal text-white tracking-tight">Carat Scale Visualizer</h2>
-        </div>
-        <span id="carat-scale-label" class="text-xs font-mono text-white/60">2.00 ct • ~8.8mm diameter</span>
-      </div>
-
-      <!-- Geometry Viewport -->
-      <div class="h-44 rounded-2xl bg-[#0c0c0f] border border-white/5 flex items-center justify-center relative overflow-hidden mb-6">
-        <div class="w-48 h-px bg-white/10 absolute"></div>
-        <div 
-          id="carat-visual-dot" 
-          class="rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.4)] border border-white/80 transition-all duration-200"
-          style="width: 72px; height: 72px;"
-        ></div>
-      </div>
-
-      <!-- Scrub slider -->
-      <div class="space-y-1">
-        <input 
-          type="range" 
-          min="0.5" 
-          max="4.0" 
-          step="0.25" 
-          value="2.0" 
-          class="w-full accent-white bg-white/10 h-1.5 rounded-full cursor-pointer"
-          oninput="updateCaratVisualizer(this.value)"
+      <!-- High-res Jewellery Background Image -->
+      <div class="aspect-[4/5] sm:aspect-[16/9] lg:aspect-[21/9] w-full">
+        <img 
+          src="https://media.base44.com/images/public/6ac65dc15369b691db036cd0/00cf42b42_generated_995cc177.png" 
+          alt="Almaazi fine jewellery" 
+          class="h-full w-full object-cover"
         />
-        <div class="flex justify-between text-[10px] font-mono text-white/30 pt-1">
-          <span>0.50 ct</span>
-          <span>2.00 ct</span>
-          <span>4.00 ct</span>
+      </div>
+
+      <!-- Subtle Gradient Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-alabaster/55 via-alabaster/5 to-transparent"></div>
+
+      <!-- Floating Matte Glass Hero Card -->
+      <div class="absolute inset-0 flex flex-col justify-end p-6 sm:p-12 lg:px-16">
+        <div class="glass squircle inline-flex self-start max-w-md p-7 sm:p-9 flex-col">
+          <span class="text-[11px] uppercase tracking-[0.28em] text-obsidian/50 mb-4">
+            Handcrafted Luxury
+          </span>
+          <h1 class="font-heading font-light text-[2.5rem] sm:text-5xl lg:text-[3.4rem] leading-[1.05] tracking-[-0.01em] text-obsidian">
+            Jewellery that holds the light
+          </h1>
+          <p class="mt-5 text-[15px] leading-[1.7] text-obsidian/60 max-w-sm">
+            Gold and diamond pieces, made by hand and made to be lived in.
+          </p>
+          <a href="#rings" class="mt-7 self-start inline-flex items-center gap-2 bg-obsidian text-alabaster squircle px-6 py-3.5 text-[11px] uppercase tracking-[0.2em] hover:bg-obsidian/90 transition-colors">
+            <span>Explore the collection</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
         </div>
       </div>
 
     </div>
+  </header>
+
+  <!-- EDITORIAL QUOTE / MISSION STATEMENT -->
+  <section class="px-4 sm:px-6 lg:px-10 py-20 sm:py-28">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl leading-snug text-obsidian">
+        Every Almaazi piece begins as a sketch and ends in your hands — cut, set and finished by master goldsmiths.
+      </h2>
+    </div>
   </section>
 
-  <!-- MINIMALIST FOOTER -->
-  <footer class="py-16 px-4 sm:px-6 max-w-6xl mx-auto border-t border-white/5 text-xs text-white/40">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-3">
-        <span class="w-2 h-2 rounded-full bg-white/60"></span>
-        <span class="text-white font-medium tracking-widest uppercase">ALMAAZI</span>
-        <span class="text-white/30">&bull; Fine Jewellery</span>
+  <!-- COLLECTIONS CONTAINER (RINGS, BRACELETS, EARRINGS, NECKLACES) -->
+  <main id="collections-container">
+    <!-- Rendered dynamically by app.js -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="px-4 sm:px-6 lg:px-10 pb-8 pt-10">
+    <div class="glass squircle p-8 sm:p-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+        
+        <div class="md:col-span-5">
+          <img 
+            src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" 
+            alt="ALMAAZI" 
+            class="h-10 w-auto mb-5" 
+            style="filter: invert(1); mix-blend-mode: multiply;" 
+            draggable="false"
+          />
+          <p class="font-heading text-2xl sm:text-3xl leading-snug text-obsidian max-w-sm">
+            Handcrafted luxury jewellery, made to be worn for a lifetime.
+          </p>
+        </div>
+
+        <div class="md:col-span-7 flex flex-wrap gap-12 sm:gap-16 md:justify-end">
+          <div>
+            <span class="block text-[11px] uppercase tracking-[0.2em] text-obsidian/45 mb-4 font-mono">
+              Collections
+            </span>
+            <ul class="space-y-2.5 text-[14px] text-obsidian/75">
+              <li><a href="#rings" class="hover:text-obsidian transition-colors">Rings</a></li>
+              <li><a href="#bracelets" class="hover:text-obsidian transition-colors">Bracelets</a></li>
+              <li><a href="#earrings" class="hover:text-obsidian transition-colors">Earrings</a></li>
+              <li><a href="#necklaces" class="hover:text-obsidian transition-colors">Necklaces</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <span class="block text-[11px] uppercase tracking-[0.2em] text-obsidian/45 mb-4 font-mono">
+              The Maison
+            </span>
+            <ul class="space-y-2.5 text-[14px] text-obsidian/75">
+              <li><a href="#top" class="hover:text-obsidian transition-colors">Craftsmanship</a></li>
+              <li><a href="#top" class="hover:text-obsidian transition-colors">Ethical Sourcing</a></li>
+              <li><a href="#top" class="hover:text-obsidian transition-colors">Bespoke Inquiries</a></li>
+              <li><a href="#top" class="hover:text-obsidian transition-colors">Care & Warranty</a></li>
+            </ul>
+          </div>
+        </div>
+
       </div>
-      <div class="flex gap-6">
-        <a href="#creations" class="hover:text-white transition-colors">Creations</a>
-        <a href="#atelier" class="hover:text-white transition-colors">Atelier</a>
-        <button onclick="openConsultation()" class="hover:text-white transition-colors">Contact</button>
-      </div>
-      <div class="text-[11px] text-white/30">
-        &copy; 2026 Almaazi. Quiet Luxury.
+
+      <div class="mt-12 pt-8 border-t border-obsidian/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-[12px] text-obsidian/45">
+          &copy; 2026 Almaazi — All rights reserved
+        </p>
+        <p class="text-[12px] uppercase tracking-[0.14em] text-obsidian/45">
+          Handcrafted with care
+        </p>
       </div>
     </div>
   </footer>
 
   <!-- ==========================================
-       MODALS & DRAWERS
+       MODALS & SLIDE-OVER DRAWERS
        ========================================== -->
 
-  <!-- BAG DRAWER (SLIDE-OVER) -->
-  <div id="bag-drawer" class="fixed inset-0 z-50 pointer-events-none">
-    <div onclick="closeBagDrawer()" class="drawer-backdrop absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 cursor-pointer"></div>
-    <div class="drawer-panel absolute top-0 right-0 w-full max-w-sm h-full bg-[#111115] border-l border-white/10 p-6 flex flex-col justify-between translate-x-full">
+  <!-- SHOPPING BAG DRAWER -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none">
+    <div onclick="closeCartDrawer()" class="drawer-backdrop absolute inset-0 bg-obsidian/30 backdrop-blur-sm opacity-0 cursor-pointer"></div>
+    <div class="drawer-panel absolute top-0 right-0 w-full max-w-md h-full bg-alabaster border-l border-obsidian/10 p-6 sm:p-8 flex flex-col justify-between translate-x-full">
       
       <div>
-        <div class="flex items-center justify-between pb-4 border-b border-white/5">
-          <h3 class="text-sm font-medium text-white uppercase tracking-wider">Acquisition Bag</h3>
-          <button onclick="closeBagDrawer()" class="p-1 text-white/50 hover:text-white">
-            <i data-lucide="x" class="w-4 h-4"></i>
+        <div class="flex items-center justify-between pb-5 border-b border-obsidian/10">
+          <h2 class="font-heading text-2xl text-obsidian">Your Bag</h2>
+          <button onclick="closeCartDrawer()" class="p-2 text-obsidian/50 hover:text-obsidian">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
           </button>
         </div>
-        <div id="bag-items-list" class="divide-y divide-white/5 overflow-y-auto max-h-[60vh] mt-2">
+
+        <div id="cart-items-container" class="space-y-3 overflow-y-auto max-h-[60vh] mt-4">
           <!-- Rendered by app.js -->
         </div>
       </div>
 
-      <div class="pt-4 border-t border-white/5 space-y-4">
-        <div class="flex justify-between items-center text-xs">
-          <span class="text-white/50">Total</span>
-          <span id="bag-subtotal" class="font-mono text-base font-semibold text-white" data-usd-price="0">$0</span>
+      <div class="pt-6 border-t border-obsidian/10 space-y-4">
+        <div class="flex items-baseline justify-between">
+          <span class="font-heading text-xl text-obsidian">Total</span>
+          <span id="cart-subtotal" class="font-heading text-2xl text-obsidian">$0</span>
         </div>
-        <button onclick="openConsultation('Acquisition Request'); closeBagDrawer();" class="btn-matte-white w-full py-3 rounded-full text-xs font-medium">
-          Proceed to Inquire
+        <p class="text-[12px] text-obsidian/50">
+          Shipping & taxes calculated at checkout.
+        </p>
+        <button id="cart-checkout-btn" onclick="alert('Proceeding to checkout...');" class="w-full bg-obsidian text-alabaster squircle py-4 text-[12px] uppercase tracking-[0.2em] hover:bg-obsidian/90 transition-colors disabled:opacity-50">
+          Checkout
         </button>
       </div>
 
     </div>
   </div>
 
-  <!-- QUICK VIEW MODAL -->
-  <div id="quick-view-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/75 backdrop-blur-md">
-    <div class="relative w-full max-w-2xl glass-panel squircle-lg border border-white/10 overflow-hidden">
-      <button onclick="closeQuickView()" class="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/40 text-white/60 hover:text-white">
-        <i data-lucide="x" class="w-4 h-4"></i>
+  <!-- PRODUCT DETAIL MODAL -->
+  <div id="product-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-obsidian/40 backdrop-blur-sm">
+    <div class="relative w-full max-w-3xl glass squircle border border-obsidian/10 overflow-hidden shadow-2xl">
+      <button onclick="closeProductDetail()" class="absolute top-4 right-4 z-10 p-2 rounded-full hover:bg-obsidian/10 text-obsidian/60 hover:text-obsidian">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
-      <div id="quick-view-content">
+      <div id="product-modal-content">
         <!-- Rendered by app.js -->
       </div>
     </div>
   </div>
 
-  <!-- VIP INQUIRY / CONSULTATION MODAL -->
-  <div id="consultation-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/75 backdrop-blur-md">
-    <div class="relative w-full max-w-md glass-panel squircle-lg p-6 sm:p-8 border border-white/10">
-      <button onclick="closeConsultation()" class="absolute top-5 right-5 text-white/40 hover:text-white">
-        <i data-lucide="x" class="w-4 h-4"></i>
-      </button>
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-50 hidden bg-obsidian/30 backdrop-blur-sm" onclick="toggleMobileMenu(false)">
+    <div class="absolute right-0 top-0 h-full w-[80%] max-w-sm glass p-8 flex flex-col justify-between" onclick="event.stopPropagation()">
+      <div class="space-y-6">
+        <div class="flex justify-between items-center pb-6 border-b border-obsidian/10">
+          <img 
+            src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" 
+            alt="ALMAAZI" 
+            class="h-7 w-auto" 
+            style="filter: invert(1); mix-blend-mode: multiply;" 
+          />
+          <button onclick="toggleMobileMenu(false)" class="p-1 text-obsidian/60 hover:text-obsidian">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
 
-      <h3 class="text-xl font-normal text-white mb-1">Private Inquiry</h3>
-      <p class="text-xs text-white/50 font-light mb-6">
-        Our concierge will connect with you directly.
-      </p>
+        <nav class="space-y-4 pt-2">
+          <a href="#rings" onclick="toggleMobileMenu(false)" class="block font-heading text-2xl text-obsidian">Rings</a>
+          <a href="#bracelets" onclick="toggleMobileMenu(false)" class="block font-heading text-2xl text-obsidian">Bracelets</a>
+          <a href="#earrings" onclick="toggleMobileMenu(false)" class="block font-heading text-2xl text-obsidian">Earrings</a>
+          <a href="#necklaces" onclick="toggleMobileMenu(false)" class="block font-heading text-2xl text-obsidian">Necklaces</a>
+        </nav>
+      </div>
 
-      <form onsubmit="submitConsultation(event)" class="space-y-3.5">
-        <input type="text" required placeholder="Your Name" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/30" />
-        <input type="email" required placeholder="Email Address" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/30" />
-        <input id="consultation-interest" type="text" placeholder="Piece of Interest" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-white/30 focus:outline-none focus:border-white/30" />
-        <button type="submit" class="btn-matte-white w-full py-3 rounded-full text-xs font-medium mt-2">
-          Send Request
-        </button>
-      </form>
+      <div class="pt-6 border-t border-obsidian/10 text-xs text-obsidian/45">
+        Handcrafted luxury jewellery.
+      </div>
     </div>
   </div>
 

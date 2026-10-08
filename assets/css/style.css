@@ -1,131 +1,110 @@
 /* ==========================================================================
-   ALMAAZI - MODERN MINIMALIST LUXURY DESIGN SYSTEM
-   Matte Glass • Squircles • Quiet Luxury
+   ALMAAZI — HANDCRAFTED LUXURY JEWELLERY
+   EXACT UI CLONE (Alabaster Warm Stone & Obsidian Noir)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter+Tight:wght@300;400;500;600&display=swap');
 
 :root {
-  --bg-main: #09090b;
-  --bg-card: rgba(255, 255, 255, 0.03);
-  --border-glass: rgba(255, 255, 255, 0.08);
-  --border-glass-hover: rgba(255, 255, 255, 0.18);
-  --glass-blur: blur(24px);
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  --background: 40 24% 96%;
+  --foreground: 30 6% 12%;
+  --radius: 2.25rem;
+  --font-heading: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-body: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --color-alabaster: #fafaf7;
+  --color-obsidian: #141414;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  background-color: #fafaf7;
+}
+
 body {
-  background-color: var(--bg-main);
-  color: #ededed;
-  font-family: var(--font-sans);
-  overflow-x: hidden;
+  background-color: #fafaf7;
+  color: #141414;
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Minimalist Scrollbar */
-::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  background: #09090b;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+.font-heading {
+  font-family: var(--font-heading);
 }
 
-/* Floating Matte Glass Container (Squircles) */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  border: 1px solid var(--border-glass);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+.font-body {
+  font-family: var(--font-body);
 }
 
-.glass-nav {
-  background: rgba(18, 18, 22, 0.72);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+/* Base Alabaster and Obsidian Classes */
+.bg-alabaster {
+  background-color: #fafaf7;
 }
 
-/* Squircle Shapes */
+.text-alabaster {
+  color: #fafaf7;
+}
+
+.text-obsidian {
+  color: #141414;
+}
+
+.bg-obsidian {
+  background-color: #141414;
+}
+
+.border-obsidian\/10 {
+  border-color: rgba(20, 20, 20, 0.1);
+}
+
+/* Squircle & Glass Utilities */
 .squircle {
-  border-radius: 28px;
+  border-radius: 2.25rem;
 }
 
 .squircle-sm {
-  border-radius: 18px;
+  border-radius: 1.25rem;
 }
 
-.squircle-lg {
-  border-radius: 36px;
+.glass {
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  backdrop-filter: blur(24px) saturate(140%);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.12);
 }
 
-/* Minimal Matte Buttons */
-.btn-matte-white {
-  background: #f4f4f5;
-  color: #09090b;
-  font-weight: 500;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.btn-matte-white:hover {
-  background: #ffffff;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px -4px rgba(255, 255, 255, 0.2);
+.glass-soft {
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+  backdrop-filter: blur(16px) saturate(130%);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.btn-matte-ghost {
-  background: rgba(255, 255, 255, 0.04);
-  color: #ededed;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  backdrop-filter: blur(16px);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
 }
-.btn-matte-ghost:hover {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
+::-webkit-scrollbar-track {
+  background: #fafaf7;
 }
-
-/* Subtle Interactive Card Hover */
-.squircle-card {
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.45s ease;
+::-webkit-scrollbar-thumb {
+  background: rgba(20, 20, 20, 0.15);
+  border-radius: 999px;
 }
-
-.squircle-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.16);
-  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7);
-}
-
-/* Clean Image Reveal */
-.img-zoom-container {
-  overflow: hidden;
-}
-
-.img-zoom-container img {
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.squircle-card:hover .img-zoom-container img {
-  transform: scale(1.04);
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(20, 20, 20, 0.3);
 }
 
 /* Drawer Transitions */
 .drawer-backdrop {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s ease;
 }
 
 .drawer-panel {

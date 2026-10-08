@@ -1,490 +1,411 @@
 /**
- * ALMAAZI - MODERN MINIMAL ENGINE
+ * ALMAAZI — UI CLONE ENGINE
+ * Handcrafted luxury jewellery.
  */
 
-const CURRENCIES = {
-  USD: { symbol: '$', rate: 1 },
-  EUR: { symbol: '€', rate: 0.92 },
-  GBP: { symbol: '£', rate: 0.79 },
-  AED: { symbol: 'AED ', rate: 3.67 }
-};
+const MEDIA_BASE = "https://media.base44.com/images/public/6ac65dc15369b691db036cd0";
 
-let currentCurrency = 'USD';
-let wishlist = JSON.parse(localStorage.getItem('almaazi_wishlist') || '[]');
-let cart = JSON.parse(localStorage.getItem('almaazi_cart') || '[]');
+const CATEGORIES = [
+  { id: "rings", label: "Rings", blurb: "Solitaires, bands & halos — cut to catch the light.", banner: `${MEDIA_BASE}/1b3a31134_generated_71a9bc8c.png` },
+  { id: "bracelets", label: "Bracelets", blurb: "Tennis, chain & filigree — gold that moves with you.", banner: `${MEDIA_BASE}/100c79495_generated_a3afb88c.png` },
+  { id: "earrings", label: "Earrings", blurb: "Drops, studs & hoops — quiet brilliance, every day.", banner: `${MEDIA_BASE}/865a3db2d_generated_3bd3915e.png` },
+  { id: "necklaces", label: "Necklaces", blurb: "Pendants & layers — the finishing touch.", banner: `${MEDIA_BASE}/17d7e788b_generated_528d380f.png` }
+];
 
 const PRODUCTS = [
+  // Rings
   {
-    id: 'alm-01',
-    name: 'Oval Solitaire',
-    category: 'rings',
-    tagline: '3.02ct Flawless Oval Diamond • Platinum 950',
-    priceUSD: 48500,
-    carat: '3.02 ct',
-    clarity: 'FL / D',
-    metal: 'Platinum 950',
-    image: 'assets/images/ring-solitaire.jpg',
-    description: 'A pure 3.02-carat oval brilliant diamond of D-Flawless grade, secured by four delicate needle prongs over a minimal micro-pavé band.'
+    id: "r1",
+    category: "rings",
+    name: "Aurora Solitaire Ring",
+    material: "18k Gold • 0.5ct Diamond",
+    price: "$1,890",
+    numericPrice: 1890,
+    image: `${MEDIA_BASE}/9ed165e1a_generated_4b887fb9.png`,
+    description: "A single brilliant-cut diamond held in a hand-finished 18k gold solitaire setting — quiet, luminous, and made to be worn every day."
   },
   {
-    id: 'alm-02',
-    name: 'Cascade Collier',
-    category: 'necklaces',
-    tagline: '18.50ct Marquise & Pear Diamonds • 18K White Gold',
-    priceUSD: 145000,
-    carat: '18.50 ct',
-    clarity: 'VVS1 / E',
-    metal: '18K White Gold',
-    image: 'assets/images/necklace-royal.jpg',
-    description: 'A sculptural high jewellery necklace of interconnected marquise and pear diamonds engineered for fluid ergonomic wear.'
+    id: "r2",
+    category: "rings",
+    name: "Éternité Band",
+    material: "18k Gold • Pavé Diamonds",
+    price: "$2,340",
+    numericPrice: 2340,
+    image: `${MEDIA_BASE}/484e708eb_generated_4b24cdfa.png`,
+    description: "A full circle of pavé-set diamonds in 18k gold, each stone matched for brilliance. The eternity band, reimagined by hand."
   },
   {
-    id: 'alm-03',
-    name: 'Étoile Chandelier',
-    category: 'earrings',
-    tagline: 'Natural Ceylon Sapphires & Step-Cut Diamonds',
-    priceUSD: 62000,
-    carat: '12.80 ct',
-    clarity: 'VVS1 / Royal Blue',
-    metal: '18K White Gold',
-    image: 'assets/images/earrings-sapphire.jpg',
-    description: 'Twin emerald-cut diamonds suspending geometric diamond tiers with natural unheated Ceylon royal blue sapphire drops.'
+    id: "r3",
+    category: "rings",
+    name: "Lumière Halo Ring",
+    material: "18k Gold • Halo Setting",
+    price: "$2,780",
+    numericPrice: 2780,
+    image: `${MEDIA_BASE}/346bce894_generated_f7ea94b7.png`,
+    description: "A halo of delicate diamonds surrounds the centre stone, amplifying its light. Hand-set in 18k gold with a whisper-fine band."
+  },
+
+  // Bracelets
+  {
+    id: "b1",
+    category: "bracelets",
+    name: "Tennis Éclat Bracelet",
+    material: "18k Gold • 1.2ct Diamonds",
+    price: "$3,650",
+    numericPrice: 3650,
+    image: `${MEDIA_BASE}/57571b72b_generated_5701a690.png`,
+    description: "A continuous line of brilliant-cut diamonds set in 18k gold. The tennis bracelet, crafted to move with you and catch every light."
   },
   {
-    id: 'alm-04',
-    name: 'Rivière Bracelet',
-    category: 'bracelets',
-    tagline: '7.15ct Bezel Diamond Tennis Bracelet • Platinum',
-    priceUSD: 29500,
-    carat: '7.15 ct',
-    clarity: 'VVS2 / E',
-    metal: 'Platinum 950',
-    image: 'assets/images/bracelet-tennis.jpg',
-    description: 'A seamless, modern interpretation of the classic rivière bracelet with clean low-profile bezel cups.'
+    id: "b2",
+    category: "bracelets",
+    name: "Sérénité Chain Bracelet",
+    material: "18k Gold • Handcrafted",
+    price: "$1,420",
+    numericPrice: 1420,
+    image: `${MEDIA_BASE}/98da4e616_generated_f555fa55.png`,
+    description: "A fine hand-linked gold chain that drapes softly on the wrist. Lightweight, timeless, and made for layering."
   },
   {
-    id: 'alm-05',
-    name: 'Sovereign Emerald Ring',
-    category: 'rings',
-    tagline: '4.10ct Muzo Colombian Emerald • Diamond Halo',
-    priceUSD: 78000,
-    carat: '4.10 ct',
-    clarity: 'Vivid Green / Muzo',
-    metal: '18K Gold & Platinum',
-    image: 'assets/images/ring-emerald.jpg',
-    description: 'An exceptional Colombian emerald framed by minimal diamond pavé, set in warm 18k yellow gold claws.'
+    id: "b3",
+    category: "bracelets",
+    name: "Filigrane Bangle",
+    material: "21k Gold • Filigree",
+    price: "$1,980",
+    numericPrice: 1980,
+    image: `${MEDIA_BASE}/5ed5e3d9c_generated_3b64212c.png`,
+    description: "A slim bangle finished with traditional filigree work in 21k gold — a tribute to old-world craftsmanship."
+  },
+
+  // Earrings
+  {
+    id: "e1",
+    category: "earrings",
+    name: "Stella Drop Earrings",
+    material: "18k Gold • Star Drops",
+    price: "$1,560",
+    numericPrice: 1560,
+    image: `${MEDIA_BASE}/6248d1d82_generated_b2dd475a.png`,
+    description: "Delicate star-shaped drops in 18k gold that sway gently with movement. Light enough for every day, special enough for every night."
+  },
+  {
+    id: "e2",
+    category: "earrings",
+    name: "Pearl Whisper Studs",
+    material: "18k Gold • Akoya Pearl",
+    price: "$980",
+    numericPrice: 980,
+    image: `${MEDIA_BASE}/98fdfbf2e_generated_ee0b306c.png`,
+    description: "A pair of Akoya pearls set on 18k gold posts. The quietest kind of elegance."
+  },
+  {
+    id: "e3",
+    category: "earrings",
+    name: "Cascade Hoop Earrings",
+    material: "18k Gold • Cascading",
+    price: "$1,290",
+    numericPrice: 1290,
+    image: `${MEDIA_BASE}/b5a096495_generated_7cd1d238.png`,
+    description: "A cascading line of gold hoops that frame the face with soft movement. Hand-finished and effortlessly modern."
+  },
+
+  // Necklaces
+  {
+    id: "n1",
+    category: "necklaces",
+    name: "Solitaire Pendant Necklace",
+    material: "18k Gold • 0.3ct Diamond",
+    price: "$1,640",
+    numericPrice: 1640,
+    image: `${MEDIA_BASE}/d2d5e4e81_generated_f89b9be9.png`,
+    description: "A single diamond suspended on a fine 18k gold chain. The pendant that needs nothing else."
+  },
+  {
+    id: "n2",
+    category: "necklaces",
+    name: "Layered Gold Chain",
+    material: "18k Gold • Triple Layer",
+    price: "$1,120",
+    numericPrice: 1120,
+    image: `${MEDIA_BASE}/46015d035_generated_162e32ea.jpg`,
+    description: "Three fine gold chains layered as one — texture and movement without the weight."
+  },
+  {
+    id: "n3",
+    category: "necklaces",
+    name: "Amour Heart Pendant",
+    material: "18k Gold • Heart Pendant",
+    price: "$1,360",
+    numericPrice: 1360,
+    image: `${MEDIA_BASE}/2438cf786_generated_670b0ef5.jpg`,
+    description: "A small gold heart on a delicate chain. A keepsake, made to be given and worn close."
   }
 ];
 
-function formatPrice(amountUSD) {
-  const curr = CURRENCIES[currentCurrency];
-  const converted = Math.round(amountUSD * curr.rate);
-  return `${curr.symbol}${converted.toLocaleString()}`;
+// Cart State
+let cart = JSON.parse(localStorage.getItem("almaazi_cart") || "[]");
+
+function saveCart() {
+  localStorage.setItem("almaazi_cart", JSON.stringify(cart));
+  updateCartBadge();
+  renderCartDrawer();
 }
 
-function updatePrices() {
-  document.querySelectorAll('[data-usd-price]').forEach(el => {
-    const usd = parseFloat(el.getAttribute('data-usd-price'));
-    if (!isNaN(usd)) {
-      el.textContent = formatPrice(usd);
-    }
-  });
-}
-
-// ------------------------------------------
-// Catalog Rendering
-// ------------------------------------------
-function renderProducts(filter = 'all') {
-  const container = document.getElementById('products-grid');
-  if (!container) return;
-
-  const filtered = filter === 'all' 
-    ? PRODUCTS 
-    : PRODUCTS.filter(p => p.category === filter);
-
-  container.innerHTML = filtered.map(item => {
-    const inWishlist = wishlist.includes(item.id);
-    return `
-      <div class="glass-panel squircle squircle-card p-4 flex flex-col group relative" data-product-id="${item.id}">
-        
-        <!-- Wishlist Button -->
-        <button 
-          onclick="toggleWishlist('${item.id}')"
-          class="absolute top-7 right-7 z-10 w-9 h-9 rounded-full bg-black/40 border border-white/10 flex items-center justify-center text-white/70 hover:text-white backdrop-blur-md transition-all ${inWishlist ? 'text-white border-white/40' : ''}"
-        >
-          <i data-lucide="heart" class="w-4 h-4 ${inWishlist ? 'fill-white' : ''}"></i>
-        </button>
-
-        <!-- Image Container -->
-        <div class="img-zoom-container rounded-2xl aspect-square bg-[#0f0f13] relative cursor-pointer" onclick="openQuickView('${item.id}')">
-          <img 
-            src="${item.image}" 
-            alt="${item.name}" 
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </div>
-
-        <!-- Info -->
-        <div class="pt-4 px-2 pb-2 flex-1 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between text-[11px] text-white/40 mb-1 font-mono uppercase tracking-wider">
-              <span>${item.metal}</span>
-              <span>${item.carat}</span>
-            </div>
-            <h3 class="text-base text-white font-medium mb-1 tracking-tight">
-              ${item.name}
-            </h3>
-            <p class="text-xs text-white/50 line-clamp-1 mb-4 font-light">
-              ${item.tagline}
-            </p>
-          </div>
-
-          <div class="pt-3 border-t border-white/5 flex items-center justify-between">
-            <span class="text-sm font-semibold text-white font-mono" data-usd-price="${item.priceUSD}">
-              ${formatPrice(item.priceUSD)}
-            </span>
-            <div class="flex gap-2">
-              <button 
-                onclick="addToBag('${item.id}')"
-                class="btn-matte-ghost px-3.5 py-1.5 rounded-full text-xs font-medium hover:bg-white hover:text-black transition-all"
-              >
-                Acquire
-              </button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    `;
-  }).join('');
-
-  if (window.lucide) window.lucide.createIcons();
-}
-
-function filterProducts(category, btnElement) {
-  document.querySelectorAll('.filter-pill').forEach(btn => {
-    btn.classList.remove('bg-white', 'text-black');
-    btn.classList.add('text-white/60');
-  });
-  if (btnElement) {
-    btnElement.classList.add('bg-white', 'text-black');
-    btnElement.classList.remove('text-white/60');
+function updateCartBadge() {
+  const count = cart.reduce((total, item) => total + item.qty, 0);
+  const badge = document.getElementById("cart-count-badge");
+  if (badge) {
+    badge.textContent = count;
+    badge.style.display = count > 0 ? "grid" : "none";
   }
-  renderProducts(category);
 }
 
-// ------------------------------------------
-// Quick View
-// ------------------------------------------
-function openQuickView(id) {
-  const product = PRODUCTS.find(p => p.id === id);
+function addToCart(productId) {
+  const product = PRODUCTS.find(p => p.id === productId);
   if (!product) return;
 
-  const modal = document.getElementById('quick-view-modal');
-  const content = document.getElementById('quick-view-content');
+  const existing = cart.find(item => item.id === productId);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ ...product, qty: 1 });
+  }
+
+  saveCart();
+  openCartDrawer();
+}
+
+function updateCartQty(productId, delta) {
+  const item = cart.find(i => i.id === productId);
+  if (!item) return;
+
+  item.qty += delta;
+  if (item.qty <= 0) {
+    cart = cart.filter(i => i.id !== productId);
+  }
+  saveCart();
+}
+
+function removeFromCart(productId) {
+  cart = cart.filter(i => i.id !== productId);
+  saveCart();
+}
+
+function openCartDrawer() {
+  const drawer = document.getElementById("cart-drawer");
+  if (!drawer) return;
+  drawer.classList.remove("pointer-events-none");
+  drawer.querySelector(".drawer-backdrop").classList.remove("opacity-0");
+  drawer.querySelector(".drawer-panel").classList.remove("translate-x-full");
+}
+
+function closeCartDrawer() {
+  const drawer = document.getElementById("cart-drawer");
+  if (!drawer) return;
+  drawer.querySelector(".drawer-backdrop").classList.add("opacity-0");
+  drawer.querySelector(".drawer-panel").classList.add("translate-x-full");
+  setTimeout(() => drawer.classList.add("pointer-events-none"), 350);
+}
+
+function renderCartDrawer() {
+  const list = document.getElementById("cart-items-container");
+  const subtotalEl = document.getElementById("cart-subtotal");
+  const checkoutBtn = document.getElementById("cart-checkout-btn");
+  if (!list) return;
+
+  if (cart.length === 0) {
+    list.innerHTML = `
+      <div class="py-20 text-center text-obsidian/50">
+        <svg class="h-8 w-8 mx-auto mb-4 text-obsidian/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+          <path d="M3 6h18" />
+          <path d="M16 10a4 4 0 0 1-8 0" />
+        </svg>
+        <p class="font-heading text-xl text-obsidian mb-2">Your bag is empty.</p>
+        <p class="text-xs text-obsidian/40">Explore our handcrafted creations.</p>
+      </div>
+    `;
+    if (subtotalEl) subtotalEl.textContent = "$0";
+    if (checkoutBtn) checkoutBtn.disabled = true;
+    return;
+  }
+
+  let total = 0;
+  list.innerHTML = cart.map(item => {
+    const itemTotal = item.numericPrice * item.qty;
+    total += itemTotal;
+    return `
+      <div class="glass squircle-sm p-4 flex gap-4 items-center">
+        <div class="squircle-sm overflow-hidden bg-obsidian/5 w-16 h-16 shrink-0">
+          <img src="${item.image}" alt="${item.name}" class="h-full w-full object-cover">
+        </div>
+        <div class="flex-1 min-w-0">
+          <h4 class="font-heading text-base text-obsidian truncate">${item.name}</h4>
+          <p class="text-[11px] uppercase tracking-[0.12em] text-obsidian/45">${item.material || ""}</p>
+          <div class="flex items-center justify-between mt-2">
+            <span class="font-body text-xs text-obsidian/80">$${itemTotal.toLocaleString()}</span>
+            <div class="flex items-center gap-2 border border-obsidian/10 rounded-full px-2 py-0.5">
+              <button onclick="updateCartQty('${item.id}', -1)" class="text-xs text-obsidian/60 hover:text-obsidian px-1">-</button>
+              <span class="text-xs font-mono text-obsidian">${item.qty}</span>
+              <button onclick="updateCartQty('${item.id}', 1)" class="text-xs text-obsidian/60 hover:text-obsidian px-1">+</button>
+            </div>
+          </div>
+        </div>
+        <button onclick="removeFromCart('${item.id}')" class="text-obsidian/30 hover:text-obsidian p-1">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    `;
+  }).join("");
+
+  if (subtotalEl) subtotalEl.textContent = `$${total.toLocaleString()}`;
+  if (checkoutBtn) checkoutBtn.disabled = false;
+}
+
+// Product Quick View Modal
+function openProductDetail(productId) {
+  const product = PRODUCTS.find(p => p.id === productId);
+  if (!product) return;
+
+  const modal = document.getElementById("product-modal");
+  const content = document.getElementById("product-modal-content");
+  if (!modal || !content) return;
+
+  const category = CATEGORIES.find(c => c.id === product.category);
 
   content.innerHTML = `
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 sm:p-8">
-      <div class="rounded-2xl overflow-hidden aspect-square bg-[#0f0f13] border border-white/5">
-        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+    <div class="grid lg:grid-cols-2 gap-8 items-center p-6 sm:p-10">
+      <div class="squircle overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square">
+        <img src="${product.image}" alt="${product.name}" class="h-full w-full object-cover">
       </div>
       <div class="flex flex-col justify-between">
         <div>
-          <span class="text-[11px] uppercase tracking-wider text-white/40 font-mono block mb-2">${product.metal} • ${product.carat}</span>
-          <h2 class="text-2xl sm:text-3xl font-normal text-white mb-2 tracking-tight">${product.name}</h2>
-          <div class="text-xl font-mono text-white mb-4" data-usd-price="${product.priceUSD}">
-            ${formatPrice(product.priceUSD)}
-          </div>
-          <p class="text-sm text-white/70 font-light leading-relaxed mb-6">
+          <span class="text-[11px] uppercase tracking-[0.28em] text-obsidian/50 mb-3 block">
+            ${category ? category.label : "High Jewellery"} — Collection
+          </span>
+          <h2 class="font-heading font-light text-3xl sm:text-4xl text-obsidian leading-tight mb-2">
+            ${product.name}
+          </h2>
+          <p class="text-[12px] uppercase tracking-[0.14em] text-obsidian/45 mb-5">
+            ${product.material}
+          </p>
+          <p class="text-[15px] leading-[1.8] text-obsidian/65 font-light mb-8">
             ${product.description}
           </p>
-          <div class="glass-panel squircle-sm p-4 text-xs space-y-2 mb-6">
-            <div class="flex justify-between text-white/60">
-              <span>Clarity & Grade</span>
-              <span class="text-white">${product.clarity}</span>
-            </div>
-            <div class="flex justify-between text-white/60">
-              <span>Setting & Metal</span>
-              <span class="text-white">${product.metal}</span>
-            </div>
-            <div class="flex justify-between text-white/60">
-              <span>Certification</span>
-              <span class="text-white">GIA Certified Report</span>
-            </div>
+          <div class="pt-6 border-t border-obsidian/10 flex items-center justify-between mb-8">
+            <span class="font-heading text-3xl text-obsidian">${product.price}</span>
+            <span class="text-[11px] uppercase tracking-[0.16em] text-obsidian/45">In stock &bull; Complimentary Courier</span>
           </div>
         </div>
 
         <div class="flex gap-3">
-          <button onclick="addToBag('${product.id}'); closeQuickView();" class="btn-matte-white flex-1 py-3 rounded-full text-xs">
+          <button onclick="addToCart('${product.id}'); closeProductDetail();" class="flex-1 bg-obsidian text-alabaster squircle py-4 text-[11px] uppercase tracking-[0.2em] hover:bg-obsidian/90 transition-colors">
             Add to Bag
           </button>
-          <button onclick="openConsultation('${product.name}'); closeQuickView();" class="btn-matte-ghost flex-1 py-3 rounded-full text-xs">
-            Book Viewing
+          <button onclick="closeProductDetail();" class="glass squircle px-6 py-4 text-[11px] uppercase tracking-[0.2em] text-obsidian hover:bg-white transition-colors">
+            Close
           </button>
         </div>
       </div>
     </div>
   `;
 
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
-  if (window.lucide) window.lucide.createIcons();
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
 }
 
-function closeQuickView() {
-  const modal = document.getElementById('quick-view-modal');
-  modal.classList.add('hidden');
-  modal.classList.remove('flex');
+function closeProductDetail() {
+  const modal = document.getElementById("product-modal");
+  if (!modal) return;
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
 }
 
-// ------------------------------------------
-// Minimal Customizer
-// ------------------------------------------
-const CUSTOM_GEMS = {
-  diamond: { name: 'D-Flawless Diamond', price: 34000, img: 'assets/images/ring-solitaire.jpg' },
-  sapphire: { name: 'Royal Sapphire', price: 24000, img: 'assets/images/earrings-sapphire.jpg' },
-  emerald: { name: 'Muzo Emerald', price: 29000, img: 'assets/images/ring-emerald.jpg' }
-};
+// Render Collection Sections
+function renderCollections() {
+  const container = document.getElementById("collections-container");
+  if (!container) return;
 
-const CUSTOM_METALS = {
-  platinum: { name: 'Platinum 950', fee: 2000 },
-  yellow: { name: '18K Yellow Gold', fee: 1500 },
-  rose: { name: '18K Rose Gold', fee: 1600 }
-};
+  container.innerHTML = CATEGORIES.map((cat, idx) => {
+    const items = PRODUCTS.filter(p => p.category === cat.id);
+    const indexNum = String(idx + 1).padStart(2, "0");
 
-let currentGem = 'diamond';
-let currentMetal = 'platinum';
-let currentCarat = 2.0;
-
-function setCustomGem(key) {
-  currentGem = key;
-  updateCustomizerPreview();
-}
-
-function setCustomMetal(key) {
-  currentMetal = key;
-  updateCustomizerPreview();
-}
-
-function setCustomCarat(val) {
-  currentCarat = parseFloat(val);
-  document.getElementById('carat-val-label').textContent = `${currentCarat.toFixed(2)} ct`;
-  updateCustomizerPreview();
-}
-
-function updateCustomizerPreview() {
-  const gem = CUSTOM_GEMS[currentGem];
-  const metal = CUSTOM_METALS[currentMetal];
-  const total = gem.price + (currentCarat * 9000) + metal.fee;
-
-  const priceEl = document.getElementById('custom-price-display');
-  const imgEl = document.getElementById('custom-img-display');
-  const titleEl = document.getElementById('custom-title-display');
-
-  if (priceEl) {
-    priceEl.setAttribute('data-usd-price', total);
-    priceEl.textContent = formatPrice(total);
-  }
-  if (imgEl) imgEl.src = gem.img;
-  if (titleEl) titleEl.textContent = `${gem.name} in ${metal.name}`;
-
-  document.querySelectorAll('[data-gem]').forEach(btn => {
-    btn.classList.toggle('border-white/40', btn.getAttribute('data-gem') === currentGem);
-    btn.classList.toggle('bg-white/10', btn.getAttribute('data-gem') === currentGem);
-  });
-
-  document.querySelectorAll('[data-metal]').forEach(btn => {
-    btn.classList.toggle('border-white/40', btn.getAttribute('data-metal') === currentMetal);
-    btn.classList.toggle('bg-white/10', btn.getAttribute('data-metal') === currentMetal);
-  });
-}
-
-function addCustomToBag() {
-  const gem = CUSTOM_GEMS[currentGem];
-  const metal = CUSTOM_METALS[currentMetal];
-  const total = gem.price + (currentCarat * 9000) + metal.fee;
-
-  cart.push({
-    id: `custom-${Date.now()}`,
-    name: `Custom ${gem.name} Ring`,
-    tagline: `${currentCarat.toFixed(2)}ct • ${metal.name}`,
-    priceUSD: total,
-    metal: metal.name,
-    image: gem.img
-  });
-
-  saveCart();
-  openBagDrawer();
-}
-
-// ------------------------------------------
-// Minimal Sizing & Carat Visualizer
-// ------------------------------------------
-function updateCaratVisualizer(val) {
-  const carat = parseFloat(val);
-  const circle = document.getElementById('carat-visual-dot');
-  const label = document.getElementById('carat-scale-label');
-  const mm = (5.0 + Math.sqrt(carat) * 2.7).toFixed(1);
-
-  const sizePx = 36 + (carat * 18);
-  if (circle) {
-    circle.style.width = `${sizePx}px`;
-    circle.style.height = `${sizePx}px`;
-  }
-  if (label) {
-    label.textContent = `${carat.toFixed(2)} ct • ~${mm}mm diameter`;
-  }
-}
-
-// ------------------------------------------
-// Wishlist & Bag
-// ------------------------------------------
-function toggleWishlist(id) {
-  const idx = wishlist.indexOf(id);
-  if (idx > -1) {
-    wishlist.splice(idx, 1);
-  } else {
-    wishlist.push(id);
-  }
-  localStorage.setItem('almaazi_wishlist', JSON.stringify(wishlist));
-  updateWishlistBadge();
-  renderProducts();
-}
-
-function updateWishlistBadge() {
-  const badge = document.getElementById('wishlist-count');
-  if (badge) {
-    badge.textContent = wishlist.length;
-    badge.style.display = wishlist.length > 0 ? 'inline-flex' : 'none';
-  }
-}
-
-function addToBag(id) {
-  const p = PRODUCTS.find(item => item.id === id);
-  if (!p) return;
-  cart.push(p);
-  saveCart();
-  openBagDrawer();
-}
-
-function removeFromBag(index) {
-  cart.splice(index, 1);
-  saveCart();
-}
-
-function saveCart() {
-  localStorage.setItem('almaazi_cart', JSON.stringify(cart));
-  updateBagBadge();
-  renderBag();
-}
-
-function updateBagBadge() {
-  const badge = document.getElementById('bag-count');
-  if (badge) {
-    badge.textContent = cart.length;
-    badge.style.display = cart.length > 0 ? 'inline-flex' : 'none';
-  }
-}
-
-function renderBag() {
-  const list = document.getElementById('bag-items-list');
-  const subtotalEl = document.getElementById('bag-subtotal');
-  if (!list) return;
-
-  if (cart.length === 0) {
-    list.innerHTML = `
-      <div class="py-20 text-center text-white/40">
-        <p class="text-sm font-light">Your bag is empty</p>
-      </div>
-    `;
-    if (subtotalEl) subtotalEl.textContent = formatPrice(0);
-    return;
-  }
-
-  let total = 0;
-  list.innerHTML = cart.map((item, idx) => {
-    total += item.priceUSD;
     return `
-      <div class="flex items-center gap-4 py-3 border-b border-white/5">
-        <img src="${item.image}" alt="${item.name}" class="w-14 h-14 rounded-xl object-cover bg-[#121215]">
-        <div class="flex-1 min-w-0">
-          <h4 class="text-sm text-white font-medium truncate">${item.name}</h4>
-          <span class="text-xs text-white/50 block font-light">${item.metal || 'High Jewellery'}</span>
-          <span class="text-xs font-mono text-white/80" data-usd-price="${item.priceUSD}">${formatPrice(item.priceUSD)}</span>
+      <section id="${cat.id}" class="scroll-mt-28 px-4 sm:px-6 lg:px-10 py-16 sm:py-24">
+        
+        <!-- Category Banner (Squircle) -->
+        <div class="relative squircle overflow-hidden mb-10 sm:mb-14">
+          <div class="aspect-[16/8] sm:aspect-[16/6] w-full">
+            <img src="${cat.banner}" alt="${cat.label}" class="h-full w-full object-cover">
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-r from-alabaster/70 via-alabaster/10 to-transparent"></div>
+          <div class="absolute inset-0 flex items-center">
+            <div class="px-7 sm:px-12 lg:px-16 max-w-xl">
+              <span class="block text-[12px] uppercase tracking-[0.3em] text-obsidian/50 mb-3">
+                ${indexNum} — Collection
+              </span>
+              <h2 class="font-heading text-5xl sm:text-6xl lg:text-7xl leading-[0.95] text-obsidian">
+                ${cat.label}
+              </h2>
+              <p class="mt-4 max-w-sm text-[15px] text-obsidian/65 leading-relaxed">
+                ${cat.blurb}
+              </p>
+            </div>
+          </div>
         </div>
-        <button onclick="removeFromBag(${idx})" class="p-2 text-white/40 hover:text-white transition-colors">
-          <i data-lucide="x" class="w-4 h-4"></i>
-        </button>
-      </div>
+
+        <!-- 3 Product Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          ${items.map(p => `
+            <div onclick="openProductDetail('${p.id}')" class="group squircle bg-alabaster border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-lg">
+              
+              <div class="relative aspect-square overflow-hidden bg-obsidian/5">
+                <img 
+                  src="${p.image}" 
+                  alt="${p.name}" 
+                  class="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
+
+              <div class="p-5 sm:p-6 flex flex-col gap-1">
+                <h3 class="font-heading text-xl sm:text-[1.35rem] leading-tight text-obsidian">
+                  ${p.name}
+                </h3>
+                <p class="text-[12px] uppercase tracking-[0.12em] text-obsidian/45">
+                  ${p.material}
+                </p>
+                <div class="mt-3 flex items-center justify-between">
+                  <span class="font-body text-[15px] text-obsidian/80">${p.price}</span>
+                  <span class="text-[11px] uppercase tracking-[0.16em] text-obsidian/50 group-hover:text-obsidian transition-colors">
+                    View
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          `).join("")}
+        </div>
+
+      </section>
     `;
-  }).join('');
+  }).join("");
+}
 
-  if (subtotalEl) {
-    subtotalEl.setAttribute('data-usd-price', total);
-    subtotalEl.textContent = formatPrice(total);
+// Mobile Menu Drawer
+function toggleMobileMenu(open) {
+  const menu = document.getElementById("mobile-menu-drawer");
+  if (!menu) return;
+  if (open) {
+    menu.classList.remove("hidden");
+  } else {
+    menu.classList.add("hidden");
   }
-
-  if (window.lucide) window.lucide.createIcons();
 }
 
-function openBagDrawer() {
-  const drawer = document.getElementById('bag-drawer');
-  drawer.classList.remove('pointer-events-none');
-  drawer.querySelector('.drawer-backdrop').classList.remove('opacity-0');
-  drawer.querySelector('.drawer-panel').classList.remove('translate-x-full');
-}
-
-function closeBagDrawer() {
-  const drawer = document.getElementById('bag-drawer');
-  drawer.querySelector('.drawer-backdrop').classList.add('opacity-0');
-  drawer.querySelector('.drawer-panel').classList.add('translate-x-full');
-  setTimeout(() => drawer.classList.add('pointer-events-none'), 300);
-}
-
-// ------------------------------------------
-// Consultation Modal
-// ------------------------------------------
-function openConsultation(pieceName = '') {
-  const modal = document.getElementById('consultation-modal');
-  const input = document.getElementById('consultation-interest');
-  if (input && pieceName) input.value = pieceName;
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
-}
-
-function closeConsultation() {
-  const modal = document.getElementById('consultation-modal');
-  modal.classList.add('hidden');
-  modal.classList.remove('flex');
-}
-
-function submitConsultation(e) {
-  e.preventDefault();
-  closeConsultation();
-  alert('Thank you. Our private concierge will reach out within 2 hours.');
-}
-
-// ------------------------------------------
-// Initialization
-// ------------------------------------------
-document.addEventListener('DOMContentLoaded', () => {
-  renderProducts();
-  updateCustomizerPreview();
-  updateWishlistBadge();
-  updateBagBadge();
-  renderBag();
-  updateCaratVisualizer(2.0);
-
-  const currSelect = document.getElementById('currency-select');
-  if (currSelect) {
-    currSelect.addEventListener('change', e => {
-      currentCurrency = e.target.value;
-      updatePrices();
-      updateCustomizerPreview();
-      renderBag();
-    });
-  }
-
-  if (window.lucide) window.lucide.createIcons();
+// Initial Run
+document.addEventListener("DOMContentLoaded", () => {
+  renderCollections();
+  updateCartBadge();
+  renderCartDrawer();
 });
