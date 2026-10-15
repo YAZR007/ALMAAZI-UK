@@ -262,63 +262,13 @@ function renderCartDrawer() {
   if (checkoutBtn) checkoutBtn.disabled = false;
 }
 
-// Product Quick View Modal
+// Navigate to the dedicated product detail page
 function openProductDetail(productId) {
-  const product = PRODUCTS.find(p => p.id === productId);
-  if (!product) return;
-
-  const modal = document.getElementById("product-modal");
-  const content = document.getElementById("product-modal-content");
-  if (!modal || !content) return;
-
-  const category = CATEGORIES.find(c => c.id === product.category);
-
-  content.innerHTML = `
-    <div class="grid lg:grid-cols-2 gap-8 items-center p-6 sm:p-10">
-      <div class="squircle overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square">
-        <img src="${product.image}" alt="${product.name}" class="h-full w-full object-cover">
-      </div>
-      <div class="flex flex-col justify-between">
-        <div>
-          <span class="text-[11px] uppercase tracking-[0.28em] text-obsidian/50 mb-3 block">
-            ${category ? category.label : "High Jewellery"} — Collection
-          </span>
-          <h2 class="font-heading font-light text-3xl sm:text-4xl text-obsidian leading-tight mb-2">
-            ${product.name}
-          </h2>
-          <p class="text-[12px] uppercase tracking-[0.14em] text-obsidian/45 mb-5">
-            ${product.material}
-          </p>
-          <p class="text-[15px] leading-[1.8] text-obsidian/65 font-light mb-8">
-            ${product.description}
-          </p>
-          <div class="pt-6 border-t border-obsidian/10 flex items-center justify-between mb-8">
-            <span class="font-heading text-3xl text-obsidian">${product.price}</span>
-            <span class="text-[11px] uppercase tracking-[0.16em] text-obsidian/45">In stock &bull; Complimentary Courier</span>
-          </div>
-        </div>
-
-        <div class="flex gap-3">
-          <button onclick="addToCart('${product.id}'); closeProductDetail();" class="flex-1 bg-obsidian text-alabaster squircle py-4 text-[11px] uppercase tracking-[0.2em] hover:bg-obsidian/90 transition-colors">
-            Add to Bag
-          </button>
-          <button onclick="closeProductDetail();" class="glass squircle px-6 py-4 text-[11px] uppercase tracking-[0.2em] text-obsidian hover:bg-white transition-colors">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  `;
-
-  modal.classList.remove("hidden");
-  modal.classList.add("flex");
+  window.location.href = `product.html?id=${productId}`;
 }
 
 function closeProductDetail() {
-  const modal = document.getElementById("product-modal");
-  if (!modal) return;
-  modal.classList.add("hidden");
-  modal.classList.remove("flex");
+  // no-op (kept for compatibility; modal no longer used)
 }
 
 // Render Collection Sections
@@ -357,7 +307,7 @@ function renderCollections() {
         <!-- 3 Product Cards Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           ${items.map(p => `
-            <div onclick="openProductDetail('${p.id}')" class="group squircle bg-alabaster border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-lg">
+            <a href="product.html?id=${p.id}" class="group squircle bg-alabaster border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-lg">
               
               <div class="relative aspect-square overflow-hidden bg-obsidian/5">
                 <img 
@@ -378,12 +328,12 @@ function renderCollections() {
                 <div class="mt-3 flex items-center justify-between">
                   <span class="font-body text-[15px] text-obsidian/80">${p.price}</span>
                   <span class="text-[11px] uppercase tracking-[0.16em] text-obsidian/50 group-hover:text-obsidian transition-colors">
-                    View
+                    View Creation &rarr;
                   </span>
                 </div>
               </div>
 
-            </div>
+            </a>
           `).join("")}
         </div>
 
