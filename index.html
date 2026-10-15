@@ -33,7 +33,7 @@
   </script>
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css?v=3.0" />
 </head>
 <body id="top" class="min-h-screen bg-alabaster font-body text-obsidian antialiased selection:bg-obsidian/10">
 
@@ -233,24 +233,75 @@
       <div class="absolute inset-0 bg-gradient-to-t from-alabaster/80 via-alabaster/25 to-transparent sm:from-alabaster/55 sm:via-alabaster/5"></div>
 
       <!-- Floating Matte Glass Hero Card -->
-      <div class="absolute inset-0 flex flex-col justify-end p-4 sm:p-10 lg:px-16">
-        <div class="glass squircle inline-flex self-start w-full sm:max-w-md p-5 sm:p-8 lg:p-9 flex-col shadow-lg">
-          <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-obsidian/50 mb-2 sm:mb-4">
-            Handcrafted Luxury
-          </span>
-          <h1 class="font-heading font-light text-[1.85rem] sm:text-4xl lg:text-[3.2rem] leading-[1.1] tracking-[-0.01em] text-obsidian">
-            Jewellery that holds the light
-          </h1>
-          <p class="mt-2.5 sm:mt-5 text-[13px] sm:text-[15px] leading-relaxed text-obsidian/70 max-w-sm">
-            Gold and diamond pieces, made by hand and made to be lived in.
-          </p>
-          <a href="#rings" class="mt-4 sm:mt-7 self-start inline-flex items-center gap-2 bg-obsidian text-alabaster squircle px-5 sm:px-6 py-3 sm:py-3.5 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] hover:bg-obsidian/90 active:scale-[0.98] transition-all">
-            <span>Explore the collection</span>
-            <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </a>
+      <div class="absolute inset-0 flex flex-col justify-end p-3.5 sm:p-10 lg:px-16">
+        <div class="glass squircle inline-flex self-start w-full sm:max-w-md p-4 sm:p-8 lg:p-9 flex-col shadow-lg">
+          
+          <!-- MOBILE: Elegant and Minimal Jewelry Options List -->
+          <div class="block sm:hidden w-full">
+            <div class="flex items-center justify-between pb-2 mb-2.5 border-b border-obsidian/10">
+              <span class="text-[9.5px] uppercase tracking-[0.24em] text-obsidian/50 font-mono">Select Creation</span>
+              <span class="text-[9.5px] text-obsidian/40 uppercase tracking-widest font-mono">04 Types</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <!-- Rings -->
+              <a href="#rings" class="flex items-center justify-between p-3 rounded-2xl bg-white/70 active:bg-obsidian border border-obsidian/5 active:border-obsidian transition-all group">
+                <div>
+                  <span class="font-mono text-[9px] text-obsidian/40 group-active:text-alabaster/60 block leading-none mb-1">01</span>
+                  <span class="font-heading text-[1.15rem] leading-none text-obsidian group-active:text-alabaster font-normal">Rings</span>
+                </div>
+                <svg class="w-3.5 h-3.5 text-obsidian/40 group-active:text-alabaster" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+
+              <!-- Bracelets -->
+              <a href="#bracelets" class="flex items-center justify-between p-3 rounded-2xl bg-white/70 active:bg-obsidian border border-obsidian/5 active:border-obsidian transition-all group">
+                <div>
+                  <span class="font-mono text-[9px] text-obsidian/40 group-active:text-alabaster/60 block leading-none mb-1">02</span>
+                  <span class="font-heading text-[1.15rem] leading-none text-obsidian group-active:text-alabaster font-normal">Bracelets</span>
+                </div>
+                <svg class="w-3.5 h-3.5 text-obsidian/40 group-active:text-alabaster" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+
+              <!-- Earrings -->
+              <a href="#earrings" class="flex items-center justify-between p-3 rounded-2xl bg-white/70 active:bg-obsidian border border-obsidian/5 active:border-obsidian transition-all group">
+                <div>
+                  <span class="font-mono text-[9px] text-obsidian/40 group-active:text-alabaster/60 block leading-none mb-1">03</span>
+                  <span class="font-heading text-[1.15rem] leading-none text-obsidian group-active:text-alabaster font-normal">Earrings</span>
+                </div>
+                <svg class="w-3.5 h-3.5 text-obsidian/40 group-active:text-alabaster" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+
+              <!-- Necklaces -->
+              <a href="#necklaces" class="flex items-center justify-between p-3 rounded-2xl bg-white/70 active:bg-obsidian border border-obsidian/5 active:border-obsidian transition-all group">
+                <div>
+                  <span class="font-mono text-[9px] text-obsidian/40 group-active:text-alabaster/60 block leading-none mb-1">04</span>
+                  <span class="font-heading text-[1.15rem] leading-none text-obsidian group-active:text-alabaster font-normal">Necklaces</span>
+                </div>
+                <svg class="w-3.5 h-3.5 text-obsidian/40 group-active:text-alabaster" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- DESKTOP: Classic Editorial Heading & CTA -->
+          <div class="hidden sm:flex flex-col">
+            <span class="text-[11px] uppercase tracking-[0.28em] text-obsidian/50 mb-4">
+              Handcrafted Luxury
+            </span>
+            <h1 class="font-heading font-light text-4xl lg:text-[3.4rem] leading-[1.05] tracking-[-0.01em] text-obsidian">
+              Jewellery that holds the light
+            </h1>
+            <p class="mt-5 text-[15px] leading-[1.7] text-obsidian/60 max-w-sm">
+              Gold and diamond pieces, made by hand and made to be lived in.
+            </p>
+            <a href="#rings" class="mt-7 self-start inline-flex items-center gap-2 bg-obsidian text-alabaster squircle px-6 py-3.5 text-[11px] uppercase tracking-[0.2em] hover:bg-obsidian/90 active:scale-[0.98] transition-all">
+              <span>Explore the collection</span>
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
         </div>
       </div>
 
@@ -400,6 +451,6 @@
     </div>
   </div>
 
-  <script src="assets/js/app.js"></script>
+  <script src="assets/js/app.js?v=3.0"></script>
 </body>
 </html>
