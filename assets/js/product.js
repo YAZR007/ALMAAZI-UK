@@ -418,26 +418,26 @@ function renderProduct(product) {
     <div class="page-enter max-w-7xl mx-auto">
 
       <!-- Breadcrumbs and Back Navigation -->
-      <div class="flex flex-wrap items-center justify-between gap-4 mb-8 sm:mb-12">
-        <nav class="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-obsidian/45">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-6 sm:mb-12">
+        <nav class="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-obsidian/45">
           <a href="index.html" class="hover:text-obsidian transition-colors">Maison</a>
           <span class="opacity-30">/</span>
           <a href="index.html#${product.category}" class="hover:text-obsidian transition-colors">${category ? category.label : "Collection"}</a>
           <span class="opacity-30">/</span>
-          <span class="text-obsidian/80 font-medium">${product.name}</span>
+          <span class="text-obsidian/80 font-medium truncate max-w-[140px] sm:max-w-none">${product.name}</span>
         </nav>
 
-        <a href="index.html#${product.category}" class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-obsidian/50 hover:text-obsidian transition-colors">
-          <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
-          <span>Back to ${category ? category.label : "Collection"}</span>
+        <a href="index.html#${product.category}" class="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-obsidian/50 hover:text-obsidian transition-colors">
+          <svg class="h-3 w-3 sm:h-3.5 sm:w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+          <span>Back to Collection</span>
         </a>
       </div>
 
       <!-- Main Showcase Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-14 items-start">
 
         <!-- LEFT COLUMN: Image Presentation & Gallery (7 cols) -->
-        <div class="lg:col-span-7 flex flex-col gap-4">
+        <div class="lg:col-span-7 flex flex-col gap-3 sm:gap-4">
           
           <!-- Main Hero Image Frame -->
           <div class="gallery-main-frame relative squircle overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square group">
@@ -449,14 +449,14 @@ function renderProduct(product) {
             />
             
             <!-- Quiet Luxury Badge Pill -->
-            <div class="absolute top-5 left-5 pointer-events-none">
-              <span class="glass-soft squircle-sm px-3.5 py-1.5 text-[10px] uppercase tracking-[0.2em] text-obsidian/75 font-mono">
+            <div class="absolute top-3.5 sm:top-5 left-3.5 sm:left-5 pointer-events-none">
+              <span class="glass-soft squircle-sm px-3 py-1 sm:px-3.5 sm:py-1.5 text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-obsidian/75 font-mono">
                 ${extra.badge || "Handcrafted Luxury"}
               </span>
             </div>
 
             <!-- Subtle zoom prompt on hover -->
-            <div class="absolute bottom-5 right-5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="absolute bottom-3.5 sm:bottom-5 right-3.5 sm:right-5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block">
               <span class="glass-soft squircle-sm px-3 py-1.5 text-[10px] uppercase tracking-[0.16em] text-obsidian/60">
                 Hover to magnify
               </span>
@@ -464,23 +464,23 @@ function renderProduct(product) {
           </div>
 
           <!-- Thumbnails Row -->
-          <div class="grid grid-cols-3 gap-3 sm:gap-4">
+          <div class="grid grid-cols-3 gap-2.5 sm:gap-4">
             <!-- Studio Full -->
             <button 
               type="button" 
               onclick="switchGalleryImage(0, '${product.image}')" 
-              class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-1 ring-2 ring-obsidian opacity-100 transition-all cursor-pointer"
+              class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-0.5 sm:p-1 ring-2 ring-obsidian opacity-100 transition-all cursor-pointer"
             >
-              <img src="${product.image}" alt="Studio Angle" class="h-full w-full object-cover rounded-xl" />
+              <img src="${product.image}" alt="Studio Angle" class="h-full w-full object-cover rounded-lg sm:rounded-xl" />
             </button>
 
             <!-- Macro Facet Angle -->
             <button 
               type="button" 
               onclick="switchGalleryImage(1, '${product.image}')" 
-              class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-1 opacity-40 hover:opacity-100 transition-all cursor-pointer"
+              class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-0.5 sm:p-1 opacity-40 hover:opacity-100 transition-all cursor-pointer"
             >
-              <div class="h-full w-full overflow-hidden rounded-xl">
+              <div class="h-full w-full overflow-hidden rounded-lg sm:rounded-xl">
                 <img src="${product.image}" alt="Macro Detail" class="h-full w-full object-cover scale-150 origin-center" />
               </div>
             </button>
@@ -489,68 +489,68 @@ function renderProduct(product) {
             <button 
               type="button" 
               onclick="switchGalleryImage(2, '${product.image}')" 
-              class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-1 opacity-40 hover:opacity-100 transition-all cursor-pointer"
+              class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-0.5 sm:p-1 opacity-40 hover:opacity-100 transition-all cursor-pointer"
             >
-              <div class="h-full w-full overflow-hidden rounded-xl">
+              <div class="h-full w-full overflow-hidden rounded-lg sm:rounded-xl">
                 <img src="${product.image}" alt="Profile View" class="h-full w-full object-cover scale-125 origin-bottom" />
               </div>
             </button>
           </div>
 
           <!-- Hallmark & Craftsmanship Micro-Strip -->
-          <div class="glass squircle-sm p-4 mt-2 flex items-center justify-between text-[11px] text-obsidian/60 tracking-wider">
+          <div class="glass squircle-sm p-3 sm:p-4 mt-1 sm:mt-2 flex flex-col sm:flex-row gap-1.5 sm:gap-0 sm:items-center sm:justify-between text-[10px] sm:text-[11px] text-obsidian/65 tracking-wider">
             <span class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-obsidian/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              ${extra.hallmark || "Au750 Hallmarked"}
+              <svg class="w-3.5 h-3.5 text-obsidian/50 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>${extra.hallmark || "Au750 Hallmarked"}</span>
             </span>
             <span class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-obsidian/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              Complimentary Insured Courier
+              <svg class="w-3.5 h-3.5 text-obsidian/50 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>Complimentary Insured Courier</span>
             </span>
           </div>
 
         </div>
 
         <!-- RIGHT COLUMN: Details & Purchase Controls (5 cols) -->
-        <div class="lg:col-span-5 flex flex-col justify-start lg:sticky lg:top-28">
+        <div class="lg:col-span-5 flex flex-col justify-start lg:sticky lg:top-28 mt-2 lg:mt-0">
 
           <!-- Collection Tag -->
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-[11px] uppercase tracking-[0.3em] text-obsidian/50 font-mono">
+          <div class="flex items-center gap-2.5 mb-2.5 sm:mb-3">
+            <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-obsidian/50 font-mono">
               ${category ? category.label : "High Jewellery"} — Collection
             </span>
-            <span class="h-px w-6 bg-obsidian/20"></span>
+            <span class="h-px w-5 bg-obsidian/20"></span>
           </div>
 
           <!-- Product Title -->
-          <h1 class="font-heading font-light text-4xl sm:text-5xl lg:text-[3.25rem] leading-[1.08] text-obsidian mb-2">
+          <h1 class="font-heading font-light text-[2.1rem] sm:text-4xl lg:text-[3.25rem] leading-[1.1] text-obsidian mb-1.5 sm:mb-2">
             ${product.name}
           </h1>
 
           <!-- Material & Diamond Breakdown -->
-          <p class="text-[12px] uppercase tracking-[0.16em] text-obsidian/50 mb-5">
+          <p class="text-[11px] sm:text-[12px] uppercase tracking-[0.14em] text-obsidian/50 mb-4 sm:mb-5">
             ${product.material}
           </p>
 
           <!-- Price & Fulfillment -->
-          <div class="pb-6 mb-7 border-b border-obsidian/10 flex items-baseline justify-between">
+          <div class="pb-4 sm:pb-6 mb-5 sm:mb-7 border-b border-obsidian/10 flex items-baseline justify-between">
             <div>
               <span class="font-heading font-normal text-3xl sm:text-4xl text-obsidian">${product.price}</span>
-              <span class="block text-[11px] text-obsidian/45 tracking-wide mt-1">Includes luxury coffer, certificate & courier</span>
+              <span class="block text-[10px] sm:text-[11px] text-obsidian/45 tracking-wide mt-1">Includes luxury coffer, certificate & courier</span>
             </div>
-            <span class="text-[11px] uppercase tracking-[0.18em] text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+            <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
               In Stock
             </span>
           </div>
 
           <!-- Editorial Description -->
-          <p class="text-[15px] leading-[1.8] text-obsidian/70 font-light mb-8">
+          <p class="text-[14px] sm:text-[15px] leading-[1.75] text-obsidian/70 font-light mb-6 sm:mb-8">
             ${story}
           </p>
 
           <!-- Metal Color Selector -->
-          <div class="mb-7">
-            <div class="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] mb-3">
+          <div class="mb-6 sm:mb-7">
+            <div class="flex items-center justify-between text-[10px] sm:text-[11px] uppercase tracking-[0.18em] mb-2.5">
               <span class="text-obsidian/50">Alloy Selection:</span>
               <span id="selected-metal-label" class="font-medium text-obsidian">${selectedMetal}</span>
             </div>
@@ -561,7 +561,7 @@ function renderProduct(product) {
                 onclick="selectMetal('18k Yellow Gold')" 
                 data-metal="18k Yellow Gold" 
                 title="18k Yellow Gold" 
-                class="metal-swatch-btn h-8 w-8 rounded-full bg-[#f3e5ab] border border-obsidian/20 shadow-sm ring-2 ring-obsidian scale-110 transition-all cursor-pointer"
+                class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#f3e5ab] border border-obsidian/20 shadow-sm ring-2 ring-obsidian scale-110 transition-all cursor-pointer"
               ></button>
               <!-- White Gold -->
               <button 
@@ -569,7 +569,7 @@ function renderProduct(product) {
                 onclick="selectMetal('18k White Gold')" 
                 data-metal="18k White Gold" 
                 title="18k White Gold" 
-                class="metal-swatch-btn h-8 w-8 rounded-full bg-[#e8e8e8] border border-obsidian/20 shadow-sm transition-all cursor-pointer"
+                class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#e8e8e8] border border-obsidian/20 shadow-sm transition-all cursor-pointer"
               ></button>
               <!-- Rose Gold -->
               <button 
@@ -577,15 +577,15 @@ function renderProduct(product) {
                 onclick="selectMetal('18k Rose Gold')" 
                 data-metal="18k Rose Gold" 
                 title="18k Rose Gold" 
-                class="metal-swatch-btn h-8 w-8 rounded-full bg-[#f5d0c5] border border-obsidian/20 shadow-sm transition-all cursor-pointer"
+                class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#f5d0c5] border border-obsidian/20 shadow-sm transition-all cursor-pointer"
               ></button>
             </div>
           </div>
 
           <!-- Size Selector (If applicable) -->
           ${sizes.length > 0 ? `
-          <div class="mb-8">
-            <div class="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] mb-3">
+          <div class="mb-6 sm:mb-8">
+            <div class="flex items-center justify-between text-[10px] sm:text-[11px] uppercase tracking-[0.18em] mb-2.5">
               <span class="text-obsidian/50">Select Size:</span>
               <button onclick="toggleSizeGuide(true)" class="text-obsidian/60 hover:text-obsidian underline underline-offset-4 cursor-pointer">
                 Size Guide
@@ -597,7 +597,7 @@ function renderProduct(product) {
                   type="button" 
                   onclick="selectSize('${s}')" 
                   data-size="${s}" 
-                  class="size-pill-btn px-4 py-2.5 rounded-full text-[12px] border ${idx === 1 ? 'bg-obsidian text-alabaster border-obsidian' : 'text-obsidian/70 border-obsidian/15 hover:border-obsidian/40'} transition-all cursor-pointer"
+                  class="size-pill-btn px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-[12px] border ${idx === 1 ? 'bg-obsidian text-alabaster border-obsidian' : 'text-obsidian/70 border-obsidian/15 hover:border-obsidian/40'} transition-all cursor-pointer"
                 >
                   ${s}
                 </button>
@@ -606,22 +606,22 @@ function renderProduct(product) {
           </div>` : ""}
 
           <!-- Quantity Stepper & Add to Bag CTA -->
-          <div class="flex items-center gap-3 mb-4">
+          <div class="flex items-center gap-2.5 sm:gap-3 mb-3.5 sm:mb-4">
             <!-- Stepper -->
-            <div class="flex items-center gap-1 border border-obsidian/20 rounded-full px-3 py-2 bg-alabaster">
+            <div class="flex items-center gap-1 border border-obsidian/20 rounded-full px-2 sm:px-3 py-1.5 sm:py-2 bg-alabaster">
               <button 
                 type="button" 
                 onclick="setQty(-1)" 
-                class="w-7 h-7 grid place-items-center rounded-full hover:bg-obsidian/10 text-obsidian/70 transition-colors"
+                class="w-8 h-8 sm:w-7 sm:h-7 grid place-items-center rounded-full hover:bg-obsidian/10 text-obsidian/70 text-base transition-colors"
                 aria-label="Decrease quantity"
               >
                 &minus;
               </button>
-              <span id="qty-display" class="w-8 text-center font-mono text-[13px] text-obsidian font-medium">1</span>
+              <span id="qty-display" class="w-7 sm:w-8 text-center font-mono text-[13px] text-obsidian font-medium">1</span>
               <button 
                 type="button" 
                 onclick="setQty(1)" 
-                class="w-7 h-7 grid place-items-center rounded-full hover:bg-obsidian/10 text-obsidian/70 transition-colors"
+                class="w-8 h-8 sm:w-7 sm:h-7 grid place-items-center rounded-full hover:bg-obsidian/10 text-obsidian/70 text-base transition-colors"
                 aria-label="Increase quantity"
               >
                 &#43;
@@ -632,19 +632,19 @@ function renderProduct(product) {
             <button 
               id="add-to-bag-btn" 
               onclick="addToCartDetailed('${product.id}')" 
-              class="flex-1 bg-obsidian text-alabaster squircle py-4 px-6 text-[11px] uppercase tracking-[0.22em] hover:bg-obsidian/90 active:scale-[0.99] transition-all cursor-pointer shadow-sm"
+              class="flex-1 bg-obsidian text-alabaster squircle py-3.5 sm:py-4 px-4 sm:px-6 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] hover:bg-obsidian/90 active:scale-[0.98] transition-all cursor-pointer shadow-sm text-center"
             >
               Add to Bag
             </button>
           </div>
 
           <!-- Wishlist & Share Secondary Actions -->
-          <div class="grid grid-cols-2 gap-3 mb-10">
+          <div class="grid grid-cols-2 gap-2.5 sm:gap-3 mb-8 sm:mb-10">
             <button 
               type="button" 
               onclick="toggleWishlist(this)" 
               data-saved="false" 
-              class="glass squircle-sm py-3 px-4 text-[11px] uppercase tracking-[0.16em] text-obsidian/75 hover:text-obsidian hover:bg-white transition-all flex items-center justify-center gap-2 cursor-pointer"
+              class="glass squircle-sm py-2.5 sm:py-3 px-3 sm:px-4 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-obsidian/75 hover:text-obsidian hover:bg-white transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer"
             >
               <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               <span>Save Piece</span>
@@ -653,7 +653,7 @@ function renderProduct(product) {
             <button 
               type="button" 
               onclick="shareProduct()" 
-              class="glass squircle-sm py-3 px-4 text-[11px] uppercase tracking-[0.16em] text-obsidian/75 hover:text-obsidian hover:bg-white transition-all flex items-center justify-center gap-2 cursor-pointer"
+              class="glass squircle-sm py-2.5 sm:py-3 px-3 sm:px-4 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-obsidian/75 hover:text-obsidian hover:bg-white transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer"
             >
               <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
               <span>Share Creation</span>
@@ -733,26 +733,26 @@ function renderRelated(product) {
 
   root.innerHTML = `
     <div class="max-w-7xl mx-auto">
-      <div class="pt-16 pb-10 border-t border-obsidian/10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div class="pt-12 sm:pt-16 pb-6 sm:pb-10 border-t border-obsidian/10 flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4">
         <div>
-          <span class="block text-[11px] uppercase tracking-[0.3em] text-obsidian/45 mb-2 font-mono">
+          <span class="block text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-obsidian/45 mb-1.5 sm:mb-2 font-mono">
             Harmonious Pairings
           </span>
-          <h2 class="font-heading text-3xl sm:text-4xl text-obsidian">
+          <h2 class="font-heading text-2xl sm:text-4xl text-obsidian">
             More from the ${category ? category.label : "Maison"} Collection
           </h2>
         </div>
 
-        <a href="index.html#${product.category}" class="text-[11px] uppercase tracking-[0.2em] text-obsidian/60 hover:text-obsidian flex items-center gap-2">
+        <a href="index.html#${product.category}" class="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-obsidian/60 hover:text-obsidian flex items-center gap-1.5 self-start sm:self-auto">
           <span>View All ${category ? category.label : "Pieces"}</span>
           <span>&rarr;</span>
         </a>
       </div>
 
       <!-- 3 Matching Product Cards Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         ${related.map(p => `
-          <a href="product.html?id=${p.id}" class="group squircle bg-alabaster border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-lg">
+          <a href="product.html?id=${p.id}" class="group squircle bg-alabaster border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-lg active:scale-[0.99]">
             
             <div class="relative aspect-square overflow-hidden bg-obsidian/5">
               <img 
@@ -763,17 +763,17 @@ function renderRelated(product) {
               <div class="absolute inset-0 bg-gradient-to-t from-obsidian/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
 
-            <div class="p-5 sm:p-6 flex flex-col gap-1">
-              <h3 class="font-heading text-xl sm:text-[1.35rem] leading-tight text-obsidian">
+            <div class="p-4 sm:p-6 flex flex-col gap-1">
+              <h3 class="font-heading text-lg sm:text-[1.35rem] leading-tight text-obsidian">
                 ${p.name}
               </h3>
-              <p class="text-[12px] uppercase tracking-[0.12em] text-obsidian/45">
+              <p class="text-[11px] sm:text-[12px] uppercase tracking-[0.12em] text-obsidian/45">
                 ${p.material}
               </p>
-              <div class="mt-3 flex items-center justify-between">
-                <span class="font-body text-[15px] text-obsidian/80">${p.price}</span>
-                <span class="text-[11px] uppercase tracking-[0.16em] text-obsidian/50 group-hover:text-obsidian transition-colors">
-                  Explore &rarr;
+              <div class="mt-2.5 sm:mt-3 flex items-center justify-between">
+                <span class="font-body text-[14px] sm:text-[15px] text-obsidian/85 font-medium">${p.price}</span>
+                <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-obsidian/60 group-hover:text-obsidian transition-colors">
+                  Explore Creation &rarr;
                 </span>
               </div>
             </div>

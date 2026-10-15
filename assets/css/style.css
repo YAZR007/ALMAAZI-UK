@@ -17,11 +17,14 @@
 
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
   scroll-behavior: smooth;
   background-color: #fafaf7;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -30,6 +33,8 @@ body {
   font-family: var(--font-body);
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  max-width: 100vw;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -63,19 +68,31 @@ body {
   border-color: rgba(20, 20, 20, 0.1);
 }
 
-/* Squircle & Glass Utilities */
+/* Squircle & Glass Utilities (fluid on mobile) */
 .squircle {
-  border-radius: 2.25rem;
+  border-radius: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .squircle {
+    border-radius: 2.25rem;
+  }
 }
 
 .squircle-sm {
-  border-radius: 1.25rem;
+  border-radius: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .squircle-sm {
+    border-radius: 1.25rem;
+  }
 }
 
 .glass {
   -webkit-backdrop-filter: blur(24px) saturate(140%);
   backdrop-filter: blur(24px) saturate(140%);
-  background: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.72);
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.12);
 }
@@ -83,7 +100,7 @@ body {
 .glass-soft {
   -webkit-backdrop-filter: blur(16px) saturate(130%);
   backdrop-filter: blur(16px) saturate(130%);
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -109,6 +126,11 @@ body {
 
 .drawer-panel {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Safe area insets for mobile devices */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
 }
 
 /* ==========================================================================

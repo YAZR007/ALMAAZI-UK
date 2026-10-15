@@ -281,23 +281,23 @@ function renderCollections() {
     const indexNum = String(idx + 1).padStart(2, "0");
 
     return `
-      <section id="${cat.id}" class="scroll-mt-28 px-4 sm:px-6 lg:px-10 py-16 sm:py-24">
+      <section id="${cat.id}" class="scroll-mt-24 px-3 sm:px-6 lg:px-10 py-8 sm:py-16 lg:py-20">
         
-        <!-- Category Banner (Squircle) -->
-        <div class="relative squircle overflow-hidden mb-10 sm:mb-14">
-          <div class="aspect-[16/8] sm:aspect-[16/6] w-full">
+        <!-- Category Banner (Squircle, Mobile Optimized) -->
+        <div class="relative squircle overflow-hidden mb-6 sm:mb-12">
+          <div class="min-h-[220px] sm:min-h-0 aspect-[4/3] sm:aspect-[16/6] w-full">
             <img src="${cat.banner}" alt="${cat.label}" class="h-full w-full object-cover">
           </div>
-          <div class="absolute inset-0 bg-gradient-to-r from-alabaster/70 via-alabaster/10 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-alabaster/90 via-alabaster/40 to-transparent sm:from-alabaster/70 sm:via-alabaster/10"></div>
           <div class="absolute inset-0 flex items-center">
-            <div class="px-7 sm:px-12 lg:px-16 max-w-xl">
-              <span class="block text-[12px] uppercase tracking-[0.3em] text-obsidian/50 mb-3">
+            <div class="px-5 py-6 sm:px-12 lg:px-16 max-w-xl">
+              <span class="block text-[10px] sm:text-[12px] uppercase tracking-[0.25em] text-obsidian/50 mb-1 sm:mb-3 font-mono">
                 ${indexNum} — Collection
               </span>
-              <h2 class="font-heading text-5xl sm:text-6xl lg:text-7xl leading-[0.95] text-obsidian">
+              <h2 class="font-heading text-3xl sm:text-5xl lg:text-7xl leading-[1.05] text-obsidian">
                 ${cat.label}
               </h2>
-              <p class="mt-4 max-w-sm text-[15px] text-obsidian/65 leading-relaxed">
+              <p class="mt-2 sm:mt-4 max-w-xs sm:max-w-sm text-[13px] sm:text-[15px] text-obsidian/70 leading-relaxed font-light">
                 ${cat.blurb}
               </p>
             </div>
@@ -305,9 +305,9 @@ function renderCollections() {
         </div>
 
         <!-- 3 Product Cards Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           ${items.map(p => `
-            <a href="product.html?id=${p.id}" class="group squircle bg-alabaster border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-lg">
+            <a href="product.html?id=${p.id}" class="group squircle bg-alabaster border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-lg active:scale-[0.99]">
               
               <div class="relative aspect-square overflow-hidden bg-obsidian/5">
                 <img 
@@ -318,17 +318,17 @@ function renderCollections() {
                 <div class="absolute inset-0 bg-gradient-to-t from-obsidian/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
 
-              <div class="p-5 sm:p-6 flex flex-col gap-1">
-                <h3 class="font-heading text-xl sm:text-[1.35rem] leading-tight text-obsidian">
+              <div class="p-4 sm:p-6 flex flex-col gap-1">
+                <h3 class="font-heading text-lg sm:text-[1.35rem] leading-tight text-obsidian">
                   ${p.name}
                 </h3>
-                <p class="text-[12px] uppercase tracking-[0.12em] text-obsidian/45">
+                <p class="text-[11px] sm:text-[12px] uppercase tracking-[0.12em] text-obsidian/45">
                   ${p.material}
                 </p>
-                <div class="mt-3 flex items-center justify-between">
-                  <span class="font-body text-[15px] text-obsidian/80">${p.price}</span>
-                  <span class="text-[11px] uppercase tracking-[0.16em] text-obsidian/50 group-hover:text-obsidian transition-colors">
-                    View Creation &rarr;
+                <div class="mt-2.5 sm:mt-3 flex items-center justify-between">
+                  <span class="font-body text-[14px] sm:text-[15px] text-obsidian/85 font-medium">${p.price}</span>
+                  <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-obsidian/60 group-hover:text-obsidian transition-colors">
+                    Explore Creation &rarr;
                   </span>
                 </div>
               </div>
@@ -346,10 +346,16 @@ function renderCollections() {
 function toggleMobileMenu(open) {
   const menu = document.getElementById("mobile-menu-drawer");
   if (!menu) return;
+  const backdrop = menu.querySelector(".mobile-drawer-backdrop");
+  const panel = menu.querySelector(".mobile-drawer-panel");
   if (open) {
-    menu.classList.remove("hidden");
+    menu.classList.remove("pointer-events-none");
+    backdrop?.classList.remove("opacity-0");
+    panel?.classList.remove("translate-x-full");
   } else {
-    menu.classList.add("hidden");
+    backdrop?.classList.add("opacity-0");
+    panel?.classList.add("translate-x-full");
+    setTimeout(() => menu.classList.add("pointer-events-none"), 300);
   }
 }
 
