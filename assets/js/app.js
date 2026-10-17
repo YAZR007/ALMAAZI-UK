@@ -283,16 +283,16 @@ function renderCollections() {
     return `
       <section id="${cat.id}" class="scroll-mt-24 px-3 sm:px-6 lg:px-10 py-8 sm:py-16 lg:py-20">
         
-        <!-- Category Banner (Squircle, Mobile Optimized) -->
-        <div class="relative squircle overflow-hidden mb-6 sm:mb-12">
-          <div class="min-h-[220px] sm:min-h-0 aspect-[4/3] sm:aspect-[16/6] w-full">
-            <img src="${cat.banner}" alt="${cat.label}" class="h-full w-full object-cover">
+        <!-- Category Banner (Squircle, Mobile Optimized & Clickable) -->
+        <a href="collection.html?category=${cat.id}" class="block group relative squircle overflow-hidden mb-6 sm:mb-12 cursor-pointer transition-transform duration-300 active:scale-[0.995]" title="View all ${cat.label}">
+          <div class="min-h-[200px] sm:min-h-0 aspect-[4/3] sm:aspect-[16/6] w-full">
+            <img src="${cat.banner}" alt="${cat.label}" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]">
           </div>
-          <div class="absolute inset-0 bg-gradient-to-r from-alabaster/90 via-alabaster/40 to-transparent sm:from-alabaster/70 sm:via-alabaster/10"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-alabaster/95 via-alabaster/60 to-transparent sm:from-alabaster/80 sm:via-alabaster/20"></div>
           <div class="absolute inset-0 flex items-center">
             <div class="px-5 py-6 sm:px-12 lg:px-16 max-w-xl">
               <span class="block text-[10px] sm:text-[12px] uppercase tracking-[0.25em] text-obsidian/50 mb-1 sm:mb-3 font-mono">
-                ${indexNum} — Collection
+                ${indexNum} — Dedicated Collection
               </span>
               <h2 class="font-heading text-3xl sm:text-5xl lg:text-7xl leading-[1.05] text-obsidian">
                 ${cat.label}
@@ -300,9 +300,13 @@ function renderCollections() {
               <p class="mt-2 sm:mt-4 max-w-xs sm:max-w-sm text-[13px] sm:text-[15px] text-obsidian/70 leading-relaxed font-light">
                 ${cat.blurb}
               </p>
+              <div class="mt-3.5 sm:mt-6 inline-flex items-center gap-2 text-[11px] sm:text-[12px] uppercase tracking-[0.2em] font-medium text-obsidian group-hover:translate-x-1.5 transition-transform duration-300">
+                <span>View Full ${cat.label} Range</span>
+                <span>&rarr;</span>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
 
         <!-- 3 Product Cards Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

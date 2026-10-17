@@ -11,6 +11,8 @@ const DETAILS = {
     cut: "Round Brilliant Cut",
     carat: "0.50 ct • Color F • Clarity VS1",
     hallmark: "Au750 (18k Solid Gold)",
+    optionType: "Ring Size",
+    hasSizeGuide: true,
     sizes: ["US 5", "US 6", "US 7", "US 8"],
     specs: [
       { label: "Material",    value: "18k Solid Yellow Gold (Au750)" },
@@ -28,6 +30,8 @@ const DETAILS = {
     cut: "Full Pavé Micro-Brilliant",
     carat: "0.85 ct Total Weight",
     hallmark: "Au750 (18k Solid Gold)",
+    optionType: "Ring Size",
+    hasSizeGuide: true,
     sizes: ["US 5", "US 6", "US 7", "US 8"],
     specs: [
       { label: "Material",    value: "18k Solid Yellow Gold" },
@@ -45,6 +49,8 @@ const DETAILS = {
     cut: "Cushion Centre with Halo",
     carat: "1.10 ct Total Weight",
     hallmark: "Au750 (18k Solid Gold)",
+    optionType: "Ring Size",
+    hasSizeGuide: true,
     sizes: ["US 5", "US 6", "US 7", "US 8"],
     specs: [
       { label: "Material",    value: "18k Solid Gold (Multi-tone)" },
@@ -64,7 +70,9 @@ const DETAILS = {
     cut: "Continuous Brilliant Line",
     carat: "1.20 ct Total Weight",
     hallmark: "Au750 (18k Solid Gold)",
-    sizes: ["16 cm (Petite)", "17 cm (Standard)", "18 cm (Relaxed)"],
+    optionType: "Wrist Length",
+    hasSizeGuide: false,
+    sizes: ["16 cm (Petite)", "17.5 cm (Standard)", "19 cm (Relaxed)"],
     specs: [
       { label: "Material",    value: "18k Solid Yellow Gold" },
       { label: "Diamonds",    value: "54 Matched Round Brilliants" },
@@ -81,7 +89,9 @@ const DETAILS = {
     cut: "Hand-Linked Solid Gold",
     carat: "Solid Gold • No Stones",
     hallmark: "Au750 (18k Solid Gold)",
-    sizes: ["16 cm", "17.5 cm", "19 cm"],
+    optionType: "Wrist Length",
+    hasSizeGuide: false,
+    sizes: ["16 cm (Petite)", "17.5 cm (Standard)", "19 cm (Relaxed)"],
     specs: [
       { label: "Material",    value: "18k Solid Yellow Gold" },
       { label: "Chain Link",  value: "Custom Elongated Oval Rolo" },
@@ -98,6 +108,8 @@ const DETAILS = {
     cut: "Fine Wire Filigree",
     carat: "High Karat Solid Gold",
     hallmark: "Au875 (21k Solid Gold)",
+    optionType: "Bangle Size",
+    hasSizeGuide: false,
     sizes: ["Small (56mm)", "Medium (60mm)", "Large (64mm)"],
     specs: [
       { label: "Material",    value: "21k High-Karat Solid Gold" },
@@ -117,7 +129,9 @@ const DETAILS = {
     cut: "Geometric Diamond Stars",
     carat: "0.45 ct Total Weight",
     hallmark: "Au750 (18k Solid Gold)",
-    sizes: ["Standard Drop (35mm)"],
+    optionType: "Backing & Fit",
+    hasSizeGuide: false,
+    sizes: ["18k Push-Back", "La Poussette Lock (+£80)"],
     specs: [
       { label: "Material",    value: "18k Solid Yellow Gold" },
       { label: "Stones",      value: "Pavé Diamonds in Star Collets" },
@@ -134,7 +148,9 @@ const DETAILS = {
     cut: "Selected Japanese Akoya",
     carat: "Grade AAA Natural Pearls",
     hallmark: "Au750 (18k Solid Gold)",
-    sizes: ["7.0 - 7.5mm Diameter"],
+    optionType: "Backing & Fit",
+    hasSizeGuide: false,
+    sizes: ["18k Push-Back", "La Poussette Lock (+£80)"],
     specs: [
       { label: "Material",    value: "18k Solid Gold Posts & Cups" },
       { label: "Pearls",      value: "Authentic Akoya Cultured Pearls (7mm)" },
@@ -151,7 +167,9 @@ const DETAILS = {
     cut: "Graduated Interlocking",
     carat: "Solid Gold Sculpture",
     hallmark: "Au750 (18k Solid Gold)",
-    sizes: ["Diameter 24mm"],
+    optionType: "Closure Style",
+    hasSizeGuide: false,
+    sizes: ["18k Click-Hinge", "Comfort Omega Clip"],
     specs: [
       { label: "Material",    value: "18k Solid Yellow Gold" },
       { label: "Structure",   value: "Triple Linked Cascading Rings" },
@@ -170,7 +188,9 @@ const DETAILS = {
     cut: "Brilliant Diamond Solitaire",
     carat: "0.30 ct Solitaire Diamond",
     hallmark: "Au750 (18k Solid Gold)",
-    sizes: ["40cm + 5cm Extender"],
+    optionType: "Chain Length",
+    hasSizeGuide: false,
+    sizes: ["40 cm (16 in)", "45 cm (18 in)", "50 cm (20 in)"],
     specs: [
       { label: "Material",    value: "18k Solid Yellow Gold" },
       { label: "Centre Diamond", value: "0.30ct Natural Round Brilliant" },
@@ -187,7 +207,9 @@ const DETAILS = {
     cut: "Triple Graduated Chains",
     carat: "Solid Gold Multi-Strand",
     hallmark: "Au750 (18k Solid Gold)",
-    sizes: ["38cm / 42cm / 46cm Multi-Tier"],
+    optionType: "Tier Length",
+    hasSizeGuide: false,
+    sizes: ["Standard Tier (38–46cm)", "Extended Tier (42–50cm)"],
     specs: [
       { label: "Material",    value: "18k Solid Yellow Gold" },
       { label: "Chains",      value: "Micro-Box, Cable & Satellite Strands" },
@@ -204,7 +226,9 @@ const DETAILS = {
     cut: "Sculpted Solid Gold Heart",
     carat: "Solid 18k Heart Pendant",
     hallmark: "Au750 (18k Solid Gold)",
-    sizes: ["42cm + 3cm Extender"],
+    optionType: "Chain Length",
+    hasSizeGuide: false,
+    sizes: ["40 cm (16 in)", "45 cm (18 in)", "50 cm (20 in)"],
     specs: [
       { label: "Material",    value: "18k Solid Yellow Gold" },
       { label: "Pendant Size", value: "11mm x 12mm Solid Cast Form" },
@@ -422,14 +446,14 @@ function renderProduct(product) {
         <nav class="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-obsidian/45">
           <a href="index.html" class="hover:text-obsidian transition-colors">Maison</a>
           <span class="opacity-30">/</span>
-          <a href="index.html#${product.category}" class="hover:text-obsidian transition-colors">${category ? category.label : "Collection"}</a>
+          <a href="collection.html?category=${product.category}" class="hover:text-obsidian transition-colors">${category ? category.label : "Collection"}</a>
           <span class="opacity-30">/</span>
           <span class="text-obsidian/80 font-medium truncate max-w-[140px] sm:max-w-none">${product.name}</span>
         </nav>
 
-        <a href="index.html#${product.category}" class="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-obsidian/50 hover:text-obsidian transition-colors">
+        <a href="collection.html?category=${product.category}" class="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-obsidian/50 hover:text-obsidian transition-colors">
           <svg class="h-3 w-3 sm:h-3.5 sm:w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
-          <span>Back to Collection</span>
+          <span>Back to ${category ? category.label : "Collection"}</span>
         </a>
       </div>
 
@@ -582,22 +606,25 @@ function renderProduct(product) {
             </div>
           </div>
 
-          <!-- Size Selector (If applicable) -->
+          <!-- Tailored Category Options Selector -->
           ${sizes.length > 0 ? `
           <div class="mb-6 sm:mb-8">
             <div class="flex items-center justify-between text-[10px] sm:text-[11px] uppercase tracking-[0.18em] mb-2.5">
-              <span class="text-obsidian/50">Select Size:</span>
+              <span class="text-obsidian/50">${extra.optionType || "Select Option"}:</span>
+              ${extra.hasSizeGuide ? `
               <button onclick="toggleSizeGuide(true)" class="text-obsidian/60 hover:text-obsidian underline underline-offset-4 cursor-pointer">
-                Size Guide
-              </button>
+                Ring Size Guide
+              </button>` : `
+              <span id="selected-size-label" class="font-mono text-[11px] text-obsidian font-medium">${selectedSize}</span>
+              `}
             </div>
             <div class="flex flex-wrap gap-2">
-              ${sizes.map((s, idx) => `
+              ${sizes.map((s) => `
                 <button 
                   type="button" 
                   onclick="selectSize('${s}')" 
                   data-size="${s}" 
-                  class="size-pill-btn px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-[12px] border ${idx === 1 ? 'bg-obsidian text-alabaster border-obsidian' : 'text-obsidian/70 border-obsidian/15 hover:border-obsidian/40'} transition-all cursor-pointer"
+                  class="size-pill-btn px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-[12px] border ${s === selectedSize ? 'bg-obsidian text-alabaster border-obsidian' : 'text-obsidian/70 border-obsidian/15 hover:border-obsidian/40'} transition-all cursor-pointer"
                 >
                   ${s}
                 </button>
