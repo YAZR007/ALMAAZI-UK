@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALMAAZI — Collection</title>
+  <meta name="description" content="ALMAAZI — Handcrafted luxury jewellery collection." />
+
+  <link rel="icon" type="image/png" href="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" />
+
+  <!-- Google Fonts: Cormorant Garamond & Inter Tight -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            alabaster: '#fafaf7',
+            obsidian: '#141414'
+          },
+          fontFamily: {
+            heading: ['"Cormorant Garamond"', 'ui-serif', 'Georgia', 'serif'],
+            body: ['"Inter Tight"', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css?v=5.0" />
+</head>
+<body class="min-h-screen bg-alabaster font-body text-obsidian antialiased selection:bg-obsidian/10">
+
+  <!-- FLOATING MATTE GLASS TRANSLUCENT NAVBAR -->
+  <div class="fixed top-0 inset-x-0 z-50 px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4 pointer-events-none">
+    <nav class="pointer-events-auto glass squircle flex items-center justify-between pl-4 sm:pl-5 pr-2 sm:pr-4 py-2 sm:py-3 transition-all duration-300">
+
+      <!-- Brand Logo Link to Home -->
+      <a href="index.html" class="flex items-center shrink-0 cursor-pointer" title="Return to ALMAAZI Maison">
+        <img
+          src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png"
+          alt="ALMAAZI"
+          class="h-7 sm:h-9 w-auto hover:opacity-80 transition-opacity"
+          style="filter: invert(1); mix-blend-mode: multiply;"
+          draggable="false"
+        />
+      </a>
+
+      <!-- Category Nav Links -->
+      <div class="hidden md:flex items-center gap-1">
+        <a href="collection.html?category=rings" data-cat="rings" class="cat-nav-link relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+          Rings
+          <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
+        </a>
+        <a href="collection.html?category=bracelets" data-cat="bracelets" class="cat-nav-link relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+          Bracelets
+          <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
+        </a>
+        <a href="collection.html?category=earrings" data-cat="earrings" class="cat-nav-link relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+          Earrings
+          <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
+        </a>
+        <a href="collection.html?category=necklaces" data-cat="necklaces" class="cat-nav-link relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+          Necklaces
+          <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
+        </a>
+      </div>
+
+      <!-- Right Utility Actions -->
+      <div class="flex items-center gap-0.5 sm:gap-1">
+        <button onclick="openCartDrawer()" aria-label="Shopping bag" class="relative grid place-items-center h-10 w-10 sm:h-11 sm:w-11 rounded-full hover:bg-obsidian/10 transition-colors">
+          <svg class="h-[18px] w-[18px] text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+            <path d="M3 6h18" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span id="cart-count-badge" class="absolute top-0.5 right-0.5 grid place-items-center min-w-[18px] h-[18px] px-1 rounded-full bg-obsidian text-alabaster text-[10px] font-medium leading-none hidden">0</span>
+        </button>
+
+        <button onclick="toggleMobileMenu(true)" aria-label="Open menu" class="md:hidden grid place-items-center h-10 w-10 sm:h-11 sm:w-11 rounded-full hover:bg-obsidian/10 transition-colors">
+          <svg class="h-5 w-5 text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+    </nav>
+  </div>
+
+  <!-- MAIN DEDICATED COLLECTION CONTAINER -->
+  <main class="pt-24 sm:pt-32 px-3 sm:px-6 lg:px-10 pb-20">
+    <div id="collection-root" class="max-w-7xl mx-auto">
+      <!-- Dynamically rendered by collection.js -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="px-3 sm:px-6 lg:px-10 pb-8 pt-4">
+    <div class="glass squircle p-6 sm:p-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10">
+
+        <div class="md:col-span-5">
+          <img
+            src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png"
+            alt="ALMAAZI"
+            class="h-9 sm:h-10 w-auto mb-5"
+            style="filter: invert(1); mix-blend-mode: multiply;"
+            draggable="false"
+          />
+          <p class="font-heading text-2xl sm:text-3xl leading-snug text-obsidian max-w-sm">
+            Handcrafted luxury jewellery, made to be worn for a lifetime.
+          </p>
+        </div>
+
+        <div class="md:col-span-7 flex flex-wrap gap-10 sm:gap-16 md:justify-end">
+          <div>
+            <span class="block text-[11px] uppercase tracking-[0.2em] text-obsidian/45 mb-4 font-mono">
+              Collections
+            </span>
+            <ul class="space-y-2.5 text-[14px] text-obsidian/75">
+              <li><a href="collection.html?category=rings" class="hover:text-obsidian transition-colors">Rings</a></li>
+              <li><a href="collection.html?category=bracelets" class="hover:text-obsidian transition-colors">Bracelets</a></li>
+              <li><a href="collection.html?category=earrings" class="hover:text-obsidian transition-colors">Earrings</a></li>
+              <li><a href="collection.html?category=necklaces" class="hover:text-obsidian transition-colors">Necklaces</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <span class="block text-[11px] uppercase tracking-[0.2em] text-obsidian/45 mb-4 font-mono">
+              The Maison
+            </span>
+            <ul class="space-y-2.5 text-[14px] text-obsidian/75">
+              <li><a href="index.html" class="hover:text-obsidian transition-colors">Craftsmanship</a></li>
+              <li><a href="index.html" class="hover:text-obsidian transition-colors">Ethical Sourcing</a></li>
+              <li><a href="index.html" class="hover:text-obsidian transition-colors">Bespoke Inquiries</a></li>
+              <li><a href="index.html" class="hover:text-obsidian transition-colors">Care &amp; Warranty</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-obsidian/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-[12px] text-obsidian/45">
+          &copy; 2026 Almaazi — All rights reserved
+        </p>
+        <p class="text-[12px] uppercase tracking-[0.14em] text-obsidian/45 font-mono">
+          Handcrafted with quiet care
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SHOPPING BAG DRAWER -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none">
+    <div onclick="closeCartDrawer()" class="drawer-backdrop absolute inset-0 bg-obsidian/30 backdrop-blur-sm opacity-0 cursor-pointer"></div>
+    <div class="drawer-panel absolute top-0 right-0 w-full max-w-md h-full bg-alabaster border-l border-obsidian/10 p-5 sm:p-8 flex flex-col justify-between translate-x-full">
+      <div>
+        <div class="flex items-center justify-between pb-5 border-b border-obsidian/10">
+          <h2 class="font-heading text-2xl text-obsidian">Your Bag</h2>
+          <button onclick="closeCartDrawer()" aria-label="Close bag" class="h-10 w-10 grid place-items-center rounded-full hover:bg-obsidian/10 text-obsidian/50 hover:text-obsidian">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <div id="cart-items-container" class="space-y-3 overflow-y-auto max-h-[60vh] mt-4"></div>
+      </div>
+
+      <div class="pt-6 border-t border-obsidian/10 space-y-4 pb-safe">
+        <div class="flex items-baseline justify-between">
+          <span class="font-heading text-xl text-obsidian">Total</span>
+          <span id="cart-subtotal" class="font-heading text-2xl text-obsidian">$0</span>
+        </div>
+        <p class="text-[12px] text-obsidian/50">
+          Complimentary insured courier included.
+        </p>
+        <button id="cart-checkout-btn" onclick="alert('Proceeding to checkout...');" class="w-full bg-obsidian text-alabaster squircle py-4 text-[12px] uppercase tracking-[0.2em] hover:bg-obsidian/90 transition-colors disabled:opacity-50">
+          Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-50 pointer-events-none transition-all duration-300">
+    <div onclick="toggleMobileMenu(false)" class="mobile-drawer-backdrop absolute inset-0 bg-obsidian/40 backdrop-blur-sm opacity-0 transition-opacity duration-300 cursor-pointer"></div>
+    <div class="mobile-drawer-panel absolute right-0 top-0 h-full w-[85%] max-w-xs bg-alabaster/95 backdrop-blur-2xl border-l border-obsidian/10 p-6 sm:p-8 flex flex-col justify-between translate-x-full transition-transform duration-300 ease-out shadow-2xl">
+      <div class="space-y-6">
+        <div class="flex justify-between items-center pb-5 border-b border-obsidian/10">
+          <img 
+            src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" 
+            alt="ALMAAZI" 
+            class="h-7 w-auto" 
+            style="filter: invert(1); mix-blend-mode: multiply;" 
+          />
+          <button onclick="toggleMobileMenu(false)" aria-label="Close menu" class="h-10 w-10 grid place-items-center rounded-full hover:bg-obsidian/10 text-obsidian/60 hover:text-obsidian">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <nav class="space-y-2 pt-2">
+          <a href="collection.html?category=rings" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Rings</a>
+          <a href="collection.html?category=bracelets" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Bracelets</a>
+          <a href="collection.html?category=earrings" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Earrings</a>
+          <a href="collection.html?category=necklaces" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Necklaces</a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-obsidian/10 text-xs text-obsidian/45 pb-safe font-mono">
+        Handcrafted luxury jewellery.
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js?v=5.0"></script>
+  <script src="assets/js/collection.js?v=5.0"></script>
+</body>
+</html>
