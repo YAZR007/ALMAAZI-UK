@@ -1,32 +1,6 @@
 # ALMAAZI Haute Joaillerie
 
-> **Timeless Brilliance, Handcrafted for Eternity.**  
-> Named after the Arabic **ألماسي** *(My Diamond)*, Almaazi curates the world’s rarest D-Flawless diamonds and vivid gemstones into sculptural haute joaillerie masterpieces.
 
----
-
-## ✨ Features & Architecture
-
-- **Interactive Diamond Sparkle Canvas**: Responsive particle canvas with light refraction that reacts to mouse movement and cursor gravity.
-- **The Bespoke Atelier (Interactive 3D Studio)**:
-  - 3D drag-to-rotate inspection stage.
-  - Interactive rare gemstone selector (D-Flawless Diamond, Royal Ceylon Sapphire, Muzo Colombian Emerald, Argyle Pink Diamond).
-  - Precious metal alloys (Platinum 950, 18K Royal Yellow Gold, 18K Rose Gold).
-  - Dynamic Carat weight slider with real-time price re-calculation and GIA certificate updates.
-- **High Jewellery Showcase & Filtering**:
-  - Filterable collections (All, Rings, Necklaces, Earrings, Rivière Bracelets).
-  - Quick-view modals with full gemological specifications (Color, Clarity, Cut, Polish, Symmetry).
-  - Persistent Wishlist (localStorage) and Slide-Over Private Acquisition Bag.
-- **Interactive Diamond Carat & Ring Sizer Suite**:
-  - Visual carat diameter guide (0.50 ct to 5.00 ct with millimeter scale).
-  - Virtual Ring Sizing calibration circle (US, UK, EU, UAE sizes).
-- **Multi-Currency Live Switcher**: Instant price conversion between USD ($), AED (د.إ), EUR (€), and GBP (£).
-- **VIP Private Salon Concierge**: Interactive appointment booking for flagship salons in Dubai (Downtown), Paris (Place Vendôme), London (Bond Street), and New York (Madison Ave).
-- **Acoustic Ambiance**: Subtle Web Audio API synthesized crystal chime on interactions.
-
----
-
-## 💎 Project Structure
 
 ```
 almaazi/
