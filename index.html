@@ -33,116 +33,40 @@
   </script>
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css?v=3.0" />
+  <link rel="stylesheet" href="assets/css/style.css?v=4.0" />
 </head>
 <body id="top" class="min-h-screen bg-alabaster font-body text-obsidian antialiased selection:bg-obsidian/10">
 
   <!-- ==========================================
-       CUSHION-CUT DIAMOND DRAWN & UNDRAWN LOADER
+       ALMAAZI WRITTEN & UNWRITTEN LOADING ANIMATION
        ========================================== -->
-  <div id="diamond-preloader" class="fixed inset-0 z-[100] bg-alabaster flex flex-col items-center justify-center p-6 select-none fade-out" style="display: none;">
+  <div id="diamond-preloader" class="fixed inset-0 z-[100] bg-alabaster flex flex-col items-center justify-center p-6 select-none">
     
-    <div class="flex flex-col items-center max-w-sm text-center">
+    <div class="flex flex-col items-center w-full max-w-lg text-center px-4">
       
-      <!-- Exact Cushion-Cut Diamond SVG from Logo -->
-      <div class="relative w-28 h-28 sm:w-36 sm:h-36 mb-6">
-        <svg viewBox="0 0 114 114" class="w-full h-full diamond-loader-svg" xmlns="http://www.w3.org/2000/svg">
-          <!-- 1. Outer Cushion Octagon -->
-          <path 
-            class="diamond-facet-stroke facet-outer" 
-            pathLength="100" 
-            d="M 27,9 L 86,9 L 106,30 L 106,84 L 86,106 L 27,106 L 7,84 L 7,30 Z" 
-          />
-
-          <!-- 2. Girdle Grid Boundaries -->
-          <line class="diamond-facet-stroke facet-grid" pathLength="100" x1="27" y1="9" x2="27" y2="106" />
-          <line class="diamond-facet-stroke facet-grid" pathLength="100" x1="86" y1="9" x2="86" y2="106" />
-          <line class="diamond-facet-stroke facet-grid" pathLength="100" x1="7" y1="31" x2="106" y2="31" />
-          <line class="diamond-facet-stroke facet-grid" pathLength="100" x1="7" y1="84" x2="106" y2="84" />
-
-          <!-- 3. Center Open Table (Diamond) -->
-          <path 
-            class="diamond-facet-stroke facet-table" 
-            pathLength="100" 
-            d="M 56.5,31 L 86,57.5 L 56.5,84 L 27,57.5 Z" 
-          />
-
-          <!-- 4. Top Trapezoid Facets -->
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="42" y1="20" x2="71" y2="20" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="27" y1="9" x2="42" y2="20" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="86" y1="9" x2="71" y2="20" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="42" y1="20" x2="56.5" y2="31" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="71" y1="20" x2="56.5" y2="31" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="27" y1="31" x2="42" y2="20" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="86" y1="31" x2="71" y2="20" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="56.5" y1="9" x2="49" y2="14.5" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="56.5" y1="9" x2="64" y2="14.5" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="49" y1="14.5" x2="56.5" y2="20" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="64" y1="14.5" x2="56.5" y2="20" />
-
-          <!-- 5. Bottom Trapezoid Facets -->
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="42" y1="95" x2="71" y2="95" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="27" y1="106" x2="42" y2="95" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="86" y1="106" x2="71" y2="95" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="42" y1="95" x2="56.5" y2="84" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="71" y1="95" x2="56.5" y2="84" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="27" y1="84" x2="42" y2="95" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="86" y1="84" x2="71" y2="95" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="56.5" y1="106" x2="49" y2="100.5" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="56.5" y1="106" x2="64" y2="100.5" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="49" y1="100.5" x2="56.5" y2="95" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="64" y1="100.5" x2="56.5" y2="95" />
-
-          <!-- 6. Left Trapezoid Facets -->
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="17" y1="44" x2="17" y2="71" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="7" y1="30" x2="17" y2="44" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="7" y1="84" x2="17" y2="71" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="17" y1="44" x2="27" y2="57.5" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="17" y1="71" x2="27" y2="57.5" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="27" y1="31" x2="17" y2="44" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="27" y1="84" x2="17" y2="71" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="7" y1="57.5" x2="12" y2="50" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="7" y1="57.5" x2="12" y2="65" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="12" y1="50" x2="17" y2="57.5" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="12" y1="65" x2="17" y2="57.5" />
-
-          <!-- 7. Right Trapezoid Facets -->
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="96" y1="44" x2="96" y2="71" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="106" y1="30" x2="96" y2="44" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="106" y1="84" x2="96" y2="71" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="96" y1="44" x2="86" y2="57.5" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="96" y1="71" x2="86" y2="57.5" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="86" y1="31" x2="96" y2="44" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="86" y1="84" x2="96" y2="71" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="106" y1="57.5" x2="101" y2="50" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="106" y1="57.5" x2="101" y2="65" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="101" y1="50" x2="96" y2="57.5" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="101" y1="65" x2="96" y2="57.5" />
-
-          <!-- 8. Corner Chamfer Facets -->
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="27" y1="31" x2="17" y2="20" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="17" y1="20" x2="7" y2="30" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="17" y1="20" x2="27" y2="9" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="86" y1="31" x2="96" y2="20" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="96" y1="20" x2="106" y2="30" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="96" y1="20" x2="86" y2="9" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="86" y1="84" x2="96" y2="95" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="96" y1="95" x2="106" y2="84" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="96" y1="95" x2="86" y2="106" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="27" y1="84" x2="17" y2="95" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="17" y1="95" x2="7" y2="84" />
-          <line class="diamond-facet-stroke facet-stars" pathLength="100" x1="17" y1="95" x2="27" y2="106" />
+      <!-- ALMAAZI Being Written and Unwritten SVG -->
+      <div class="relative w-full flex items-center justify-center">
+        <svg viewBox="0 6 470 66" class="almaazi-write-svg w-full max-w-sm sm:max-w-md md:max-w-lg h-auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Letter 0: A -->
+          <path class="almaazi-letter letter-0" pathLength="1000" d="M 38.5,48.5 L 24.3,48.5 L 19.8,60.7 L 28.0,60.7 L 28.0,62.4 L 11.9,62.4 L 11.9,60.7 L 18.0,60.7 L 34.3,16.8 L 35.3,16.8 L 50.9,60.7 L 56.8,60.7 L 56.8,62.4 L 35.6,62.4 L 35.6,60.7 L 42.8,60.7 Z M 25.0,46.8 L 37.9,46.8 L 31.6,29.0 L 31.5,29.0 Z" />
+          <!-- Letter 1: L -->
+          <path class="almaazi-letter letter-1" pathLength="1000" d="M 101.2,19.5 L 101.2,60.7 L 111.2,60.7 C 113.1,60.7 114.6,60.5 115.7,60.2 C 116.8,59.9 117.9,59.2 119.0,58.1 C 120.1,57.0 120.9,55.7 121.5,54.2 C 122.1,52.7 122.7,50.5 123.4,47.8 L 124.9,47.8 L 123.7,62.4 L 86.3,62.4 L 86.3,60.7 L 93.3,60.7 L 93.3,19.5 L 86.3,19.5 L 86.3,17.8 L 108.6,17.8 L 108.6,19.5 Z" />
+          <!-- Letter 2: M -->
+          <path class="almaazi-letter letter-2" pathLength="1000" d="M 152.6,17.8 L 168.6,17.8 L 178.1,49.3 L 178.2,49.3 L 187.8,17.8 L 203.4,17.8 L 203.4,19.5 L 196.8,19.5 L 196.8,60.7 L 203.4,60.7 L 203.4,62.4 L 182.4,62.4 L 182.4,60.7 L 189.3,60.7 L 189.3,18.8 L 189.1,18.8 L 175.9,62.4 L 174.3,62.4 L 161.1,18.8 L 161.0,18.8 L 161.0,60.7 L 167.8,60.7 L 167.8,62.4 L 152.6,62.4 L 152.6,60.7 L 159.3,60.7 L 159.3,19.5 L 152.6,19.5 Z" />
+          <!-- Letter 3: A -->
+          <path class="almaazi-letter letter-3" pathLength="1000" d="M 256.9,48.5 L 242.8,48.5 L 238.2,60.7 L 246.4,60.7 L 246.4,62.4 L 230.3,62.4 L 230.3,60.7 L 236.4,60.7 L 252.7,16.8 L 253.7,16.8 L 269.3,60.7 L 275.3,60.7 L 275.3,62.4 L 254.0,62.4 L 254.0,60.7 L 261.2,60.7 Z M 243.4,46.8 L 256.3,46.8 L 250.0,29.0 L 249.9,29.0 Z" />
+          <!-- Letter 4: A -->
+          <path class="almaazi-letter letter-4" pathLength="1000" d="M 329.9,48.5 L 315.7,48.5 L 311.2,60.7 L 319.4,60.7 L 319.4,62.4 L 303.3,62.4 L 303.3,60.7 L 309.4,60.7 L 325.6,16.8 L 326.7,16.8 L 342.2,60.7 L 348.2,60.7 L 348.2,62.4 L 327.0,62.4 L 327.0,60.7 L 334.2,60.7 Z M 316.3,46.8 L 329.3,46.8 L 323.0,29.0 L 322.8,29.0 Z" />
+          <!-- Letter 5: Z -->
+          <path class="almaazi-letter letter-5" pathLength="1000" d="M 410.8,62.4 L 376.6,62.4 L 376.6,60.7 L 402.2,19.5 L 391.7,19.5 C 387.9,19.5 385.2,20.3 383.7,21.9 C 382.2,23.4 381.1,26.1 380.4,29.8 L 378.9,29.8 L 379.6,17.8 L 411.5,17.8 L 411.5,19.0 L 385.5,60.7 L 396.4,60.7 C 399.6,60.7 401.9,60.4 403.5,59.7 C 405.0,59.1 406.4,57.6 407.6,55.2 C 408.8,52.8 409.6,50.3 409.9,47.7 L 411.5,47.7 Z" />
+          <!-- Letter 6: I -->
+          <path class="almaazi-letter letter-6" pathLength="1000" d="M 447.7,60.7 L 447.7,19.5 L 440.4,19.5 L 440.4,17.8 L 462.9,17.8 L 462.9,19.5 L 455.6,19.5 L 455.6,60.7 L 462.9,60.7 L 462.9,62.4 L 440.4,62.4 L 440.4,60.7 Z" />
         </svg>
       </div>
 
-      <!-- EXACT Outlined Typography ALMAAZI from Logo PNG -->
-      <div class="px-2 mb-2 flex items-center justify-center">
-        <img 
-          src="assets/images/logo_text.png" 
-          alt="ALMAAZI" 
-          class="h-10 sm:h-12 w-auto logo-text-exact" 
-          draggable="false"
-        />
+      <!-- Luxury Subtitle that breathes as word is written -->
+      <div class="almaazi-loader-sub text-[10px] sm:text-[11px] uppercase tracking-[0.35em] text-obsidian/45 mt-6 font-mono select-none">
+        Haute Joaillerie
       </div>
 
       <!-- Dismiss / Enter button -->
@@ -161,7 +85,7 @@
     <nav class="pointer-events-auto glass squircle flex items-center justify-between pl-4 sm:pl-5 pr-2 sm:pr-4 py-2 sm:py-3 transition-all duration-300">
       
       <!-- Brand Logo (Reverted to clean unbordered look) -->
-      <a href="javascript:void(0)" onclick="replayPreloader()" class="flex items-center shrink-0 cursor-pointer" title="Replay Cushion Cut Loading Animation">
+      <a href="javascript:void(0)" onclick="replayPreloader()" class="flex items-center shrink-0 cursor-pointer" title="Replay ALMAAZI Loading Animation">
         <img 
           src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" 
           alt="ALMAAZI" 

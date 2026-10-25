@@ -364,22 +364,39 @@ function toggleMobileMenu(open) {
 }
 
 // Preloader Control
+let preloaderTimer = null;
+
 function dismissPreloader() {
-  const preloader = document.getElementById("diamond-preloader");
+  const preloader = document.getElementById('diamond-preloader');
   if (!preloader) return;
-  preloader.classList.add("fade-out");
+  if (preloaderTimer) {
+    clearTimeout(preloaderTimer);
+    preloaderTimer = null;
+  }
+  preloader.classList.add('fade-out');
   setTimeout(() => {
-    preloader.style.display = "none";
+    preloader.style.display = 'none';
   }, 600);
 }
 
 function replayPreloader() {
-  const preloader = document.getElementById("diamond-preloader");
+  const preloader = document.getElementById('diamond-preloader');
   if (!preloader) return;
-  preloader.style.display = "flex";
-  preloader.classList.remove("fade-out");
-  // Automatically dismiss after 3.6 seconds
-  setTimeout(dismissPreloader, 3600);
+  if (preloaderTimer) {
+    clearTimeout(preloaderTimer);
+  }
+  preloader.style.display = 'flex';
+  preloader.classList.remove('fade-out');
+
+  // Re-trigger SVG letter animations cleanly from 0s
+  const svg = preloader.querySelector('.almaazi-write-svg');
+  if (svg) {
+    const clone = svg.cloneNode(true);
+    svg.parentNode.replaceChild(clone, svg);
+  }
+
+  // Automatically dismiss after written & unwritten cycle finishes (~3.3s)
+  preloaderTimer = setTimeout(dismissPreloader, 3300);
 }
 
 // Hero Parallax Scroll Controller (Exact Framer Motion parity from Base44)
@@ -430,6 +447,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCartDrawer();
   initHeroParallax();
 
-  // Instant view of the Hero Page
-  dismissPreloader();
+  // Auto-dismiss preloader after the full ALMAAZI written and unwritten cycle completes (3.2s)
+  preloaderTimer = setTimeout(dismissPreloader, 3200);
 });
