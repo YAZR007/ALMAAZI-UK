@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>almaazi</title>
+  <title>ALMAAZI — Haute Joaillerie</title>
   <meta name="description" content="ALMAAZI — Handcrafted luxury jewellery. Rings, bracelets, earrings and necklaces in gold and diamond." />
   
   <link rel="icon" type="image/png" href="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" />
@@ -21,7 +21,9 @@
         extend: {
           colors: {
             alabaster: '#fafaf7',
-            obsidian: '#141414'
+            obsidian: '#141414',
+            champagne: '#f4ede2',
+            goldAccent: '#d4af37'
           },
           fontFamily: {
             heading: ['"Cormorant Garamond"', 'ui-serif', 'Georgia', 'serif'],
@@ -33,27 +35,21 @@
   </script>
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css?v=4.0" />
+  <link rel="stylesheet" href="assets/css/style.css?v=5.0" />
 </head>
 <body id="top" class="min-h-screen bg-alabaster font-body text-obsidian antialiased selection:bg-obsidian/10">
 
-  <div id="diamond-preloader" class="fixed inset-0 z-[100] bg-alabaster flex flex-col items-center justify-center p-6 select-none">
+  <!-- PRELOADER -->
+  <div id="diamond-preloader" class="fixed inset-0 z-[100] bg-alabaster flex flex-col items-center justify-center p-6 select-none transition-opacity duration-500">
     <div class="flex flex-col items-center w-full max-w-lg text-center px-4">
       <div class="relative w-full flex items-center justify-center">
         <svg viewBox="0 6 470 66" class="almaazi-write-svg w-full max-w-sm sm:max-w-md md:max-w-lg h-auto" xmlns="http://www.w3.org/2000/svg">
-          <!-- Letter 0: A -->
           <path class="almaazi-letter letter-0" pathLength="1000" d="M 38.5,48.5 L 24.3,48.5 L 19.8,60.7 L 28.0,60.7 L 28.0,62.4 L 11.9,62.4 L 11.9,60.7 L 18.0,60.7 L 34.3,16.8 L 35.3,16.8 L 50.9,60.7 L 56.8,60.7 L 56.8,62.4 L 35.6,62.4 L 35.6,60.7 L 42.8,60.7 Z M 25.0,46.8 L 37.9,46.8 L 31.6,29.0 L 31.5,29.0 Z" />
-          <!-- Letter 1: L -->
           <path class="almaazi-letter letter-1" pathLength="1000" d="M 101.2,19.5 L 101.2,60.7 L 111.2,60.7 C 113.1,60.7 114.6,60.5 115.7,60.2 C 116.8,59.9 117.9,59.2 119.0,58.1 C 120.1,57.0 120.9,55.7 121.5,54.2 C 122.1,52.7 122.7,50.5 123.4,47.8 L 124.9,47.8 L 123.7,62.4 L 86.3,62.4 L 86.3,60.7 L 93.3,60.7 L 93.3,19.5 L 86.3,19.5 L 86.3,17.8 L 108.6,17.8 L 108.6,19.5 Z" />
-          <!-- Letter 2: M -->
           <path class="almaazi-letter letter-2" pathLength="1000" d="M 152.6,17.8 L 168.6,17.8 L 178.1,49.3 L 178.2,49.3 L 187.8,17.8 L 203.4,17.8 L 203.4,19.5 L 196.8,19.5 L 196.8,60.7 L 203.4,60.7 L 203.4,62.4 L 182.4,62.4 L 182.4,60.7 L 189.3,60.7 L 189.3,18.8 L 189.1,18.8 L 175.9,62.4 L 174.3,62.4 L 161.1,18.8 L 161.0,18.8 L 161.0,60.7 L 167.8,60.7 L 167.8,62.4 L 152.6,62.4 L 152.6,60.7 L 159.3,60.7 L 159.3,19.5 L 152.6,19.5 Z" />
-          <!-- Letter 3: A -->
           <path class="almaazi-letter letter-3" pathLength="1000" d="M 256.9,48.5 L 242.8,48.5 L 238.2,60.7 L 246.4,60.7 L 246.4,62.4 L 230.3,62.4 L 230.3,60.7 L 236.4,60.7 L 252.7,16.8 L 253.7,16.8 L 269.3,60.7 L 275.3,60.7 L 275.3,62.4 L 254.0,62.4 L 254.0,60.7 L 261.2,60.7 Z M 243.4,46.8 L 256.3,46.8 L 250.0,29.0 L 249.9,29.0 Z" />
-          <!-- Letter 4: A -->
           <path class="almaazi-letter letter-4" pathLength="1000" d="M 329.9,48.5 L 315.7,48.5 L 311.2,60.7 L 319.4,60.7 L 319.4,62.4 L 303.3,62.4 L 303.3,60.7 L 309.4,60.7 L 325.6,16.8 L 326.7,16.8 L 342.2,60.7 L 348.2,60.7 L 348.2,62.4 L 327.0,62.4 L 327.0,60.7 L 334.2,60.7 Z M 316.3,46.8 L 329.3,46.8 L 323.0,29.0 L 322.8,29.0 Z" />
-          <!-- Letter 5: Z -->
           <path class="almaazi-letter letter-5" pathLength="1000" d="M 410.8,62.4 L 376.6,62.4 L 376.6,60.7 L 402.2,19.5 L 391.7,19.5 C 387.9,19.5 385.2,20.3 383.7,21.9 C 382.2,23.4 381.1,26.1 380.4,29.8 L 378.9,29.8 L 379.6,17.8 L 411.5,17.8 L 411.5,19.0 L 385.5,60.7 L 396.4,60.7 C 399.6,60.7 401.9,60.4 403.5,59.7 C 405.0,59.1 406.4,57.6 407.6,55.2 C 408.8,52.8 409.6,50.3 409.9,47.7 L 411.5,47.7 Z" />
-          <!-- Letter 6: I -->
           <path class="almaazi-letter letter-6" pathLength="1000" d="M 447.7,60.7 L 447.7,19.5 L 440.4,19.5 L 440.4,17.8 L 462.9,17.8 L 462.9,19.5 L 455.6,19.5 L 455.6,60.7 L 462.9,60.7 L 462.9,62.4 L 440.4,62.4 L 440.4,60.7 Z" />
         </svg>
       </div>
@@ -63,40 +59,34 @@
     </div>
   </div>
 
+  <!-- FLOATING NAVBAR -->
   <div class="fixed top-0 inset-x-0 z-50 px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4 pointer-events-none">
-    <nav class="pointer-events-auto glass squircle flex items-center justify-between pl-4 sm:pl-5 pr-2 sm:pr-4 py-2 sm:py-3 transition-all duration-300">
-      <a href="javascript:void(0)" onclick="replayPreloader()" class="flex items-center shrink-0 cursor-pointer" title="Replay ALMAAZI Loading Animation">
-        <img 
-          src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" 
-          alt="ALMAAZI" 
-          class="h-7 sm:h-9 w-auto hover:opacity-80 transition-opacity" 
-          style="filter: invert(1); mix-blend-mode: multiply;" 
-          draggable="false"
-        />
+    <nav class="pointer-events-auto glass squircle flex items-center justify-between pl-4 sm:pl-5 pr-2 sm:pr-4 py-2.5 sm:py-3 transition-all duration-300">
+      <a href="javascript:void(0)" onclick="if(typeof replayPreloader==='function')replayPreloader()" class="flex items-center shrink-0 cursor-pointer" title="Replay ALMAAZI Loading Animation">
+        <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="ALMAAZI" class="h-7 sm:h-9 w-auto hover:opacity-80 transition-opacity" style="filter: invert(1); mix-blend-mode: multiply;" draggable="false" />
       </a>
 
       <div class="hidden md:flex items-center gap-1">
-        <a href="#rings" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+        <a href="#rings" class="relative px-4 py-2 text-[12px] uppercase tracking-[0.16em] text-obsidian/80 hover:text-obsidian transition-colors group">
           Rings
           <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
         </a>
-        <a href="#bracelets" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+        <a href="#bracelets" class="relative px-4 py-2 text-[12px] uppercase tracking-[0.16em] text-obsidian/80 hover:text-obsidian transition-colors group">
           Bracelets
           <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
         </a>
-        <a href="#earrings" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+        <a href="#earrings" class="relative px-4 py-2 text-[12px] uppercase tracking-[0.16em] text-obsidian/80 hover:text-obsidian transition-colors group">
           Earrings
           <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
         </a>
-        <a href="#necklaces" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+        <a href="#necklaces" class="relative px-4 py-2 text-[12px] uppercase tracking-[0.16em] text-obsidian/80 hover:text-obsidian transition-colors group">
           Necklaces
           <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
         </a>
       </div>
 
-      <div class="flex items-center gap-0.5 sm:gap-1">
-        <!-- Shopping Bag Trigger -->
-        <button onclick="openCartDrawer()" aria-label="Shopping bag" class="relative grid place-items-center h-10 w-10 sm:h-11 sm:w-11 rounded-full hover:bg-obsidian/10 transition-colors">
+      <div class="flex items-center gap-1">
+        <button onclick="if(typeof openCartDrawer==='function')openCartDrawer()" aria-label="Shopping bag" class="relative grid place-items-center h-10 w-10 sm:h-11 sm:w-11 rounded-full hover:bg-obsidian/10 transition-colors">
           <svg class="h-[18px] w-[18px] text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
             <path d="M3 6h18" />
@@ -105,7 +95,7 @@
           <span id="cart-count-badge" class="absolute top-0.5 right-0.5 grid place-items-center min-w-[18px] h-[18px] px-1 rounded-full bg-obsidian text-alabaster text-[10px] font-medium leading-none hidden">0</span>
         </button>
 
-        <button onclick="toggleMobileMenu(true)" aria-label="Open menu" class="md:hidden grid place-items-center h-10 w-10 sm:h-11 sm:w-11 rounded-full hover:bg-obsidian/10 transition-colors">
+        <button onclick="if(typeof toggleMobileMenu==='function')toggleMobileMenu(true)" aria-label="Open menu" class="md:hidden grid place-items-center h-10 w-10 sm:h-11 sm:w-11 rounded-full hover:bg-obsidian/10 transition-colors">
           <svg class="h-5 w-5 text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <line x1="4" x2="20" y1="12" y2="12" />
             <line x1="4" x2="20" y1="6" y2="6" />
@@ -116,106 +106,76 @@
     </nav>
   </div>
 
-  <header class="relative px-3 sm:px-6 lg:px-10 pt-28 sm:pt-36 pb-8">
-    <div class="relative min-h-[50vh] sm:min-h-[68vh] md:min-h-[76vh] flex flex-col justify-center overflow-hidden">
-      
-      <!-- Parallax Floating Cushion-Cut Diamonds -->
-      <div id="floating-diamonds" class="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <!-- Mobile Diamonds (md:hidden) -->
-        <div class="floating-diamond absolute md:hidden pointer-events-none" data-drift="110" data-rotate="14" style="top: 4%; left: 4%; width: 32px; height: 32px; transform: rotate(14deg); opacity: 0.55;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 195.84px; height: 130.56px; left: -81.92px; top: -28.16px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
-        </div>
-        <div class="floating-diamond absolute md:hidden pointer-events-none" data-drift="160" data-rotate="-12" style="top: 10%; left: 78%; width: 28px; height: 28px; transform: rotate(-12deg); opacity: 0.55;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 171.36px; height: 114.24px; left: -71.68px; top: -24.64px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
-        </div>
-        <div class="floating-diamond absolute md:hidden pointer-events-none" data-drift="190" data-rotate="18" style="top: 45%; left: 84%; width: 34px; height: 34px; transform: rotate(18deg); opacity: 0.55;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 208.08px; height: 138.72px; left: -87.04px; top: -29.92px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
-        </div>
-        <div class="floating-diamond absolute md:hidden pointer-events-none" data-drift="140" data-rotate="-20" style="top: 62%; left: 6%; width: 30px; height: 30px; transform: rotate(-20deg); opacity: 0.55;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 183.6px; height: 122.4px; left: -76.8px; top: -26.4px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
-        </div>
-        <div class="floating-diamond absolute md:hidden pointer-events-none" data-drift="170" data-rotate="10" style="top: 84%; left: 72%; width: 32px; height: 32px; transform: rotate(10deg); opacity: 0.55;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 195.84px; height: 130.56px; left: -81.92px; top: -28.16px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
-        </div>
-
-        <!-- Desktop Diamonds (hidden md:block) -->
-        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="170" data-rotate="16" style="top: 14%; left: 10%; width: 60px; height: 60px; transform: rotate(16deg); opacity: 0.5;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 367.2px; height: 244.8px; left: -153.6px; top: -52.8px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
-        </div>
-        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="230" data-rotate="-14" style="top: 26%; left: 68%; width: 42px; height: 42px; transform: rotate(-14deg); opacity: 0.5;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 257.04px; height: 171.36px; left: -107.52px; top: -36.96px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
-        </div>
-        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="130" data-rotate="10" style="top: 40%; left: 46%; width: 36px; height: 36px; transform: rotate(10deg); opacity: 0.5;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 220.32px; height: 146.88px; left: -92.16px; top: -31.68px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
-        </div>
-        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="250" data-rotate="-24" style="top: 54%; left: 20%; width: 51px; height: 51px; transform: rotate(-24deg); opacity: 0.5;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 312.12px; height: 208.08px; left: -130.56px; top: -44.88px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
-        </div>
-        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="190" data-rotate="12" style="top: 66%; left: 84%; width: 39px; height: 39px; transform: rotate(12deg); opacity: 0.5;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 238.68px; height: 159.12px; left: -99.84px; top: -34.32px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
-        </div>
-        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="150" data-rotate="-8" style="top: 32%; left: 34%; width: 33px; height: 33px; transform: rotate(-8deg); opacity: 0.5;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 201.96px; height: 134.64px; left: -84.48px; top: -29.04px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
-        </div>
-        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="240" data-rotate="22" style="top: 72%; left: 54%; width: 45px; height: 45px; transform: rotate(22deg); opacity: 0.5;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 275.4px; height: 183.6px; left: -115.2px; top: -39.6px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
-        </div>
-        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="210" data-rotate="-18" style="top: 18%; left: 58%; width: 36px; height: 36px; transform: rotate(-18deg); opacity: 0.5;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 220.32px; height: 146.88px; left: -92.16px; top: -31.68px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
-        </div>
-        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="160" data-rotate="8" style="top: 80%; left: 32%; width: 42px; height: 42px; transform: rotate(8deg); opacity: 0.5;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 257.04px; height: 171.36px; left: -107.52px; top: -36.96px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
-        </div>
-        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="200" data-rotate="-10" style="top: 48%; left: 90%; width: 33px; height: 33px; transform: rotate(-10deg); opacity: 0.5;">
-          <div class="relative w-full h-full overflow-hidden">
-            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 201.96px; height: 134.64px; left: -84.48px; top: -29.04px; filter: invert(1); mix-blend-mode: multiply;" />
-          </div>
+  <!-- VCA-INSPIRED CENTRED HERO SECTION -->
+  <header class="relative px-4 sm:px-6 lg:px-10 pt-32 sm:pt-40 pb-20 bg-gradient-to-b from-champagne/40 via-alabaster to-alabaster overflow-hidden">
+    
+    <!-- Parallax Floating Cushion-Cut Diamonds -->
+    <div id="floating-diamonds" class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="floating-diamond absolute pointer-events-none opacity-40" data-drift="120" data-rotate="14" style="top: 12%; left: 8%; width: 42px; height: 42px;">
+        <div class="relative w-full h-full overflow-hidden">
+          <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" style="position: absolute; width: 250px; left: -105px; top: -35px; filter: invert(1); mix-blend-mode: multiply;" />
         </div>
       </div>
+      <div class="floating-diamond absolute pointer-events-none opacity-40" data-drift="180" data-rotate="-12" style="top: 18%; left: 82%; width: 36px; height: 36px;">
+        <div class="relative w-full h-full overflow-hidden">
+          <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" style="position: absolute; width: 220px; left: -90px; top: -30px; filter: invert(1); mix-blend-mode: multiply;" />
+        </div>
+      </div>
+    </div>
 
-      <!-- Hero Title - Optimized Viewport Sizing (Guaranteed No Overflow) -->
-      <h1 
-        style="font-family: 'Times New Roman', Times, serif;" 
-        class="relative z-10 font-bold text-obsidian leading-[0.88] tracking-[-0.01em] text-[clamp(2.2rem,11.5vw,11rem)] w-full break-normal max-w-full select-none hero-h1-animate"
-      >
-        THE<br>
-        NEW<br>
-        COLLECTION
+    <!-- Centered Editorial Hero Content -->
+    <div class="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center">
+      
+      <!-- Tiny VCA Pill Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-obsidian/15 bg-alabaster/60 backdrop-blur-md mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-obsidian/60"></span>
+        <span class="text-[10px] uppercase tracking-[0.3em] font-mono text-obsidian/70">Haute Joaillerie &bull; 2026 Collection</span>
+      </div>
+
+      <!-- Symmetrical Main Serif Title -->
+      <h1 class="font-heading font-light text-obsidian text-4xl sm:text-6xl md:text-7xl leading-[1.05] tracking-wide max-w-3xl mb-6">
+        Poetry of Light &amp; Fine Gold
       </h1>
+
+      <p class="font-body text-sm sm:text-base text-obsidian/65 max-w-lg leading-relaxed mb-10 font-light">
+        Discover handcrafted jewellery inspired by timeless elegance, forged with diamonds and gold by master artisans.
+      </p>
+
+      <!-- Primary Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+        <a href="#collections-container" class="w-full sm:w-auto px-8 py-3.5 bg-obsidian text-alabaster rounded-full text-[11px] uppercase tracking-[0.22em] font-medium hover:bg-obsidian/85 transition-colors shadow-sm">
+          Explore The Maison
+        </a>
+        <a href="#rings" class="w-full sm:w-auto px-8 py-3.5 border border-obsidian/20 text-obsidian rounded-full text-[11px] uppercase tracking-[0.22em] font-medium hover:bg-obsidian/5 transition-colors">
+          View Solitaires
+        </a>
+      </div>
 
     </div>
   </header>
 
+  <!-- VCA EDITORIAL CRAFTSMANSHIP BANNER -->
+  <section class="px-4 sm:px-6 lg:px-10 py-16 sm:py-24 border-y border-obsidian/10 bg-alabaster">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-4 text-center md:text-left">
+        <span class="text-[10px] uppercase tracking-[0.3em] font-mono text-obsidian/45">Savoir-Faire</span>
+        <h2 class="font-heading text-3xl sm:text-4xl text-obsidian font-light leading-snug">
+          "Every gem tells a story of patience, passion, and precision."
+        </h2>
+        <p class="text-sm text-obsidian/60 leading-relaxed max-w-md font-light">
+          Each Almaazi piece undergoes hundreds of hours of painstaking hand-assembly, ensuring brilliance that echoes through generations.
+        </p>
+      </div>
+
+      <div class="aspect-[4/3] rounded-2xl bg-champagne/50 p-6 flex flex-col justify-center items-center text-center border border-obsidian/5">
+        <span class="font-heading text-5xl text-obsidian/80 mb-2">100%</span>
+        <span class="text-[11px] uppercase tracking-[0.2em] font-mono text-obsidian/50">Ethically Sourced Gold &amp; Conflict-Free Diamonds</span>
+      </div>
+    </div>
+  </section>
+
   <!-- COLLECTIONS CONTAINER -->
-  <main id="collections-container">
+  <main id="collections-container" class="pt-12">
     <!-- Rendered dynamically by app.js -->
   </main>
 
@@ -224,13 +184,7 @@
     <div class="glass squircle p-8 sm:p-12">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
         <div class="md:col-span-5">
-          <img 
-            src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" 
-            alt="ALMAAZI" 
-            class="h-10 w-auto mb-5" 
-            style="filter: invert(1); mix-blend-mode: multiply;" 
-            draggable="false"
-          />
+          <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="ALMAAZI" class="h-10 w-auto mb-5" style="filter: invert(1); mix-blend-mode: multiply;" draggable="false" />
           <p class="font-heading text-2xl sm:text-3xl leading-snug text-obsidian max-w-sm">
             Handcrafted luxury jewellery, made to be worn for a lifetime.
           </p>
@@ -238,9 +192,7 @@
 
         <div class="md:col-span-7 flex flex-wrap gap-12 sm:gap-16 md:justify-end">
           <div>
-            <span class="block text-[11px] uppercase tracking-[0.2em] text-obsidian/45 mb-4 font-mono">
-              Collections
-            </span>
+            <span class="block text-[11px] uppercase tracking-[0.2em] text-obsidian/45 mb-4 font-mono">Collections</span>
             <ul class="space-y-2.5 text-[14px] text-obsidian/75">
               <li><a href="#rings" class="hover:text-obsidian transition-colors">Rings</a></li>
               <li><a href="#bracelets" class="hover:text-obsidian transition-colors">Bracelets</a></li>
@@ -250,45 +202,36 @@
           </div>
 
           <div>
-            <span class="block text-[11px] uppercase tracking-[0.2em] text-obsidian/45 mb-4 font-mono">
-              The Maison
-            </span>
+            <span class="block text-[11px] uppercase tracking-[0.2em] text-obsidian/45 mb-4 font-mono">The Maison</span>
             <ul class="space-y-2.5 text-[14px] text-obsidian/75">
               <li><a href="#top" class="hover:text-obsidian transition-colors">Craftsmanship</a></li>
               <li><a href="#top" class="hover:text-obsidian transition-colors">Ethical Sourcing</a></li>
               <li><a href="#top" class="hover:text-obsidian transition-colors">Bespoke Inquiries</a></li>
-              <li><a href="#top" class="hover:text-obsidian transition-colors">Care & Warranty</a></li>
+              <li><a href="#top" class="hover:text-obsidian transition-colors">Care &amp; Warranty</a></li>
             </ul>
           </div>
         </div>
       </div>
 
       <div class="mt-12 pt-8 border-t border-obsidian/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-[12px] text-obsidian/45">
-          &copy; 2026 Almaazi — All rights reserved
-        </p>
-        <p class="text-[12px] uppercase tracking-[0.14em] text-obsidian/45">
-          Handcrafted with care
-        </p>
+        <p class="text-[12px] text-obsidian/45">&copy; 2026 Almaazi — All rights reserved</p>
+        <p class="text-[12px] uppercase tracking-[0.14em] text-obsidian/45">Handcrafted with care</p>
       </div>
     </div>
   </footer>
 
-  <!-- SHOPPING BAG DRAWER -->
+  <!-- CART DRAWER -->
   <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none">
-    <div onclick="closeCartDrawer()" class="drawer-backdrop absolute inset-0 bg-obsidian/30 backdrop-blur-sm opacity-0 cursor-pointer"></div>
+    <div onclick="if(typeof closeCartDrawer==='function')closeCartDrawer()" class="drawer-backdrop absolute inset-0 bg-obsidian/30 backdrop-blur-sm opacity-0 cursor-pointer"></div>
     <div class="drawer-panel absolute top-0 right-0 w-full max-w-md h-full bg-alabaster border-l border-obsidian/10 p-6 sm:p-8 flex flex-col justify-between translate-x-full">
       <div>
         <div class="flex items-center justify-between pb-5 border-b border-obsidian/10">
           <h2 class="font-heading text-2xl text-obsidian">Your Bag</h2>
-          <button onclick="closeCartDrawer()" class="p-2 text-obsidian/50 hover:text-obsidian">
+          <button onclick="if(typeof closeCartDrawer==='function')closeCartDrawer()" class="p-2 text-obsidian/50 hover:text-obsidian">
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
           </button>
         </div>
-
-        <div id="cart-items-container" class="space-y-3 overflow-y-auto max-h-[60vh] mt-4">
-          <!-- Rendered by app.js -->
-        </div>
+        <div id="cart-items-container" class="space-y-3 overflow-y-auto max-h-[60vh] mt-4"></div>
       </div>
 
       <div class="pt-6 border-t border-obsidian/10 space-y-4">
@@ -296,9 +239,7 @@
           <span class="font-heading text-xl text-obsidian">Total</span>
           <span id="cart-subtotal" class="font-heading text-2xl text-obsidian">$0</span>
         </div>
-        <p class="text-[12px] text-obsidian/50">
-          Shipping & taxes calculated at checkout.
-        </p>
+        <p class="text-[12px] text-obsidian/50">Shipping &amp; taxes calculated at checkout.</p>
         <button id="cart-checkout-btn" onclick="alert('Proceeding to checkout...');" class="w-full bg-obsidian text-alabaster squircle py-4 text-[12px] uppercase tracking-[0.2em] hover:bg-obsidian/90 transition-colors disabled:opacity-50">
           Checkout
         </button>
@@ -306,28 +247,23 @@
     </div>
   </div>
 
-  <!-- MOBILE NAVIGATION DRAWER -->
+  <!-- MOBILE MENU DRAWER -->
   <div id="mobile-menu-drawer" class="fixed inset-0 z-50 pointer-events-none transition-all duration-300">
-    <div onclick="toggleMobileMenu(false)" class="mobile-drawer-backdrop absolute inset-0 bg-obsidian/40 backdrop-blur-sm opacity-0 transition-opacity duration-300 cursor-pointer"></div>
+    <div onclick="if(typeof toggleMobileMenu==='function')toggleMobileMenu(false)" class="mobile-drawer-backdrop absolute inset-0 bg-obsidian/40 backdrop-blur-sm opacity-0 transition-opacity duration-300 cursor-pointer"></div>
     <div class="mobile-drawer-panel absolute right-0 top-0 h-full w-[85%] max-w-xs bg-alabaster/95 backdrop-blur-2xl border-l border-obsidian/10 p-6 sm:p-8 flex flex-col justify-between translate-x-full transition-transform duration-300 ease-out shadow-2xl">
       <div class="space-y-6">
         <div class="flex justify-between items-center pb-5 border-b border-obsidian/10">
-          <img 
-            src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" 
-            alt="ALMAAZI" 
-            class="h-7 w-auto" 
-            style="filter: invert(1); mix-blend-mode: multiply;" 
-          />
-          <button onclick="toggleMobileMenu(false)" aria-label="Close menu" class="h-10 w-10 grid place-items-center rounded-full hover:bg-obsidian/10 text-obsidian/60 hover:text-obsidian">
+          <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="ALMAAZI" class="h-7 w-auto" style="filter: invert(1); mix-blend-mode: multiply;" />
+          <button onclick="if(typeof toggleMobileMenu==='function')toggleMobileMenu(false)" aria-label="Close menu" class="h-10 w-10 grid place-items-center rounded-full hover:bg-obsidian/10 text-obsidian/60 hover:text-obsidian">
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
           </button>
         </div>
 
         <nav class="space-y-2 pt-2">
-          <a href="#rings" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Rings</a>
-          <a href="#bracelets" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Bracelets</a>
-          <a href="#earrings" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Earrings</a>
-          <a href="#necklaces" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Necklaces</a>
+          <a href="#rings" onclick="if(typeof toggleMobileMenu==='function')toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Rings</a>
+          <a href="#bracelets" onclick="if(typeof toggleMobileMenu==='function')toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Bracelets</a>
+          <a href="#earrings" onclick="if(typeof toggleMobileMenu==='function')toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Earrings</a>
+          <a href="#necklaces" onclick="if(typeof toggleMobileMenu==='function')toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Necklaces</a>
         </nav>
       </div>
 
@@ -336,6 +272,19 @@
       </div>
     </div>
   </div>
+
+  <!-- Safety Preloader Hide Script -->
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const preloader = document.getElementById('diamond-preloader');
+        if (preloader && preloader.style.display !== 'none') {
+          preloader.style.opacity = '0';
+          setTimeout(() => preloader.style.display = 'none', 500);
+        }
+      }, 2500);
+    });
+  </script>
 
   <script src="assets/js/app.js?v=6.0"></script>
 </body>
