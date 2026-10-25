@@ -33,6 +33,15 @@
   </script>
 
   <link rel="stylesheet" href="assets/css/style.css?v=5.0" />
+
+  <!-- Custom override to hide the duplicate category pill selectors inside collection-root -->
+  <style>
+    #collection-root nav,
+    #collection-root .flex.items-center.gap-1.bg-alabaster,
+    #collection-root div > .flex.items-center.gap-1.rounded-full {
+      display: none !important;
+    }
+  </style>
 </head>
 <body class="min-h-screen bg-alabaster font-body text-obsidian antialiased selection:bg-obsidian/10">
 
