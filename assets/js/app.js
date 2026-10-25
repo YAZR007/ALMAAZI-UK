@@ -368,14 +368,59 @@ function dismissPreloader() {
   const preloader = document.getElementById("diamond-preloader");
   if (!preloader) return;
   preloader.classList.add("fade-out");
+  setTimeout(() => {
+    preloader.style.display = "none";
+  }, 600);
 }
 
 function replayPreloader() {
   const preloader = document.getElementById("diamond-preloader");
   if (!preloader) return;
+  preloader.style.display = "flex";
   preloader.classList.remove("fade-out");
-  // Automatically dismiss after 4 seconds
-  setTimeout(dismissPreloader, 4000);
+  // Automatically dismiss after 3.6 seconds
+  setTimeout(dismissPreloader, 3600);
+}
+
+// Hero Parallax Scroll Controller (Exact Framer Motion parity from Base44)
+function initHeroParallax() {
+  const header = document.querySelector("header");
+  if (!header) return;
+  const diamonds = header.querySelectorAll(".floating-diamond");
+  if (!diamonds.length) return;
+
+  let ticking = false;
+
+  function onScroll() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const headerTop = header.offsetTop;
+    const headerHeight = header.offsetHeight || 600;
+    
+    // progress: 0 when rect aligns with top, 1 when header scrolls completely past
+    const progress = Math.max(0, Math.min(1, (scrollY - headerTop) / headerHeight));
+
+    diamonds.forEach(el => {
+      const drift = parseFloat(el.getAttribute("data-drift")) || 150;
+      const rotate = parseFloat(el.getAttribute("data-rotate")) || 0;
+      const y = -drift * progress;
+      // opacity: 0.5 at progress 0, fades linearly to 0 at progress 0.75
+      const opacity = Math.max(0, 0.5 * (1 - progress / 0.75));
+      el.style.transform = `translate3d(0, ${y}px, 0) rotate(${rotate}deg)`;
+      el.style.opacity = opacity.toFixed(3);
+    });
+
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener("resize", onScroll, { passive: true });
+  onScroll();
 }
 
 // Initial Run
@@ -383,7 +428,8 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCollections();
   updateCartBadge();
   renderCartDrawer();
+  initHeroParallax();
 
-  // Auto-dismiss preloader after initial drawn/undrawn cycle (3.2 seconds)
-  setTimeout(dismissPreloader, 3200);
+  // Instant view of the Hero Page
+  dismissPreloader();
 });

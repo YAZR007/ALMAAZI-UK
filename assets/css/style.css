@@ -229,3 +229,27 @@ body {
   visibility: hidden;
   pointer-events: none;
 }
+
+
+/* ==========================================================================
+   HERO SECTION — THE NEW COLLECTION ANIMATIONS
+   ========================================================================== */
+.hero-h1-animate {
+  animation: heroH1Enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes heroH1Enter {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.floating-diamond {
+  will-change: transform, opacity;
+  pointer-events: none;
+}

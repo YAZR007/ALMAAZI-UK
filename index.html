@@ -40,7 +40,7 @@
   <!-- ==========================================
        CUSHION-CUT DIAMOND DRAWN & UNDRAWN LOADER
        ========================================== -->
-  <div id="diamond-preloader" class="fixed inset-0 z-[100] bg-alabaster flex flex-col items-center justify-center p-6 select-none">
+  <div id="diamond-preloader" class="fixed inset-0 z-[100] bg-alabaster flex flex-col items-center justify-center p-6 select-none fade-out" style="display: none;">
     
     <div class="flex flex-col items-center max-w-sm text-center">
       
@@ -173,19 +173,19 @@
 
       <!-- Category Nav Links -->
       <div class="hidden md:flex items-center gap-1">
-        <a href="collection.html?category=rings" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+        <a href="#rings" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
           Rings
           <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
         </a>
-        <a href="collection.html?category=bracelets" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+        <a href="#bracelets" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
           Bracelets
           <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
         </a>
-        <a href="collection.html?category=earrings" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+        <a href="#earrings" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
           Earrings
           <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
         </a>
-        <a href="collection.html?category=necklaces" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
+        <a href="#necklaces" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
           Necklaces
           <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
         </a>
@@ -216,110 +216,122 @@
     </nav>
   </div>
 
-  <!-- HERO SECTION (Mobile Optimized) -->
-  <header class="relative px-3 sm:px-6 lg:px-10 pt-24 sm:pt-32">
-    <div class="relative squircle overflow-hidden">
+  <!-- ==========================================
+       HERO SECTION — "THE NEW COLLECTION"
+       Exact Clone from https://almaazi-glow-edit.base44.app
+       ========================================== -->
+  <header class="relative px-4 sm:px-6 lg:px-10 pt-24 sm:pt-32">
+    <div class="relative min-h-[56vh] sm:min-h-[68vh] md:min-h-[76vh] flex flex-col justify-center overflow-hidden">
       
-      <!-- High-res Jewellery Background Image -->
-      <div class="min-h-[460px] sm:min-h-0 aspect-[3/4] sm:aspect-[16/9] lg:aspect-[21/9] w-full">
-        <img 
-          src="assets/images/hero-dark-flora.jpg?v=4.0" 
-          alt="Almaazi fine jewellery - signature tennis eternity ring and tennis bracelet" 
-          class="h-full w-full object-cover object-center"
-        />
-      </div>
-
-      <!-- Subtle Gradient Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-t from-obsidian/50 via-transparent to-transparent sm:from-obsidian/30 sm:via-transparent pointer-events-none"></div>
-
-      <!-- Floating Matte Glass Hero Card -->
-      <div class="absolute inset-0 flex flex-col justify-end p-3.5 sm:p-10 lg:px-16">
-        <div class="glass squircle inline-flex self-start w-full sm:max-w-md p-4 sm:p-8 lg:p-9 flex-col shadow-lg">
-          
-          <!-- MOBILE: Elegant and Minimal Jewelry Options List -->
-          <div class="block sm:hidden w-full">
-            <div class="flex items-center justify-between pb-2 mb-2.5 border-b border-obsidian/10">
-              <span class="text-[9.5px] uppercase tracking-[0.24em] text-obsidian/50 font-mono">Select Creation</span>
-              <span class="text-[9.5px] text-obsidian/40 uppercase tracking-widest font-mono">04 Types</span>
-            </div>
-
-            <div class="grid grid-cols-2 gap-2">
-              <!-- Rings -->
-              <a href="collection.html?category=rings" class="flex items-center justify-between p-3 rounded-2xl bg-white/70 active:bg-obsidian border border-obsidian/5 active:border-obsidian transition-all group">
-                <div>
-                  <span class="font-mono text-[9px] text-obsidian/40 group-active:text-alabaster/60 block leading-none mb-1">01</span>
-                  <span class="font-heading text-[1.15rem] leading-none text-obsidian group-active:text-alabaster font-normal">Rings</span>
-                </div>
-                <svg class="w-3.5 h-3.5 text-obsidian/40 group-active:text-alabaster" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
-              </a>
-
-              <!-- Bracelets -->
-              <a href="collection.html?category=bracelets" class="flex items-center justify-between p-3 rounded-2xl bg-white/70 active:bg-obsidian border border-obsidian/5 active:border-obsidian transition-all group">
-                <div>
-                  <span class="font-mono text-[9px] text-obsidian/40 group-active:text-alabaster/60 block leading-none mb-1">02</span>
-                  <span class="font-heading text-[1.15rem] leading-none text-obsidian group-active:text-alabaster font-normal">Bracelets</span>
-                </div>
-                <svg class="w-3.5 h-3.5 text-obsidian/40 group-active:text-alabaster" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
-              </a>
-
-              <!-- Earrings -->
-              <a href="collection.html?category=earrings" class="flex items-center justify-between p-3 rounded-2xl bg-white/70 active:bg-obsidian border border-obsidian/5 active:border-obsidian transition-all group">
-                <div>
-                  <span class="font-mono text-[9px] text-obsidian/40 group-active:text-alabaster/60 block leading-none mb-1">03</span>
-                  <span class="font-heading text-[1.15rem] leading-none text-obsidian group-active:text-alabaster font-normal">Earrings</span>
-                </div>
-                <svg class="w-3.5 h-3.5 text-obsidian/40 group-active:text-alabaster" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
-              </a>
-
-              <!-- Necklaces -->
-              <a href="collection.html?category=necklaces" class="flex items-center justify-between p-3 rounded-2xl bg-white/70 active:bg-obsidian border border-obsidian/5 active:border-obsidian transition-all group">
-                <div>
-                  <span class="font-mono text-[9px] text-obsidian/40 group-active:text-alabaster/60 block leading-none mb-1">04</span>
-                  <span class="font-heading text-[1.15rem] leading-none text-obsidian group-active:text-alabaster font-normal">Necklaces</span>
-                </div>
-                <svg class="w-3.5 h-3.5 text-obsidian/40 group-active:text-alabaster" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
-              </a>
-            </div>
+      <!-- Parallax Floating Cushion-Cut Diamonds -->
+      <div id="floating-diamonds" class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <!-- Mobile Diamonds (md:hidden) -->
+        <div class="floating-diamond absolute md:hidden pointer-events-none" data-drift="110" data-rotate="14" style="top: 6%; left: 6%; width: 22px; height: 22px; transform: rotate(14deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 134.64px; height: 89.76px; left: -56.32px; top: -19.36px; filter: invert(1); mix-blend-mode: multiply;" />
           </div>
-
-          <!-- DESKTOP: Classic Editorial Heading & CTA -->
-          <div class="hidden sm:flex flex-col">
-            <span class="text-[11px] uppercase tracking-[0.28em] text-obsidian/50 mb-4">
-              Handcrafted Luxury
-            </span>
-            <h1 class="font-heading font-light text-4xl lg:text-[3.4rem] leading-[1.05] tracking-[-0.01em] text-obsidian">
-              Jewellery that holds the light
-            </h1>
-            <p class="mt-5 text-[15px] leading-[1.7] text-obsidian/60 max-w-sm">
-              Gold and diamond pieces, made by hand and made to be lived in.
-            </p>
-            <a href="collection.html?category=rings" class="mt-7 self-start inline-flex items-center gap-2 bg-obsidian text-alabaster squircle px-6 py-3.5 text-[11px] uppercase tracking-[0.2em] hover:bg-obsidian/90 active:scale-[0.98] transition-all">
-              <span>Explore the collection</span>
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </a>
+        </div>
+        <div class="floating-diamond absolute md:hidden pointer-events-none" data-drift="160" data-rotate="-12" style="top: 13%; left: 82%; width: 17px; height: 17px; transform: rotate(-12deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 104.04px; height: 69.36px; left: -43.52px; top: -14.96px; filter: invert(1); mix-blend-mode: multiply;" />
           </div>
+        </div>
+        <div class="floating-diamond absolute md:hidden pointer-events-none" data-drift="190" data-rotate="18" style="top: 36%; left: 87%; width: 20px; height: 20px; transform: rotate(18deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 122.4px; height: 81.6px; left: -51.2px; top: -17.6px; filter: invert(1); mix-blend-mode: multiply;" />
+          </div>
+        </div>
+        <div class="floating-diamond absolute md:hidden pointer-events-none" data-drift="140" data-rotate="-20" style="top: 60%; left: 8%; width: 18px; height: 18px; transform: rotate(-20deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 110.16px; height: 73.44px; left: -46.08px; top: -15.84px; filter: invert(1); mix-blend-mode: multiply;" />
+          </div>
+        </div>
+        <div class="floating-diamond absolute md:hidden pointer-events-none" data-drift="170" data-rotate="10" style="top: 82%; left: 74%; width: 22px; height: 22px; transform: rotate(10deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 134.64px; height: 89.76px; left: -56.32px; top: -19.36px; filter: invert(1); mix-blend-mode: multiply;" />
+          </div>
+        </div>
+        <div class="floating-diamond absolute md:hidden pointer-events-none" data-drift="130" data-rotate="-8" style="top: 28%; left: 91%; width: 14px; height: 14px; transform: rotate(-8deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 85.68px; height: 57.12px; left: -35.84px; top: -12.32px; filter: invert(1); mix-blend-mode: multiply;" />
+          </div>
+        </div>
 
+        <!-- Desktop Diamonds (hidden md:block) -->
+        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="170" data-rotate="16" style="top: 14%; left: 10%; width: 40px; height: 40px; transform: rotate(16deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 244.8px; height: 163.2px; left: -102.4px; top: -35.2px; filter: invert(1); mix-blend-mode: multiply;" />
+          </div>
+        </div>
+        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="230" data-rotate="-14" style="top: 26%; left: 68%; width: 28px; height: 28px; transform: rotate(-14deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 171.36px; height: 114.24px; left: -71.68px; top: -24.64px; filter: invert(1); mix-blend-mode: multiply;" />
+          </div>
+        </div>
+        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="130" data-rotate="10" style="top: 40%; left: 46%; width: 24px; height: 24px; transform: rotate(10deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 146.88px; height: 97.92px; left: -61.44px; top: -21.12px; filter: invert(1); mix-blend-mode: multiply;" />
+          </div>
+        </div>
+        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="250" data-rotate="-24" style="top: 54%; left: 20%; width: 34px; height: 34px; transform: rotate(-24deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 208.08px; height: 138.72px; left: -87.04px; top: -29.92px; filter: invert(1); mix-blend-mode: multiply;" />
+          </div>
+        </div>
+        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="190" data-rotate="12" style="top: 66%; left: 84%; width: 26px; height: 26px; transform: rotate(12deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 159.12px; height: 106.08px; left: -66.56px; top: -22.88px; filter: invert(1); mix-blend-mode: multiply;" />
+          </div>
+        </div>
+        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="150" data-rotate="-8" style="top: 32%; left: 34%; width: 22px; height: 22px; transform: rotate(-8deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 134.64px; height: 89.76px; left: -56.32px; top: -19.36px; filter: invert(1); mix-blend-mode: multiply;" />
+          </div>
+        </div>
+        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="240" data-rotate="22" style="top: 72%; left: 54%; width: 30px; height: 30px; transform: rotate(22deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 183.6px; height: 122.4px; left: -76.8px; top: -26.4px; filter: invert(1); mix-blend-mode: multiply;" />
+          </div>
+        </div>
+        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="210" data-rotate="-18" style="top: 18%; left: 58%; width: 24px; height: 24px; transform: rotate(-18deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 146.88px; height: 97.92px; left: -61.44px; top: -21.12px; filter: invert(1); mix-blend-mode: multiply;" />
+          </div>
+        </div>
+        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="160" data-rotate="8" style="top: 80%; left: 32%; width: 28px; height: 28px; transform: rotate(8deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 171.36px; height: 114.24px; left: -71.68px; top: -24.64px; filter: invert(1); mix-blend-mode: multiply;" />
+          </div>
+        </div>
+        <div class="floating-diamond absolute hidden md:block pointer-events-none" data-drift="200" data-rotate="-10" style="top: 48%; left: 90%; width: 22px; height: 22px; transform: rotate(-10deg); opacity: 0.5;">
+          <div class="relative w-full h-full overflow-hidden">
+            <img src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" alt="" draggable="false" style="position: absolute; max-width: none; width: 134.64px; height: 89.76px; left: -56.32px; top: -19.36px; filter: invert(1); mix-blend-mode: multiply;" />
+          </div>
         </div>
       </div>
+
+      <!-- Hero Title -->
+      <h1 
+        style="font-family: 'Times New Roman', Times, serif;" 
+        class="relative z-10 font-bold text-obsidian leading-[0.92] tracking-[-0.01em] text-[clamp(2.5rem,13vw,11rem)] select-none hero-h1-animate"
+      >
+        THE<br>
+        NEW<br>
+        COLLECTION
+      </h1>
 
     </div>
   </header>
 
-  <!-- EDITORIAL QUOTE / MISSION STATEMENT -->
-  <section class="px-4 sm:px-6 lg:px-10 py-12 sm:py-20 lg:py-28">
+  <!-- EDITORIAL STATEMENT -->
+  <section class="px-4 sm:px-6 lg:px-10 py-20 sm:py-28">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="font-heading text-2xl sm:text-4xl lg:text-5xl leading-snug sm:leading-snug text-obsidian">
-        Every Almaazi piece begins as a sketch and ends in your hands — cut, set and finished by master goldsmiths.
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl leading-snug text-obsidian text-balance">
+        Every Almaazi piece begins as a sketch and ends in your hands &mdash; cut, set and finished by master goldsmiths.
       </h2>
     </div>
   </section>
-    </div>
-  </section>
-
-  <!-- COLLECTIONS CONTAINER (RINGS, BRACELETS, EARRINGS, NECKLACES) -->
+<!-- COLLECTIONS CONTAINER (RINGS, BRACELETS, EARRINGS, NECKLACES) -->
   <main id="collections-container">
     <!-- Rendered dynamically by app.js -->
   </main>
@@ -438,10 +450,10 @@
         </div>
 
         <nav class="space-y-2 pt-2">
-          <a href="collection.html?category=rings" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Rings</a>
-          <a href="collection.html?category=bracelets" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Bracelets</a>
-          <a href="collection.html?category=earrings" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Earrings</a>
-          <a href="collection.html?category=necklaces" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Necklaces</a>
+          <a href="#rings" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Rings</a>
+          <a href="#bracelets" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Bracelets</a>
+          <a href="#earrings" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Earrings</a>
+          <a href="#necklaces" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Necklaces</a>
         </nav>
       </div>
 
