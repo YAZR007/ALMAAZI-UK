@@ -18,7 +18,7 @@ const PRODUCTS = [
     id: "r1",
     category: "rings",
     name: "Thuraya",
-    material: "18k Gold • 0.5ct Diamond",
+    material: "18k Gold/ 925 silver • 0.8ct VVS1 Moissanite",
     price: "$95",
     numericPrice: 950,
     image: "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg",
@@ -27,12 +27,12 @@ const PRODUCTS = [
   {
     id: "r2",
     category: "rings",
-    name: "Éternité Band",
-    material: "18k Gold • Pavé Diamonds",
-    price: "$2,340",
-    numericPrice: 2340,
-    image: `${MEDIA_BASE}/484e708eb_generated_4b24cdfa.png`,
-    description: "A full circle of pavé-set diamonds in 18k gold, each stone matched for brilliance. The eternity band, reimagined by hand."
+    name: "Zumurrud",
+    material: "18k Gold/ 925 silver • 2ct VVS1 Moissanite",
+    price: "£150",
+    numericPrice: 1500,
+    image: `assets/images/trilogyemeraldnobg.jpg`,
+    description: "An Emerald-Cut Moissanite Accent Ring featuring a striking 2-carat emerald-cut center stone framed by tapered baguette and round brilliant accents. Crafted in rich 18k gold-plated 925 sterling silver, this design delivers timeless geometric symmetry and high-wattage brilliance."
   },
   {
     id: "r3",
