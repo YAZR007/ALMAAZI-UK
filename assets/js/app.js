@@ -38,11 +38,21 @@ const PRODUCTS = [
     id: "r3",
     category: "rings",
     name: "Toi-Et-Moi",
-    material: "18k Gold/ 925 silver• 1.5ctw VVS1 Moissanite",
+    material: "18k Gold/ 925 silver • 1.5ctw VVS1 Moissanite",
     price: "£120",
     numericPrice: 1200,
     image: `assets/images/toietmoi.jpg`,
-    description: "A halo of delicate diamonds surrounds the centre stone, amplifying its light. Hand-set in 18k gold with a whisper-fine band."
+    description: "Classic romance meets modern design. Featuring two high-brilliance pear-cut gems angled together in a timeless 'You and Me' setting, this ring symbolizes two souls united as one. Sleek, graceful, and dazzling, it offers a dramatic sparkle that instantly draws the eye."
+  },
+  {
+    id: "r4",
+    category: "rings",
+    name: "Sanaa",
+    material: "18k Gold/ 925 silver • 3x5mm VVS1 Moissanites",
+    price: "£135",
+    numericPrice: 1350,
+    image: `assets/images/sanaa.jpg`,
+    description: "Sleek, modern, and brilliantly bold. This full eternity band features 3x5mm emerald-cut moissanite gems set horizontally in a smooth, protective 18k gold-plated frame. Its clean geometric lines deliver continuous sparkle with a comfortable, snag-free fit—perfect as a standalone statement or stacked."
   },
 
   // Bracelets
