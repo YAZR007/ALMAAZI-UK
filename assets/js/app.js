@@ -21,7 +21,7 @@ const PRODUCTS = [
     material: "18k Gold • 0.5ct Diamond",
     price: "$1,890",
     numericPrice: 1890,
-    image: `${MEDIA_BASE}/9ed165e1a_generated_4b887fb9.png`,
+    image: `Gemini_Generated_Image_3elr703elr703elr.jpg`,
     description: "A single brilliant-cut diamond held in a hand-finished 18k gold solitaire setting — quiet, luminous, and made to be worn every day."
   },
   {
