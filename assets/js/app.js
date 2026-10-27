@@ -19,8 +19,8 @@ const PRODUCTS = [
     category: "rings",
     name: "Thuraya",
     material: "18k Gold/ 925 silver • 0.8ct VVS1 Moissanite",
-    price: "£95",
-    numericPrice: 950,
+    price: "£65",
+    numericPrice: 650,
     image: "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg",
     description: "Crafted in 18k gold plating, 925 silver and VVS1 moissanite this delicate band features a shimmering array of D-color, VVS1 moissanite stones arranged like a constellation. Lightweight yet radiant, it’s designed to bring effortless everyday luxury to your collection—whether worn solo or stacked."
   },
@@ -53,6 +53,16 @@ const PRODUCTS = [
     numericPrice: 1350,
     image: `assets/images/sanaa.jpg`,
     description: "Sleek, modern, and brilliantly bold. This full eternity band features 3x5mm emerald-cut moissanite gems set horizontally in a smooth, protective 18k gold-plated frame. Its clean geometric lines deliver continuous sparkle with a comfortable, snag-free fit—perfect as a standalone statement or stacked."
+  },
+  {
+    id: "r5",
+    category: "rings",
+    name: "ayn",
+    material: "18k Gold/ 925 silver • 1ct VVS1 Moissanites",
+    price: "£85",
+    numericPrice: 850,
+    image: `assets/images/ayn.jpg`,
+    description: "a captivating blend of modern geometry and timeless brilliance. Centered around a sleek 1.0ct emerald-cut moissanite, this ring is flanked by two custom-cut side stones, all encased in a seamless full-bezel setting."
   },
 
   // Bracelets
