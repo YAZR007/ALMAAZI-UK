@@ -17,7 +17,7 @@ const PRODUCTS = [
   {
     id: "r1",
     category: "rings",
-    name: "Thuraya Ring",
+    name: "Thuraya",
     material: "18k Gold • 0.5ct Diamond",
     price: "$95",
     numericPrice: 950,
