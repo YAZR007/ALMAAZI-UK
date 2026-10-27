@@ -31,7 +31,7 @@ const PRODUCTS = [
     material: "18k Gold/ 925 silver • 2ct VVS1 Moissanite",
     price: "£150",
     numericPrice: 1500,
-    image: `assets/images/trilogyemeraldnobg-removebg-preview.png`,
+    image: `assets/images/trilogyemeraldnobg.jpg`,
     description: "An Emerald-Cut Moissanite Accent Ring featuring a striking 2-carat emerald-cut center stone framed by tapered baguette and round brilliant accents. Crafted in rich 18k gold-plated 925 sterling silver, this design delivers timeless geometric symmetry and high-wattage brilliance."
   },
   {
