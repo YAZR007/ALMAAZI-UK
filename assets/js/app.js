@@ -76,27 +76,7 @@ const PRODUCTS = [
     image: `assets/images/Nijma.jpg`,
     description: "Handcrafted from solid 925 Sterling Silver, this piece features a continuous row of sparkling 3mm Moissanites highlighted by unique gold-plated 'X' cross motifs. The dynamic two-tone design brings extra warmth and shine, while a secure box clasp keeps it comfortably in place."
   },
-  {
-    id: "b2",
-    category: "bracelets",
-    name: "Sérénité Chain Bracelet",
-    material: "18k Gold • Handcrafted",
-    price: "$1,420",
-    numericPrice: 1420,
-    image: `${MEDIA_BASE}/98da4e616_generated_f555fa55.png`,
-    description: "A fine hand-linked gold chain that drapes softly on the wrist. Lightweight, timeless, and made for layering."
-  },
-  {
-    id: "b3",
-    category: "bracelets",
-    name: "Filigrane Bangle",
-    material: "21k Gold • Filigree",
-    price: "$1,980",
-    numericPrice: 1980,
-    image: `${MEDIA_BASE}/5ed5e3d9c_generated_3b64212c.png`,
-    description: "A slim bangle finished with traditional filigree work in 21k gold — a tribute to old-world craftsmanship."
-  },
-
+  
   // Earrings
   {
     id: "e1",
