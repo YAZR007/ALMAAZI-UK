@@ -17,12 +17,12 @@ const PRODUCTS = [
   {
     id: "r1",
     category: "rings",
-    name: "Aurora Solitaire Ring",
+    name: "Thuraya Ring",
     material: "18k Gold • 0.5ct Diamond",
-    price: "$1,890",
-    numericPrice: 1890,
+    price: "$95",
+    numericPrice: 950,
     image: `assets/Gemini_Generated_Image_3elr703elr703elr.jpg`,
-    description: "A single brilliant-cut diamond held in a hand-finished 18k gold solitaire setting — quiet, luminous, and made to be worn every day."
+    description: "Crafted in 18k gold plating, 925 silver and VVS1 moissanite this delicate band features a shimmering array of D-color, VVS1 moissanite stones arranged like a constellation. Lightweight yet radiant, it’s designed to bring effortless everyday luxury to your collection—whether worn solo or stacked."
   },
   {
     id: "r2",
