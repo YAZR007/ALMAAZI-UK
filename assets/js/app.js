@@ -59,12 +59,12 @@ const PRODUCTS = [
   {
     id: "b1",
     category: "bracelets",
-    name: "Tennis Éclat Bracelet",
-    material: "18k Gold • 1.2ct Diamonds",
-    price: "$3,650",
-    numericPrice: 3650,
-    image: `${MEDIA_BASE}/57571b72b_generated_5701a690.png`,
-    description: "A continuous line of brilliant-cut diamonds set in 18k gold. The tennis bracelet, crafted to move with you and catch every light."
+    name: "Najma",
+    material: "18k Gold/ 925 silver • 3mm VVS1 Moissanites",
+    price: "£245",
+    numericPrice: 2450,
+    image: `assets/images/Nijma.jpg`,
+    description: "Handcrafted from solid 925 Sterling Silver, this piece features a continuous row of sparkling 3mm Moissanites highlighted by unique gold-plated 'X' cross motifs. The dynamic two-tone design brings extra warmth and shine, while a secure box clasp keeps it comfortably in place."
   },
   {
     id: "b2",
