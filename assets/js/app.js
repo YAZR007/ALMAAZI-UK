@@ -37,8 +37,8 @@ const PRODUCTS = [
   {
     id: "r3",
     category: "rings",
-    name: "Lumière Halo Ring",
-    material: "18k Gold • Halo Setting",
+    name: "Toi-Et-Moi",
+    material: "18k Gold/ 925 silver• 1.5ctw VVS1 Moissanite",
     price: "$2,780",
     numericPrice: 2780,
     image: `${MEDIA_BASE}/346bce894_generated_f7ea94b7.png`,
