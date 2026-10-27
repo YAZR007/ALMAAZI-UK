@@ -21,7 +21,7 @@ const PRODUCTS = [
     material: "18k Gold • 0.5ct Diamond",
     price: "$95",
     numericPrice: 950,
-    image: `assets/Gemini_Generated_Image_3elr703elr703elr.jpg`,
+    image: "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg",
     description: "Crafted in 18k gold plating, 925 silver and VVS1 moissanite this delicate band features a shimmering array of D-color, VVS1 moissanite stones arranged like a constellation. Lightweight yet radiant, it’s designed to bring effortless everyday luxury to your collection—whether worn solo or stacked."
   },
   {
