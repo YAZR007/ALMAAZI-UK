@@ -19,7 +19,7 @@ const PRODUCTS = [
     category: "rings",
     name: "Thuraya",
     material: "18k Gold/ 925 silver • 0.8ct VVS1 Moissanite",
-    price: "$95",
+    price: "£95",
     numericPrice: 950,
     image: "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg",
     description: "Crafted in 18k gold plating, 925 silver and VVS1 moissanite this delicate band features a shimmering array of D-color, VVS1 moissanite stones arranged like a constellation. Lightweight yet radiant, it’s designed to bring effortless everyday luxury to your collection—whether worn solo or stacked."
@@ -39,9 +39,9 @@ const PRODUCTS = [
     category: "rings",
     name: "Toi-Et-Moi",
     material: "18k Gold/ 925 silver• 1.5ctw VVS1 Moissanite",
-    price: "$2,780",
-    numericPrice: 2780,
-    image: `${MEDIA_BASE}/346bce894_generated_f7ea94b7.png`,
+    price: "£120",
+    numericPrice: 1200,
+    image: `assets/images/toietmoi.jpg`,
     description: "A halo of delicate diamonds surrounds the centre stone, amplifying its light. Hand-set in 18k gold with a whisper-fine band."
   },
 
