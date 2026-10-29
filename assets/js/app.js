@@ -1,7 +1,3 @@
-/**
- * ALMAAZI — UI CLONE ENGINE
- * Handcrafted luxury jewellery.
- */
 
 const MEDIA_BASE = "https://media.base44.com/images/public/6ac65dc15369b691db036cd0";
 
