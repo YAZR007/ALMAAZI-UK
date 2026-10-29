@@ -21,7 +21,7 @@
         extend: {
           colors: {
             alabaster: '#fafaf7',
-            obsidian: '#141414',
+            obsidian: '#640b4e',
             champagne: '#f3efe6'
           },
           fontFamily: {
@@ -58,8 +58,8 @@
     </div>
   </div>
 
-  <!-- TIFFANY-STYLE FULL-WIDTH BORDERLESS NAVBAR -->
-  <div id="site-nav-container" class="fixed top-0 inset-x-0 z-50 bg-alabaster/95 backdrop-blur-md border-b border-obsidian/10 transition-all duration-300">
+  <!-- TIFFANY-STYLE HOVER-EXPANDABLE FULL-WIDTH NAVBAR -->
+  <div id="site-nav-container" class="group fixed top-0 inset-x-0 z-50 bg-alabaster/95 backdrop-blur-md border-b border-obsidian/10 transition-all duration-300">
     <nav id="main-navbar" class="w-full px-4 sm:px-8 lg:px-12 py-4 flex flex-col justify-between transition-all duration-300">
       
       <!-- Top Row: Left Search | Centered Logo | Right Actions -->
@@ -104,8 +104,8 @@
 
       </div>
 
-      <!-- Bottom Row: Centered Category Links -->
-      <div id="nav-category-row" class="hidden md:flex items-center justify-center gap-10 pt-3 mt-3 border-t border-obsidian/10 transition-all duration-300 opacity-100 max-h-20 overflow-hidden">
+      <!-- Bottom Row: Category Links (Revealed smoothly when hovering over navbar) -->
+      <div id="nav-category-row" class="hidden md:flex items-center justify-center gap-10 pt-0 mt-0 max-h-0 opacity-0 border-t border-transparent group-hover:pt-3 group-hover:mt-3 group-hover:max-h-20 group-hover:opacity-100 group-hover:border-obsidian/10 transition-all duration-300 overflow-hidden">
         <a href="#rings" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Rings</a>
         <a href="#bracelets" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Bracelets</a>
         <a href="#earrings" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Earrings</a>
@@ -348,7 +348,6 @@
     function initNavbarScroll() {
       const siteNav = document.getElementById("site-nav-container");
       const navbar = document.getElementById("main-navbar");
-      const categoryRow = document.getElementById("nav-category-row");
       const logoText = document.getElementById("nav-logo-text");
       
       if (!navbar) return;
@@ -357,27 +356,17 @@
         const scrollY = window.scrollY || window.pageYOffset;
         
         if (scrollY > 50) {
-          // Compact collapsed state
           navbar.classList.add("py-2");
           navbar.classList.remove("py-4");
           if (siteNav) siteNav.classList.add("shadow-md");
-          if (categoryRow) {
-            categoryRow.classList.add("opacity-0", "max-h-0", "pt-0", "mt-0", "border-none");
-            categoryRow.classList.remove("pt-3", "mt-3", "border-t");
-          }
           if (logoText) {
             logoText.classList.add("text-lg", "sm:text-xl");
             logoText.classList.remove("text-2xl", "sm:text-3xl", "md:text-4xl");
           }
         } else {
-          // Expanded top state
           navbar.classList.remove("py-2");
           navbar.classList.add("py-4");
           if (siteNav) siteNav.classList.remove("shadow-md");
-          if (categoryRow) {
-            categoryRow.classList.remove("opacity-0", "max-h-0", "pt-0", "mt-0", "border-none");
-            categoryRow.classList.add("pt-3", "mt-3", "border-t");
-          }
           if (logoText) {
             logoText.classList.remove("text-lg", "sm:text-xl");
             logoText.classList.add("text-2xl", "sm:text-3xl", "md:text-4xl");
