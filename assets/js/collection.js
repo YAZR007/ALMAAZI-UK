@@ -1,7 +1,7 @@
 /**
  * ALMAAZI — Dedicated Collection Page Logic
  * Reads ?category=<category_id> (rings, bracelets, earrings, necklaces)
- * Renders ONLY the pieces belonging to that category with luxury banner and sorting.
+ * Renders ONLY the pieces belonging to that category with Tiffany-style 3-column layout, clean background, and hover crossfade.
  */
 
 let currentSort = "featured";
@@ -65,7 +65,7 @@ function renderCategoryPage(catId) {
     </div>
 
     <!-- Category Hero Banner -->
-    <div class="relative squircle overflow-hidden mb-8 sm:mb-12 shadow-sm">
+    <div class="relative squircle overflow-hidden mb-12 sm:mb-16 shadow-sm">
       <div class="min-h-[220px] sm:min-h-0 aspect-[4/3] sm:aspect-[16/6] w-full">
         <img src="${category.banner}" alt="${category.label}" class="h-full w-full object-cover" />
       </div>
@@ -86,13 +86,13 @@ function renderCategoryPage(catId) {
     </div>
 
     <!-- Collection Toolbar: Count & Sort -->
-    <div class="flex items-center justify-between pb-6 mb-8 border-b border-obsidian/10">
+    <div class="flex items-center justify-between pb-6 mb-10 border-b border-obsidian/10">
       <span class="text-[11px] uppercase tracking-[0.2em] text-obsidian/50 font-mono">
-        Showing ${items.length} Creations
+        ${items.length} Products
       </span>
 
       <div class="flex items-center gap-2">
-        <span class="text-[11px] uppercase tracking-[0.18em] text-obsidian/45 hidden sm:inline">Sort:</span>
+        <span class="text-[11px] uppercase tracking-[0.18em] text-obsidian/45 hidden sm:inline">Sort by:</span>
         <select 
           onchange="setSort(this.value)" 
           class="glass squircle-sm px-3 py-1.5 text-[11px] uppercase tracking-[0.14em] text-obsidian bg-transparent border border-obsidian/10 outline-none cursor-pointer"
@@ -104,37 +104,49 @@ function renderCategoryPage(catId) {
       </div>
     </div>
 
-    <!-- Product Grid for Just This Category -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-      ${items.map(p => `
-        <a href="product.html?id=${p.id}" class="group squircle bg-alabaster border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-xl active:scale-[0.99]">
-          
-          <div class="relative aspect-square overflow-hidden bg-obsidian/5">
-            <img 
-              src="${p.image}" 
-              alt="${p.name}" 
-              class="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-obsidian/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          </div>
+    <!-- Tiffany-Style 3-Column Product Grid with Invisible Background & Hover Crossfade -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+      ${items.map(p => {
+        const primaryImg = p.images && p.images[0] ? p.images[0] : p.image;
+        const secondaryImg = p.images && p.images[1] ? p.images[1] : primaryImg;
 
-          <div class="p-5 sm:p-6 flex flex-col gap-1">
-            <h3 class="font-heading text-xl sm:text-[1.35rem] leading-tight text-obsidian">
-              ${p.name}
-            </h3>
-            <p class="text-[12px] uppercase tracking-[0.12em] text-obsidian/45">
-              ${p.material}
-            </p>
-            <div class="mt-3 flex items-center justify-between">
-              <span class="font-body text-[15px] text-obsidian/85 font-medium">${p.price}</span>
-              <span class="text-[11px] uppercase tracking-[0.16em] text-obsidian/50 group-hover:text-obsidian transition-colors">
-                View Creation &rarr;
-              </span>
+        return `
+          <a href="product.html?id=${p.id}" class="group flex flex-col text-center cursor-pointer">
+            
+            <!-- Image Container with Invisible White Background & Hover Crossfade -->
+            <div class="relative aspect-square overflow-hidden bg-transparent mb-5">
+              <!-- Primary Image: Actual jewelry piece -->
+              <img 
+                src="${primaryImg}" 
+                alt="${p.name}" 
+                class="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-500 ease-out group-hover:opacity-0"
+                draggable="false"
+              />
+              <!-- Secondary Image: Model wearing the piece (Fades in on hover) -->
+              <img 
+                src="${secondaryImg}" 
+                alt="${p.name} - Model View" 
+                class="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
+                draggable="false"
+              />
             </div>
-          </div>
 
-        </a>
-      `).join("")}
+            <!-- Centered Product Information (Tiffany Style) -->
+            <div class="flex flex-col items-center gap-1.5 px-2">
+              <h3 class="font-heading text-xl sm:text-2xl text-obsidian font-normal tracking-wide">
+                ${p.name}
+              </h3>
+              <p class="text-[12px] text-obsidian/60 font-light tracking-wide max-w-xs">
+                ${p.material}
+              </p>
+              <div class="mt-2 text-[14px] sm:text-[15px] text-obsidian font-body font-medium">
+                ${p.price}
+              </div>
+            </div>
+
+          </a>
+        `;
+      }).join("")}
     </div>
   `;
 }
