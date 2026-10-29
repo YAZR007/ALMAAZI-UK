@@ -23,8 +23,8 @@ const PRODUCTS = [
     numericPrice: 650,
     image: "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg",
     images: [
-      "assets/images/Delicate%20Diamond%20Ring%20Beauty%20Portrait.png",
-      "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg" // Replace with second image path when available
+      "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg", // Index 0: Actual ring (Shown by default)
+      "assets/images/Delicate%20Diamond%20Ring%20Beauty%20Portrait.png" // Index 1: Model wearing it (Shown on hover)
     ],
     description: "Crafted in 18k gold plating, 925 silver and VVS1 moissanite this delicate band features a shimmering array of D-color, VVS1 moissanite stones arranged like a constellation. Lightweight yet radiant, it’s designed to bring effortless everyday luxury to your collection—whether worn solo or stacked."
   },
@@ -37,8 +37,8 @@ const PRODUCTS = [
     numericPrice: 1500,
     image: "assets/images/trilogyemeraldnobg.jpg",
     images: [
-      "assets/images/trilogymodel.jpg",
-      "assets/images/trilogyemeraldnobg.jpg"
+      "assets/images/trilogyemeraldnobg.jpg", // Index 0: Actual ring (Shown by default)
+      "assets/images/trilogymodel.jpg" // Index 1: Model wearing it (Shown on hover)
     ],
     description: "An Emerald-Cut Moissanite Accent Ring featuring a striking 2-carat emerald-cut center stone framed by tapered baguette and round brilliant accents. Crafted in rich 18k gold-plated 925 sterling silver, this design delivers timeless geometric symmetry and high-wattage brilliance."
   },
@@ -51,8 +51,8 @@ const PRODUCTS = [
     numericPrice: 1200,
     image: "assets/images/toietmoi.jpg",
     images: [
-      "assets/images/toietmoimodel.jpg",
-      "assets/images/toietmoi.jpg"
+      "assets/images/toietmoi.jpg", // Index 0: Actual ring (Shown by default)
+      "assets/images/toietmoimodel.jpg" // Index 1: Model wearing it (Shown on hover)
     ],
     description: "Classic romance meets modern design. Featuring two high-brilliance pear-cut gems angled together in a timeless 'You and Me' setting, this ring symbolizes two souls united as one. Sleek, graceful, and dazzling, it offers a dramatic sparkle that instantly draws the eye."
   },
@@ -65,8 +65,8 @@ const PRODUCTS = [
     numericPrice: 1350,
     image: "assets/images/sanaa.jpg",
     images: [
-      "assets/images/sanaa.jpg",
-      "assets/images/sanaa.jpg"
+      "assets/images/sanaa.jpg", // Index 0: Actual ring (Shown by default)
+      "assets/images/sanaa.jpg" // Index 1: Alternate view or model shot when available
     ],
     description: "Sleek, modern, and brilliantly bold. This full eternity band features 3x5mm emerald-cut moissanite gems set horizontally in a smooth, protective 18k gold-plated frame. Its clean geometric lines deliver continuous sparkle with a comfortable, snag-free fit—perfect as a standalone statement or stacked."
   },
@@ -79,8 +79,8 @@ const PRODUCTS = [
     numericPrice: 850,
     image: "assets/images/ayn.jpg",
     images: [
-      "assets/images/Elegant%20Baguette%20Ring%20Portrait.png",
-      "assets/images/ayn.jpg"
+      "assets/images/ayn.jpg", // Index 0: Actual ring (Shown by default)
+      "assets/images/Elegant%20Baguette%20Ring%20Portrait.png" // Index 1: Model wearing it (Shown on hover)
     ],
     description: "a captivating blend of modern geometry and timeless brilliance. Centered around a sleek 1.0ct emerald-cut moissanite, this ring is flanked by two custom-cut side stones, all encased in a seamless full-bezel setting."
   },
@@ -95,8 +95,8 @@ const PRODUCTS = [
     numericPrice: 2450,
     image: "assets/images/Nijma.jpg",
     images: [
-      "assets/images/nijmamodel.jpg",
-      "assets/images/Nijma.jpg"
+      "assets/images/Nijma.jpg", // Index 0: Actual bracelet (Shown by default)
+      "assets/images/nijmamodel.jpg" // Index 1: Model wearing it (Shown on hover)
     ],
     description: "Handcrafted from solid 925 Sterling Silver, this piece features a continuous row of sparkling 3mm Moissanites highlighted by unique gold-plated 'X' cross motifs. The dynamic two-tone design brings extra warmth and shine, while a secure box clasp keeps it comfortably in place."
   },
@@ -366,17 +366,17 @@ function renderCollections() {
               <a href="product.html?id=${p.id}" class="group squircle bg-alabaster border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-lg active:scale-[0.99]">
                 
                 <div class="relative aspect-square overflow-hidden bg-obsidian/5">
-                  <!-- Primary Image -->
+                  <!-- Primary Image: The actual ring/jewelry piece -->
                   <img 
                     src="${primaryImg}" 
                     alt="${p.name}" 
                     class="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-500 ease-out group-hover:opacity-0"
                     draggable="false"
                   />
-                  <!-- Secondary Hover Image -->
+                  <!-- Secondary Hover Image: The model wearing the ring -->
                   <img 
                     src="${secondaryImg}" 
-                    alt="${p.name} - Alternate view" 
+                    alt="${p.name} - Model View" 
                     class="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
                     draggable="false"
                   />
