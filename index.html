@@ -58,25 +58,25 @@
     </div>
   </div>
 
-  <!-- TIFFANY-STYLE EXPANDABLE & COLLAPSING NAVBAR -->
-  <div id="site-nav-container" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 pointer-events-none px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4">
-    <nav id="main-navbar" class="pointer-events-auto bg-alabaster/95 backdrop-blur-md border border-obsidian/10 shadow-sm transition-all duration-300 px-6 py-4 flex flex-col justify-between" style="border-radius: 2rem;">
+  <!-- TIFFANY-STYLE FULL-WIDTH BORDERLESS NAVBAR -->
+  <div id="site-nav-container" class="fixed top-0 inset-x-0 z-50 bg-alabaster/95 backdrop-blur-md border-b border-obsidian/10 transition-all duration-300">
+    <nav id="main-navbar" class="w-full px-4 sm:px-8 lg:px-12 py-4 flex flex-col justify-between transition-all duration-300">
       
       <!-- Top Row: Left Search | Centered Logo | Right Actions -->
       <div class="relative flex items-center justify-between w-full transition-all duration-300" id="nav-top-row">
         
         <!-- Left: Search Link -->
-        <div class="flex items-center gap-4 text-[11px] uppercase tracking-[0.18em] text-obsidian/70">
+        <div class="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-obsidian/75">
           <button onclick="alert('Search coming soon');" class="hover:text-obsidian flex items-center gap-1.5 transition-colors">
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-            <span class="hidden md:inline">Search</span>
+            <span class="hidden md:inline font-medium">Search</span>
           </button>
         </div>
 
         <!-- Center: ALMAAZI Serif Logo -->
         <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
           <a href="javascript:void(0)" onclick="replayPreloader()" class="cursor-pointer block transition-transform duration-300" id="nav-logo-link" title="Replay ALMAAZI Loading Animation">
-            <span id="nav-logo-text" class="font-heading text-xl sm:text-2xl md:text-3xl tracking-[0.38em] text-obsidian font-medium uppercase transition-all duration-300 block text-center pl-[0.38em]">
+            <span id="nav-logo-text" class="font-heading text-2xl sm:text-3xl md:text-4xl tracking-[0.38em] text-obsidian font-semibold uppercase transition-all duration-300 block text-center pl-[0.38em]">
               ALMAAZI
             </span>
           </a>
@@ -84,7 +84,7 @@
 
         <!-- Right: Shopping Bag & Mobile Hamburger -->
         <div class="flex items-center gap-3">
-          <button onclick="openCartDrawer()" aria-label="Shopping bag" class="relative flex items-center gap-1.5 text-[11px] uppercase tracking-[0.18em] text-obsidian/80 hover:text-obsidian transition-colors py-1 px-2 rounded-full hover:bg-obsidian/5">
+          <button onclick="openCartDrawer()" aria-label="Shopping bag" class="relative flex items-center gap-1.5 text-[11px] uppercase tracking-[0.18em] text-obsidian/85 hover:text-obsidian transition-colors py-1 px-2">
             <svg class="h-[18px] w-[18px] text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
               <path d="M3 6h18" />
@@ -105,11 +105,11 @@
       </div>
 
       <!-- Bottom Row: Centered Category Links -->
-      <div id="nav-category-row" class="hidden md:flex items-center justify-center gap-8 pt-3 mt-3 border-t border-obsidian/10 transition-all duration-300 opacity-100 max-h-20 overflow-hidden">
-        <a href="#rings" class="text-[12px] uppercase tracking-[0.22em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Rings</a>
-        <a href="#bracelets" class="text-[12px] uppercase tracking-[0.22em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Bracelets</a>
-        <a href="#earrings" class="text-[12px] uppercase tracking-[0.22em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Earrings</a>
-        <a href="#necklaces" class="text-[12px] uppercase tracking-[0.22em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Necklaces</a>
+      <div id="nav-category-row" class="hidden md:flex items-center justify-center gap-10 pt-3 mt-3 border-t border-obsidian/10 transition-all duration-300 opacity-100 max-h-20 overflow-hidden">
+        <a href="#rings" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Rings</a>
+        <a href="#bracelets" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Bracelets</a>
+        <a href="#earrings" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Earrings</a>
+        <a href="#necklaces" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Necklaces</a>
       </div>
 
     </nav>
@@ -346,6 +346,7 @@
   <!-- NAVBAR COLLAPSE SCROLL HANDLER -->
   <script>
     function initNavbarScroll() {
+      const siteNav = document.getElementById("site-nav-container");
       const navbar = document.getElementById("main-navbar");
       const categoryRow = document.getElementById("nav-category-row");
       const logoText = document.getElementById("nav-logo-text");
@@ -357,27 +358,29 @@
         
         if (scrollY > 50) {
           // Compact collapsed state
-          navbar.classList.add("py-2", "px-4", "shadow-md");
-          navbar.classList.remove("py-4", "px-6");
+          navbar.classList.add("py-2");
+          navbar.classList.remove("py-4");
+          if (siteNav) siteNav.classList.add("shadow-md");
           if (categoryRow) {
             categoryRow.classList.add("opacity-0", "max-h-0", "pt-0", "mt-0", "border-none");
             categoryRow.classList.remove("pt-3", "mt-3", "border-t");
           }
           if (logoText) {
             logoText.classList.add("text-lg", "sm:text-xl");
-            logoText.classList.remove("text-xl", "sm:text-2xl", "md:text-3xl");
+            logoText.classList.remove("text-2xl", "sm:text-3xl", "md:text-4xl");
           }
         } else {
           // Expanded top state
-          navbar.classList.remove("py-2", "px-4", "shadow-md");
-          navbar.classList.add("py-4", "px-6");
+          navbar.classList.remove("py-2");
+          navbar.classList.add("py-4");
+          if (siteNav) siteNav.classList.remove("shadow-md");
           if (categoryRow) {
             categoryRow.classList.remove("opacity-0", "max-h-0", "pt-0", "mt-0", "border-none");
             categoryRow.classList.add("pt-3", "mt-3", "border-t");
           }
           if (logoText) {
             logoText.classList.remove("text-lg", "sm:text-xl");
-            logoText.classList.add("text-xl", "sm:text-2xl", "md:text-3xl");
+            logoText.classList.add("text-2xl", "sm:text-3xl", "md:text-4xl");
           }
         }
       }, { passive: true });
