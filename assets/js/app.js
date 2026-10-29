@@ -23,7 +23,7 @@ const PRODUCTS = [
     numericPrice: 650,
     image: "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg",
     images: [
-      "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg",
+      "assets/images/Delicate%20Diamond%20Ring%20Beauty%20Portrait.png",
       "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg" // Replace with second image path when available
     ],
     description: "Crafted in 18k gold plating, 925 silver and VVS1 moissanite this delicate band features a shimmering array of D-color, VVS1 moissanite stones arranged like a constellation. Lightweight yet radiant, it’s designed to bring effortless everyday luxury to your collection—whether worn solo or stacked."
@@ -37,7 +37,7 @@ const PRODUCTS = [
     numericPrice: 1500,
     image: "assets/images/trilogyemeraldnobg.jpg",
     images: [
-      "assets/images/trilogyemeraldnobg.jpg",
+      "assets/images/trilogymodel.jpg",
       "assets/images/trilogyemeraldnobg.jpg"
     ],
     description: "An Emerald-Cut Moissanite Accent Ring featuring a striking 2-carat emerald-cut center stone framed by tapered baguette and round brilliant accents. Crafted in rich 18k gold-plated 925 sterling silver, this design delivers timeless geometric symmetry and high-wattage brilliance."
@@ -51,7 +51,7 @@ const PRODUCTS = [
     numericPrice: 1200,
     image: "assets/images/toietmoi.jpg",
     images: [
-      "assets/images/toietmoi.jpg",
+      "assets/images/toietmoimodel.jpg",
       "assets/images/toietmoi.jpg"
     ],
     description: "Classic romance meets modern design. Featuring two high-brilliance pear-cut gems angled together in a timeless 'You and Me' setting, this ring symbolizes two souls united as one. Sleek, graceful, and dazzling, it offers a dramatic sparkle that instantly draws the eye."
@@ -79,7 +79,7 @@ const PRODUCTS = [
     numericPrice: 850,
     image: "assets/images/ayn.jpg",
     images: [
-      "assets/images/ayn.jpg",
+      "assets/images/Elegant%20Baguette%20Ring%20Portrait.png",
       "assets/images/ayn.jpg"
     ],
     description: "a captivating blend of modern geometry and timeless brilliance. Centered around a sleek 1.0ct emerald-cut moissanite, this ring is flanked by two custom-cut side stones, all encased in a seamless full-bezel setting."
@@ -95,7 +95,7 @@ const PRODUCTS = [
     numericPrice: 2450,
     image: "assets/images/Nijma.jpg",
     images: [
-      "assets/images/Nijma.jpg",
+      "assets/images/nijmamodel.jpg",
       "assets/images/Nijma.jpg"
     ],
     description: "Handcrafted from solid 925 Sterling Silver, this piece features a continuous row of sparkling 3mm Moissanites highlighted by unique gold-plated 'X' cross motifs. The dynamic two-tone design brings extra warmth and shine, while a secure box clasp keeps it comfortably in place."
