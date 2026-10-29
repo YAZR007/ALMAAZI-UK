@@ -79,6 +79,20 @@ const PRODUCTS = [
     ],
     description: "a captivating blend of modern geometry and timeless brilliance. Centered around a sleek 1.0ct emerald-cut moissanite, this ring is flanked by two custom-cut side stones, all encased in a seamless full-bezel setting."
   },
+   {
+    id: "r6",
+    category: "rings",
+    name: "noor",
+    material: "925 silver • 1ct VVS1 Moissanite",
+    price: "£90",
+    numericPrice: 900,
+    image: "assets/images/noorsilver.jpg",
+    images: [
+      "assets/images/noorsilver.jpg", // Index 0: Actual ring (Shown by default)
+      "assets/images/noorsilvermodel.jpg" // Index 1: Model wearing it (Shown on hover)
+    ],
+    description: "An exquisite and delicate band featuring a brilliant, six-prong set center diamond accented by a graceful, winding vine-like pattern adorned with shimmering side stones."
+  },
 
   // Bracelets
   {
