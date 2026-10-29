@@ -1,4 +1,3 @@
-
 const MEDIA_BASE = "https://media.base44.com/images/public/6ac65dc15369b691db036cd0";
 
 const CATEGORIES = [
@@ -315,7 +314,7 @@ function closeProductDetail() {
   // no-op (kept for compatibility; modal no longer used)
 }
 
-// Render Collection Sections
+// Render Collection Sections (Tiffany 3-Column Large Card Grid Layout)
 function renderCollections() {
   const container = document.getElementById("collections-container");
   if (!container) return;
@@ -325,26 +324,26 @@ function renderCollections() {
     const indexNum = String(idx + 1).padStart(2, "0");
 
     return `
-      <section id="${cat.id}" class="scroll-mt-24 px-3 sm:px-6 lg:px-10 py-8 sm:py-16 lg:py-20">
+      <section id="${cat.id}" class="scroll-mt-24 px-4 sm:px-8 lg:px-12 py-12 sm:py-20">
         
         <!-- Category Banner (Squircle, Mobile Optimized & Clickable) -->
-        <a href="collection.html?category=${cat.id}" class="block group relative squircle overflow-hidden mb-6 sm:mb-12 cursor-pointer transition-transform duration-300 active:scale-[0.995]" title="View all ${cat.label}">
-          <div class="min-h-[200px] sm:min-h-0 aspect-[4/3] sm:aspect-[16/6] w-full">
+        <a href="collection.html?category=${cat.id}" class="block group relative squircle overflow-hidden mb-12 sm:mb-16 cursor-pointer transition-transform duration-300 active:scale-[0.995]" title="View all ${cat.label}">
+          <div class="min-h-[220px] sm:min-h-0 aspect-[4/3] sm:aspect-[16/6] w-full">
             <img src="${cat.banner}" alt="${cat.label}" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]">
           </div>
           <div class="absolute inset-0 bg-gradient-to-r from-alabaster/95 via-alabaster/60 to-transparent sm:from-alabaster/80 sm:via-alabaster/20"></div>
           <div class="absolute inset-0 flex items-center">
-            <div class="px-5 py-6 sm:px-12 lg:px-16 max-w-xl">
-              <span class="block text-[10px] sm:text-[12px] uppercase tracking-[0.25em] text-obsidian/50 mb-1 sm:mb-3 font-mono">
+            <div class="px-6 py-6 sm:px-12 lg:px-16 max-w-xl">
+              <span class="block text-[10px] sm:text-[12px] uppercase tracking-[0.25em] text-obsidian/50 mb-1.5 sm:mb-3 font-mono">
                 ${indexNum} — Dedicated Collection
               </span>
-              <h2 class="font-heading text-3xl sm:text-5xl lg:text-7xl leading-[1.05] text-obsidian">
+              <h2 class="font-heading text-4xl sm:text-6xl lg:text-7xl leading-[1.05] text-obsidian">
                 ${cat.label}
               </h2>
-              <p class="mt-2 sm:mt-4 max-w-xs sm:max-w-sm text-[13px] sm:text-[15px] text-obsidian/70 leading-relaxed font-light">
+              <p class="mt-2.5 sm:mt-4 max-w-xs sm:max-w-sm text-[13px] sm:text-[15px] text-obsidian/70 leading-relaxed font-light">
                 ${cat.blurb}
               </p>
-              <div class="mt-3.5 sm:mt-6 inline-flex items-center gap-2 text-[11px] sm:text-[12px] uppercase tracking-[0.2em] font-medium text-obsidian group-hover:translate-x-1.5 transition-transform duration-300">
+              <div class="mt-4 inline-flex items-center gap-2 text-[11px] sm:text-[12px] uppercase tracking-[0.2em] font-medium text-obsidian group-hover:translate-x-1.5 transition-transform duration-300">
                 <span>View Full ${cat.label} Range</span>
                 <span>&rarr;</span>
               </div>
@@ -352,45 +351,43 @@ function renderCollections() {
           </div>
         </a>
 
-        <!-- 4 Product Cards Grid with Image Hover Crossfade -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <!-- Large Tiffany-Style 3-Column Product Grid with Model Hover Crossfade -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 lg:gap-16">
           ${items.map(p => {
             const primaryImg = p.images && p.images[0] ? p.images[0] : p.image;
             const secondaryImg = p.images && p.images[1] ? p.images[1] : primaryImg;
 
             return `
-              <a href="product.html?id=${p.id}" class="group squircle bg-alabaster border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-lg active:scale-[0.99]">
+              <a href="product.html?id=${p.id}" class="group flex flex-col text-center cursor-pointer pb-8">
                 
-                <div class="relative aspect-square overflow-hidden bg-obsidian/5">
-                  <!-- Primary Image: The actual ring/jewelry piece -->
+                <!-- Extra-Large Image Canvas Frame -->
+                <div class="relative w-full aspect-square bg-[#fcfcfb] overflow-hidden mb-6 rounded-lg">
+                  <!-- Primary Image: Large jewelry view -->
                   <img 
                     src="${primaryImg}" 
                     alt="${p.name}" 
-                    class="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-500 ease-out group-hover:opacity-0"
+                    class="absolute inset-0 h-full w-full object-contain object-center transition-opacity duration-500 ease-out group-hover:opacity-0 p-2 sm:p-4 scale-110"
                     draggable="false"
                   />
-                  <!-- Secondary Hover Image: The model wearing the ring -->
+                  <!-- Secondary Image: Model view (Crossfades in on hover) -->
                   <img 
                     src="${secondaryImg}" 
                     alt="${p.name} - Model View" 
                     class="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
                     draggable="false"
                   />
-                  <div class="absolute inset-0 bg-gradient-to-t from-obsidian/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
 
-                <div class="p-4 sm:p-6 flex flex-col gap-1">
-                  <h3 class="font-heading text-lg sm:text-[1.35rem] leading-tight text-obsidian">
+                <!-- Prominent Typography -->
+                <div class="flex flex-col items-center gap-2 px-2">
+                  <h3 class="font-heading text-2xl sm:text-3xl text-obsidian font-normal tracking-wide">
                     ${p.name}
                   </h3>
-                  <p class="text-[11px] sm:text-[12px] uppercase tracking-[0.12em] text-obsidian/45">
+                  <p class="text-[13px] sm:text-[14px] text-obsidian/60 font-light tracking-wide max-w-xs leading-snug">
                     ${p.material}
                   </p>
-                  <div class="mt-2.5 sm:mt-3 flex items-center justify-between">
-                    <span class="font-body text-[14px] sm:text-[15px] text-obsidian/85 font-medium">${p.price}</span>
-                    <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-obsidian/60 group-hover:text-obsidian transition-colors">
-                      Explore Creation &rarr;
-                    </span>
+                  <div class="mt-1 text-[16px] sm:text-[17px] text-obsidian font-body font-medium">
+                    ${p.price}
                   </div>
                 </div>
 
