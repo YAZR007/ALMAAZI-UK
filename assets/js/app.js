@@ -22,6 +22,10 @@ const PRODUCTS = [
     price: "£65",
     numericPrice: 650,
     image: "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg",
+    images: [
+      "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg",
+      "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg" // Replace with second image path when available
+    ],
     description: "Crafted in 18k gold plating, 925 silver and VVS1 moissanite this delicate band features a shimmering array of D-color, VVS1 moissanite stones arranged like a constellation. Lightweight yet radiant, it’s designed to bring effortless everyday luxury to your collection—whether worn solo or stacked."
   },
   {
@@ -31,7 +35,11 @@ const PRODUCTS = [
     material: "18k Gold/ 925 silver • 2ct VVS1 Moissanite",
     price: "£150",
     numericPrice: 1500,
-    image: `assets/images/trilogyemeraldnobg.jpg`,
+    image: "assets/images/trilogyemeraldnobg.jpg",
+    images: [
+      "assets/images/trilogyemeraldnobg.jpg",
+      "assets/images/trilogyemeraldnobg.jpg"
+    ],
     description: "An Emerald-Cut Moissanite Accent Ring featuring a striking 2-carat emerald-cut center stone framed by tapered baguette and round brilliant accents. Crafted in rich 18k gold-plated 925 sterling silver, this design delivers timeless geometric symmetry and high-wattage brilliance."
   },
   {
@@ -41,7 +49,11 @@ const PRODUCTS = [
     material: "18k Gold/ 925 silver • 1.5ctw VVS1 Moissanite",
     price: "£120",
     numericPrice: 1200,
-    image: `assets/images/toietmoi.jpg`,
+    image: "assets/images/toietmoi.jpg",
+    images: [
+      "assets/images/toietmoi.jpg",
+      "assets/images/toietmoi.jpg"
+    ],
     description: "Classic romance meets modern design. Featuring two high-brilliance pear-cut gems angled together in a timeless 'You and Me' setting, this ring symbolizes two souls united as one. Sleek, graceful, and dazzling, it offers a dramatic sparkle that instantly draws the eye."
   },
   {
@@ -51,7 +63,11 @@ const PRODUCTS = [
     material: "18k Gold/ 925 silver • 3x5mm VVS1 Moissanites",
     price: "£135",
     numericPrice: 1350,
-    image: `assets/images/sanaa.jpg`,
+    image: "assets/images/sanaa.jpg",
+    images: [
+      "assets/images/sanaa.jpg",
+      "assets/images/sanaa.jpg"
+    ],
     description: "Sleek, modern, and brilliantly bold. This full eternity band features 3x5mm emerald-cut moissanite gems set horizontally in a smooth, protective 18k gold-plated frame. Its clean geometric lines deliver continuous sparkle with a comfortable, snag-free fit—perfect as a standalone statement or stacked."
   },
   {
@@ -61,7 +77,11 @@ const PRODUCTS = [
     material: "18k Gold/ 925 silver • 1ct VVS1 Moissanites",
     price: "£85",
     numericPrice: 850,
-    image: `assets/images/ayn.jpg`,
+    image: "assets/images/ayn.jpg",
+    images: [
+      "assets/images/ayn.jpg",
+      "assets/images/ayn.jpg"
+    ],
     description: "a captivating blend of modern geometry and timeless brilliance. Centered around a sleek 1.0ct emerald-cut moissanite, this ring is flanked by two custom-cut side stones, all encased in a seamless full-bezel setting."
   },
 
@@ -73,7 +93,11 @@ const PRODUCTS = [
     material: "18k Gold/ 925 silver • 3mm VVS1 Moissanites",
     price: "£245",
     numericPrice: 2450,
-    image: `assets/images/Nijma.jpg`,
+    image: "assets/images/Nijma.jpg",
+    images: [
+      "assets/images/Nijma.jpg",
+      "assets/images/Nijma.jpg"
+    ],
     description: "Handcrafted from solid 925 Sterling Silver, this piece features a continuous row of sparkling 3mm Moissanites highlighted by unique gold-plated 'X' cross motifs. The dynamic two-tone design brings extra warmth and shine, while a secure box clasp keeps it comfortably in place."
   },
   
@@ -86,6 +110,10 @@ const PRODUCTS = [
     price: "$1,560",
     numericPrice: 1560,
     image: `${MEDIA_BASE}/6248d1d82_generated_b2dd475a.png`,
+    images: [
+      `${MEDIA_BASE}/6248d1d82_generated_b2dd475a.png`,
+      `${MEDIA_BASE}/6248d1d82_generated_b2dd475a.png`
+    ],
     description: "Delicate star-shaped drops in 18k gold that sway gently with movement. Light enough for every day, special enough for every night."
   },
   {
@@ -96,6 +124,10 @@ const PRODUCTS = [
     price: "$980",
     numericPrice: 980,
     image: `${MEDIA_BASE}/98fdfbf2e_generated_ee0b306c.png`,
+    images: [
+      `${MEDIA_BASE}/98fdfbf2e_generated_ee0b306c.png`,
+      `${MEDIA_BASE}/98fdfbf2e_generated_ee0b306c.png`
+    ],
     description: "A pair of Akoya pearls set on 18k gold posts. The quietest kind of elegance."
   },
   {
@@ -106,6 +138,10 @@ const PRODUCTS = [
     price: "$1,290",
     numericPrice: 1290,
     image: `${MEDIA_BASE}/b5a096495_generated_7cd1d238.png`,
+    images: [
+      `${MEDIA_BASE}/b5a096495_generated_7cd1d238.png`,
+      `${MEDIA_BASE}/b5a096495_generated_7cd1d238.png`
+    ],
     description: "A cascading line of gold hoops that frame the face with soft movement. Hand-finished and effortlessly modern."
   },
 
@@ -118,6 +154,10 @@ const PRODUCTS = [
     price: "$1,640",
     numericPrice: 1640,
     image: `${MEDIA_BASE}/d2d5e4e81_generated_f89b9be9.png`,
+    images: [
+      `${MEDIA_BASE}/d2d5e4e81_generated_f89b9be9.png`,
+      `${MEDIA_BASE}/d2d5e4e81_generated_f89b9be9.png`
+    ],
     description: "A single diamond suspended on a fine 18k gold chain. The pendant that needs nothing else."
   },
   {
@@ -128,6 +168,10 @@ const PRODUCTS = [
     price: "$1,120",
     numericPrice: 1120,
     image: `${MEDIA_BASE}/46015d035_generated_162e32ea.jpg`,
+    images: [
+      `${MEDIA_BASE}/46015d035_generated_162e32ea.jpg`,
+      `${MEDIA_BASE}/46015d035_generated_162e32ea.jpg`
+    ],
     description: "Three fine gold chains layered as one — texture and movement without the weight."
   },
   {
@@ -138,6 +182,10 @@ const PRODUCTS = [
     price: "$1,360",
     numericPrice: 1360,
     image: `${MEDIA_BASE}/2438cf786_generated_670b0ef5.jpg`,
+    images: [
+      `${MEDIA_BASE}/2438cf786_generated_670b0ef5.jpg`,
+      `${MEDIA_BASE}/2438cf786_generated_670b0ef5.jpg`
+    ],
     description: "A small gold heart on a delicate chain. A keepsake, made to be given and worn close."
   }
 ];
@@ -308,37 +356,51 @@ function renderCollections() {
           </div>
         </a>
 
-        <!-- 4 Product Cards Grid -->
+        <!-- 4 Product Cards Grid with Image Hover Crossfade -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          ${items.map(p => `
-            <a href="product.html?id=${p.id}" class="group squircle bg-alabaster border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-lg active:scale-[0.99]">
-              
-              <div class="relative aspect-square overflow-hidden bg-obsidian/5">
-                <img 
-                  src="${p.image}" 
-                  alt="${p.name}" 
-                  class="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-obsidian/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </div>
+          ${items.map(p => {
+            const primaryImg = p.images && p.images[0] ? p.images[0] : p.image;
+            const secondaryImg = p.images && p.images[1] ? p.images[1] : primaryImg;
 
-              <div class="p-4 sm:p-6 flex flex-col gap-1">
-                <h3 class="font-heading text-lg sm:text-[1.35rem] leading-tight text-obsidian">
-                  ${p.name}
-                </h3>
-                <p class="text-[11px] sm:text-[12px] uppercase tracking-[0.12em] text-obsidian/45">
-                  ${p.material}
-                </p>
-                <div class="mt-2.5 sm:mt-3 flex items-center justify-between">
-                  <span class="font-body text-[14px] sm:text-[15px] text-obsidian/85 font-medium">${p.price}</span>
-                  <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-obsidian/60 group-hover:text-obsidian transition-colors">
-                    Explore Creation &rarr;
-                  </span>
+            return `
+              <a href="product.html?id=${p.id}" class="group squircle bg-alabaster border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-lg active:scale-[0.99]">
+                
+                <div class="relative aspect-square overflow-hidden bg-obsidian/5">
+                  <!-- Primary Image -->
+                  <img 
+                    src="${primaryImg}" 
+                    alt="${p.name}" 
+                    class="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-500 ease-out group-hover:opacity-0"
+                    draggable="false"
+                  />
+                  <!-- Secondary Hover Image -->
+                  <img 
+                    src="${secondaryImg}" 
+                    alt="${p.name} - Alternate view" 
+                    class="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
+                    draggable="false"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-obsidian/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
-              </div>
 
-            </a>
-          `).join("")}
+                <div class="p-4 sm:p-6 flex flex-col gap-1">
+                  <h3 class="font-heading text-lg sm:text-[1.35rem] leading-tight text-obsidian">
+                    ${p.name}
+                  </h3>
+                  <p class="text-[11px] sm:text-[12px] uppercase tracking-[0.12em] text-obsidian/45">
+                    ${p.material}
+                  </p>
+                  <div class="mt-2.5 sm:mt-3 flex items-center justify-between">
+                    <span class="font-body text-[14px] sm:text-[15px] text-obsidian/85 font-medium">${p.price}</span>
+                    <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-obsidian/60 group-hover:text-obsidian transition-colors">
+                      Explore Creation &rarr;
+                    </span>
+                  </div>
+                </div>
+
+              </a>
+            `;
+          }).join("")}
         </div>
 
       </section>
@@ -413,14 +475,12 @@ function initHeroParallax() {
     const headerTop = header.offsetTop;
     const headerHeight = header.offsetHeight || 600;
     
-    // progress: 0 when rect aligns with top, 1 when header scrolls completely past
     const progress = Math.max(0, Math.min(1, (scrollY - headerTop) / headerHeight));
 
     diamonds.forEach(el => {
       const drift = parseFloat(el.getAttribute("data-drift")) || 150;
       const rotate = parseFloat(el.getAttribute("data-rotate")) || 0;
       const y = -drift * progress;
-      // opacity: 0.5 at progress 0, fades linearly to 0 at progress 0.75
       const opacity = Math.max(0, 0.5 * (1 - progress / 0.75));
       el.style.transform = `translate3d(0, ${y}px, 0) rotate(${rotate}deg)`;
       el.style.opacity = opacity.toFixed(3);
@@ -447,6 +507,5 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCartDrawer();
   initHeroParallax();
 
-  // Auto-dismiss preloader after the full ALMAAZI written and unwritten cycle completes (3.2s)
   preloaderTimer = setTimeout(dismissPreloader, 3200);
 });
