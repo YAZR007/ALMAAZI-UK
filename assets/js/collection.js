@@ -1,7 +1,6 @@
 /**
  * ALMAAZI — Dedicated Collection Page Logic
- * Reads ?category=<category_id> (rings, bracelets, earrings, necklaces)
- * Renders ONLY the pieces belonging to that category with Tiffany-style 3-column layout, clean background, and hover crossfade.
+ * Renders large-format Tiffany-style 3-column product cards.
  */
 
 let currentSort = "featured";
@@ -86,7 +85,7 @@ function renderCategoryPage(catId) {
     </div>
 
     <!-- Collection Toolbar: Count & Sort -->
-    <div class="flex items-center justify-between pb-6 mb-10 border-b border-obsidian/10">
+    <div class="flex items-center justify-between pb-6 mb-12 border-b border-obsidian/10">
       <span class="text-[11px] uppercase tracking-[0.2em] text-obsidian/50 font-mono">
         ${items.length} Products
       </span>
@@ -104,25 +103,25 @@ function renderCategoryPage(catId) {
       </div>
     </div>
 
-    <!-- Tiffany-Style 3-Column Product Grid with Invisible Background & Hover Crossfade -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+    <!-- Doubled Card Size 3-Column Grid Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 lg:gap-16">
       ${items.map(p => {
         const primaryImg = p.images && p.images[0] ? p.images[0] : p.image;
         const secondaryImg = p.images && p.images[1] ? p.images[1] : primaryImg;
 
         return `
-          <a href="product.html?id=${p.id}" class="group flex flex-col text-center cursor-pointer">
+          <a href="product.html?id=${p.id}" class="group flex flex-col text-center cursor-pointer pb-8">
             
-            <!-- Image Container with Invisible White Background & Hover Crossfade -->
-            <div class="relative aspect-square overflow-hidden bg-transparent mb-5">
-              <!-- Primary Image: Actual jewelry piece -->
+            <!-- Extra-Large Image Canvas Frame -->
+            <div class="relative w-full aspect-square bg-[#fcfcfb] overflow-hidden mb-6 rounded-lg">
+              <!-- Primary Image: Large ring view -->
               <img 
                 src="${primaryImg}" 
                 alt="${p.name}" 
-                class="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-500 ease-out group-hover:opacity-0"
+                class="absolute inset-0 h-full w-full object-contain object-center transition-opacity duration-500 ease-out group-hover:opacity-0 p-2 sm:p-4 scale-110"
                 draggable="false"
               />
-              <!-- Secondary Image: Model wearing the piece (Fades in on hover) -->
+              <!-- Secondary Image: Model view -->
               <img 
                 src="${secondaryImg}" 
                 alt="${p.name} - Model View" 
@@ -131,15 +130,15 @@ function renderCategoryPage(catId) {
               />
             </div>
 
-            <!-- Centered Product Information (Tiffany Style) -->
-            <div class="flex flex-col items-center gap-1.5 px-2">
-              <h3 class="font-heading text-xl sm:text-2xl text-obsidian font-normal tracking-wide">
+            <!-- Prominent Typography -->
+            <div class="flex flex-col items-center gap-2 px-2">
+              <h3 class="font-heading text-2xl sm:text-3xl text-obsidian font-normal tracking-wide">
                 ${p.name}
               </h3>
-              <p class="text-[12px] text-obsidian/60 font-light tracking-wide max-w-xs">
+              <p class="text-[13px] sm:text-[14px] text-obsidian/60 font-light tracking-wide max-w-xs leading-snug">
                 ${p.material}
               </p>
-              <div class="mt-2 text-[14px] sm:text-[15px] text-obsidian font-body font-medium">
+              <div class="mt-1 text-[16px] sm:text-[17px] text-obsidian font-body font-medium">
                 ${p.price}
               </div>
             </div>
