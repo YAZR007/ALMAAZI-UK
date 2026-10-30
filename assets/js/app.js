@@ -44,9 +44,9 @@ const PRODUCTS = [
     material: "18k Gold/ 925 silver • 1.5ctw VVS1 Moissanite",
     price: "£120",
     numericPrice: 1200,
-    image: "assets/images/toietmoi.jpg",
+    image: "assets/images/toietmoigold.jpg",
     images: [
-      "assets/images/toietmoi.jpg", // Index 0: Actual ring (Shown by default)
+      "assets/images/toietmoigold.jpg", // Index 0: Actual ring (Shown by default)
       "assets/images/toietmoimodel.jpg" // Index 1: Model wearing it (Shown on hover)
     ],
     description: "Classic romance meets modern design. Featuring two high-brilliance pear-cut gems angled together in a timeless 'You and Me' setting, this ring symbolizes two souls united as one. Sleek, graceful, and dazzling, it offers a dramatic sparkle that instantly draws the eye."
