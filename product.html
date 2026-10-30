@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ALMAAZI — Handcrafted Luxury Jewellery</title>
+  <title>almaazi — Haute Joaillerie</title>
   <meta name="description" content="ALMAAZI — Handcrafted luxury jewellery. Rings, bracelets, earrings and necklaces in gold and diamond." />
-
+  
   <link rel="icon" type="image/png" href="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" />
-
+  
   <!-- Google Fonts: Cormorant Garamond & Inter Tight -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,7 +21,8 @@
         extend: {
           colors: {
             alabaster: '#fafaf7',
-            obsidian: '#141414'
+            obsidian: '#141414',
+            champagne: '#f3efe6'
           },
           fontFamily: {
             heading: ['"Cormorant Garamond"', 'ui-serif', 'Georgia', 'serif'],
@@ -32,7 +33,7 @@
     }
   </script>
 
-  <link rel="stylesheet" href="assets/css/style.css?v=3.0" />
+  <link rel="stylesheet" href="assets/css/style.css?v=4.0" />
 
   <style>
     /* Page entrance smooth reveal */
@@ -69,63 +70,80 @@
     }
   </style>
 </head>
-<body class="min-h-screen bg-alabaster font-body text-obsidian antialiased selection:bg-obsidian/10">
+<body id="top" class="min-h-screen bg-alabaster font-body text-obsidian antialiased selection:bg-obsidian/10">
 
-  <!-- FLOATING MATTE GLASS TRANSLUCENT NAVBAR -->
-  <div class="fixed top-0 inset-x-0 z-50 px-3 sm:px-6 lg:px-10 pt-3 sm:pt-4 pointer-events-none">
-    <nav class="pointer-events-auto glass squircle flex items-center justify-between pl-4 sm:pl-5 pr-2 sm:pr-4 py-2 sm:py-3 transition-all duration-300">
+  <!-- PRELOADER -->
+  <div id="diamond-preloader" class="fixed inset-0 z-[100] bg-alabaster flex flex-col items-center justify-center p-6 select-none">
+    <div class="flex flex-col items-center w-full max-w-lg text-center px-4">
+      <div class="relative w-full flex items-center justify-center">
+        <svg viewBox="0 6 470 66" class="almaazi-write-svg w-full max-w-sm sm:max-w-md md:max-w-lg h-auto" xmlns="http://www.w3.org/2000/svg">
+          <path class="almaazi-letter letter-0" pathLength="1000" d="M 38.5,48.5 L 24.3,48.5 L 19.8,60.7 L 28.0,60.7 L 28.0,62.4 L 11.9,62.4 L 11.9,60.7 L 18.0,60.7 L 34.3,16.8 L 35.3,16.8 L 50.9,60.7 L 56.8,60.7 L 56.8,62.4 L 35.6,62.4 L 35.6,60.7 L 42.8,60.7 Z M 25.0,46.8 L 37.9,46.8 L 31.6,29.0 L 31.5,29.0 Z" />
+          <path class="almaazi-letter letter-1" pathLength="1000" d="M 101.2,19.5 L 101.2,60.7 L 111.2,60.7 C 113.1,60.7 114.6,60.5 115.7,60.2 C 116.8,59.9 117.9,59.2 119.0,58.1 C 120.1,57.0 120.9,55.7 121.5,54.2 C 122.1,52.7 122.7,50.5 123.4,47.8 L 124.9,47.8 L 123.7,62.4 L 86.3,62.4 L 86.3,60.7 L 93.3,60.7 L 93.3,19.5 L 86.3,19.5 L 86.3,17.8 L 108.6,17.8 L 108.6,19.5 Z" />
+          <path class="almaazi-letter letter-2" pathLength="1000" d="M 152.6,17.8 L 168.6,17.8 L 178.1,49.3 L 178.2,49.3 L 187.8,17.8 L 203.4,17.8 L 203.4,19.5 L 196.8,19.5 L 196.8,60.7 L 203.4,60.7 L 203.4,62.4 L 182.4,62.4 L 182.4,60.7 L 189.3,60.7 L 189.3,18.8 L 189.1,18.8 L 175.9,62.4 L 174.3,62.4 L 161.1,18.8 L 161.0,18.8 L 161.0,60.7 L 167.8,60.7 L 167.8,62.4 L 152.6,62.4 L 152.6,60.7 L 159.3,60.7 L 159.3,19.5 L 152.6,19.5 Z" />
+          <path class="almaazi-letter letter-3" pathLength="1000" d="M 256.9,48.5 L 242.8,48.5 L 238.2,60.7 L 246.4,60.7 L 246.4,62.4 L 230.3,62.4 L 230.3,60.7 L 236.4,60.7 L 252.7,16.8 L 253.7,16.8 L 269.3,60.7 L 275.3,60.7 L 275.3,62.4 L 254.0,62.4 L 254.0,60.7 L 261.2,60.7 Z M 243.4,46.8 L 256.3,46.8 L 250.0,29.0 L 249.9,29.0 Z" />
+          <path class="almaazi-letter letter-4" pathLength="1000" d="M 329.9,48.5 L 315.7,48.5 L 311.2,60.7 L 319.4,60.7 L 319.4,62.4 L 303.3,62.4 L 303.3,60.7 L 309.4,60.7 L 325.6,16.8 L 326.7,16.8 L 342.2,60.7 L 348.2,60.7 L 348.2,62.4 L 327.0,62.4 L 327.0,60.7 L 334.2,60.7 Z M 316.3,46.8 L 329.3,46.8 L 323.0,29.0 L 322.8,29.0 Z" />
+          <path class="almaazi-letter letter-5" pathLength="1000" d="M 410.8,62.4 L 376.6,62.4 L 376.6,60.7 L 402.2,19.5 L 391.7,19.5 C 387.9,19.5 385.2,20.3 383.7,21.9 C 382.2,23.4 381.1,26.1 380.4,29.8 L 378.9,29.8 L 379.6,17.8 L 411.5,17.8 L 411.5,19.0 L 385.5,60.7 L 396.4,60.7 C 399.6,60.7 401.9,60.4 403.5,59.7 C 405.0,59.1 406.4,57.6 407.6,55.2 C 408.8,52.8 409.6,50.3 409.9,47.7 L 411.5,47.7 Z" />
+          <path class="almaazi-letter letter-6" pathLength="1000" d="M 447.7,60.7 L 447.7,19.5 L 440.4,19.5 L 440.4,17.8 L 462.9,17.8 L 462.9,19.5 L 455.6,19.5 L 455.6,60.7 L 462.9,60.7 L 462.9,62.4 L 440.4,62.4 L 440.4,60.7 Z" />
+        </svg>
+      </div>
+      <div class="almaazi-loader-sub text-[10px] sm:text-[11px] uppercase tracking-[0.35em] text-obsidian/45 mt-6 font-mono select-none">
+        Haute Joaillerie
+      </div>
+    </div>
+  </div>
 
-      <!-- Brand Logo Link to Home -->
-      <a href="index.html" class="flex items-center shrink-0 cursor-pointer" title="Return to ALMAAZI Maison">
-        <img
-          src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png"
-          alt="ALMAAZI"
-          class="h-7 sm:h-9 w-auto hover:opacity-80 transition-opacity"
-          style="filter: invert(1); mix-blend-mode: multiply;"
-          draggable="false"
-        />
-      </a>
+  <!-- TIFFANY-STYLE HOVER-EXPANDABLE FULL-WIDTH NAVBAR -->
+  <div id="site-nav-container" class="group fixed top-0 inset-x-0 z-50 bg-alabaster/95 backdrop-blur-md border-b border-obsidian/10 transition-all duration-300">
+    <nav id="main-navbar" class="w-full px-4 sm:px-8 lg:px-12 py-4 flex flex-col justify-between transition-all duration-300">
+      
+      <!-- Top Row: Left Search | Centered Logo | Right Actions -->
+      <div class="relative flex items-center justify-between w-full transition-all duration-300" id="nav-top-row">
+        
+        <!-- Left: Search Link -->
+        <div class="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-obsidian/75">
+          <button onclick="alert('Search coming soon');" class="hover:text-obsidian flex items-center gap-1.5 transition-colors">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <span class="hidden md:inline font-medium">Search</span>
+          </button>
+        </div>
 
-      <!-- Category Nav Links -->
-      <div class="hidden md:flex items-center gap-1">
-        <a href="collection.html?category=rings" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
-          Rings
-          <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
-        </a>
-        <a href="collection.html?category=bracelets" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
-          Bracelets
-          <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
-        </a>
-        <a href="collection.html?category=earrings" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
-          Earrings
-          <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
-        </a>
-        <a href="collection.html?category=necklaces" class="relative px-4 py-2 text-[13px] uppercase tracking-[0.14em] text-obsidian/80 hover:text-obsidian transition-colors group">
-          Necklaces
-          <span class="pointer-events-none absolute inset-x-3 -bottom-0.5 h-px scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 bg-obsidian/40"></span>
-        </a>
+        <!-- Center: ALMAAZI Serif Logo -->
+        <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+          <a href="javascript:void(0)" onclick="replayPreloader()" class="cursor-pointer block transition-transform duration-300" id="nav-logo-link" title="Replay ALMAAZI Loading Animation">
+            <span id="nav-logo-text" class="font-heading text-2xl sm:text-3xl md:text-4xl tracking-[0.38em] text-obsidian font-semibold uppercase transition-all duration-300 block text-center pl-[0.38em]">
+              ALMAAZI
+            </span>
+          </a>
+        </div>
+
+        <!-- Right: Shopping Bag & Mobile Hamburger -->
+        <div class="flex items-center gap-3">
+          <button onclick="openCartDrawer()" aria-label="Shopping bag" class="relative flex items-center gap-1.5 text-[11px] uppercase tracking-[0.18em] text-obsidian/85 hover:text-obsidian transition-colors py-1 px-2">
+            <svg class="h-[18px] w-[18px] text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            <span id="cart-count-badge" class="grid place-items-center min-w-[18px] h-[18px] px-1 rounded-full bg-obsidian text-alabaster text-[10px] font-medium leading-none hidden">0</span>
+          </button>
+
+          <button onclick="toggleMobileMenu(true)" aria-label="Open menu" class="md:hidden grid place-items-center h-10 w-10 rounded-full hover:bg-obsidian/10 transition-colors text-obsidian">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+
       </div>
 
-      <!-- Right Utility Actions -->
-      <div class="flex items-center gap-0.5 sm:gap-1">
-        <!-- Shopping Bag Trigger -->
-        <button onclick="openCartDrawer()" aria-label="Shopping bag" class="relative grid place-items-center h-10 w-10 sm:h-11 sm:w-11 rounded-full hover:bg-obsidian/10 transition-colors">
-          <svg class="h-[18px] w-[18px] text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-            <path d="M3 6h18" />
-            <path d="M16 10a4 4 0 0 1-8 0" />
-          </svg>
-          <span id="cart-count-badge" class="absolute top-0.5 right-0.5 grid place-items-center min-w-[18px] h-[18px] px-1 rounded-full bg-obsidian text-alabaster text-[10px] font-medium leading-none hidden">0</span>
-        </button>
-
-        <!-- Mobile Menu Trigger -->
-        <button onclick="toggleMobileMenu(true)" aria-label="Open menu" class="md:hidden grid place-items-center h-10 w-10 sm:h-11 sm:w-11 rounded-full hover:bg-obsidian/10 transition-colors">
-          <svg class="h-5 w-5 text-obsidian" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <line x1="4" x2="20" y1="12" y2="12" />
-            <line x1="4" x2="20" y1="6" y2="6" />
-            <line x1="4" x2="20" y1="18" y2="18" />
-          </svg>
-        </button>
+      <!-- Bottom Row: Category Links (Revealed smoothly when hovering over navbar) -->
+      <div id="nav-category-row" class="hidden md:flex items-center justify-center gap-10 pt-0 mt-0 max-h-0 opacity-0 border-t border-transparent group-hover:pt-3 group-hover:mt-3 group-hover:max-h-20 group-hover:opacity-100 group-hover:border-obsidian/10 transition-all duration-300 overflow-hidden">
+        <a href="collection.html?category=rings" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Rings</a>
+        <a href="collection.html?category=bracelets" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Bracelets</a>
+        <a href="collection.html?category=earrings" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Earrings</a>
+        <a href="collection.html?category=necklaces" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Necklaces</a>
       </div>
 
     </nav>
@@ -140,7 +158,7 @@
   </div>
 
   <!-- MAIN PRODUCT SECTION -->
-  <main id="product-root" class="pt-24 sm:pt-32 px-3 sm:px-6 lg:px-10 pb-12 sm:pb-16">
+  <main id="product-root" class="pt-36 sm:pt-44 px-3 sm:px-6 lg:px-10 pb-12 sm:pb-16">
     <!-- Populated dynamically by product.js -->
     <div class="min-h-[60vh] flex items-center justify-center">
       <div class="text-center text-obsidian/40 text-[12px] uppercase tracking-[0.2em]">
@@ -189,13 +207,9 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
 
         <div class="md:col-span-5">
-          <img
-            src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png"
-            alt="ALMAAZI"
-            class="h-10 w-auto mb-5"
-            style="filter: invert(1); mix-blend-mode: multiply;"
-            draggable="false"
-          />
+          <span class="font-heading text-3xl tracking-[0.3em] text-obsidian font-medium block mb-4 uppercase">
+            ALMAAZI
+          </span>
           <p class="font-heading text-2xl sm:text-3xl leading-snug text-obsidian max-w-sm">
             Handcrafted luxury jewellery, made to be worn for a lifetime.
           </p>
@@ -278,12 +292,7 @@
     <div class="mobile-drawer-panel absolute right-0 top-0 h-full w-[85%] max-w-xs bg-alabaster/95 backdrop-blur-2xl border-l border-obsidian/10 p-6 sm:p-8 flex flex-col justify-between translate-x-full transition-transform duration-300 ease-out shadow-2xl">
       <div class="space-y-6">
         <div class="flex justify-between items-center pb-5 border-b border-obsidian/10">
-          <img 
-            src="https://media.base44.com/images/public/user_6a2fba2de916b5d1d1a37da5/f253d3430_image.png" 
-            alt="ALMAAZI" 
-            class="h-7 w-auto" 
-            style="filter: invert(1); mix-blend-mode: multiply;" 
-          />
+          <span class="font-heading text-xl tracking-[0.3em] text-obsidian font-medium uppercase">ALMAAZI</span>
           <button onclick="toggleMobileMenu(false)" aria-label="Close menu" class="h-10 w-10 grid place-items-center rounded-full hover:bg-obsidian/10 text-obsidian/60 hover:text-obsidian">
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
           </button>
@@ -346,5 +355,40 @@
 
   <script src="assets/js/app.js?v=6.0"></script>
   <script src="assets/js/product.js?v=6.0"></script>
+
+  <!-- NAVBAR COLLAPSE SCROLL HANDLER -->
+  <script>
+    function initNavbarScroll() {
+      const siteNav = document.getElementById("site-nav-container");
+      const navbar = document.getElementById("main-navbar");
+      const logoText = document.getElementById("nav-logo-text");
+      
+      if (!navbar) return;
+
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY || window.pageYOffset;
+        
+        if (scrollY > 50) {
+          navbar.classList.add("py-2");
+          navbar.classList.remove("py-4");
+          if (siteNav) siteNav.classList.add("shadow-md");
+          if (logoText) {
+            logoText.classList.add("text-lg", "sm:text-xl");
+            logoText.classList.remove("text-2xl", "sm:text-3xl", "md:text-4xl");
+          }
+        } else {
+          navbar.classList.remove("py-2");
+          navbar.classList.add("py-4");
+          if (siteNav) siteNav.classList.remove("shadow-md");
+          if (logoText) {
+            logoText.classList.remove("text-lg", "sm:text-xl");
+            logoText.classList.add("text-2xl", "sm:text-3xl", "md:text-4xl");
+          }
+        }
+      }, { passive: true });
+    }
+
+    document.addEventListener("DOMContentLoaded", initNavbarScroll);
+  </script>
 </body>
 </html>
