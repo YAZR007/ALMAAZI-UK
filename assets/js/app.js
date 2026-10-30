@@ -72,9 +72,9 @@ const PRODUCTS = [
     material: "18k Gold/ 925 silver • 1ct VVS1 Moissanites",
     price: "£85",
     numericPrice: 850,
-    image: "assets/images/ayn.jpg",
+    image: "assets/images/aynring.jpg",
     images: [
-      "assets/images/ayn.jpg", // Index 0: Actual ring (Shown by default)
+      "assets/images/aynring.jpg", // Index 0: Actual ring (Shown by default)
       "assets/images/Elegant%20Baguette%20Ring%20Portrait.png" // Index 1: Model wearing it (Shown on hover)
     ],
     description: "a captivating blend of modern geometry and timeless brilliance. Centered around a sleek 1.0ct emerald-cut moissanite, this ring is flanked by two custom-cut side stones, all encased in a seamless full-bezel setting."
