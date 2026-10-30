@@ -107,9 +107,9 @@
           </button>
         </div>
 
-        <!-- Center: ALMAAZI Serif Logo -->
+        <!-- Center: ALMAAZI Serif Logo (Redirects to index.html) -->
         <div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
-          <a href="javascript:void(0)" onclick="replayPreloader()" class="cursor-pointer block transition-transform duration-300" id="nav-logo-link" title="Replay ALMAAZI Loading Animation">
+          <a href="index.html" class="cursor-pointer block transition-transform duration-300" id="nav-logo-link" title="Return to ALMAAZI Home">
             <span id="nav-logo-text" class="font-heading text-2xl sm:text-3xl md:text-4xl tracking-[0.38em] text-obsidian font-semibold uppercase transition-all duration-300 block text-center pl-[0.38em]">
               ALMAAZI
             </span>
@@ -138,12 +138,12 @@
 
       </div>
 
-      <!-- Bottom Row: Category Links (Revealed smoothly when hovering over navbar) -->
+      <!-- Bottom Row: Category Links -->
       <div id="nav-category-row" class="hidden md:flex items-center justify-center gap-10 pt-0 mt-0 max-h-0 opacity-0 border-t border-transparent group-hover:pt-3 group-hover:mt-3 group-hover:max-h-20 group-hover:opacity-100 group-hover:border-obsidian/10 transition-all duration-300 overflow-hidden">
-        <a href="collection.html?category=rings" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Rings</a>
-        <a href="collection.html?category=bracelets" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Bracelets</a>
-        <a href="collection.html?category=earrings" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Earrings</a>
-        <a href="collection.html?category=necklaces" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Necklaces</a>
+        <a href="index.html#rings" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Rings</a>
+        <a href="index.html#bracelets" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Bracelets</a>
+        <a href="index.html#earrings" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Earrings</a>
+        <a href="index.html#necklaces" class="text-[11px] uppercase tracking-[0.25em] text-obsidian/75 hover:text-obsidian transition-colors font-medium">Necklaces</a>
       </div>
 
     </nav>
@@ -299,10 +299,10 @@
         </div>
 
         <nav class="space-y-2 pt-2">
-          <a href="collection.html?category=rings" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Rings</a>
-          <a href="collection.html?category=bracelets" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Bracelets</a>
-          <a href="collection.html?category=earrings" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Earrings</a>
-          <a href="collection.html?category=necklaces" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Necklaces</a>
+          <a href="index.html#rings" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Rings</a>
+          <a href="index.html#bracelets" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Bracelets</a>
+          <a href="index.html#earrings" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Earrings</a>
+          <a href="index.html#necklaces" onclick="toggleMobileMenu(false)" class="block px-3 py-2.5 rounded-xl hover:bg-obsidian/5 font-heading text-2xl text-obsidian transition-colors">Necklaces</a>
         </nav>
       </div>
 
@@ -354,6 +354,23 @@
   </div>
 
   <script src="assets/js/app.js?v=6.0"></script>
+  
+  <!-- Safe Product Loader Script Fallback -->
+  <script>
+    // Fallback handler if product.js fails or is missing an ID parameter
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      // If no product id or slug is present, redirect back to home or show friendly state
+      if (!params.has('id') && !params.has('slug') && !params.has('product')) {
+        const productRoot = document.getElementById('product-root');
+        if (productRoot && productRoot.innerHTML.includes('Loading creation...')) {
+          // If you want it to redirect automatically back to index, uncomment below:
+          // window.location.href = 'index.html';
+        }
+      }
+    });
+  </script>
+  
   <script src="assets/js/product.js?v=6.0"></script>
 
   <!-- NAVBAR COLLAPSE SCROLL HANDLER -->
