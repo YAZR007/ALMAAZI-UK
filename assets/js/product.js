@@ -1,412 +1,261 @@
 /**
- * ALMAAZI — Product Detail Page Logic & Navbar Controller
- * Reads ?id=<productId> from URL, renders the full luxury product page, 
- * and handles navbar interactive behavior and cart drawers.
+ * ALMAAZI — Product Detail Page Logic
+ * Reads ?id=<productId> from URL, renders the full luxury product page.
  */
 
-const MEDIA_BASE = "https://media.base44.com/images/public/6ac65dc15369b691db036cd0";
-
-const CATEGORIES = [
-  { id: "rings", label: "Rings", blurb: "Solitaires, bands & halos — cut to catch the light.", banner: `${MEDIA_BASE}/1b3a31134_generated_71a9bc8c.png` },
-  { id: "bracelets", label: "Bracelets", blurb: "Tennis, chain & filigree — gold that moves with you.", banner: `${MEDIA_BASE}/100c79495_generated_a3afb88c.png` },
-  { id: "earrings", label: "Earrings", blurb: "Drops, studs & hoops — quiet brilliance, every day.", banner: `${MEDIA_BASE}/865a3db2d_generated_3bd3915e.png` },
-  { id: "necklaces", label: "Necklaces", blurb: "Pendants & layers — the finishing touch.", banner: `${MEDIA_BASE}/17d7e788b_generated_528d380f.png` }
-];
-
-const PRODUCTS = [
-  // Rings
-  {
-    id: "r1",
-    category: "rings",
-    name: "Thuraya",
-    material: "18k Gold/ 925 silver • 0.8ct VVS1 Moissanite",
-    price: "£65",
-    numericPrice: 650,
-    image: "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg",
-    images: [
-      "assets/images/Gemini_Generated_Image_3elr703elr703elr.jpg",
-      "assets/images/Delicate%20Diamond%20Ring%20Beauty%20Portrait.png"
-    ],
-    description: "Crafted in 18k gold plating, 925 silver and VVS1 moissanite this delicate band features a shimmering array of D-color, VVS1 moissanite stones arranged like a constellation."
-  },
-  {
-    id: "r2",
-    category: "rings",
-    name: "Zumurrud",
-    material: "18k Gold/ 925 silver • 2ct VVS1 Moissanite",
-    price: "£150",
-    numericPrice: 1500,
-    image: "assets/images/trilogyemeraldnobg.jpg",
-    images: [
-      "assets/images/trilogyemeraldnobg.jpg",
-      "assets/images/trilogymodel.jpg"
-    ],
-    description: "An Emerald-Cut Moissanite Accent Ring featuring a striking 2-carat emerald-cut center stone framed by tapered baguette and round brilliant accents."
-  },
-  {
-    id: "r3",
-    category: "rings",
-    name: "Toi-Et-Moi",
-    material: "18k Gold/ 925 silver • 1.5ctw VVS1 Moissanite",
-    price: "£120",
-    numericPrice: 1200,
-    image: "assets/images/toietmoi.jpg",
-    images: [
-      "assets/images/toietmoi.jpg",
-      "assets/images/toietmoimodel.jpg"
-    ],
-    description: "Classic romance meets modern design. Featuring two high-brilliance pear-cut gems angled together in a timeless 'You and Me' setting."
-  },
-  {
-    id: "r4",
-    category: "rings",
-    name: "Sanaa",
-    material: "18k Gold/ 925 silver • 3x5mm VVS1 Moissanites",
-    price: "£135",
-    numericPrice: 1350,
-    image: "assets/images/sanaa.jpg",
-    images: [
-      "assets/images/sanaa.jpg",
-      "assets/images/sanaa.jpg"
-    ],
-    description: "Sleek, modern, and brilliantly bold. This full eternity band features 3x5mm emerald-cut moissanite gems set horizontally."
-  },
-  {
-    id: "r5",
-    category: "rings",
-    name: "ayn",
-    material: "18k Gold/ 925 silver • 1ct VVS1 Moissanites",
-    price: "£85",
-    numericPrice: 850,
-    image: "assets/images/ayn.jpg",
-    images: [
-      "assets/images/ayn.jpg",
-      "assets/images/Elegant%20Baguette%20Ring%20Portrait.png"
-    ],
-    description: "A captivating blend of modern geometry and timeless brilliance centered around a sleek 1.0ct emerald-cut moissanite."
-  },
-
-  // Bracelets
-  {
-    id: "b1",
-    category: "bracelets",
-    name: "Najma",
-    material: "18k Gold/ 925 silver • 3mm VVS1 Moissanites",
-    price: "£245",
-    numericPrice: 2450,
-    image: "assets/images/Nijma.jpg",
-    images: [
-      "assets/images/Nijma.jpg",
-      "assets/images/nijmamodel.jpg"
-    ],
-    description: "Handcrafted from solid 925 Sterling Silver, featuring a continuous row of sparkling 3mm Moissanites highlighted by gold-plated 'X' motifs."
-  },
-  
-  // Earrings
-  {
-    id: "e1",
-    category: "earrings",
-    name: "Stella Drop Earrings",
-    material: "18k Gold • Star Drops",
-    price: "$1,560",
-    numericPrice: 1560,
-    image: `${MEDIA_BASE}/6248d1d82_generated_b2dd475a.png`,
-    images: [
-      `${MEDIA_BASE}/6248d1d82_generated_b2dd475a.png`,
-      `${MEDIA_BASE}/6248d1d82_generated_b2dd475a.png`
-    ],
-    description: "Delicate star-shaped drops in 18k gold that sway gently with movement."
-  },
-  {
-    id: "e2",
-    category: "earrings",
-    name: "Pearl Whisper Studs",
-    material: "18k Gold • Akoya Pearl",
-    price: "$980",
-    numericPrice: 980,
-    image: `${MEDIA_BASE}/98fdfbf2e_generated_ee0b306c.png`,
-    images: [
-      `${MEDIA_BASE}/98fdfbf2e_generated_ee0b306c.png`,
-      `${MEDIA_BASE}/98fdfbf2e_generated_ee0b306c.png`
-    ],
-    description: "A pair of Akoya pearls set on 18k gold posts. The quietest kind of elegance."
-  },
-  {
-    id: "e3",
-    category: "earrings",
-    name: "Cascade Hoop Earrings",
-    material: "18k Gold • Cascading",
-    price: "$1,290",
-    numericPrice: 1290,
-    image: `${MEDIA_BASE}/b5a096495_generated_7cd1d238.png`,
-    images: [
-      `${MEDIA_BASE}/b5a096495_generated_7cd1d238.png`,
-      `${MEDIA_BASE}/b5a096495_generated_7cd1d238.png`
-    ],
-    description: "A cascading line of gold hoops that frame the face with soft movement."
-  },
-
-  // Necklaces
-  {
-    id: "n1",
-    category: "necklaces",
-    name: "Solitaire Pendant Necklace",
-    material: "18k Gold • 0.3ct Diamond",
-    price: "$1,640",
-    numericPrice: 1640,
-    image: `${MEDIA_BASE}/d2d5e4e81_generated_f89b9be9.png`,
-    images: [
-      `${MEDIA_BASE}/d2d5e4e81_generated_f89b9be9.png`,
-      `${MEDIA_BASE}/d2d5e4e81_generated_f89b9be9.png`
-    ],
-    description: "A single diamond suspended on a fine 18k gold chain."
-  },
-  {
-    id: "n2",
-    category: "necklaces",
-    name: "Layered Gold Chain",
-    material: "18k Gold • Triple Layer",
-    price: "$1,120",
-    numericPrice: 1120,
-    image: `${MEDIA_BASE}/46015d035_generated_162e32ea.jpg`,
-    images: [
-      `${MEDIA_BASE}/46015d035_generated_162e32ea.jpg`,
-      `${MEDIA_BASE}/46015d035_generated_162e32ea.jpg`
-    ],
-    description: "Three fine gold chains layered as one — texture and movement without the weight."
-  },
-  {
-    id: "n3",
-    category: "necklaces",
-    name: "Amour Heart Pendant",
-    material: "18k Gold • Heart Pendant",
-    price: "$1,360",
-    numericPrice: 1360,
-    image: `${MEDIA_BASE}/2438cf786_generated_670b0ef5.jpg`,
-    images: [
-      `${MEDIA_BASE}/2438cf786_generated_670b0ef5.jpg`,
-      `${MEDIA_BASE}/2438cf786_generated_670b0ef5.jpg`
-    ],
-    description: "A small gold heart on a delicate chain. A keepsake, made to be given and worn close."
-  }
-];
-
-// Extended luxury metadata for all products
+// Extended luxury metadata for all 12 products
 const DETAILS = {
+  // Rings
   r1: {
     badge: "Maison Signature",
+    cut: "Round Brilliant Cut",
+    carat: "0.50 ct • Color F • Clarity VS1",
     hallmark: "Au750 (18k Solid Gold)",
     optionType: "Ring Size",
     hasSizeGuide: true,
     sizes: ["US 5", "US 6", "US 7", "US 8"],
-    story: "The Aurora Solitaire was conceived around the purity of morning light. Cast in 18k solid gold with a slender, knife-edge band."
+    specs: [
+      { label: "Material",    value: "18k Solid Yellow Gold (Au750)" },
+      { label: "Centre Stone", value: "0.50ct Natural Brilliant Diamond" },
+      { label: "Color / Clarity", value: "F Color / VS1 Clarity" },
+      { label: "Setting",     value: "Four-Prong High Solitaire" },
+      { label: "Band Width",  value: "1.6mm Comfort Fit" },
+      { label: "Origin",      value: "Handcrafted in Private Atelier" }
+    ],
+    care: "Clean with lukewarm water, mild soap, and a soft-bristled brush. Store individually in your Almaazi suede pouch to preserve its mirror luster.",
+    story: "The Aurora Solitaire was conceived around the purity of morning light. Cast in 18k solid gold with a slender, knife-edge band, the central stone sits elevated in four hand-filed claws to catch and disperse ambient light with every subtle gesture."
   },
   r2: {
     badge: "Iconic Eternity",
+    cut: "Full Pavé Micro-Brilliant",
+    carat: "0.85 ct Total Weight",
     hallmark: "Au750 (18k Solid Gold)",
     optionType: "Ring Size",
     hasSizeGuide: true,
     sizes: ["US 5", "US 6", "US 7", "US 8"],
-    story: "An unbroken horizon of calibrated diamonds, each precisely aligned under magnification to create a ribbon of seamless sparkle."
+    specs: [
+      { label: "Material",    value: "18k Solid Yellow Gold" },
+      { label: "Gemstones",   value: "Continuous Pavé Natural Diamonds" },
+      { label: "Diamond Cut", value: "Round Brilliant • 0.85ctw" },
+      { label: "Setting",     value: "French Micro-Grain Pavé" },
+      { label: "Band Width",  value: "2.1mm" },
+      { label: "Certification", value: "Almaazi Maison Certificate" }
+    ],
+    care: "Gently wipe with our included microfiber polishing cloth. Avoid high-impact activities to protect micro-pavé prongs.",
+    story: "An unbroken horizon of calibrated diamonds, each precisely aligned under magnification to create a ribbon of seamless sparkle. The Éternité Band represents timeless devotion, made to be worn alone or stacked alongside a solitaire."
   },
   r3: {
     badge: "Haute Brilliance",
+    cut: "Cushion Centre with Halo",
+    carat: "1.10 ct Total Weight",
     hallmark: "Au750 (18k Solid Gold)",
     optionType: "Ring Size",
     hasSizeGuide: true,
     sizes: ["US 5", "US 6", "US 7", "US 8"],
-    story: "Drawing inspiration from vintage European heirlooms, the Lumière Halo cradles its radiant centre stone in a delicate constellation."
+    specs: [
+      { label: "Material",    value: "18k Solid Gold (Multi-tone)" },
+      { label: "Centre Stone", value: "0.70ct Radiant Cushion Cut" },
+      { label: "Halo Accent", value: "0.40ctw Micro-Pavé Surround" },
+      { label: "Setting",     value: "Scalloped Cathedral Halo" },
+      { label: "Band Width",  value: "1.8mm" },
+      { label: "Hallmark",    value: "Almaazi Stamp & Fineness Mark" }
+    ],
+    care: "Rinse with lukewarm water and dry with a lint-free cloth. Complimentary annual ultrasonic cleaning available upon request.",
+    story: "Drawing inspiration from vintage European heirlooms, the Lumière Halo cradles its radiant centre stone in a delicate constellation of micro-pavé diamonds, dramatically expanding its perceived spread while preserving refined proportions."
   },
+
+  // Bracelets
   b1: {
     badge: "Atelier Classic",
+    cut: "Continuous Brilliant Line",
+    carat: "1.20 ct Total Weight",
     hallmark: "Au750 (18k Solid Gold)",
     optionType: "Wrist Length",
     hasSizeGuide: false,
     sizes: ["16 cm (Petite)", "17.5 cm (Standard)", "19 cm (Relaxed)"],
-    story: "Crafted with fluid articulation, each four-prong link of the Tennis Éclat pivots freely against its neighbor."
+    specs: [
+      { label: "Material",    value: "18k Solid Yellow Gold" },
+      { label: "Diamonds",    value: "54 Matched Round Brilliants" },
+      { label: "Clasp System", value: "Concealed Box Clasp with Dual Safety" },
+      { label: "Flexibility", value: "Articulated Individual Collets" },
+      { label: "Total Length", value: "17.5 cm (Adjustable links available)" },
+      { label: "Provenance",  value: "Hand-assembled in Maison Atelier" }
+    ],
+    care: "Fasten clasp before storage. Lay flat in the jewelry coffer. Avoid contact with hairsprays, lotions, and chlorinated pools.",
+    story: "Crafted with fluid articulation, each four-prong link of the Tennis Éclat pivots freely against its neighbor. The result is gold and diamond that mimics liquid movement, draping effortlessly across the wrist from dawn into evening."
   },
   b2: {
     badge: "Minimalist Luxe",
+    cut: "Hand-Linked Solid Gold",
+    carat: "Solid Gold • No Stones",
     hallmark: "Au750 (18k Solid Gold)",
     optionType: "Wrist Length",
     hasSizeGuide: false,
     sizes: ["16 cm (Petite)", "17.5 cm (Standard)", "19 cm (Relaxed)"],
-    story: "Simplicity carried to perfection. The Sérénité Chain Bracelet features custom-drawn 18k gold wire."
+    specs: [
+      { label: "Material",    value: "18k Solid Yellow Gold" },
+      { label: "Chain Link",  value: "Custom Elongated Oval Rolo" },
+      { label: "Clasp",       value: "Engraved Almaazi Lobster Trigger" },
+      { label: "Finish",      value: "High-Mirror Hand Polish" },
+      { label: "Weight",      value: "Approx. 6.8 grams" },
+      { label: "Layering",    value: "Designed for effortless stacking" }
+    ],
+    care: "Buff periodically with a dry gold cloth. Can be worn continually; gold will acquire an authentic, gentle patina over decades.",
+    story: "Simplicity carried to perfection. The Sérénité Chain Bracelet features custom-drawn 18k gold wire, formed and soldered one link at a time to ensure silky glide against skin. Unpretentious quiet luxury in its truest form."
   },
   b3: {
     badge: "Heritage Craft",
+    cut: "Fine Wire Filigree",
+    carat: "High Karat Solid Gold",
     hallmark: "Au875 (21k Solid Gold)",
     optionType: "Bangle Size",
     hasSizeGuide: false,
     sizes: ["Small (56mm)", "Medium (60mm)", "Large (64mm)"],
-    story: "An homage to ancient gold-working traditions drawn into gossamer threads of 21k gold."
+    specs: [
+      { label: "Material",    value: "21k High-Karat Solid Gold" },
+      { label: "Technique",   value: "Hand-Twisted Granulated Filigree" },
+      { label: "Profile",     value: "Semi-Rigid Open Cuff" },
+      { label: "Finish",      value: "Satin Warm Tone with Burnished Edges" },
+      { label: "Thickness",   value: "3.2mm Structured Core" },
+      { label: "Hallmark",    value: "Certified 21k Gold Guarantee" }
+    ],
+    care: "High-karat gold is naturally supple. Slip gently sideways over the wrist rather than pulling open. Keep separate from harder gems.",
+    story: "An homage to ancient gold-working traditions. Drawn into gossamer threads of 21k gold, the filigree motifs are nestled inside an architectural border, catching light through rhythmic voids and golden shadows."
   },
+
+  // Earrings
   e1: {
     badge: "Celestial Drop",
+    cut: "Geometric Diamond Stars",
+    carat: "0.45 ct Total Weight",
     hallmark: "Au750 (18k Solid Gold)",
     optionType: "Backing & Fit",
     hasSizeGuide: false,
     sizes: ["18k Push-Back", "La Poussette Lock (+£80)"],
-    story: "Designed to animate with every turn of the head, suspending delicate star silhouettes from whispering gold threads."
+    specs: [
+      { label: "Material",    value: "18k Solid Yellow Gold" },
+      { label: "Stones",      value: "Pavé Diamonds in Star Collets" },
+      { label: "Drop Length", value: "35mm Total Drop" },
+      { label: "Backing",     value: "Comfort Bell Back with Silicone Core" },
+      { label: "Movement",    value: "Dual-Joint Articulated Sway" },
+      { label: "Weight",      value: "Ultra-Lightweight (2.4g per ear)" }
+    ],
+    care: "Wipe posts with alcohol wipe periodically. Store suspended in ear slots of your jewelry case to avoid chain bending.",
+    story: "Designed to animate with every turn of the head. The Stella Drop Earrings suspend delicate star silhouettes from whispering gold threads, capturing fleeting glints of luminescence without ever pulling on the lobe."
   },
   e2: {
     badge: "Timeless Pure",
+    cut: "Selected Japanese Akoya",
+    carat: "Grade AAA Natural Pearls",
     hallmark: "Au750 (18k Solid Gold)",
     optionType: "Backing & Fit",
     hasSizeGuide: false,
     sizes: ["18k Push-Back", "La Poussette Lock (+£80)"],
-    story: "The quintessential piece of every jewelry collection. Hand-paired Akoya pearls chosen for mirror luster."
+    specs: [
+      { label: "Material",    value: "18k Solid Gold Posts & Cups" },
+      { label: "Pearls",      value: "Authentic Akoya Cultured Pearls (7mm)" },
+      { label: "Luster",      value: "Mirror Sharp Overtones" },
+      { label: "Post Length", value: "10.5mm Hypoallergenic Post" },
+      { label: "Backing",     value: "Secure 18k Gold Push-Backs" },
+      { label: "Color",       value: "Natural White with Rose Blush" }
+    ],
+    care: "Pearls are organic gems: put on after makeup and perfume. Wipe clean with damp chamois. Never submerge in ultrasonic cleaners.",
+    story: "The quintessential piece of every jewelry collection. Hand-paired Akoya pearls, chosen for mirror luster and silky surface clarity, mounted in minimalist 18k solid gold cups that seem to float upon the ear."
   },
   e3: {
     badge: "Modern Sculptural",
+    cut: "Graduated Interlocking",
+    carat: "Solid Gold Sculpture",
     hallmark: "Au750 (18k Solid Gold)",
     optionType: "Closure Style",
     hasSizeGuide: false,
     sizes: ["18k Click-Hinge", "Comfort Omega Clip"],
-    story: "A harmonious dialogue between fluid circles. Three concentric rings interlock and cascade gently forward."
+    specs: [
+      { label: "Material",    value: "18k Solid Yellow Gold" },
+      { label: "Structure",   value: "Triple Linked Cascading Rings" },
+      { label: "Closure",     value: "Seamless Click-Lock Hinge" },
+      { label: "Width",       value: "2.8mm Tubular Contour" },
+      { label: "Comfort",     value: "Featherweight Hollow Core Architecture" },
+      { label: "Hallmark",    value: "Laser-inscribed Almaazi Logo" }
+    ],
+    care: "Inspect hinges annually. Polish gently with a dry microfiber cloth to maintain mirror gloss.",
+    story: "A harmonious dialogue between fluid circles. Three concentric rings interlock and cascade gently forward, offering sculptural dimension and flattering face-framing presence from day to midnight."
   },
+
+  // Necklaces
   n1: {
     badge: "Everyday Solitaire",
+    cut: "Brilliant Diamond Solitaire",
+    carat: "0.30 ct Solitaire Diamond",
     hallmark: "Au750 (18k Solid Gold)",
     optionType: "Chain Length",
     hasSizeGuide: false,
     sizes: ["40 cm (16 in)", "45 cm (18 in)", "50 cm (20 in)"],
-    story: "A drop of pure light resting at the hollow of the collarbone, suspended on a diamond-cut chain."
+    specs: [
+      { label: "Material",    value: "18k Solid Yellow Gold" },
+      { label: "Centre Diamond", value: "0.30ct Natural Round Brilliant" },
+      { label: "Clarity/Color", value: "F-G Color • VS Clarity" },
+      { label: "Setting",     value: "Floating Bezel Slide" },
+      { label: "Chain",       value: "1.0mm Diamond-Cut Cable Chain" },
+      { label: "Length",      value: "Adjustable 40cm / 42.5cm / 45cm" }
+    ],
+    care: "Fasten clasp before setting down to prevent knots. Lay flat in soft pouch. Wipe pendant with dry cloth.",
+    story: "A drop of pure light resting at the hollow of the collarbone. Suspended on a diamond-cut chain that catches subtle sparks, the floating bezel lets the stone illuminate your skin without bulk or distraction."
   },
   n2: {
     badge: "Effortless Layer",
+    cut: "Triple Graduated Chains",
+    carat: "Solid Gold Multi-Strand",
     hallmark: "Au750 (18k Solid Gold)",
     optionType: "Tier Length",
     hasSizeGuide: false,
     sizes: ["Standard Tier (38–46cm)", "Extended Tier (42–50cm)"],
-    story: "The coveted multi-necklace layered look, masterfully solved into a single unified piece."
+    specs: [
+      { label: "Material",    value: "18k Solid Yellow Gold" },
+      { label: "Chains",      value: "Micro-Box, Cable & Satellite Strands" },
+      { label: "Clasp",       value: "Single Tangle-Free Multi-Ring Clasp" },
+      { label: "Textures",    value: "Mirror Polished with Beaded Accents" },
+      { label: "Weight",      value: "Approx. 7.5 grams" },
+      { label: "Versatility", value: "Engineered not to twist or tangle" }
+    ],
+    care: "Hang vertically when storing to keep all three tiers aligned. Store unclasped.",
+    story: "The coveted multi-necklace layered look, masterfully solved into a single unified piece. Three distinct chain gauges sit at harmonious intervals, cascading with natural grace across any neckline."
   },
   n3: {
     badge: "Keepsake Talisman",
+    cut: "Sculpted Solid Gold Heart",
+    carat: "Solid 18k Heart Pendant",
     hallmark: "Au750 (18k Solid Gold)",
     optionType: "Chain Length",
     hasSizeGuide: false,
     sizes: ["40 cm (16 in)", "45 cm (18 in)", "50 cm (20 in)"],
-    story: "Substantial in weight yet soft in contour. The Amour Heart avoids cliché through its gentle asymmetrical curve."
+    specs: [
+      { label: "Material",    value: "18k Solid Yellow Gold" },
+      { label: "Pendant Size", value: "11mm x 12mm Solid Cast Form" },
+      { label: "Finish",      value: "Soft Brushed Front, Polished Rim" },
+      { label: "Chain",       value: "Fine Anchor Link 1.1mm" },
+      { label: "Customization", value: "Engravable Reverse (Complimentary)" },
+      { label: "Packaging",   value: "Signature Ribboned Obsidian Box" }
+    ],
+    care: "Clean with mild soapy water. Can be personalized with custom initial engraving through our bespoke service.",
+    story: "Substantial in weight yet soft in contour. The Amour Heart avoids cliché through its gentle asymmetrical curve and organic rounded facets. A modern keepsake to hold close to the chest."
   }
 };
 
-// Cart State
-let cart = JSON.parse(localStorage.getItem("almaazi_cart") || "[]");
-
-function saveCart() {
-  localStorage.setItem("almaazi_cart", JSON.stringify(cart));
-  updateCartBadge();
-  renderCartDrawer();
-}
-
-function updateCartBadge() {
-  const count = cart.reduce((total, item) => total + item.qty, 0);
-  const badge = document.getElementById("cart-count-badge");
-  if (badge) {
-    badge.textContent = count;
-    badge.style.display = count > 0 ? "grid" : "none";
-  }
-}
-
-function updateCartQty(productId, delta) {
-  const item = cart.find(i => i.id === productId);
-  if (!item) return;
-
-  item.qty += delta;
-  if (item.qty <= 0) {
-    cart = cart.filter(i => i.id !== productId);
-  }
-  saveCart();
-}
-
-function removeFromCart(productId) {
-  cart = cart.filter(i => i.id !== productId);
-  saveCart();
-}
-
-function openCartDrawer() {
-  const drawer = document.getElementById("cart-drawer");
-  if (!drawer) return;
-  drawer.classList.remove("pointer-events-none");
-  drawer.querySelector(".drawer-backdrop").classList.remove("opacity-0");
-  drawer.querySelector(".drawer-panel").classList.remove("translate-x-full");
-}
-
-function closeCartDrawer() {
-  const drawer = document.getElementById("cart-drawer");
-  if (!drawer) return;
-  drawer.querySelector(".drawer-backdrop").classList.add("opacity-0");
-  drawer.querySelector(".drawer-panel").classList.add("translate-x-full");
-  setTimeout(() => drawer.classList.add("pointer-events-none"), 350);
-}
-
-function renderCartDrawer() {
-  const list = document.getElementById("cart-items-container");
-  const subtotalEl = document.getElementById("cart-subtotal");
-  const checkoutBtn = document.getElementById("cart-checkout-btn");
-  if (!list) return;
-
-  if (cart.length === 0) {
-    list.innerHTML = `
-      <div class="py-20 text-center text-obsidian/50">
-        <svg class="h-8 w-8 mx-auto mb-4 text-obsidian/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-          <path d="M3 6h18" />
-          <path d="M16 10a4 4 0 0 1-8 0" />
-        </svg>
-        <p class="font-heading text-xl text-obsidian mb-2">Your bag is empty.</p>
-        <p class="text-xs text-obsidian/40">Explore our handcrafted creations.</p>
-      </div>
-    `;
-    if (subtotalEl) subtotalEl.textContent = "$0";
-    if (checkoutBtn) checkoutBtn.disabled = true;
-    return;
-  }
-
-  let total = 0;
-  list.innerHTML = cart.map(item => {
-    const itemTotal = item.numericPrice * item.qty;
-    total += itemTotal;
-    return `
-      <div class="glass squircle-sm p-4 flex gap-4 items-center">
-        <div class="squircle-sm overflow-hidden bg-obsidian/5 w-16 h-16 shrink-0">
-          <img src="${item.image}" alt="${item.name}" class="h-full w-full object-cover">
-        </div>
-        <div class="flex-1 min-w-0">
-          <h4 class="font-heading text-base text-obsidian truncate">${item.name}</h4>
-          <p class="text-[11px] uppercase tracking-[0.12em] text-obsidian/45">${item.material || ""}</p>
-          <div class="flex items-center justify-between mt-2">
-            <span class="font-body text-xs text-obsidian/80">${item.price}</span>
-            <div class="flex items-center gap-2 border border-obsidian/10 rounded-full px-2 py-0.5">
-              <button onclick="updateCartQty('${item.id}', -1)" class="text-xs text-obsidian/60 hover:text-obsidian px-1">-</button>
-              <span class="text-xs font-mono text-obsidian">${item.qty}</span>
-              <button onclick="updateCartQty('${item.id}', 1)" class="text-xs text-obsidian/60 hover:text-obsidian px-1">+</button>
-            </div>
-          </div>
-        </div>
-        <button onclick="removeFromCart('${item.id}')" class="text-obsidian/30 hover:text-obsidian p-1">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
-    `;
-  }).join("");
-
-  if (subtotalEl) subtotalEl.textContent = `£${total.toLocaleString()}`;
-  if (checkoutBtn) checkoutBtn.disabled = false;
-}
-
-// State variables for product customization
+// State variables
 let currentQty = 1;
 let selectedMetal = "18k Yellow Gold";
 let selectedSize = "";
+let activeImgIndex = 0;
 
+// Quantity stepper
 function setQty(delta) {
   currentQty = Math.max(1, currentQty + delta);
   const el = document.getElementById("qty-display");
   if (el) el.textContent = currentQty;
 }
 
+// Metal option selector
 function selectMetal(metalName) {
   selectedMetal = metalName;
   const label = document.getElementById("selected-metal-label");
@@ -422,6 +271,7 @@ function selectMetal(metalName) {
   });
 }
 
+// Size option selector
 function selectSize(sizeVal) {
   selectedSize = sizeVal;
   const label = document.getElementById("selected-size-label");
@@ -439,19 +289,25 @@ function selectSize(sizeVal) {
   });
 }
 
+// Gallery thumbnail switcher
 function switchGalleryImage(index, imgSrc) {
+  activeImgIndex = index;
   const mainImg = document.getElementById("gallery-main-img");
   if (!mainImg) return;
 
   mainImg.style.opacity = "0.2";
   setTimeout(() => {
     mainImg.src = imgSrc;
+    // Adjust scale/position for macro zoom view simulation
     if (index === 1) {
       mainImg.style.transform = "scale(1.5)";
+      mainImg.style.objectPosition = "center 40%";
     } else if (index === 2) {
       mainImg.style.transform = "scale(1.2)";
+      mainImg.style.objectPosition = "center 60%";
     } else {
       mainImg.style.transform = "scale(1)";
+      mainImg.style.objectPosition = "center center";
     }
     mainImg.style.opacity = "1";
   }, 180);
@@ -467,6 +323,7 @@ function switchGalleryImage(index, imgSrc) {
   });
 }
 
+// Toast message handler
 function showToast(message) {
   const toast = document.getElementById("toast-notice");
   const msgEl = document.getElementById("toast-message");
@@ -482,6 +339,7 @@ function showToast(message) {
   }, 2800);
 }
 
+// Add to Cart with tactile feedback
 function addToCartDetailed(productId) {
   const product = PRODUCTS.find(p => p.id === productId);
   if (!product) return;
@@ -489,6 +347,7 @@ function addToCartDetailed(productId) {
   const btn = document.getElementById("add-to-bag-btn");
   const originalText = btn ? btn.innerHTML : "";
 
+  // Add item with custom metal & size
   const existing = cart.find(i => i.id === productId);
   if (existing) {
     existing.qty += currentQty;
@@ -523,6 +382,7 @@ function addToCartDetailed(productId) {
   }
 }
 
+// Size guide modal toggle
 function toggleSizeGuide(open) {
   const modal = document.getElementById("size-guide-modal");
   if (!modal) return;
@@ -535,6 +395,7 @@ function toggleSizeGuide(open) {
   }
 }
 
+// Share current product
 function shareProduct() {
   if (navigator.clipboard) {
     navigator.clipboard.writeText(window.location.href);
@@ -544,6 +405,7 @@ function shareProduct() {
   }
 }
 
+// Toggle Wishlist
 function toggleWishlist(btn) {
   const isSaved = btn.getAttribute("data-saved") === "true";
   const icon = btn.querySelector("svg");
@@ -560,10 +422,13 @@ function toggleWishlist(btn) {
   }
 }
 
+// Render main product page
 function renderProduct(product) {
   const category = CATEGORIES.find(c => c.id === product.category);
   const extra = DETAILS[product.id] || {};
+  const specs = extra.specs || [];
   const story = extra.story || product.description;
+  const care = extra.care || "";
   const sizes = extra.sizes || [];
 
   if (sizes.length > 0 && !selectedSize) {
@@ -575,55 +440,105 @@ function renderProduct(product) {
 
   root.innerHTML = `
     <div class="page-enter max-w-7xl mx-auto">
+
+      <!-- Breadcrumbs and Back Navigation -->
       <div class="flex flex-wrap items-center justify-between gap-3 mb-6 sm:mb-12">
         <nav class="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-obsidian/45">
           <a href="index.html" class="hover:text-obsidian transition-colors">Maison</a>
           <span class="opacity-30">/</span>
-          <a href="index.html#${product.category}" class="hover:text-obsidian transition-colors">${category ? category.label : "Collection"}</a>
+          <a href="collection.html?category=${product.category}" class="hover:text-obsidian transition-colors">${category ? category.label : "Collection"}</a>
           <span class="opacity-30">/</span>
           <span class="text-obsidian/80 font-medium truncate max-w-[140px] sm:max-w-none">${product.name}</span>
         </nav>
 
-        <a href="index.html#${product.category}" class="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-obsidian/50 hover:text-obsidian transition-colors">
+        <a href="collection.html?category=${product.category}" class="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-obsidian/50 hover:text-obsidian transition-colors">
           <svg class="h-3 w-3 sm:h-3.5 sm:w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
           <span>Back to ${category ? category.label : "Collection"}</span>
         </a>
       </div>
 
+      <!-- Main Showcase Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-14 items-start">
+
+        <!-- LEFT COLUMN: Image Presentation & Gallery (7 cols) -->
         <div class="lg:col-span-7 flex flex-col gap-3 sm:gap-4">
+          
+          <!-- Main Hero Image Frame -->
           <div class="gallery-main-frame relative squircle overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square group">
             <img 
               id="gallery-main-img" 
               src="${product.image}" 
               alt="${product.name}" 
-              class="gallery-main-img h-full w-full object-cover transition-all duration-300"
+              class="gallery-main-img h-full w-full object-cover"
             />
+            
+            <!-- Quiet Luxury Badge Pill -->
             <div class="absolute top-3.5 sm:top-5 left-3.5 sm:left-5 pointer-events-none">
               <span class="glass-soft squircle-sm px-3 py-1 sm:px-3.5 sm:py-1.5 text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-obsidian/75 font-mono">
                 ${extra.badge || "Handcrafted Luxury"}
               </span>
             </div>
+
+            <!-- Subtle zoom prompt on hover -->
+            <div class="absolute bottom-3.5 sm:bottom-5 right-3.5 sm:right-5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block">
+              <span class="glass-soft squircle-sm px-3 py-1.5 text-[10px] uppercase tracking-[0.16em] text-obsidian/60">
+                Hover to magnify
+              </span>
+            </div>
           </div>
 
+          <!-- Thumbnails Row -->
           <div class="grid grid-cols-3 gap-2.5 sm:gap-4">
-            <button type="button" onclick="switchGalleryImage(0, '${product.image}')" class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-0.5 sm:p-1 ring-2 ring-obsidian opacity-100 transition-all cursor-pointer">
+            <!-- Studio Full -->
+            <button 
+              type="button" 
+              onclick="switchGalleryImage(0, '${product.image}')" 
+              class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-0.5 sm:p-1 ring-2 ring-obsidian opacity-100 transition-all cursor-pointer"
+            >
               <img src="${product.image}" alt="Studio Angle" class="h-full w-full object-cover rounded-lg sm:rounded-xl" />
             </button>
-            <button type="button" onclick="switchGalleryImage(1, '${product.image}')" class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-0.5 sm:p-1 opacity-40 hover:opacity-100 transition-all cursor-pointer">
+
+            <!-- Macro Facet Angle -->
+            <button 
+              type="button" 
+              onclick="switchGalleryImage(1, '${product.image}')" 
+              class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-0.5 sm:p-1 opacity-40 hover:opacity-100 transition-all cursor-pointer"
+            >
               <div class="h-full w-full overflow-hidden rounded-lg sm:rounded-xl">
                 <img src="${product.image}" alt="Macro Detail" class="h-full w-full object-cover scale-150 origin-center" />
               </div>
             </button>
-            <button type="button" onclick="switchGalleryImage(2, '${product.image}')" class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-0.5 sm:p-1 opacity-40 hover:opacity-100 transition-all cursor-pointer">
+
+            <!-- Lifestyle / Proportion View -->
+            <button 
+              type="button" 
+              onclick="switchGalleryImage(2, '${product.image}')" 
+              class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-0.5 sm:p-1 opacity-40 hover:opacity-100 transition-all cursor-pointer"
+            >
               <div class="h-full w-full overflow-hidden rounded-lg sm:rounded-xl">
                 <img src="${product.image}" alt="Profile View" class="h-full w-full object-cover scale-125 origin-bottom" />
               </div>
             </button>
           </div>
+
+          <!-- Hallmark & Craftsmanship Micro-Strip -->
+          <div class="glass squircle-sm p-3 sm:p-4 mt-1 sm:mt-2 flex flex-col sm:flex-row gap-1.5 sm:gap-0 sm:items-center sm:justify-between text-[10px] sm:text-[11px] text-obsidian/65 tracking-wider">
+            <span class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 text-obsidian/50 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>${extra.hallmark || "Au750 Hallmarked"}</span>
+            </span>
+            <span class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 text-obsidian/50 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>Complimentary Insured Courier</span>
+            </span>
+          </div>
+
         </div>
 
+        <!-- RIGHT COLUMN: Details & Purchase Controls (5 cols) -->
         <div class="lg:col-span-5 flex flex-col justify-start lg:sticky lg:top-28 mt-2 lg:mt-0">
+
+          <!-- Collection Tag -->
           <div class="flex items-center gap-2.5 mb-2.5 sm:mb-3">
             <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-obsidian/50 font-mono">
               ${category ? category.label : "High Jewellery"} — Collection
@@ -631,14 +546,17 @@ function renderProduct(product) {
             <span class="h-px w-5 bg-obsidian/20"></span>
           </div>
 
+          <!-- Product Title -->
           <h1 class="font-heading font-light text-[2.1rem] sm:text-4xl lg:text-[3.25rem] leading-[1.1] text-obsidian mb-1.5 sm:mb-2">
             ${product.name}
           </h1>
 
+          <!-- Material & Diamond Breakdown -->
           <p class="text-[11px] sm:text-[12px] uppercase tracking-[0.14em] text-obsidian/50 mb-4 sm:mb-5">
             ${product.material}
           </p>
 
+          <!-- Price & Fulfillment -->
           <div class="pb-4 sm:pb-6 mb-5 sm:mb-7 border-b border-obsidian/10 flex items-baseline justify-between">
             <div>
               <span class="font-heading font-normal text-3xl sm:text-4xl text-obsidian">${product.price}</span>
@@ -649,22 +567,46 @@ function renderProduct(product) {
             </span>
           </div>
 
+          <!-- Editorial Description -->
           <p class="text-[14px] sm:text-[15px] leading-[1.75] text-obsidian/70 font-light mb-6 sm:mb-8">
             ${story}
           </p>
 
+          <!-- Metal Color Selector -->
           <div class="mb-6 sm:mb-7">
             <div class="flex items-center justify-between text-[10px] sm:text-[11px] uppercase tracking-[0.18em] mb-2.5">
               <span class="text-obsidian/50">Alloy Selection:</span>
               <span id="selected-metal-label" class="font-medium text-obsidian">${selectedMetal}</span>
             </div>
             <div class="flex items-center gap-3">
-              <button type="button" onclick="selectMetal('18k Yellow Gold')" data-metal="18k Yellow Gold" title="18k Yellow Gold" class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#f3e5ab] border border-obsidian/20 shadow-sm ring-2 ring-obsidian scale-110 transition-all cursor-pointer"></button>
-              <button type="button" onclick="selectMetal('18k White Gold')" data-metal="18k White Gold" title="18k White Gold" class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#e8e8e8] border border-obsidian/20 shadow-sm transition-all cursor-pointer"></button>
-              <button type="button" onclick="selectMetal('18k Rose Gold')" data-metal="18k Rose Gold" title="18k Rose Gold" class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#f5d0c5] border border-obsidian/20 shadow-sm transition-all cursor-pointer"></button>
+              <!-- Yellow Gold -->
+              <button 
+                type="button" 
+                onclick="selectMetal('18k Yellow Gold')" 
+                data-metal="18k Yellow Gold" 
+                title="18k Yellow Gold" 
+                class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#f3e5ab] border border-obsidian/20 shadow-sm ring-2 ring-obsidian scale-110 transition-all cursor-pointer"
+              ></button>
+              <!-- White Gold -->
+              <button 
+                type="button" 
+                onclick="selectMetal('18k White Gold')" 
+                data-metal="18k White Gold" 
+                title="18k White Gold" 
+                class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#e8e8e8] border border-obsidian/20 shadow-sm transition-all cursor-pointer"
+              ></button>
+              <!-- Rose Gold -->
+              <button 
+                type="button" 
+                onclick="selectMetal('18k Rose Gold')" 
+                data-metal="18k Rose Gold" 
+                title="18k Rose Gold" 
+                class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#f5d0c5] border border-obsidian/20 shadow-sm transition-all cursor-pointer"
+              ></button>
             </div>
           </div>
 
+          <!-- Tailored Category Options Selector -->
           ${sizes.length > 0 ? `
           <div class="mb-6 sm:mb-8">
             <div class="flex items-center justify-between text-[10px] sm:text-[11px] uppercase tracking-[0.18em] mb-2.5">
@@ -678,76 +620,196 @@ function renderProduct(product) {
             </div>
             <div class="flex flex-wrap gap-2">
               ${sizes.map((s) => `
-                <button type="button" onclick="selectSize('${s}')" data-size="${s}" class="size-pill-btn px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-[12px] border ${s === selectedSize ? 'bg-obsidian text-alabaster border-obsidian' : 'text-obsidian/70 border-obsidian/15 hover:border-obsidian/40'} transition-all cursor-pointer">
+                <button 
+                  type="button" 
+                  onclick="selectSize('${s}')" 
+                  data-size="${s}" 
+                  class="size-pill-btn px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-[12px] border ${s === selectedSize ? 'bg-obsidian text-alabaster border-obsidian' : 'text-obsidian/70 border-obsidian/15 hover:border-obsidian/40'} transition-all cursor-pointer"
+                >
                   ${s}
                 </button>
               `).join("")}
             </div>
           </div>` : ""}
 
+          <!-- Quantity Stepper & Add to Bag CTA -->
           <div class="flex items-center gap-2.5 sm:gap-3 mb-3.5 sm:mb-4">
+            <!-- Stepper -->
             <div class="flex items-center gap-1 border border-obsidian/20 rounded-full px-2 sm:px-3 py-1.5 sm:py-2 bg-alabaster">
-              <button type="button" onclick="setQty(-1)" class="w-8 h-8 sm:w-7 sm:h-7 grid place-items-center rounded-full hover:bg-obsidian/10 text-obsidian/70 text-base transition-colors">&minus;</button>
+              <button 
+                type="button" 
+                onclick="setQty(-1)" 
+                class="w-8 h-8 sm:w-7 sm:h-7 grid place-items-center rounded-full hover:bg-obsidian/10 text-obsidian/70 text-base transition-colors"
+                aria-label="Decrease quantity"
+              >
+                &minus;
+              </button>
               <span id="qty-display" class="w-7 sm:w-8 text-center font-mono text-[13px] text-obsidian font-medium">1</span>
-              <button type="button" onclick="setQty(1)" class="w-8 h-8 sm:w-7 sm:h-7 grid place-items-center rounded-full hover:bg-obsidian/10 text-obsidian/70 text-base transition-colors">&#43;</button>
+              <button 
+                type="button" 
+                onclick="setQty(1)" 
+                class="w-8 h-8 sm:w-7 sm:h-7 grid place-items-center rounded-full hover:bg-obsidian/10 text-obsidian/70 text-base transition-colors"
+                aria-label="Increase quantity"
+              >
+                &#43;
+              </button>
             </div>
 
-            <button id="add-to-bag-btn" onclick="addToCartDetailed('${product.id}')" class="flex-1 bg-obsidian text-alabaster squircle py-3.5 sm:py-4 px-4 sm:px-6 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] hover:bg-obsidian/90 active:scale-[0.98] transition-all cursor-pointer shadow-sm text-center">
+            <!-- Primary Add to Bag Button -->
+            <button 
+              id="add-to-bag-btn" 
+              onclick="addToCartDetailed('${product.id}')" 
+              class="flex-1 bg-obsidian text-alabaster squircle py-3.5 sm:py-4 px-4 sm:px-6 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] hover:bg-obsidian/90 active:scale-[0.98] transition-all cursor-pointer shadow-sm text-center"
+            >
               Add to Bag
             </button>
           </div>
+
+          <!-- Wishlist & Share Secondary Actions -->
+          <div class="grid grid-cols-2 gap-2.5 sm:gap-3 mb-8 sm:mb-10">
+            <button 
+              type="button" 
+              onclick="toggleWishlist(this)" 
+              data-saved="false" 
+              class="glass squircle-sm py-2.5 sm:py-3 px-3 sm:px-4 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-obsidian/75 hover:text-obsidian hover:bg-white transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer"
+            >
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <span>Save Piece</span>
+            </button>
+
+            <button 
+              type="button" 
+              onclick="shareProduct()" 
+              class="glass squircle-sm py-2.5 sm:py-3 px-3 sm:px-4 text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-obsidian/75 hover:text-obsidian hover:bg-white transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer"
+            >
+              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              <span>Share Creation</span>
+            </button>
+          </div>
+
+          <!-- Luxury Expandable Accordions -->
+          <div class="space-y-0 border-t border-obsidian/10">
+
+            <!-- 1. Specifications -->
+            <details class="group border-b border-obsidian/10 py-4.5" open>
+              <summary class="flex items-center justify-between cursor-pointer list-none text-[12px] uppercase tracking-[0.2em] text-obsidian font-medium select-none">
+                <span>Craftsmanship &amp; Hallmarks</span>
+                <svg class="accordion-chevron h-4 w-4 text-obsidian/50 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="pt-4 pb-2 space-y-2.5 text-[13px]">
+                ${specs.map(item => `
+                  <div class="flex items-baseline justify-between border-b border-obsidian/5 pb-2">
+                    <span class="text-obsidian/45 text-[11px] uppercase tracking-wider font-mono">${item.label}</span>
+                    <span class="text-obsidian/80 font-medium">${item.value}</span>
+                  </div>
+                `).join("")}
+              </div>
+            </details>
+
+            <!-- 2. Complimentary Delivery & Returns -->
+            <details class="group border-b border-obsidian/10 py-4.5">
+              <summary class="flex items-center justify-between cursor-pointer list-none text-[12px] uppercase tracking-[0.2em] text-obsidian font-medium select-none">
+                <span>Complimentary Delivery &amp; Returns</span>
+                <svg class="accordion-chevron h-4 w-4 text-obsidian/50 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="pt-4 pb-2 text-[14px] leading-relaxed text-obsidian/65 font-light space-y-2">
+                <p>Every Almaazi creation is dispatched via armored, fully insured courier with signature verification upon delivery. Delivery takes 3–5 business days.</p>
+                <p>Should your piece not suit you completely, we provide 14-day complimentary exchanges and returns in original, unworn condition with intact security seal.</p>
+              </div>
+            </details>
+
+            <!-- 3. Care & Maintenance -->
+            <details class="group border-b border-obsidian/10 py-4.5">
+              <summary class="flex items-center justify-between cursor-pointer list-none text-[12px] uppercase tracking-[0.2em] text-obsidian font-medium select-none">
+                <span>Care &amp; Longevity</span>
+                <svg class="accordion-chevron h-4 w-4 text-obsidian/50 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="pt-4 pb-2 text-[14px] leading-relaxed text-obsidian/65 font-light">
+                <p>${care || "Clean gently using lukewarm water and our complimentary microfiber cloth. Store individually to prevent contact scratches."}</p>
+              </div>
+            </details>
+
+            <!-- 4. Bespoke Inquiries -->
+            <details class="group border-b border-obsidian/10 py-4.5">
+              <summary class="flex items-center justify-between cursor-pointer list-none text-[12px] uppercase tracking-[0.2em] text-obsidian font-medium select-none">
+                <span>Bespoke &amp; Engraving</span>
+                <svg class="accordion-chevron h-4 w-4 text-obsidian/50 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="pt-4 pb-2 text-[14px] leading-relaxed text-obsidian/65 font-light">
+                <p>Looking for a distinct diamond carat weight, platinum setting, or personalized inner inscription? Contact our private concierge at <a href="mailto:concierge@almaazi.com" class="underline underline-offset-4 text-obsidian">concierge@almaazi.com</a>.</p>
+              </div>
+            </details>
+
+          </div>
+
         </div>
+
       </div>
+
     </div>
   `;
 }
 
-// Mobile Menu Drawer Control
-function toggleMobileMenu(open) {
-  const menu = document.getElementById("mobile-menu-drawer");
-  if (!menu) return;
-  const backdrop = menu.querySelector(".mobile-drawer-backdrop");
-  const panel = menu.querySelector(".mobile-drawer-panel");
-  if (open) {
-    menu.classList.remove("pointer-events-none");
-    backdrop?.classList.remove("opacity-0");
-    panel?.classList.remove("translate-x-full");
-  } else {
-    backdrop?.classList.add("opacity-0");
-    panel?.classList.add("translate-x-full");
-    setTimeout(() => menu.classList.add("pointer-events-none"), 300);
-  }
-}
+// Render "You May Also Like" from the same collection
+function renderRelated(product) {
+  const related = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id);
+  const root = document.getElementById("related-root");
+  if (!root || related.length === 0) return;
 
-// Navbar Collapse Scroll Handler
-function initNavbarScroll() {
-  const siteNav = document.getElementById("site-nav-container");
-  const navbar = document.getElementById("main-navbar");
-  const logoText = document.getElementById("nav-logo-text");
-  
-  if (!navbar) return;
+  const category = CATEGORIES.find(c => c.id === product.category);
 
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY || window.pageYOffset;
-    
-    if (scrollY > 50) {
-      navbar.classList.add("py-2");
-      navbar.classList.remove("py-4");
-      if (siteNav) siteNav.classList.add("shadow-md");
-      if (logoText) {
-        logoText.classList.add("text-lg", "sm:text-xl");
-        logoText.classList.remove("text-2xl", "sm:text-3xl", "md:text-4xl");
-      }
-    } else {
-      navbar.classList.remove("py-2");
-      navbar.classList.add("py-4");
-      if (siteNav) siteNav.classList.remove("shadow-md");
-      if (logoText) {
-        logoText.classList.remove("text-lg", "sm:text-xl");
-        logoText.classList.add("text-2xl", "sm:text-3xl", "md:text-4xl");
-      }
-    }
-  }, { passive: true });
+  root.innerHTML = `
+    <div class="max-w-7xl mx-auto">
+      <div class="pt-12 sm:pt-16 pb-6 sm:pb-10 border-t border-obsidian/10 flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4">
+        <div>
+          <span class="block text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-obsidian/45 mb-1.5 sm:mb-2 font-mono">
+            Harmonious Pairings
+          </span>
+          <h2 class="font-heading text-2xl sm:text-4xl text-obsidian">
+            More from the ${category ? category.label : "Maison"} Collection
+          </h2>
+        </div>
+
+        <a href="index.html#${product.category}" class="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-obsidian/60 hover:text-obsidian flex items-center gap-1.5 self-start sm:self-auto">
+          <span>View All ${category ? category.label : "Pieces"}</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+
+      <!-- 3 Matching Product Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        ${related.map(p => `
+          <a href="product.html?id=${p.id}" class="group squircle bg-alabaster border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-lg active:scale-[0.99]">
+            
+            <div class="relative aspect-square overflow-hidden bg-obsidian/5">
+              <img 
+                src="${p.image}" 
+                alt="${p.name}" 
+                class="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-obsidian/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+
+            <div class="p-4 sm:p-6 flex flex-col gap-1">
+              <h3 class="font-heading text-lg sm:text-[1.35rem] leading-tight text-obsidian">
+                ${p.name}
+              </h3>
+              <p class="text-[11px] sm:text-[12px] uppercase tracking-[0.12em] text-obsidian/45">
+                ${p.material}
+              </p>
+              <div class="mt-2.5 sm:mt-3 flex items-center justify-between">
+                <span class="font-body text-[14px] sm:text-[15px] text-obsidian/85 font-medium">${p.price}</span>
+                <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-obsidian/60 group-hover:text-obsidian transition-colors">
+                  Explore Creation &rarr;
+                </span>
+              </div>
+            </div>
+
+          </a>
+        `).join("")}
+      </div>
+    </div>
+  `;
 }
 
 // Initialization on DOMContentLoaded
@@ -759,6 +821,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (product) {
     document.title = `${product.name} — ALMAAZI Handcrafted Luxury`;
     renderProduct(product);
+    renderRelated(product);
   } else {
     const root = document.getElementById("product-root");
     if (root) {
@@ -776,5 +839,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateCartBadge();
   renderCartDrawer();
-  initNavbarScroll();
 });
