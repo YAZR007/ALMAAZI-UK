@@ -16,9 +16,9 @@ const PRODUCTS = [
     material: "18k Gold/ 925 silver • 0.8ct VVS1 Moissanite",
     price: "£65",
     numericPrice: 650,
-    image: "assets/images/zumurudring.jpg",
+    image: "assets/images/thurayagold.jpg",
     images: [
-      "assets/images/zumurudring.jpg", // Index 0: Actual ring (Shown by default)
+      "assets/images/thurayagold.jpg", // Index 0: Actual ring (Shown by default)
       "assets/images/Delicate%20Diamond%20Ring%20Beauty%20Portrait.png" // Index 1: Model wearing it (Shown on hover)
     ],
     description: "Crafted in 18k gold plating, 925 silver and VVS1 moissanite this delicate band features a shimmering array of D-color, VVS1 moissanite stones arranged like a constellation. Lightweight yet radiant, it’s designed to bring effortless everyday luxury to your collection—whether worn solo or stacked."
@@ -30,9 +30,9 @@ const PRODUCTS = [
     material: "18k Gold/ 925 silver • 2ct VVS1 Moissanite",
     price: "£150",
     numericPrice: 1500,
-    image: "assets/images/trilogyemeraldnobg.jpg",
+    image: "assets/images/zumurudring.jpg",
     images: [
-      "assets/images/trilogyemeraldnobg.jpg", // Index 0: Actual ring (Shown by default)
+      "assets/images/zumurudring.jpg", // Index 0: Actual ring (Shown by default)
       "assets/images/trilogymodel.jpg" // Index 1: Model wearing it (Shown on hover)
     ],
     description: "An Emerald-Cut Moissanite Accent Ring featuring a striking 2-carat emerald-cut center stone framed by tapered baguette and round brilliant accents. Crafted in rich 18k gold-plated 925 sterling silver, this design delivers timeless geometric symmetry and high-wattage brilliance."
