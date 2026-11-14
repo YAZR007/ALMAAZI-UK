@@ -328,92 +328,154 @@ function closeProductDetail() {
   // no-op (kept for compatibility; modal no longer used)
 }
 
+// Scatter layout: positions, sizes, rotations for up to 6 pieces per category banner.
+// Pieces are placed in the right half of the banner over a pure white canvas.
+const BANNER_SCATTER_LAYOUTS = [[
+  { top: "8%",  left: "52%", size: "clamp(100px,15vw,185px)", rotate: "-7deg",  z: 5, delay: "0ms",   op: "1"    },
+  { top: "2%",  left: "69%", size: "clamp(85px,12vw,150px)",  rotate: "9deg",   z: 4, delay: "70ms",  op: "0.95" },
+  { top: "33%", left: "85%", size: "clamp(75px,11vw,135px)",  rotate: "-5deg",  z: 3, delay: "140ms", op: "0.80" },
+  { top: "57%", left: "73%", size: "clamp(90px,13vw,160px)",  rotate: "11deg",  z: 4, delay: "210ms", op: "0.90" },
+  { top: "55%", left: "52%", size: "clamp(70px,9.5vw,118px)", rotate: "-13deg", z: 3, delay: "280ms", op: "0.72" },
+  { top: "18%", left: "92%", size: "clamp(55px,8vw,95px)",    rotate: "16deg",  z: 2, delay: "350ms", op: "0.60" }
+]];
+
+// Inject CSS keyframes for scatter animation (runs once on page load)
+(function injectBannerStyles() {
+  if (document.getElementById("banner-scatter-styles")) return;
+  const s = document.createElement("style");
+  s.id = "banner-scatter-styles";
+  s.textContent =
+    "@keyframes bannerPieceIn {" +
+    "  from { opacity:0; transform:translateY(16px) scale(0.88); }" +
+    "  to   { opacity:1; transform:translateY(0) scale(1); }" +
+    "}";
+  document.head.appendChild(s);
+})();
+
 // Render Collection Sections (Tiffany 3-Column Large Card Grid Layout)
 function renderCollections() {
   const container = document.getElementById("collections-container");
   if (!container) return;
 
-  container.innerHTML = CATEGORIES.map((cat, idx) => {
-    const items = PRODUCTS.filter(p => p.category === cat.id);
+  container.innerHTML = CATEGORIES.map(function(cat, idx) {
+    const items = PRODUCTS.filter(function(p) { return p.category === cat.id; });
     const indexNum = String(idx + 1).padStart(2, "0");
+    const layout = BANNER_SCATTER_LAYOUTS[0];
+    const count = Math.min(items.length, layout.length);
 
-    return `
-      <section id="${cat.id}" class="scroll-mt-24 px-4 sm:px-8 lg:px-12 py-12 sm:py-20">
-        
-        <!-- Category Banner (Squircle, Mobile Optimized & Clickable) -->
-        <a href="collection.html?category=${cat.id}" class="block group relative squircle overflow-hidden mb-12 sm:mb-16 cursor-pointer transition-transform duration-300 active:scale-[0.995]" title="View all ${cat.label}">
-          <div class="min-h-[220px] sm:min-h-0 aspect-[4/3] sm:aspect-[16/6] w-full">
-            <img src="${cat.banner}" alt="${cat.label}" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]">
-          </div>
-          <div class="absolute inset-0 bg-gradient-to-r from-alabaster/95 via-alabaster/60 to-transparent sm:from-alabaster/80 sm:via-alabaster/20"></div>
-          <div class="absolute inset-0 flex items-center">
-            <div class="px-6 py-6 sm:px-12 lg:px-16 max-w-xl">
-              <span class="block text-[10px] sm:text-[12px] uppercase tracking-[0.25em] text-obsidian/50 mb-1.5 sm:mb-3 font-mono">
-                ${indexNum} — Dedicated Collection
-              </span>
-              <h2 class="font-heading text-4xl sm:text-6xl lg:text-7xl leading-[1.05] text-obsidian">
-                ${cat.label}
-              </h2>
-              <p class="mt-2.5 sm:mt-4 max-w-xs sm:max-w-sm text-[13px] sm:text-[15px] text-obsidian/70 leading-relaxed font-light">
-                ${cat.blurb}
-              </p>
-              <div class="mt-4 inline-flex items-center gap-2 text-[11px] sm:text-[12px] uppercase tracking-[0.2em] font-medium text-obsidian group-hover:translate-x-1.5 transition-transform duration-300">
-                <span>View Full ${cat.label} Range</span>
-                <span>&rarr;</span>
-              </div>
-            </div>
-          </div>
-        </a>
+    // Deterministic pseudo-shuffle per category so each banner looks different
+    const shuffled = items.slice().sort(function(a, b) {
+      return ((a.id.charCodeAt(a.id.length - 1) * 7 + idx * 13) % 5) -
+             ((b.id.charCodeAt(b.id.length - 1) * 7 + idx * 13) % 5);
+    });
 
-        <!-- Large Tiffany-Style 3-Column Product Grid with Model Hover Crossfade -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 lg:gap-16">
-          ${items.map(p => {
-            const primaryImg = p.images && p.images[0] ? p.images[0] : p.image;
-            const secondaryImg = p.images && p.images[1] ? p.images[1] : primaryImg;
+    // Build scattered piece HTML using string concatenation (no nested template literals)
+    let scatterHTML = "";
+    for (let i = 0; i < count; i++) {
+      const p = shuffled[i];
+      const slot = layout[i];
+      const imgSrc = p.images && p.images[0] ? p.images[0] : p.image;
+      scatterHTML +=
+        '<a href="product.html?id=' + p.id + '"' +
+        '   onclick="event.stopPropagation()"' +
+        '   title="' + p.name + '"' +
+        '   style="position:absolute;top:' + slot.top + ';left:' + slot.left + ';' +
+                  'width:' + slot.size + ';height:' + slot.size + ';' +
+                  'z-index:' + slot.z + ';opacity:0;' +
+                  'transform:rotate(' + slot.rotate + ');' +
+                  'animation:bannerPieceIn 0.6s cubic-bezier(0.22,1,0.36,1) ' + slot.delay + ' forwards;"' +
+        '>' +
+        '  <div style="width:100%;height:100%;border-radius:16px;overflow:hidden;background:#fff;' +
+                      'box-shadow:0 6px 28px rgba(0,0,0,0.13),0 1px 4px rgba(0,0,0,0.07);' +
+                      'transform:rotate(' + slot.rotate + ');' +
+                      'transition:transform 0.25s ease,box-shadow 0.25s ease;"' +
+        '       onmouseover="this.style.transform=\'rotate(0deg) scale(1.1)\';this.style.boxShadow=\'0 14px 44px rgba(0,0,0,0.2)\';"' +
+        '       onmouseout="this.style.transform=\'rotate(' + slot.rotate + ')\';this.style.boxShadow=\'0 6px 28px rgba(0,0,0,0.13)\';"' +
+        '  >' +
+        '    <img src="' + imgSrc + '" alt="' + p.name + '" ' +
+        '         style="width:100%;height:100%;object-fit:contain;padding:6px;" draggable="false"/>' +
+        '  </div>' +
+        '</a>';
+    }
 
-            return `
-              <a href="product.html?id=${p.id}" class="group flex flex-col text-center cursor-pointer pb-8">
-                
-                <!-- Extra-Large Image Canvas Frame -->
-                <div class="relative w-full aspect-square bg-white overflow-hidden mb-6 rounded-lg">
-                  <!-- Primary Image: Large jewelry view -->
-                  <img 
-                    src="${primaryImg}" 
-                    alt="${p.name}" 
-                    class="absolute inset-0 h-full w-full object-contain object-center transition-opacity duration-500 ease-out group-hover:opacity-0 p-2 sm:p-4 scale-110"
-                    draggable="false"
-                  />
-                  <!-- Secondary Image: Model view (Crossfades in on hover) -->
-                  <img 
-                    src="${secondaryImg}" 
-                    alt="${p.name} - Model View" 
-                    class="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
-                    draggable="false"
-                  />
-                </div>
+    // Build product grid HTML using string concatenation
+    let gridHTML = "";
+    for (let j = 0; j < items.length; j++) {
+      const p = items[j];
+      const primaryImg   = p.images && p.images[0] ? p.images[0] : p.image;
+      const secondaryImg = p.images && p.images[1] ? p.images[1] : primaryImg;
+      gridHTML +=
+        '<a href="product.html?id=' + p.id + '" class="group flex flex-col text-center cursor-pointer pb-8">' +
+        '  <div class="relative w-full aspect-square bg-white overflow-hidden mb-6 rounded-lg">' +
+        '    <img src="' + primaryImg + '" alt="' + p.name + '"' +
+        '         class="absolute inset-0 h-full w-full object-contain object-center transition-opacity duration-500 ease-out group-hover:opacity-0 p-2 sm:p-4 scale-110"' +
+        '         draggable="false"/>' +
+        '    <img src="' + secondaryImg + '" alt="' + p.name + ' - Model View"' +
+        '         class="absolute inset-0 h-full w-full object-cover object-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"' +
+        '         draggable="false"/>' +
+        '  </div>' +
+        '  <div class="flex flex-col items-center gap-2 px-2">' +
+        '    <h3 class="font-heading text-2xl sm:text-3xl text-obsidian font-normal tracking-wide">' + p.name + '</h3>' +
+        '    <p class="text-[13px] sm:text-[14px] text-obsidian/60 font-light tracking-wide max-w-xs leading-snug">' + p.material + '</p>' +
+        '    <div class="mt-1 text-[16px] sm:text-[17px] text-obsidian font-body font-medium">' + p.price + '</div>' +
+        '  </div>' +
+        '</a>';
+    }
 
-                <!-- Prominent Typography -->
-                <div class="flex flex-col items-center gap-2 px-2">
-                  <h3 class="font-heading text-2xl sm:text-3xl text-obsidian font-normal tracking-wide">
-                    ${p.name}
-                  </h3>
-                  <p class="text-[13px] sm:text-[14px] text-obsidian/60 font-light tracking-wide max-w-xs leading-snug">
-                    ${p.material}
-                  </p>
-                  <div class="mt-1 text-[16px] sm:text-[17px] text-obsidian font-body font-medium">
-                    ${p.price}
-                  </div>
-                </div>
+    return (
+      '<section id="' + cat.id + '" class="scroll-mt-24 px-4 sm:px-8 lg:px-12 py-12 sm:py-20">' +
 
-              </a>
-            `;
-          }).join("")}
-        </div>
+      // --- DYNAMIC BANNER ---
+      '<div onclick="window.location.href=\'collection.html?category=' + cat.id + '\'"' +
+      '     style="position:relative;border-radius:20px;overflow:hidden;margin-bottom:3rem;cursor:pointer;user-select:none;"' +
+      '     title="View all ' + cat.label + '">' +
 
-      </section>
-    `;
+      '  <div style="position:relative;width:100%;background:#fff;min-height:220px;aspect-ratio:16/6;overflow:hidden;">' +
+
+      // Dot-grid texture
+      '    <div style="position:absolute;inset:0;pointer-events:none;opacity:0.025;' +
+      '         background-image:radial-gradient(circle at 1px 1px,#141414 1px,transparent 0);' +
+      '         background-size:28px 28px;"></div>' +
+
+      // Left text panel
+      '    <div style="position:absolute;inset:0;display:flex;align-items:center;z-index:20;pointer-events:none;">' +
+      '      <div style="padding:clamp(16px,4vw,64px);max-width:50%;">' +
+      '        <span style="display:block;font-size:clamp(9px,1vw,12px);letter-spacing:0.25em;text-transform:uppercase;color:rgba(20,20,20,0.4);font-family:monospace;margin-bottom:10px;">' +
+                 indexNum + ' \u2014 Dedicated Collection' +
+      '        </span>' +
+      '        <h2 class="font-heading" style="font-size:clamp(2rem,6vw,5rem);line-height:1.05;color:#141414;margin:0 0 10px;">' +
+                 cat.label +
+      '        </h2>' +
+      '        <p style="font-size:clamp(12px,1.3vw,15px);color:rgba(20,20,20,0.6);line-height:1.65;font-weight:300;max-width:280px;margin:0 0 20px;">' +
+                 cat.blurb +
+      '        </p>' +
+      '        <div style="display:inline-flex;align-items:center;gap:8px;font-size:clamp(10px,1vw,12px);letter-spacing:0.2em;text-transform:uppercase;font-weight:500;color:#141414;">' +
+      '          <span>View Full ' + cat.label + ' Range</span><span>&#8594;</span>' +
+      '        </div>' +
+      '      </div>' +
+      '    </div>' +
+
+      // Scattered pieces
+      '    <div style="position:absolute;inset:0;overflow:hidden;z-index:10;pointer-events:auto;">' +
+           scatterHTML +
+      '    </div>' +
+
+      // Left-side fade
+      '    <div style="position:absolute;inset:0;pointer-events:none;z-index:15;' +
+      '         background:linear-gradient(to right,white 24%,rgba(255,255,255,0.78) 40%,rgba(255,255,255,0.08) 58%,transparent 68%);"></div>' +
+      '  </div>' +
+      '</div>' +
+
+      // --- PRODUCT GRID ---
+      '<div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 lg:gap-16">' +
+         gridHTML +
+      '</div>' +
+
+      '</section>'
+    );
   }).join("");
 }
+
 
 // Mobile Menu Drawer
 function toggleMobileMenu(open) {
