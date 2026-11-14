@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ALMAAZI — Product Detail Page Logic
  * Reads ?id=<productId> from URL, renders the full luxury product page.
  */
@@ -242,7 +242,48 @@ const DETAILS = {
   }
 };
 
+// Dedicated metal images mapping for rings with alloy options (Yellow Gold, White Gold, Rose Gold)
+const PRODUCT_METAL_IMAGES = {
+  // r1: Thuraya
+  r1: {
+    "18k Yellow Gold": "assets/images/thurayagold.jpg",
+    "18k White Gold":  "assets/images/thurayasilver.jpg",
+    "18k Rose Gold":   "assets/images/thurayarose.jpg"
+  },
+  // r2: Zumurrud
+  r2: {
+    "18k Yellow Gold": "assets/images/zumurudring.jpg",
+    "18k White Gold":  "assets/images/zumurudsilver.jpg",
+    "18k Rose Gold":   "assets/images/zumurudrose.jpg"
+  },
+  // r3: Toi-Et-Moi
+  r3: {
+    "18k Yellow Gold": "assets/images/toietmoigold.jpg",
+    "18k White Gold":  "assets/images/toietmoisilver.jpg",
+    "18k Rose Gold":   "assets/images/toietmoirose.jpg"
+  },
+  // r4: Sanaa
+  r4: {
+    "18k Yellow Gold": "assets/images/sanaa.jpg",
+    "18k White Gold":  "assets/images/sanaasilver.jpg",
+    "18k Rose Gold":   "assets/images/sanaarose.jpg"
+  },
+  // r5: Ayn
+  r5: {
+    "18k Yellow Gold": "assets/images/aynring.jpg",
+    "18k White Gold":  "assets/images/aynsilver.jpg",
+    "18k Rose Gold":   "assets/images/aynrose.jpg"
+  },
+  // r6: Noor
+  r6: {
+    "18k Yellow Gold": "assets/images/noorsilver.jpg",
+    "18k White Gold":  "assets/images/noorsilver.jpg",
+    "18k Rose Gold":   "assets/images/noorsilver.jpg"
+  }
+};
+
 // State variables
+let currentProduct = null;
 let currentQty = 1;
 let selectedMetal = "18k Yellow Gold";
 let selectedSize = "";
@@ -255,7 +296,7 @@ function setQty(delta) {
   if (el) el.textContent = currentQty;
 }
 
-// Metal option selector
+// Metal option selector â€” dynamically swaps ring image to show chosen gold/metal alloy!
 function selectMetal(metalName) {
   selectedMetal = metalName;
   const label = document.getElementById("selected-metal-label");
@@ -269,6 +310,41 @@ function selectMetal(metalName) {
       btn.classList.remove("ring-2", "ring-obsidian", "scale-110");
     }
   });
+
+  // Switch ring imagery to chosen gold plating / alloy
+  if (currentProduct && PRODUCT_METAL_IMAGES[currentProduct.id]) {
+    const newImgSrc = PRODUCT_METAL_IMAGES[currentProduct.id][metalName];
+    if (newImgSrc) {
+      const mainImg = document.getElementById("gallery-main-img");
+      if (mainImg) {
+        mainImg.style.opacity = "0.2";
+        setTimeout(() => {
+          mainImg.src = newImgSrc;
+          mainImg.style.transform = "scale(1)";
+          mainImg.style.objectPosition = "center center";
+          mainImg.style.opacity = "1";
+        }, 150);
+      }
+
+      // Update studio and macro thumbnails
+      const thumb0 = document.getElementById("thumb-img-0");
+      if (thumb0) thumb0.src = newImgSrc;
+      const thumb1 = document.getElementById("thumb-img-1");
+      if (thumb1) thumb1.src = newImgSrc;
+
+      // Reset active thumbnail indicator to Studio (0)
+      activeImgIndex = 0;
+      document.querySelectorAll(".thumb-item").forEach((thumb, i) => {
+        if (i === 0) {
+          thumb.classList.add("ring-2", "ring-obsidian", "opacity-100");
+          thumb.classList.remove("opacity-50");
+        } else {
+          thumb.classList.remove("ring-2", "ring-obsidian", "opacity-100");
+          thumb.classList.add("opacity-50");
+        }
+      });
+    }
+  }
 }
 
 // Size option selector
@@ -295,30 +371,40 @@ function switchGalleryImage(index, imgSrc) {
   const mainImg = document.getElementById("gallery-main-img");
   if (!mainImg) return;
 
+  let targetSrc = imgSrc;
+  if (!targetSrc) {
+    if (index === 0 || index === 1) {
+      if (currentProduct && PRODUCT_METAL_IMAGES[currentProduct.id]) {
+        targetSrc = PRODUCT_METAL_IMAGES[currentProduct.id][selectedMetal] || currentProduct.image;
+      } else {
+        targetSrc = currentProduct ? currentProduct.image : "";
+      }
+    }
+  }
+
   mainImg.style.opacity = "0.2";
   setTimeout(() => {
-    mainImg.src = imgSrc;
-    // Adjust scale/position for macro zoom view simulation
+    if (targetSrc) mainImg.src = targetSrc;
     if (index === 1) {
-      mainImg.style.transform = "scale(1.5)";
-      mainImg.style.objectPosition = "center 40%";
+      mainImg.style.transform = "scale(1.45)";
+      mainImg.style.objectPosition = "center 45%";
     } else if (index === 2) {
-      mainImg.style.transform = "scale(1.2)";
-      mainImg.style.objectPosition = "center 60%";
+      mainImg.style.transform = "scale(1.0)";
+      mainImg.style.objectPosition = "center center";
     } else {
       mainImg.style.transform = "scale(1)";
       mainImg.style.objectPosition = "center center";
     }
     mainImg.style.opacity = "1";
-  }, 180);
+  }, 160);
 
   document.querySelectorAll(".thumb-item").forEach((thumb, i) => {
     if (i === index) {
       thumb.classList.add("ring-2", "ring-obsidian", "opacity-100");
-      thumb.classList.remove("opacity-40");
+      thumb.classList.remove("opacity-50");
     } else {
       thumb.classList.remove("ring-2", "ring-obsidian", "opacity-100");
-      thumb.classList.add("opacity-40");
+      thumb.classList.add("opacity-50");
     }
   });
 }
@@ -347,13 +433,18 @@ function addToCartDetailed(productId) {
   const btn = document.getElementById("add-to-bag-btn");
   const originalText = btn ? btn.innerHTML : "";
 
+  const chosenImg = (PRODUCT_METAL_IMAGES[productId] && PRODUCT_METAL_IMAGES[productId][selectedMetal])
+    ? PRODUCT_METAL_IMAGES[productId][selectedMetal]
+    : product.image;
+
   // Add item with custom metal & size
-  const existing = cart.find(i => i.id === productId);
+  const existing = cart.find(i => i.id === productId && i.selectedMetal === selectedMetal && i.selectedSize === selectedSize);
   if (existing) {
     existing.qty += currentQty;
   } else {
     cart.push({
       ...product,
+      image: chosenImg,
       qty: currentQty,
       selectedMetal: selectedMetal,
       selectedSize: selectedSize || undefined
@@ -361,7 +452,7 @@ function addToCartDetailed(productId) {
   }
 
   saveCart();
-  showToast(`Added ${currentQty} × ${product.name} to your bag`);
+  showToast(`Added ${currentQty} Ã— ${product.name} (${selectedMetal}) to your bag`);
 
   if (btn) {
     btn.innerHTML = `
@@ -424,6 +515,7 @@ function toggleWishlist(btn) {
 
 // Render main product page
 function renderProduct(product) {
+  currentProduct = product;
   const category = CATEGORIES.find(c => c.id === product.category);
   const extra = DETAILS[product.id] || {};
   const specs = extra.specs || [];
@@ -434,6 +526,19 @@ function renderProduct(product) {
   if (sizes.length > 0 && !selectedSize) {
     selectedSize = sizes[1] || sizes[0];
   }
+
+  // Set default selected metal based on product
+  if (product.id === "r6") {
+    selectedMetal = "18k White Gold";
+  } else {
+    selectedMetal = "18k Yellow Gold";
+  }
+
+  const initialImage = (PRODUCT_METAL_IMAGES[product.id] && PRODUCT_METAL_IMAGES[product.id][selectedMetal])
+    ? PRODUCT_METAL_IMAGES[product.id][selectedMetal]
+    : product.image;
+
+  const modelImage = (product.images && product.images[1]) ? product.images[1] : initialImage;
 
   const root = document.getElementById("product-root");
   if (!root) return;
@@ -463,13 +568,13 @@ function renderProduct(product) {
         <!-- LEFT COLUMN: Image Presentation & Gallery (7 cols) -->
         <div class="lg:col-span-7 flex flex-col gap-3 sm:gap-4">
           
-          <!-- Main Hero Image Frame -->
-          <div class="gallery-main-frame relative squircle overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square group">
+          <!-- Main Hero Image Frame (Borderless, pure white matching image backgrounds and homepage) -->
+          <div class="gallery-main-frame relative w-full aspect-square overflow-hidden bg-white flex items-center justify-center group rounded-2xl">
             <img 
               id="gallery-main-img" 
-              src="${product.image}" 
+              src="${initialImage}" 
               alt="${product.name}" 
-              class="gallery-main-img h-full w-full object-cover"
+              class="gallery-main-img h-full w-full object-contain p-2 sm:p-6 transition-all duration-700 ease-out select-none"
             />
             
             <!-- Quiet Luxury Badge Pill -->
@@ -487,36 +592,39 @@ function renderProduct(product) {
             </div>
           </div>
 
-          <!-- Thumbnails Row -->
+          <!-- Thumbnails Row (Seamless white, subtle border) -->
           <div class="grid grid-cols-3 gap-2.5 sm:gap-4">
             <!-- Studio Full -->
             <button 
               type="button" 
-              onclick="switchGalleryImage(0, '${product.image}')" 
-              class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-0.5 sm:p-1 ring-2 ring-obsidian opacity-100 transition-all cursor-pointer"
+              onclick="switchGalleryImage(0)" 
+              class="thumb-item squircle-sm overflow-hidden bg-white border border-obsidian/10 aspect-square p-1 ring-2 ring-obsidian opacity-100 transition-all cursor-pointer shadow-sm"
+              title="Studio View"
             >
-              <img src="${product.image}" alt="Studio Angle" class="h-full w-full object-cover rounded-lg sm:rounded-xl" />
+              <img id="thumb-img-0" src="${initialImage}" alt="Studio View" class="h-full w-full object-contain rounded-lg sm:rounded-xl" />
             </button>
 
             <!-- Macro Facet Angle -->
             <button 
               type="button" 
-              onclick="switchGalleryImage(1, '${product.image}')" 
-              class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-0.5 sm:p-1 opacity-40 hover:opacity-100 transition-all cursor-pointer"
+              onclick="switchGalleryImage(1)" 
+              class="thumb-item squircle-sm overflow-hidden bg-white border border-obsidian/10 aspect-square p-1 opacity-50 hover:opacity-100 transition-all cursor-pointer shadow-sm"
+              title="Macro Zoom"
             >
               <div class="h-full w-full overflow-hidden rounded-lg sm:rounded-xl">
-                <img src="${product.image}" alt="Macro Detail" class="h-full w-full object-cover scale-150 origin-center" />
+                <img id="thumb-img-1" src="${initialImage}" alt="Macro Detail" class="h-full w-full object-contain scale-150 origin-center" />
               </div>
             </button>
 
             <!-- Lifestyle / Proportion View -->
             <button 
               type="button" 
-              onclick="switchGalleryImage(2, '${product.image}')" 
-              class="thumb-item squircle-sm overflow-hidden bg-obsidian/5 border border-obsidian/10 aspect-square p-0.5 sm:p-1 opacity-40 hover:opacity-100 transition-all cursor-pointer"
+              onclick="switchGalleryImage(2, '${modelImage}')" 
+              class="thumb-item squircle-sm overflow-hidden bg-white border border-obsidian/10 aspect-square p-1 opacity-50 hover:opacity-100 transition-all cursor-pointer shadow-sm"
+              title="Editorial Proportion"
             >
               <div class="h-full w-full overflow-hidden rounded-lg sm:rounded-xl">
-                <img src="${product.image}" alt="Profile View" class="h-full w-full object-cover scale-125 origin-bottom" />
+                <img src="${modelImage}" alt="Model View" class="h-full w-full object-cover rounded-lg sm:rounded-xl" />
               </div>
             </button>
           </div>
@@ -585,7 +693,7 @@ function renderProduct(product) {
                 onclick="selectMetal('18k Yellow Gold')" 
                 data-metal="18k Yellow Gold" 
                 title="18k Yellow Gold" 
-                class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#f3e5ab] border border-obsidian/20 shadow-sm ring-2 ring-obsidian scale-110 transition-all cursor-pointer"
+                class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#f3e5ab] border border-obsidian/20 shadow-sm ${selectedMetal === '18k Yellow Gold' ? 'ring-2 ring-obsidian scale-110' : ''} transition-all cursor-pointer"
               ></button>
               <!-- White Gold -->
               <button 
@@ -593,7 +701,7 @@ function renderProduct(product) {
                 onclick="selectMetal('18k White Gold')" 
                 data-metal="18k White Gold" 
                 title="18k White Gold" 
-                class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#e8e8e8] border border-obsidian/20 shadow-sm transition-all cursor-pointer"
+                class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#e8e8e8] border border-obsidian/20 shadow-sm ${selectedMetal === '18k White Gold' ? 'ring-2 ring-obsidian scale-110' : ''} transition-all cursor-pointer"
               ></button>
               <!-- Rose Gold -->
               <button 
@@ -601,7 +709,7 @@ function renderProduct(product) {
                 onclick="selectMetal('18k Rose Gold')" 
                 data-metal="18k Rose Gold" 
                 title="18k Rose Gold" 
-                class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#f5d0c5] border border-obsidian/20 shadow-sm transition-all cursor-pointer"
+                class="metal-swatch-btn h-9 w-9 sm:h-8 sm:w-8 rounded-full bg-[#f5d0c5] border border-obsidian/20 shadow-sm ${selectedMetal === '18k Rose Gold' ? 'ring-2 ring-obsidian scale-110' : ''} transition-all cursor-pointer"
               ></button>
             </div>
           </div>
@@ -779,15 +887,15 @@ function renderRelated(product) {
       <!-- 3 Matching Product Cards Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         ${related.map(p => `
-          <a href="product.html?id=${p.id}" class="group squircle bg-alabaster border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-lg active:scale-[0.99]">
+          <a href="product.html?id=${p.id}" class="group squircle bg-white border border-obsidian/10 overflow-hidden flex flex-col cursor-pointer transition-all duration-300 hover:shadow-lg active:scale-[0.99]">
             
-            <div class="relative aspect-square overflow-hidden bg-obsidian/5">
+            <div class="relative aspect-square overflow-hidden bg-white flex items-center justify-center p-3">
               <img 
                 src="${p.image}" 
                 alt="${p.name}" 
-                class="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                class="h-full w-full object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-obsidian/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-obsidian/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             </div>
 
             <div class="p-4 sm:p-6 flex flex-col gap-1">

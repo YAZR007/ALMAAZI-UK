@@ -1,4 +1,4 @@
-const MEDIA_BASE = "https://media.base44.com/images/public/6ac65dc15369b691db036cd0";
+﻿const MEDIA_BASE = "https://media.base44.com/images/public/6ac65dc15369b691db036cd0";
 
 const CATEGORIES = [
   { id: "rings", label: "Rings", blurb: "Solitaires, bands & halos — cut to catch the light.", banner: `${MEDIA_BASE}/1b3a31134_generated_71a9bc8c.png` },
@@ -375,7 +375,7 @@ function renderCollections() {
               <a href="product.html?id=${p.id}" class="group flex flex-col text-center cursor-pointer pb-8">
                 
                 <!-- Extra-Large Image Canvas Frame -->
-                <div class="relative w-full aspect-square bg-[#fcfcfb] overflow-hidden mb-6 rounded-lg">
+                <div class="relative w-full aspect-square bg-white overflow-hidden mb-6 rounded-lg">
                   <!-- Primary Image: Large jewelry view -->
                   <img 
                     src="${primaryImg}" 
